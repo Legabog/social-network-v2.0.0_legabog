@@ -16,11 +16,8 @@ export const ProfileAddHobbiesBody = (props) => {
             <span>RECOMMENDED HOBBIES</span>
           </div>
           <div className={"profile-add-hobbies-body__hobbie-container"}>
-            {props.profileAddHobbiesSearchListHobbies.map((e, index) => {
-              if (
-                index ===
-                Math.random() * 100
-              ) {
+            {props.profileAddHobbiesRecommendedHobbies.map((e, index) => {
+              if (index <= 9) {
                 return (
                   <ProfileAddHobbiesBodyItem
                     key={_.uniqueId(e)}
@@ -30,17 +27,20 @@ export const ProfileAddHobbiesBody = (props) => {
                   />
                 );
               }
+              return null;
             })}
-          </div>
 
-          <div className={"profile-add-hobbies-body__search-wrapper"}>
-            <div className={"profile-add-hobbies-body__search"}>
-              <div className={"profile-add-hobbies-body__search__icon"}>
-                <SearchIcon />
-              </div>
+            <div className={"profile-add-hobbies-body__search-wrapper"}>
+              <div className={"profile-add-hobbies-body__search"}>
+                <div className={"profile-add-hobbies-body__search__icon"}>
+                  <SearchIcon />
+                </div>
 
-              <div className={"profile-add-hobbies-body__search__description"}>
-                <span>Search for others</span>
+                <div
+                  className={"profile-add-hobbies-body__search__description"}
+                >
+                  <span>Search for others</span>
+                </div>
               </div>
             </div>
           </div>

@@ -18,7 +18,6 @@ export const ProfileAddHobbiesHeader = (props) => {
             <div className={"profile-add-hobbies-header__close-icon"}>
               <IconButton
                 onClick={() => {
-                  props.setTempHobbies([]);
                   props.toggleProfileAddHobbies(
                     props.profileAddHobbiesVisibility,
                     props.profileAddHobbiesOpacity

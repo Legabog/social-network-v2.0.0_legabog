@@ -1,6 +1,6 @@
 import React from "react";
 import "./ProfileAddHobbiesBodyItem.css";
-import _ from "lodash/core";
+import _ from "lodash";
 
 export const ProfileAddHobbiesBodyItem = (props) => {
   return (

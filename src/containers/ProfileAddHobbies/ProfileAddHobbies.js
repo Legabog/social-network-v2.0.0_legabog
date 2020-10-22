@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import _ from "lodash/core";
+import _ from "lodash";
 import "./ProfileAddHobbies.css";
 
 import { BackDrop } from "pres-components/BackDrop";
@@ -11,6 +11,7 @@ export const ProfileAddHobbies = (props) => {
   const [tempHobbies, setTempHobbies] = useState([]);
 
   const toggleTempHobbies = (hobbie, icon, index) => {
+
     !_.some(tempHobbies, { hobbie, icon })
       ? setTempHobbies([...tempHobbies, { hobbie, icon }])
       : setTempHobbies(

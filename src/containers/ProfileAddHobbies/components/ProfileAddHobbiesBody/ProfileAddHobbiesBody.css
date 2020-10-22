@@ -28,6 +28,7 @@
 }
 
 .profile-add-hobbies-body__search-wrapper {
+    margin-top: 12px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -38,7 +39,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 170px;
+    width: 150px;
     background-color: #ECF3FF;
     border: 1px solid #E4E6EB;
     border-radius: 100px;

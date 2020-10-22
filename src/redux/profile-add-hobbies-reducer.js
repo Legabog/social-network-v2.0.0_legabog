@@ -119,7 +119,85 @@ let initialState = {
     { hobbie: "Coding", icon: CodeIcon },
     { hobbie: "Learning Code", icon: CodeIcon },
     // 
-  ]
+    
+  ],
+  profileAddHobbiesRecommendedHobbies: [
+    { hobbie: "Business", icon: AccountBalanceIcon  },
+    { hobbie: "Investments", icon: AccountBalanceIcon  },
+    { hobbie: "Shares", icon: AccountBalanceIcon  },
+    // 
+    { hobbie: "Flights", icon: AirplanemodeActiveIcon  },
+    { hobbie: "Travels", icon: AirplanemodeActiveIcon  },
+    { hobbie: "Airplanes", icon: AirplanemodeActiveIcon  },
+    // 
+    { hobbie: "Money", icon: AttachMoneyIcon },
+    { hobbie: "Money-making", icon: AttachMoneyIcon },
+    { hobbie: "Money-making in internet", icon: AttachMoneyIcon },
+    // 
+    { hobbie: "Listening to Music", icon: HeadsetMicIcon },
+    { hobbie: "Playing Music", icon: HeadsetMicIcon },
+    { hobbie: "Creating Music", icon: HeadsetMicIcon },
+    // 
+    { hobbie: "Reading", icon: BookIcon },
+    { hobbie: "Studing", icon: BookIcon },
+    { hobbie: "Learning", icon: BookIcon },
+    { hobbie: "Book Collection", icon: BookIcon },
+    { hobbie: "Writing", icon: BookIcon },
+    { hobbie: "Creative Writing", icon: BookIcon },
+    // 
+    { hobbie: "Video Games", icon: SportsEsportsIcon },
+    { hobbie: "Games", icon: SportsEsportsIcon },
+    { hobbie: "Game Streams", icon: SportsEsportsIcon },
+    { hobbie: "E-sport", icon: SportsEsportsIcon },
+    // 
+    { hobbie: "Sports", icon: SportsIcon },
+    { hobbie: "Football", icon: SportsSoccerIcon },
+    { hobbie: "American Football", icon: SportsFootballIcon },
+    { hobbie: "Basketball", icon: SportsBasketballIcon },
+    { hobbie: "Baseball", icon: SportsBaseballIcon },
+    { hobbie: "Cricet", icon: SportsCricketIcon },
+    { hobbie: "Golf", icon: SportsGolfIcon },
+    { hobbie: "Handball", icon: SportsHandballIcon },
+    { hobbie: "Hockey", icon: SportsHockeyIcon },
+    { hobbie: "MMA", icon: SportsMmaIcon },
+    { hobbie: "Tennis", icon: SportsTennisIcon },
+    { hobbie: "Volleyball", icon: SportsVolleyballIcon },
+    { hobbie: "Rowling", icon: RowingIcon },
+    { hobbie: "Gym", icon: FitnessCenterIcon },
+    // 
+    { hobbie: "Art", icon: CropOriginalIcon},
+    { hobbie: "Portrait Art", icon: ColorLensIcon},
+    { hobbie: "Glass Art", icon: ColorLensIcon},
+    { hobbie: "Screenprinting", icon: ColorLensIcon},
+    { hobbie: "Landscape Painting", icon: ColorLensIcon},
+    // 
+    { hobbie: "Photography", icon: PhotoCameraIcon },
+    { hobbie: "Macro Photography", icon: PhotoCameraIcon },
+    { hobbie: "Portrait Photography", icon: PhotoCameraIcon },
+    { hobbie: "Nature Photography", icon: PhotoCameraIcon },
+    { hobbie: "Fashion Photography", icon: PhotoCameraIcon },
+    { hobbie: "Landscape Photography", icon: PhotoCameraIcon },
+    // 
+    { hobbie: "Watching Movies", icon: MovieIcon },
+    { hobbie: "Vlogging", icon: MovieIcon },
+    { hobbie: "Videography", icon: MovieIcon },
+    // 
+    { hobbie: "Chatting", icon: ChatIcon },
+    { hobbie: "Chatting with friends", icon: ChatIcon },
+    { hobbie: "Trolling in chat", icon: ChatIcon },
+    // 
+    { hobbie: "Instagram", icon: InstagramIcon },
+    { hobbie: "Github", icon: GitHubIcon },
+    { hobbie: "LinkedIn", icon: LinkedInIcon },
+    { hobbie: "Reddit", icon: RedditIcon },
+    { hobbie: "Twitter", icon: TwitterIcon },
+    { hobbie: "Facebook", icon: FacebookIcon },
+    // 
+    { hobbie: "Coding", icon: CodeIcon },
+    { hobbie: "Learning Code", icon: CodeIcon },
+    // 
+    
+  ].sort(() => Math.random() - 0.5)
 };
 
 const profileAddHobbiesReducer = (state = initialState, action) => {

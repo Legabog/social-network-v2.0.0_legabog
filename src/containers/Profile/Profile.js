@@ -32,6 +32,7 @@ import {
 
 import { toggleProfileEditDetails } from "redux/profile-edit-details-about-you-reducer";
 import { toggleProfileAddHobbies } from "redux/profile-add-hobbies-reducer";
+import { addFromTempHobbies } from "redux/about-component-reducer"
 
 import { ProfileHeader } from "./components/ProfileHeader";
 import { ProfileBody } from "./components/ProfileBody";
@@ -112,6 +113,8 @@ const mapStateToProps = (state) => ({
     state.profileAddHobbiesReducer.profileAddHobbiesStateComponent,
   profileAddHobbiesSearchListHobbies:
     state.profileAddHobbiesReducer.profileAddHobbiesSearchListHobbies,
+  profileAddHobbiesRecommendedHobbies:
+    state.profileAddHobbiesReducer.profileAddHobbiesRecommendedHobbies,
   profileAddHobbiesVisibility:
     state.profileAddHobbiesReducer.profileAddHobbiesVisibility,
   profileAddHobbiesOpacity:
@@ -143,6 +146,7 @@ export const Profile = compose(
 
     toggleProfileEditDetails,
 
-    toggleProfileAddHobbies
+    toggleProfileAddHobbies,
+    addFromTempHobbies
   })
 )(Profile_);
