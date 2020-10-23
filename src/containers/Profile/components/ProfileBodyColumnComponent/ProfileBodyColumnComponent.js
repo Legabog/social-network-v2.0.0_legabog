@@ -117,6 +117,9 @@ export const ProfileBodyColumnComponent = (props) => {
                 : "Add Hobbies"}
             </span>
           </div>
+
+                
+
           <div className={"profile-body-column-component__button-info"}>
             <span>Edit Featured</span>
           </div>
