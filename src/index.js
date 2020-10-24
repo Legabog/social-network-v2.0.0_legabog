@@ -9,9 +9,9 @@ import { BrowserRouter, useHistory, useLocation } from "react-router-dom";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
+    <Provider store={store} history={useHistory} location={useLocation}>
       <BrowserRouter>
-        <App history={useHistory} location={useLocation}/>
+        <App />
       </BrowserRouter>
     </Provider>
   </React.StrictMode>,

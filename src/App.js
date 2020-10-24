@@ -71,17 +71,17 @@ const App = (props) => {
 
   if (!!localStorage.getItem("token")) {
     return (
-      <Root component={<MusicPlayerPanel />} {...props}>
+      <Root component={<MusicPlayerPanel />}>
         <Switch>
           <Route
             path={Routes.MAIN}
             exact
             render={() => (
               <>
-                <Header {...props} />
+                <Header />
                 <Body>
-                  <Sidebar {...props} />
-                  <Feed {...props} />
+                  <Sidebar />
+                  <Feed />
                   <Widgets />
                 </Body>
               </>
@@ -94,7 +94,7 @@ const App = (props) => {
             render={() => (
               <>
                 <Suspense fallback={<Preloader />}>
-                  <Header {...props} />
+                  <Header />
                   <Body>
                     <Music />
                   </Body>
@@ -108,7 +108,7 @@ const App = (props) => {
             render={() => (
               <>
                 <Suspense fallback={<Preloader />}>
-                  <Header {...props} />
+                  <Header />
                   <Body>
                     <MusicList />
                   </Body>
@@ -122,7 +122,7 @@ const App = (props) => {
             render={() => (
               <>
                 <Suspense fallback={<Preloader />}>
-                  <Header {...props} />
+                  <Header />
                   <Body>
                     <ArtistsList />
                   </Body>
@@ -136,7 +136,7 @@ const App = (props) => {
             render={() => (
               <>
                 <Suspense fallback={<Preloader />}>
-                  <Header {...props} />
+                  <Header />
                   <Body>
                     <AlbumsList />
                   </Body>
@@ -150,7 +150,7 @@ const App = (props) => {
             render={() => (
               <>
                 <Suspense fallback={<Preloader />}>
-                  <Header {...props} />
+                  <Header />
                   <Body>
                     <PlayLists />
                   </Body>
@@ -164,7 +164,7 @@ const App = (props) => {
             render={() => (
               <>
                 <Suspense fallback={<Preloader />}>
-                  <Header {...props} />
+                  <Header />
                   <Body>
                     <CreateAlbum />
                   </Body>
@@ -180,7 +180,7 @@ const App = (props) => {
               render={() => (
                 <>
                   <Suspense fallback={<Preloader />}>
-                    <Header {...props} />
+                    <Header />
                     <Body>
                       <ArtistItemRouter nameArtist={e.author} />
                     </Body>
@@ -197,7 +197,7 @@ const App = (props) => {
               render={() => (
                 <>
                   <Suspense fallback={<Preloader />}>
-                    <Header {...props} />
+                    <Header />
                     <Body>
                       <MusicPlayer
                         nameArtist={e.author}
@@ -218,7 +218,7 @@ const App = (props) => {
               render={() => (
                 <>
                   <Suspense fallback={<Preloader />}>
-                    <Header {...props} />
+                    <Header />
                     <Body>
                       <OwnPlayListsRouter
                         id={e._id}
@@ -226,7 +226,6 @@ const App = (props) => {
                         title={e.title}
                         description={e.description}
                         tracks={e.tracks}
-                        {...props}
                       />
                     </Body>
                   </Suspense>
@@ -240,10 +239,10 @@ const App = (props) => {
             exact
             render={() => (
               <>
-                <Header {...props} />
+                <Header />
                 <Body>
-                  <Sidebar {...props} />
-                  <Welcome {...props} />
+                  <Sidebar />
+                  <Welcome />
                   <Widgets />
                 </Body>
               </>
@@ -254,7 +253,7 @@ const App = (props) => {
             exact
             render={() => (
               <>
-                <Header {...props} />
+                <Header />
                 <Preloader />
               </>
             )}
@@ -264,7 +263,7 @@ const App = (props) => {
             exact
             render={() => (
               <>
-                <Header {...props} />
+                <Header />
                 <Preloader />
               </>
             )}
@@ -274,7 +273,7 @@ const App = (props) => {
             exact
             render={() => (
               <>
-                <Header {...props} />
+                <Header />
                 <Preloader />
               </>
             )}
@@ -285,8 +284,8 @@ const App = (props) => {
             exact
             render={() => (
               <>
-                <Header {...props} />
-                <Profile {...props} />
+                <Header />
+                <Profile />
               </>
             )}
           />
@@ -297,9 +296,9 @@ const App = (props) => {
               exact
               render={() => (
                 <>
-                  <Header {...props} />
-                  <Profile {...props} />
-                  <About {...props} />
+                  <Header />
+                  <Profile />
+                  <About />
                 </>
               )}
             />
@@ -309,8 +308,8 @@ const App = (props) => {
             exact
             render={() => (
               <>
-                <Header {...props} />
-                <Profile {...props} />
+                <Header />
+                <Profile />
                 <h1>Friends</h1>
               </>
             )}
@@ -320,8 +319,8 @@ const App = (props) => {
             exact
             render={() => (
               <>
-                <Header {...props} />
-                <Profile {...props} />
+                <Header />
+                <Profile />
                 <h1>Photos</h1>
               </>
             )}
@@ -331,8 +330,8 @@ const App = (props) => {
             exact
             render={() => (
               <>
-                <Header {...props} />
-                <Profile {...props} />
+                <Header />
+                <Profile />
                 <h1>Archive</h1>
               </>
             )}
@@ -342,8 +341,8 @@ const App = (props) => {
             exact
             render={() => (
               <>
-                <Header {...props} />
-                <Profile {...props} />
+                <Header />
+                <Profile />
                 <h1>Videos</h1>
               </>
             )}
@@ -365,8 +364,8 @@ const App = (props) => {
                 exact
                 render={() => (
                   <>
-                    <Login {...props} />
-                    <RegistrationBlock {...props} />
+                    <Login />
+                    <RegistrationBlock />
                   </>
                 )}
               />
@@ -376,8 +375,8 @@ const App = (props) => {
                 render={() => (
                   <>
                     <Suspense fallback={<Preloader />}>
-                      <LoginRoute {...props} />
-                      <RegistrationBlock {...props} />
+                      <LoginRoute />
+                      <RegistrationBlock />
                     </Suspense>
                   </>
                 )}
@@ -387,7 +386,7 @@ const App = (props) => {
                 exact
                 render={() => (
                   <Suspense fallback={<Preloader />}>
-                    <ConfirmEmailRoute {...props} />
+                    <ConfirmEmailRoute />
                   </Suspense>
                 )}
               />
