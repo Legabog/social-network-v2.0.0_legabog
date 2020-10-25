@@ -7,7 +7,6 @@ import PhotoLibraryIcon from "@material-ui/icons/PhotoLibrary";
 import InsertEmoticonIcon from "@material-ui/icons/InsertEmoticon";
 
 import db from "utils/firebase/firebase";
-import firebase from "firebase";
 
 export const MessageSender = (props) => {
   const [input, setInput] = useState("");
@@ -26,7 +25,7 @@ export const MessageSender = (props) => {
 
     db.collection("posts").add({
       message: input,
-      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+      timestamp: db.FieldValue.serverTimestamp(),
       profilePic: props.user.photoURL,
       username: props.user.displayName,
       image: imageUrl,

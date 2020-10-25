@@ -1,4 +1,9 @@
-import firebase from "firebase"
+import firebase from "firebase/app";
+import "firebase/auth";
+import "firebase/storage";
+import "firebase/database";
+import "firebase/firestore";
+import "firebase/functions";
 
 export const firebaseConfig = {
   apiKey: "AIzaSyB6fVPBle0emEYn8Jg-tqAQ4fCSC-JTeFI",
@@ -10,19 +15,19 @@ export const firebaseConfig = {
   appId: "1:986401708469:web:a4c15563ed443cc149a1fc",
 };
 
-const firebaseApp = firebase.initializeApp(firebaseConfig)
+const firebaseApp = firebase.initializeApp(firebaseConfig);
 
-const db = firebaseApp.firestore()
+const db = firebaseApp.firestore();
 const addToArray = (value) => {
-  return firebase.firestore.FieldValue.arrayUnion(value)
-}
+  return firebase.firestore.FieldValue.arrayUnion(value);
+};
 const removeFromArray = (value) => {
-  return firebase.firestore.FieldValue.arrayRemove(value)
-} 
+  return firebase.firestore.FieldValue.arrayRemove(value);
+};
 
-const storage = firebaseApp.storage()
-const auth = firebase.auth()
-const provider = new firebase.auth.GoogleAuthProvider()
+const storage = firebaseApp.storage();
+const auth = firebase.auth();
+const provider = new firebase.auth.GoogleAuthProvider();
 
 export { auth, provider, storage, firebaseApp, addToArray, removeFromArray };
 export default db;

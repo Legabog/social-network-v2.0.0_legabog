@@ -65,7 +65,6 @@ const App = (props) => {
     props.autoLogin();
     props.getMusicAlbumsData();
     props.getMyOwnPlayLists();
-
     // eslint-disable-next-line
   }, []);
 
@@ -175,7 +174,7 @@ const App = (props) => {
           {props.musicAlbums.map((e, index) => (
             <Route
               key={_.uniqueId(`d-r1_${e}`)}
-              path={Routes.MUSIC_LIST_ARTISTS + `/${e.author}`}
+              path={`${Routes.MUSIC_LIST_ARTISTS}/${e.author}`}
               exact
               render={() => (
                 <>
@@ -192,7 +191,7 @@ const App = (props) => {
           {props.musicAlbums.map((e, index) => (
             <Route
               key={_.uniqueId(`d-r2_${e}`)}
-              path={Routes.MUSIC_PLAYER + `/${e.author}/${e.title}`}
+              path={`${Routes.MUSIC_PLAYER}/${e.author}/${e.title}`}
               exact
               render={() => (
                 <>
