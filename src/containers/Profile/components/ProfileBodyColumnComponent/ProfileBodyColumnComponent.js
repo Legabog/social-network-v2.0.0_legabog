@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./ProfileBodyColumnComponent.css";
 
@@ -9,10 +9,19 @@ import LocationOnIcon from "@material-ui/icons/LocationOn";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 
 import { ProfileBodyColumnComponentIntroItem } from "containers/Profile/components/ProfileBodyColumnComponentIntroItem";
+import { ProfileBodyColumnComponentHobbie } from "containers/Profile/components/ProfileBodyColumnComponentHobbie";
 
 import _ from "lodash/core";
 
 export const ProfileBodyColumnComponent = (props) => {
+  const [hobbieSectionSize, setHobbieSectionSize] = useState(5);
+
+  const toggleHobbieSectionSize = (num) => {
+    hobbieSectionSize === 5
+      ? setHobbieSectionSize(num)
+      : setHobbieSectionSize(5);
+  };
+
   switch (props.stateComponent) {
     case 0:
       return (
@@ -99,7 +108,35 @@ export const ProfileBodyColumnComponent = (props) => {
             <span>Edit Details</span>
           </div>
 
-          <div className={"profile-body-column-component__hobbies-section"}></div>
+          <div className={"profile-body-column-component__hobbies-section"}>
+            {props.fullUserInfoAbout !== null
+              ? props.fullUserInfoAbout.Hobbies.map((e, index) => {
+                  if (index < hobbieSectionSize) {
+                    return (
+                      <ProfileBodyColumnComponentHobbie
+                        key={_.uniqueId(e)}
+                        Icon={e.icon}
+                        description={e.hobbie}
+                      />
+                    );
+                  }
+                })
+              : null}
+            {props.fullUserInfoAbout !== null ? (
+              props.fullUserInfoAbout.Hobbies.length > 5 ? (
+                <div
+                  className={"profile-body-column-component__hobbies-button"}
+                  onClick={() =>
+                    toggleHobbieSectionSize(
+                      props.fullUserInfoAbout.Hobbies.length
+                    )
+                  }
+                >
+                  <span>{hobbieSectionSize === 5 ? "See all" : "Hide"}</span>
+                </div>
+              ) : null
+            ) : null}
+          </div>
 
           <div
             className={"profile-body-column-component__button-info"}
@@ -117,8 +154,6 @@ export const ProfileBodyColumnComponent = (props) => {
                 : "Add Hobbies"}
             </span>
           </div>
-
-                
 
           <div className={"profile-body-column-component__button-info"}>
             <span>Edit Featured</span>

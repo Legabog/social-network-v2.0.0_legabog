@@ -5,7 +5,7 @@ import SkipPreviousIcon from "@material-ui/icons/SkipPrevious";
 import SkipNextIcon from "@material-ui/icons/SkipNext";
 import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 import PauseIcon from "@material-ui/icons/Pause";
-import { audioRef } from "containers/MusicPlayerPanel/AudioContext";
+import { audioRef } from "containers/MusicPlayerPanel/AudioRef";
 
 export const OpenMusicPlayerPanelControl = (props) => {
   

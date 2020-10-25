@@ -5,12 +5,12 @@ import SkipPreviousIcon from "@material-ui/icons/SkipPrevious";
 import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 import PauseIcon from "@material-ui/icons/Pause";
 import SkipNextIcon from "@material-ui/icons/SkipNext";
-import { audioRef } from "containers/MusicPlayerPanel/AudioContext";
+import { audioRef } from "containers/MusicPlayerPanel/AudioRef";
 
 export const OpenPlayerPanelControl = (props) => {
 
   return (
-    <React.Fragment>
+    <>
       <div className={"MusicPlayerPanel__close__controlPanel"}>
         <button
           disabled={props.disablerButtonNext}
@@ -272,6 +272,6 @@ export const OpenPlayerPanelControl = (props) => {
           <SkipNextIcon />
         </button>
       </div>
-    </React.Fragment>
+    </>
   );
 };

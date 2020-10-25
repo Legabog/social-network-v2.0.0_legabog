@@ -47,10 +47,6 @@ const Login_ = (props) => {
 
   const loginButtonSignInHandler = (e) => {
     props.signIn(inputEmail, inputPassword, props.history, "/login");
-    setInputEmail("");
-    setInputPassword("");
-    setFocusInputEmail(false);
-    setFocusInputPassword(false);
   };
 
   return (

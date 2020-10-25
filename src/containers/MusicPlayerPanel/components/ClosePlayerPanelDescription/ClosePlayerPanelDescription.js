@@ -4,7 +4,7 @@ import "../MusicPlayerPanel.css"
 
 export const ClosePlayerPanelDescription = (props) => {
   return (
-    <React.Fragment>
+    <>
       {props.isPlaying ? (
         <div className={"MusicPlayerPanel__open__avatarIsPlaying"}>
           <img
@@ -44,6 +44,6 @@ export const ClosePlayerPanelDescription = (props) => {
           </h3>
         </div>
       </div>
-    </React.Fragment>
+    </>
   );
 };

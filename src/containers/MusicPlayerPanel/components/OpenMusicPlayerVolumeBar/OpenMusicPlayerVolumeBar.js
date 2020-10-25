@@ -3,7 +3,7 @@ import "./OpenMusicPlayerVolumeBar.css";
 
 import MicOffIcon from "@material-ui/icons/MicOff";
 import MicIcon from "@material-ui/icons/Mic";
-import { audioRef } from "containers/MusicPlayerPanel/AudioContext";
+import { audioRef } from "containers/MusicPlayerPanel/AudioRef";
 
 export const OpenMusicPlayerVolumeBar = (props) => {
 

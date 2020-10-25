@@ -24,8 +24,6 @@ const LoginRoute_ = (props) => {
 
   const loginButtonSignInHandler = (e) => {
     props.signIn(inputEmail, inputPassword, props.history, "/login");
-    setInputEmail("");
-    setInputPassword("");
   };
 
   return (

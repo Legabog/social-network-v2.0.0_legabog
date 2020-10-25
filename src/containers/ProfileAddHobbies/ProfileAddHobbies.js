@@ -19,12 +19,6 @@ export const ProfileAddHobbies = (props) => {
         );
   };
 
-  // const deleteElementFromTempHobbies = (index) => {
-  //   setTempHobbies(
-  //     tempHobbies.slice(0, index).concat(tempHobbies.slice(index + 1))
-  //   );
-  // };
-
   return (
     <div
       className={"profile-add-hobbies__wrapper"}

@@ -1,5 +1,5 @@
 import React from "react";
-import { audioRef } from "containers/MusicPlayerPanel/AudioContext";
+import { audioRef } from "containers/MusicPlayerPanel/AudioRef";
 
 export const AudioElement = (props) => {
   return (

@@ -4,11 +4,11 @@ import "../MusicPlayerPanel.css";
 
 export const DropDownButton = (props) => {
   return (
-    <React.Fragment>
+    <>
       <div className={"MusicPlayerPanel__open__dropDown"}>
         <ArrowDropDownIcon onClick={props.toggleMusicPanel} />
       </div>
-    </React.Fragment>
+    </>
   );
 };
 

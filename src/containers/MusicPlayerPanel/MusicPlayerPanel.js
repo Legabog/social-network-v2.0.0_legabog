@@ -26,7 +26,7 @@ import { OpenMusicPlayerTrackBar } from "./components/OpenMusicPlayerTrackBar";
 import { OpenMusicPlayerPanelControl } from "./components/OpenMusicPlayerPanelControl";
 import { OpenMusicPlayerVolumeBar } from "./components/OpenMusicPlayerVolumeBar";
 import { OpenMusicPlayerShuffleAndRepeatButton } from "./components/OpenMusicPlayerShuffleAndRepeatButton";
-import { audioRef } from "containers/MusicPlayerPanel/AudioContext";
+import { audioRef } from "containers/MusicPlayerPanel/AudioRef";
 
 const MusicPlayerPanel_ = (props) => {
   const isCurrent = useRef(true);

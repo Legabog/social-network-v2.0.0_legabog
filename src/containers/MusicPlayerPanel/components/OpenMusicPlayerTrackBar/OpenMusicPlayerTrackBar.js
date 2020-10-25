@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import "./OpenMusicPlayerTrackBar.css";
-import { audioRef } from "containers/MusicPlayerPanel/AudioContext";
+import { audioRef } from "containers/MusicPlayerPanel/AudioRef";
 
 export const OpenMusicPlayerTrackBar = (props) => {
 

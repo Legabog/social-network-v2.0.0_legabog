@@ -21,4 +21,4 @@ export { ProfileHeaderNavigationItem } from "./ProfileHeaderNavigationItem";
 export { ProfileHeaderNavigationItemSpecial } from "./ProfileHeaderNavigationItemSpecial";
 export { ProfleBodyColumn } from "./ProfleBodyColumn";
 export { ProfileBodyColumnComponentIntroItem } from "./ProfileBodyColumnComponentIntroItem";
-export { ProfileBodyColumnComponentHobbiesSection } from "./ProfileBodyColumnComponentHobbiesSection";
+export { ProfileBodyColumnComponentHobbie } from "./ProfileBodyColumnComponentHobbie";

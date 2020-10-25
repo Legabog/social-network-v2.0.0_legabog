@@ -6,7 +6,6 @@ export const Widgets = (props) => {
     <div className="widgets">
       <iframe
         title={"my-iframe"}
-        src="https://www.youtube.com/embed/B-kxUMHBxNo&list=WL&index=9&t=6967s"
         width="340"
         height="100%"
         style={{ border: "none", overflow: "hidden" }}
