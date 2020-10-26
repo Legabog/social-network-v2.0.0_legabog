@@ -120,6 +120,8 @@ export const ProfileBodyColumnComponent = (props) => {
                       />
                     );
                   }
+
+                  return null;
                 })
               : null}
             {props.fullUserInfoAbout !== null ? (

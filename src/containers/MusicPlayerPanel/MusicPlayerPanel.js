@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { compose } from "redux";
 import { withRouter } from "react-router-dom";
@@ -29,8 +29,6 @@ import { OpenMusicPlayerShuffleAndRepeatButton } from "./components/OpenMusicPla
 import { audioRef } from "containers/MusicPlayerPanel/AudioRef";
 
 const MusicPlayerPanel_ = (props) => {
-  const isCurrent = useRef(true);
-
   const [opened, switchCondition] = useState(false);
 
   const toggleMusicPanel = () => {
@@ -44,18 +42,14 @@ const MusicPlayerPanel_ = (props) => {
   };
 
   useEffect(() => {
-    return () => {
-      isCurrent.current = false;
-    };
-  }, []);
-
-  useEffect(() => {
-    setInterval(() => {
-      if (isCurrent.current) {
+    const upd = setInterval(() => {
+      if (props.isPlaying) {
         setAudioCurrentTime(audioRef.current.currentTime);
       }
     }, 100);
-  }, []);
+
+    return () => clearInterval(upd);
+  }, [props.isPlaying]);
 
   let [volume, volumeH] = useState(1);
 

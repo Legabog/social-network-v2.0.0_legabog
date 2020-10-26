@@ -1,5 +1,5 @@
 import React from "react";
-import "./PlayLists.css"
+import "./PlayLists.css";
 
 import { HeaderPlayLists } from "../HeaderPlayLists";
 import { BodyPlayLists } from "../BodyPlayLists";
@@ -14,17 +14,15 @@ import {
   updatePlaylist,
 } from "../../../../redux/musicalplaylists-reducer";
 
-
 const PlayLists_ = (props) => {
-  getMyOwnPlayLists();
 
-  useEffect(() => {}, [props.ownPlayLists]);
+  useEffect(() => {
+    getMyOwnPlayLists();
+  }, [props.ownPlayLists]);
 
   return (
     <div className={"playlists"}>
-      <HeaderPlayLists
-        {...props}
-      />
+      <HeaderPlayLists {...props} />
       <BodyPlayLists {...props} />
     </div>
   );
@@ -35,7 +33,7 @@ const mapStateToProps = (state) => {
     ownPlayLists: state.musicPlayListReducer.ownPlayLists,
     tempTrack: state.musicPlayListReducer.tempTrack,
     playListSwitcher: state.musicPlayListReducer.playListSwitcher,
-    fetch: state.musicPlayListReducer.fetch
+    fetch: state.musicPlayListReducer.fetch,
   };
 };
 

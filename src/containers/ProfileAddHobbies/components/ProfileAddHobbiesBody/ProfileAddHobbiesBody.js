@@ -97,7 +97,6 @@ export const ProfileAddHobbiesBody = (props) => {
               }
               return null;
             })}
-
           </div>
         </div>
       );

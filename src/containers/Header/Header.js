@@ -29,4 +29,4 @@ export const Header = compose(
   connect(mapStateToProps, {
     logoutButton,
   })
-)(Header_);
+)(Header_)
