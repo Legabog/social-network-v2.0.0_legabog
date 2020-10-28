@@ -8,16 +8,50 @@ import { ProfileAddHobbiesBody } from "./components/ProfileAddHobbiesBody";
 import { ProfileAddHobbiesFooter } from "./components/ProfileAddHobbiesFooter";
 
 export const ProfileAddHobbies = (props) => {
-  const [tempHobbies, setTempHobbies] = useState([]);
+  const [tempHobbies, setTempHobbies] = useState(
+    props.fullUserInfoAbout !== null &&
+      props.fullUserInfoAbout.Hobbies.length !== 0
+      ? props.fullUserInfoAbout.Hobbies
+      : []
+  );
 
   const toggleTempHobbies = (hobbie, icon, index) => {
-
+    console.log(tempHobbies);
     !_.some(tempHobbies, { hobbie, icon })
       ? setTempHobbies([...tempHobbies, { hobbie, icon }])
       : setTempHobbies(
           tempHobbies.slice(0, index).concat(tempHobbies.slice(index + 1))
         );
   };
+
+  const cancelClick = () => {
+    if (
+      props.profileAddHobbiesStateComponent === 1 &&
+      props.fullUserInfoAbout.Hobbies.length === 0
+    ) {
+      props.toggleProfileAddHobbies(
+        props.profileAddHobbiesVisibility,
+        props.profileAddHobbiesOpacity
+      );
+      setTempHobbies([]);
+      setTimeout(() => {
+        props.toggleProfileAddHobbiesStateComponent(0);
+      }, 200);
+    } else {
+      if (props.fullUserInfoAbout.Hobbies.length !== 0) {
+        props.toggleProfileAddHobbies(
+          props.profileAddHobbiesVisibility,
+          props.profileAddHobbiesOpacity
+        );
+      } else {
+        setTempHobbies([]);
+        props.toggleProfileAddHobbies(
+          props.profileAddHobbiesVisibility,
+          props.profileAddHobbiesOpacity
+        );
+      }
+    }
+  }
 
   return (
     <div
@@ -28,7 +62,8 @@ export const ProfileAddHobbies = (props) => {
       }}
     >
       <div className={"profile-add-hobbies"}>
-        <ProfileAddHobbiesHeader setTempHobbies={setTempHobbies} {...props} />
+        <ProfileAddHobbiesHeader setTempHobbies={setTempHobbies} cancelClick={cancelClick} {...props} />
+
         <ProfileAddHobbiesBody
           tempHobbies={tempHobbies}
           toggleTempHobbies={toggleTempHobbies}
@@ -41,12 +76,7 @@ export const ProfileAddHobbies = (props) => {
         />
       </div>
       <BackDrop
-        onClick={() => {
-          props.toggleProfileAddHobbies(
-            props.profileAddHobbiesVisibility,
-            props.profileAddHobbiesOpacity
-          );
-        }}
+        onClick={cancelClick}
       />
     </div>
   );

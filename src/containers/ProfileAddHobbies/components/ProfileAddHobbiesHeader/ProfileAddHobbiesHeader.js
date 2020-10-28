@@ -16,14 +16,7 @@ export const ProfileAddHobbiesHeader = (props) => {
             </div>
 
             <div className={"profile-add-hobbies-header__close-icon"}>
-              <IconButton
-                onClick={() => {
-                  props.toggleProfileAddHobbies(
-                    props.profileAddHobbiesVisibility,
-                    props.profileAddHobbiesOpacity
-                  );
-                }}
-              >
+              <IconButton onClick={props.cancelClick}>
                 <CloseOutlinedIcon />
               </IconButton>
             </div>
@@ -46,15 +39,7 @@ export const ProfileAddHobbiesHeader = (props) => {
       return (
         <div className={"profile-add-hobbies-header-wrapper"}>
           <div className={"profile-add-hobbies-header__close-icon_state-2"}>
-            <IconButton
-              onClick={() => {
-                props.setTempHobbies([]);
-                props.toggleProfileAddHobbies(
-                  props.profileAddHobbiesVisibility,
-                  props.profileAddHobbiesOpacity
-                );
-              }}
-            >
+            <IconButton onClick={props.cancelClick}>
               <CloseOutlinedIcon />
             </IconButton>
           </div>
@@ -71,4 +56,3 @@ export const ProfileAddHobbiesHeader = (props) => {
       return null;
   }
 };
-
