@@ -19,30 +19,14 @@ export const ProfileAddHobbiesFooter = (props) => {
           <div className={"profile-add-hobbies-footer__buttons"}>
             <div
               className={"profile-add-hobbies-footer__cancel-button"}
-              onClick={() => {
-                props.toggleProfileAddHobbies(
-                  props.profileAddHobbiesVisibility,
-                  props.profileAddHobbiesOpacity
-                );
-
-                props.setTempHobbies([]);
-              }}
+              onClick={props.cancelClick}
             >
               <span>Cancel</span>
             </div>
 
             <div
               className={"profile-add-hobbies-footer__update-button"}
-              onClick={() => {
-                console.log(props.tempHobbies);
-
-                props.toggleProfileAddHobbies(
-                  props.profileAddHobbiesVisibility,
-                  props.profileAddHobbiesOpacity
-                );
-
-                props.addFromTempHobbies(props.tempHobbies);
-              }}
+              onClick={props.saveClick}
             >
               <span>Save</span>
             </div>

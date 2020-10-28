@@ -51,7 +51,16 @@ export const ProfileAddHobbies = (props) => {
         );
       }
     }
-  }
+  };
+
+  const saveClick = () => {
+    props.toggleProfileAddHobbies(
+      props.profileAddHobbiesVisibility,
+      props.profileAddHobbiesOpacity
+    );
+
+    props.addFromTempHobbies(props.tempHobbies);
+  };
 
   return (
     <div
@@ -62,7 +71,11 @@ export const ProfileAddHobbies = (props) => {
       }}
     >
       <div className={"profile-add-hobbies"}>
-        <ProfileAddHobbiesHeader setTempHobbies={setTempHobbies} cancelClick={cancelClick} {...props} />
+        <ProfileAddHobbiesHeader
+          setTempHobbies={setTempHobbies}
+          cancelClick={cancelClick}
+          {...props}
+        />
 
         <ProfileAddHobbiesBody
           tempHobbies={tempHobbies}
@@ -72,12 +85,12 @@ export const ProfileAddHobbies = (props) => {
         <ProfileAddHobbiesFooter
           tempHobbies={tempHobbies}
           setTempHobbies={setTempHobbies}
+          cancelClick={cancelClick}
+          saveClick={saveClick}
           {...props}
         />
       </div>
-      <BackDrop
-        onClick={cancelClick}
-      />
+      <BackDrop onClick={cancelClick} />
     </div>
   );
 };
