@@ -9,44 +9,70 @@ import { signIn } from "redux/auth-reducer";
 import { displayRegistrationBlockTrue } from "redux/registration-block-reducer";
 
 const Login_ = (props) => {
-  const [inputEmail, setInputEmail] = useState("");
-  const [inputPassword, setInputPassword] = useState("");
-  const [focusInputEmail, setFocusInputEmail] = useState(false);
-  const [focusInputPassword, setFocusInputPassword] = useState(false);
+  const [loginForm, setLoginForm] = useState({
+    inputEmail: "",
+    inputPassword: "",
 
-  const inputEmailRef = useRef();
-  const inputPasswordRef = useRef();
+    focusInputEmail: false,
+    focusInputPassword: false,
+
+    inputEmailRef: useRef(),
+    inputPasswordRef: useRef(),
+  });
 
   const inputEmailHandler = (e) => {
-    setInputEmail(e.target.value);
+    setLoginForm({
+      ...loginForm,
+      inputEmail: e.target.value,
+    });
   };
 
   const inputPasswordHandler = (e) => {
-    setInputPassword(e.target.value);
+    setLoginForm({
+      ...loginForm,
+      inputPassword: e.target.value,
+    });
   };
 
   const focusInput = (ref) => {
-    if (ref === inputEmailRef) {
-      setFocusInputEmail(true);
+    if (ref === loginForm.inputEmailRef) {
+      setLoginForm({
+        ...loginForm,
+        focusInputEmail: true,
+      });
       ref.current.focus();
     } else {
-      setFocusInputPassword(true);
+      setLoginForm({
+        ...loginForm,
+        focusInputPassword: true,
+      });
       ref.current.focus();
     }
   };
 
   const blurInput = (ref) => {
-    if (ref === inputEmailRef) {
-      setFocusInputEmail(false);
+    if (ref === loginForm.inputEmailRef) {
+      setLoginForm({
+        ...loginForm,
+        focusInputEmail: false,
+      });
       ref.current.blur();
     } else {
-      setFocusInputPassword(false);
+      setLoginForm({
+        ...loginForm,
+        focusInputPassword: false,
+      });
       ref.current.blur();
     }
   };
 
-  const loginButtonSignInHandler = (e) => {
-    props.signIn(inputEmail, inputPassword, props.history, "/login");
+  const loginButtonSignInHandler = () => {
+    props.signIn(
+      loginForm.inputEmail,
+      loginForm.inputPassword,
+      props.history,
+      "/login"
+    );
   };
 
   return (
@@ -70,15 +96,19 @@ const Login_ = (props) => {
                       type="text"
                       name="email"
                       id="login-email"
-                      ref={inputEmailRef}
+                      ref={loginForm.inputEmailRef}
                       placeholder="Email"
-                      value={inputEmail}
+                      value={loginForm.inputEmail}
                       onChange={inputEmailHandler}
-                      onFocus={() => focusInput(inputEmailRef)}
-                      onBlur={() => blurInput(inputEmailRef)}
+                      onFocus={() => focusInput(loginForm.inputEmailRef)}
+                      onBlur={() => blurInput(loginForm.inputEmailRef)}
                       style={{
-                        borderColor: focusInputEmail ? "#1877f2" : null,
-                        boxShadow: focusInputEmail ? "0 0 0 2px #e7f3ff" : null,
+                        borderColor: loginForm.focusInputEmail
+                          ? "#1877f2"
+                          : null,
+                        boxShadow: loginForm.focusInputEmail
+                          ? "0 0 0 2px #e7f3ff"
+                          : null,
                       }}
                     />
                   </div>
@@ -89,14 +119,16 @@ const Login_ = (props) => {
                       name="password"
                       id="login-password"
                       placeholder="Password"
-                      value={inputPassword}
-                      ref={inputPasswordRef}
+                      value={loginForm.inputPassword}
+                      ref={loginForm.inputPasswordRef}
                       onChange={inputPasswordHandler}
-                      onFocus={() => focusInput(inputPasswordRef)}
-                      onBlur={() => blurInput(inputPasswordRef)}
+                      onFocus={() => focusInput(loginForm.inputPasswordRef)}
+                      onBlur={() => blurInput(loginForm.inputPasswordRef)}
                       style={{
-                        borderColor: focusInputPassword ? "#1877f2" : null,
-                        boxShadow: focusInputPassword
+                        borderColor: loginForm.focusInputPassword
+                          ? "#1877f2"
+                          : null,
+                        boxShadow: loginForm.focusInputPassword
                           ? "0 0 0 2px #e7f3ff"
                           : null,
                       }}

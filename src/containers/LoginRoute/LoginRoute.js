@@ -11,19 +11,26 @@ import { displayRegistrationBlockTrue } from "redux/registration-block-reducer";
 import WarningRoundedIcon from "@material-ui/icons/WarningRounded";
 
 const LoginRoute_ = (props) => {
-  const [inputEmail, setInputEmail] = useState("");
-  const [inputPassword, setInputPassword] = useState("");
+  const [loginForm, setLoginForm] = useState({
+    inputEmail: "",
+    inputPassword: "",
+  });
 
   const inputEmailHandler = (e) => {
-    setInputEmail(e.target.value);
+    setLoginForm({ ...loginForm, inputEmail: e.target.value });
   };
 
   const inputPasswordHandler = (e) => {
-    setInputPassword(e.target.value);
+    setLoginForm({ ...loginForm, inputPassword: e.target.value });
   };
 
   const loginButtonSignInHandler = (e) => {
-    props.signIn(inputEmail, inputPassword, props.history, "/login");
+    props.signIn(
+      loginForm.inputEmail,
+      loginForm.inputPassword,
+      props.history,
+      "/login"
+    );
   };
 
   return (
@@ -47,7 +54,7 @@ const LoginRoute_ = (props) => {
                   id="login-route-email"
                   placeholder="Email"
                   className="login-route__input"
-                  value={inputEmail}
+                  value={loginForm.inputEmail}
                   onChange={inputEmailHandler}
                   style={{
                     borderColor: props.loginError ? "red" : null,
@@ -82,7 +89,7 @@ const LoginRoute_ = (props) => {
                 id="login-route-password"
                 placeholder="Password"
                 className="login-route__input"
-                value={inputPassword}
+                value={loginForm.inputPassword}
                 onChange={inputPasswordHandler}
               />
             </div>
