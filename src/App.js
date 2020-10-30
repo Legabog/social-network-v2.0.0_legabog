@@ -68,7 +68,7 @@ const App = (props) => {
     // eslint-disable-next-line
   }, []);
 
-  if (!!localStorage.getItem("token")) {
+  if (!!localStorage.getItem("_token-id")) {
     return (
       <Root component={<MusicPlayerPanel />}>
         <Switch>

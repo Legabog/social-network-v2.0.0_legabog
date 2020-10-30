@@ -77,10 +77,10 @@ export const signIn = (email, password, history, URL) => {
 
         dispatch(setActiveUser(data.email));
 
-        localStorage.setItem("token", data.idToken);
-        localStorage.setItem("userId", data.localId);
-        localStorage.setItem("emailActiveUser", data.email);
-        localStorage.setItem("expirationDate", expirationDate);
+        localStorage.setItem("_token-id", data.idToken);
+        localStorage.setItem("_user-id", data.localId);
+        localStorage.setItem("_user-active", data.email);
+        localStorage.setItem("_expiration-date", expirationDate);
 
         dispatch(authSuccess(data.idToken, data.email));
         dispatch(autoLogout(data.expiresIn));
@@ -236,8 +236,8 @@ export const authSuccess = (token, activeAccountEmail) => {
 
 export const autoLogin = () => {
   return (dispatch) => {
-    const token = localStorage.getItem("token");
-    const emailActiveUser = localStorage.getItem("emailActiveUser");
+    const token = localStorage.getItem("_token-id");
+    const emailActiveUser = localStorage.getItem("_user-active");
 
     dispatch(authSuccess(token, emailActiveUser));
     dispatch(setActiveUser(emailActiveUser));
@@ -245,7 +245,7 @@ export const autoLogin = () => {
     if (!token && !emailActiveUser) {
       dispatch(logout());
     } else {
-      const expirationDate = new Date(localStorage.getItem("expirationDate"));
+      const expirationDate = new Date(localStorage.getItem("_expiration-date"));
 
       if (expirationDate <= new Date()) {
         dispatch(logout());
@@ -276,10 +276,11 @@ export const logoutButton = () => {
 };
 
 export const logout = () => {
-  localStorage.removeItem("token");
-  localStorage.removeItem("userId");
-  localStorage.removeItem("expirationDate");
-  localStorage.removeItem("emailActiveUser");
+  localStorage.removeItem("_token-id");
+  localStorage.removeItem("_user-id");
+  localStorage.removeItem("_user-active");
+  localStorage.removeItem("_expiration-date");
+  
   
 
   return {
