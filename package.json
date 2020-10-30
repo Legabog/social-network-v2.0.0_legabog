@@ -83,11 +83,17 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
+    "size": "npm run build && size-limit",
     "flow": "flow"
   },
   "eslintConfig": {
     "extends": "react-app"
   },
+  "size-limit": [
+    {
+     "path": "dist/app-*.js"
+    }
+  ],
   "browserslist": {
     "production": [
       ">0.2%",
