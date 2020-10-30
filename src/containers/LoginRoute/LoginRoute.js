@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { compose } from "redux";
 import { withRouter } from "react-router-dom";
@@ -7,30 +7,16 @@ import "./LoginRoute.css";
 
 import { signIn } from "redux/auth-reducer";
 import { displayRegistrationBlockTrue } from "redux/registration-block-reducer";
+import { useInput } from "hooks/useInput";
 
 import WarningRoundedIcon from "@material-ui/icons/WarningRounded";
 
 const LoginRoute_ = (props) => {
-  const [loginForm, setLoginForm] = useState({
-    inputEmail: "",
-    inputPassword: "",
-  });
-
-  const inputEmailHandler = (e) => {
-    setLoginForm({ ...loginForm, inputEmail: e.target.value });
-  };
-
-  const inputPasswordHandler = (e) => {
-    setLoginForm({ ...loginForm, inputPassword: e.target.value });
-  };
+  const [email, emailRef, emailChangeHandler] = useInput("");
+  const [password, passwordRef, passwordChangeHandler] = useInput("");
 
   const loginButtonSignInHandler = (e) => {
-    props.signIn(
-      loginForm.inputEmail,
-      loginForm.inputPassword,
-      props.history,
-      "/login"
-    );
+    props.signIn(email, password, props.history, "/login");
   };
 
   return (
@@ -54,8 +40,9 @@ const LoginRoute_ = (props) => {
                   id="login-route-email"
                   placeholder="Email"
                   className="login-route__input"
-                  value={loginForm.inputEmail}
-                  onChange={inputEmailHandler}
+                  value={email}
+                  ref={emailRef}
+                  onChange={emailChangeHandler}
                   style={{
                     borderColor: props.loginError ? "red" : null,
                   }}
@@ -89,8 +76,9 @@ const LoginRoute_ = (props) => {
                 id="login-route-password"
                 placeholder="Password"
                 className="login-route__input"
-                value={loginForm.inputPassword}
-                onChange={inputPasswordHandler}
+                value={password}
+                ref={passwordRef}
+                onChange={passwordChangeHandler}
               />
             </div>
 
