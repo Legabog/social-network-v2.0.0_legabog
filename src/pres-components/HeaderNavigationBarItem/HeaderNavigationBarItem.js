@@ -12,13 +12,13 @@ export const HeaderNavigationBarItem = (props) => {
       }
       onClick={() => {
         props.toggleActiveLink(props.link);
-        props.toggleHelp(false);
+        props.hideHelp();
       }}
       onMouseEnter={() => {
-        props.toggleHelp(true);
+        props.showHelp();
       }}
       onMouseLeave={() => {
-        props.toggleHelp(false);
+        props.hideHelp();
       }}
     >
       <div
@@ -37,4 +37,3 @@ export const HeaderNavigationBarItem = (props) => {
     </div>
   );
 };
-

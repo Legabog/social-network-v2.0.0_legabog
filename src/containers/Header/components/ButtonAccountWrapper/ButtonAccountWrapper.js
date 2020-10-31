@@ -20,13 +20,13 @@ export const ButtonAccountWrapper = React.memo((props) => {
             props.activeButton === 3
               ? props.toggleActiveButton()
               : props.toggleActiveButton(3);
-            props.toggleAccountHelp(false);
+            props.hideHelpMessage();
           }}
           onMouseEnter={() => {
-            props.toggleAccountHelp(true);
+            props.showHelpMessage();
           }}
           onMouseLeave={() => {
-            props.toggleAccountHelp(false);
+            props.hideHelpMessage();
           }}
         >
           {props.user === null || props.user.Avatars.activeAvatarUrl === "" ? (
@@ -39,4 +39,3 @@ export const ButtonAccountWrapper = React.memo((props) => {
     </div>
   );
 });
-

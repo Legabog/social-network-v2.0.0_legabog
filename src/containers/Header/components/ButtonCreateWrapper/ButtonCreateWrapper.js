@@ -14,13 +14,13 @@ export const ButtonCreateWrapper = (props) => {
           props.activeButton === 0
             ? props.toggleActiveButton()
             : props.toggleActiveButton(0);
-          props.toggleHelpCreate(false);
+          props.hideHelpMessage();
         }}
         onMouseEnter={() => {
-          props.toggleHelpCreate(true);
+          props.showHelpMessage();
         }}
         onMouseLeave={() => {
-          props.toggleHelpCreate(false);
+          props.hideHelpMessage();
         }}
       >
         <AddIcon />
@@ -28,4 +28,3 @@ export const ButtonCreateWrapper = (props) => {
     </div>
   );
 };
-

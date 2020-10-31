@@ -1,41 +1,34 @@
-import React, { useState } from "react";
+import React from "react";
 import { ButtonMessangerWrapper } from "../ButtonMessangerWrapper";
-import { ButtonMessangerHelp } from "../ButtonMessangerHelp";
 import { ButtonMessangerMenuWrapper } from "../ButtonMessangerMenuWrapper";
+import { useHelpMessage } from "hooks/useHelpMessage";
+import { ButtonHelp } from "containers/Header/components/ButtonHelp";
 
 export const ButtonMessanger = (props) => {
-  
-  // ----------Help Messanger
-  const [helpMessangerOpacity, setHelpMessangerOpacity] = useState(0);
-  const [helpMessangerVisibility, setHelpMessangerVisibility] = useState(
-    "hidden"
-  );
-
-  const turnOnMessangerHelp = () => {
-    setHelpMessangerOpacity(1);
-    setHelpMessangerVisibility("visible");
-  };
-
-  const turnOffMessangerHelp = () => {
-    setHelpMessangerOpacity(0);
-    setHelpMessangerVisibility("hidden");
-  };
-
-  const toggleHelpMessanger = (boolean) => {
-    boolean ? turnOnMessangerHelp() : turnOffMessangerHelp();
-  };
-  //
+  const [
+    helpMessageOpacity,
+    helpMessageVisibility,
+    showHelpMessage,
+    hideHelpMessage,
+  ] = useHelpMessage();
 
   return (
     <>
       <ButtonMessangerWrapper
         {...props}
-        toggleHelpMessanger={toggleHelpMessanger}
+        showHelpMessage={showHelpMessage}
+        hideHelpMessage={hideHelpMessage}
       />
-      <ButtonMessangerHelp
-        helpMessangerOpacity={helpMessangerOpacity}
-        helpMessangerVisibility={helpMessangerVisibility}
+
+      <ButtonHelp
+        title={"Messanger"}
+        width={"100px"}
+        marginLeft={"140px"}
+        marginTop={"63px"}
+        helpOpacity={helpMessageOpacity}
+        helpCreateVisibility={helpMessageVisibility}
       />
+
       <ButtonMessangerMenuWrapper {...props} />
     </>
   );

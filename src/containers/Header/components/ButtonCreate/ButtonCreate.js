@@ -1,39 +1,35 @@
-import React, { useState } from "react";
+import React from "react";
 import { ButtonCreateWrapper } from "../ButtonCreateWrapper";
-import { ButtonCreateHelp } from "../ButtonCreateHelp";
 import { ButtonCreateMenuWrapper } from "../ButtonCreateMenuWrapper";
+import { useHelpMessage } from "hooks/useHelpMessage";
+import { ButtonHelp } from "containers/Header/components/ButtonHelp";
 
 export const ButtonCreate = (props) => {
-  // ----------Help Create
-  const [helpCreateOpacity, setHelpCreateOpacity] = useState(0);
-  const [helpCreateVisibility, setHelpCreateVisibility] = useState("hidden");
-
-  const turnOnCreateHelp = () => {
-    setHelpCreateOpacity(1);
-    setHelpCreateVisibility("visible");
-  };
-
-  const turnOffCreateHelp = () => {
-    setHelpCreateOpacity(0);
-    setHelpCreateVisibility("hidden");
-  };
-
-  const toggleHelpCreate = (boolean) => {
-    boolean ? turnOnCreateHelp() : turnOffCreateHelp();
-  };
-  //
-
-  
+  const [
+    helpMessageOpacity,
+    helpMessageVisibility,
+    showHelpMessage,
+    hideHelpMessage,
+  ] = useHelpMessage();
 
   return (
     <>
-      <ButtonCreateWrapper {...props} toggleHelpCreate={toggleHelpCreate} />
-      <ButtonCreateHelp
-        helpCreateOpacity={helpCreateOpacity}
-        helpCreateVisibility={helpCreateVisibility}
+      <ButtonCreateWrapper
+        {...props}
+        showHelpMessage={showHelpMessage}
+        hideHelpMessage={hideHelpMessage}
       />
-      <ButtonCreateMenuWrapper {...props}/>
+      
+      <ButtonHelp
+        title={"Create"}
+        width={"70px"}
+        marginLeft={"105px"}
+        marginTop={"63px"}
+        helpOpacity={helpMessageOpacity}
+        helpCreateVisibility={helpMessageVisibility}
+      />
+
+      <ButtonCreateMenuWrapper {...props} />
     </>
   );
 };
-

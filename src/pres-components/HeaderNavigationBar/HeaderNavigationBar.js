@@ -9,61 +9,29 @@ import SupervisedUserCircleIcon from "@material-ui/icons/SupervisedUserCircle";
 
 import { HeaderNavigationBarHelp } from "pres-components/HeaderNavigationBarHelp";
 import { HeaderNavigationBarItem } from "pres-components/HeaderNavigationBarItem";
+import { useHelpMessage } from "hooks/useHelpMessage";
 
 export const HeaderNavigationBar = (props) => {
-  // ----------Help Home
-  const [helpHomeOpacity, setHelpHomeOpacity] = useState(0);
-  const [helpHomeVisibility, setHelpHomeVisibility] = useState("hidden");
+  const [
+    helpHomeMessageOpacity,
+    helpHomeMessageVisibility,
+    showHomeHelpMessage,
+    hideHomeHelpMessage,
+  ] = useHelpMessage();
 
-  const turnOnHomeHelp = () => {
-    setHelpHomeOpacity(1);
-    setHelpHomeVisibility("visible");
-  };
+  const [
+    helpFriendsMessageOpacity,
+    helpFriendsMessageVisibility,
+    showFriendsHelpMessage,
+    hideFriendsHelpMessage,
+  ] = useHelpMessage();
 
-  const turnOffHomeHelp = () => {
-    setHelpHomeOpacity(0);
-    setHelpHomeVisibility("hidden");
-  };
-
-  const toggleHelpHome = (boolean) => {
-    boolean ? turnOnHomeHelp() : turnOffHomeHelp();
-  };
-
-  // ----------Help Friends
-  const [helpFriendsOpacity, setHelpFriendsOpacity] = useState(0);
-  const [helpFriendsVisibility, setHelpFriendsVisibility] = useState("hidden");
-
-  const turnOnFriendsHelp = () => {
-    setHelpFriendsOpacity(1);
-    setHelpFriendsVisibility("visible");
-  };
-
-  const turnOffFriendsHelp = () => {
-    setHelpFriendsOpacity(0);
-    setHelpFriendsVisibility("hidden");
-  };
-
-  const toggleHelpFriends = (boolean) => {
-    boolean ? turnOnFriendsHelp() : turnOffFriendsHelp();
-  };
-
-  // ----------Help Groups
-  const [helpGroupsOpacity, setHelpGroupsOpacity] = useState(0);
-  const [helpGroupsVisibility, setHelpGroupsVisibility] = useState("hidden");
-
-  const turnOnGroupsHelp = () => {
-    setHelpGroupsOpacity(1);
-    setHelpGroupsVisibility("visible");
-  };
-
-  const turnOffGroupsHelp = () => {
-    setHelpGroupsOpacity(0);
-    setHelpGroupsVisibility("hidden");
-  };
-
-  const toggleHelpGroups = (boolean) => {
-    boolean ? turnOnGroupsHelp() : turnOffGroupsHelp();
-  };
+  const [
+    helpGroupsMessageOpacity,
+    helpGroupsMessageVisibility,
+    showGroupsHelpMessage,
+    hideGroupsHelpMessage,
+  ] = useHelpMessage();
 
   //-----------Active link focus
 
@@ -104,14 +72,15 @@ export const HeaderNavigationBar = (props) => {
           activeIcon={HomeIcon}
           Icon={HomeOutlinedIcon}
           toggleActiveLink={toggleActiveLink}
-          toggleHelp={toggleHelpHome}
+          showHelp={showHomeHelpMessage}
+          hideHelp={hideHomeHelpMessage}
         />
       </NavLink>
 
       <HeaderNavigationBarHelp
         title={"Home"}
-        helpOpacity={helpHomeOpacity}
-        helpVisibility={helpHomeVisibility}
+        helpOpacity={helpHomeMessageOpacity}
+        helpVisibility={helpHomeMessageVisibility}
         helpMarginLeft={"-260px"}
       />
 
@@ -122,14 +91,15 @@ export const HeaderNavigationBar = (props) => {
           activeIcon={SupervisorAccountIcon}
           Icon={SupervisorAccountIcon}
           toggleActiveLink={toggleActiveLink}
-          toggleHelp={toggleHelpFriends}
+          showHelp={showFriendsHelpMessage}
+          hideHelp={hideFriendsHelpMessage}
         />
       </NavLink>
 
       <HeaderNavigationBarHelp
         title={"Friends"}
-        helpOpacity={helpFriendsOpacity}
-        helpVisibility={helpFriendsVisibility}
+        helpOpacity={helpFriendsMessageOpacity}
+        helpVisibility={helpFriendsMessageVisibility}
         helpMarginLeft={"-10px"}
       />
 
@@ -140,17 +110,17 @@ export const HeaderNavigationBar = (props) => {
           activeIcon={SupervisedUserCircleIcon}
           Icon={SupervisedUserCircleIcon}
           toggleActiveLink={toggleActiveLink}
-          toggleHelp={toggleHelpGroups}
+          showHelp={showGroupsHelpMessage}
+          hideHelp={hideGroupsHelpMessage}
         />
       </NavLink>
 
       <HeaderNavigationBarHelp
         title={"Groups"}
-        helpOpacity={helpGroupsOpacity}
-        helpVisibility={helpGroupsVisibility}
+        helpOpacity={helpGroupsMessageOpacity}
+        helpVisibility={helpGroupsMessageVisibility}
         helpMarginLeft={"240px"}
       />
     </div>
   );
 };
-

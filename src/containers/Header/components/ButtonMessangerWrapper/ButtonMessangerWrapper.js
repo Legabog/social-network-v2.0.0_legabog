@@ -15,13 +15,13 @@ export const ButtonMessangerWrapper = (props) => {
           props.activeButton === 1
             ? props.toggleActiveButton()
             : props.toggleActiveButton(1);
-          props.toggleHelpMessanger(false);
+          props.hideHelpMessage();
         }}
         onMouseEnter={() => {
-          props.toggleHelpMessanger(true);
+          props.showHelpMessage();
         }}
         onMouseLeave={() => {
-          props.toggleHelpMessanger(false);
+          props.hideHelpMessage();
         }}
       >
         <ChatIcon />

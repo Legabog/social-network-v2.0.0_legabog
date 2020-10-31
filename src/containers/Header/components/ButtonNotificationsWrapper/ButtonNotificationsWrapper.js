@@ -15,13 +15,13 @@ export const ButtonNotificationsWrapper = (props) => {
           props.activeButton === 2
             ? props.toggleActiveButton()
             : props.toggleActiveButton(2);
-          props.toggleHelpNotifications(false);
+          props.hideHelpMessage();
         }}
         onMouseEnter={() => {
-          props.toggleHelpNotifications(true);
+          props.showHelpMessage();
         }}
         onMouseLeave={() => {
-          props.toggleHelpNotifications(false);
+          props.hideHelpMessage();
         }}
       >
         <NotificationsActiveIcon />
@@ -29,4 +29,3 @@ export const ButtonNotificationsWrapper = (props) => {
     </div>
   );
 };
-

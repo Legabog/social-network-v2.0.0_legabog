@@ -1,44 +1,35 @@
-import React, { useState } from "react";
-import { ButtonNotificationsHelp } from "../ButtonNotificationsHelp";
+import React from "react";
+import { useHelpMessage } from "hooks/useHelpMessage";
 import { ButtonNotificationsMenuWrapper } from "../ButtonNotificationsMenuWrapper";
 import { ButtonNotificationsWrapper } from "../ButtonNotificationsWrapper";
+import { ButtonHelp } from "containers/Header/components/ButtonHelp";
 
 export const ButtonNotifications = (props) => {
-  // ----------Help Notifications
-  const [helpNotificationsOpacity, setHelpNotificationsOpacity] = useState(0);
   const [
-    helpNotificationsVisibility,
-    setHelpNotificationsVisibility,
-  ] = useState("hidden");
-
-  const turnOnNotificationsHelp = () => {
-    setHelpNotificationsOpacity(1);
-    setHelpNotificationsVisibility("visible");
-  };
-
-  const turnOffNotificationsHelp = () => {
-    setHelpNotificationsOpacity(0);
-    setHelpNotificationsVisibility("hidden");
-  };
-
-  const toggleHelpNotifications = (boolean) => {
-    boolean ? turnOnNotificationsHelp() : turnOffNotificationsHelp();
-  };
-  //
+    helpMessageOpacity,
+    helpMessageVisibility,
+    showHelpMessage,
+    hideHelpMessage,
+  ] = useHelpMessage();
 
   return (
     <>
       <ButtonNotificationsWrapper
         {...props}
-        toggleHelpNotifications={toggleHelpNotifications}
+        showHelpMessage={showHelpMessage}
+        hideHelpMessage={hideHelpMessage}
       />
-      <ButtonNotificationsHelp
-        helpNotificationsOpacity={helpNotificationsOpacity}
-        helpNotificationsVisibility={helpNotificationsVisibility}
+
+      <ButtonHelp
+        title={"Notifications"}
+        width={"100px"}
+        marginLeft={"190px"}
+        marginTop={"63px"}
+        helpOpacity={helpMessageOpacity}
+        helpCreateVisibility={helpMessageVisibility}
       />
 
       <ButtonNotificationsMenuWrapper {...props} />
     </>
   );
 };
-

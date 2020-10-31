@@ -1,39 +1,35 @@
-import React, { useState } from "react";
-import { ButtonAccountHelp  } from "../ButtonAccountHelp";
+import { ButtonHelp } from "containers/Header/components/ButtonHelp";
+import { useHelpMessage } from "hooks/useHelpMessage";
+import React from "react";
 import { ButtonAccountMenuWrapper } from "../ButtonAccountMenuWrapper";
 import { ButtonAccountWrapper } from "../ButtonAccountWrapper";
 
 export const ButtonAccount = (props) => {
-  
-  // ----------Help Account
-  const [helpAccountOpacity, setHelpAccountOpacity] = useState(0);
-  const [helpAccountVisibility, setHelpAccountVisibility] = useState("hidden");
-
-  const turnOnAccountHelp = () => {
-    setHelpAccountOpacity(1);
-    setHelpAccountVisibility("visible");
-  };
-
-  const turnOffAccountHelp = () => {
-    setHelpAccountOpacity(0);
-    setHelpAccountVisibility("hidden");
-  };
-
-  const toggleAccountHelp = (boolean) => {
-    boolean ? turnOnAccountHelp() : turnOffAccountHelp();
-  };
-
-  //
+  const [
+    helpMessageOpacity,
+    helpMessageVisibility,
+    showHelpMessage,
+    hideHelpMessage,
+  ] = useHelpMessage();
 
   return (
     <>
-      <ButtonAccountWrapper {...props} toggleAccountHelp={toggleAccountHelp} />
-      <ButtonAccountHelp
-        helpAccountOpacity={helpAccountOpacity}
-        helpAccountVisibility={helpAccountVisibility}
+      <ButtonAccountWrapper
+        {...props}
+        showHelpMessage={showHelpMessage}
+        hideHelpMessage={hideHelpMessage}
       />
+
+      <ButtonHelp
+        title={"Account"}
+        width={"70px"}
+        marginLeft={"230px"}
+        marginTop={"63px"}
+        helpOpacity={helpMessageOpacity}
+        helpCreateVisibility={helpMessageVisibility}
+      />
+
       <ButtonAccountMenuWrapper {...props} />
     </>
   );
 };
-
