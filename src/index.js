@@ -5,11 +5,11 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import store from "redux/root-reducer";
 import { Provider } from "react-redux";
-import { BrowserRouter, useHistory, useLocation } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store} history={useHistory} location={useLocation}>
+    <Provider store={store}>
       <BrowserRouter>
         <App />
       </BrowserRouter>
