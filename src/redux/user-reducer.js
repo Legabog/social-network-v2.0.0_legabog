@@ -319,8 +319,8 @@ export const sendAvatar = (avatar, avatarName, email) => {
 
     // ----------Firebase storage
 
-    var storageRef = storage.ref();
-    var imagesRef = storageRef.child(`avatars/${avatarName}`);
+    let storageRef = storage.ref();
+    let imagesRef = storageRef.child(`avatars/${avatarName}`);
     imagesRef
       .putString(avatar + "", "data_url")
       .then(function (snapshot) {
@@ -483,8 +483,8 @@ export const changeAvatarBackgroundHandler = (
 
     // ----------Firebase storage
 
-    var storageRef = storage.ref();
-    var imagesRef = storageRef.child(`avatar-backgrounds/${backgroundName}`);
+    let storageRef = storage.ref();
+    let imagesRef = storageRef.child(`avatar-backgrounds/${backgroundName}`);
     imagesRef
       .putString(background + "", "data_url")
       .then(function (snapshot) {

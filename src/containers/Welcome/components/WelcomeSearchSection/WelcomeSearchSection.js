@@ -1,22 +1,10 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 import SearchIcon from "@material-ui/icons/Search";
+import { useInput } from "hooks/useInput";
 import "./WelcomeSearchSection.css";
 
 export const WelcomeSearchSection = (props) => {
-  const [inputValue, setInputValue] = useState("");
-  const inputRef = useRef();
-
-  const changeInputHandler = (e) => {
-    setInputValue(e.target.value);
-  };
-
-  const focusInput = () => {
-    inputRef.current.focus();
-  };
-
-  const blurInput = () => {
-    inputRef.current.blur();
-  };
+  const [value, ref, changeHandler, , focusHandler, blurHandler] = useInput("");
 
   return (
     <div className={"welcome-search-section__wrapper"}>
@@ -28,14 +16,14 @@ export const WelcomeSearchSection = (props) => {
           <span>Search by name or look for email.</span>
         </div>
         <div className={"welcome-search-section__input"}>
-          <SearchIcon onClick={focusInput} />
+          <SearchIcon onClick={focusHandler} />
           <input
             type="text"
-            ref={inputRef}
-            value={inputValue}
-            onChange={changeInputHandler}
-            onFocus={focusInput}
-            onBlur={blurInput}
+            ref={ref}
+            value={value}
+            onChange={changeHandler}
+            onFocus={focusHandler}
+            onBlur={blurHandler}
             id="welcome-component-input"
             placeholder="Search by name or email"
           />

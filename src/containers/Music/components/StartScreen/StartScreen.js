@@ -1,22 +1,56 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import "./StartScreen.css";
 
-import AppleIcon from "@material-ui/icons/Apple";
+import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 
-export const StartScreen = (props) => {
+export const StartScreen = () => {
+  let history = useHistory();
+
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [disabled, setDisabled] = useState(false);
+
+  const clickHandler = () => {
+    if (!disabled) {
+      setDisabled(true);
+      isPlaying ? setIsPlaying(false) : setIsPlaying(true);
+      setTimeout(() => {
+        history.push("/music-list");
+      }, 3000);
+    }
+  };
+
   return (
-    <>
-    <NavLink to="/music-list" style={{ textDecoration: "none" }}>
-      <div className={"music-start-screen__wrapper"}>
-        <div className={"music-start-screen__description"}>
-          <AppleIcon />
-          <h1>MUSIC-PLAYER</h1>
-          <p>click to enter</p>
+    <div className={"start-screen"}>
+      <div className={"start-screen-section-1"}>
+        <div className={"start-screen-section-1-title"}>
+          <h1>Music Player</h1>
+          <h2 onClick={clickHandler}>click to Enter</h2>
         </div>
       </div>
-    </NavLink>
-    </>
+
+      <div className={"start-screen-section-2"}>
+        <div
+          className={isPlaying ? "spinner-wrap pulse playing" : "spinner-wrap"}
+          onClick={clickHandler}
+        >
+          <div className={"spinner-outer"}></div>
+
+          <div className={"spinner-center"}></div>
+
+          {isPlaying ? (
+            <div className={"spinner-loader"}>
+              <span className={"spinner-loader-stroke"}></span>
+              <span className={"spinner-loader-stroke"}></span>
+              <span className={"spinner-loader-stroke"}></span>
+              <span className={"spinner-loader-stroke"}></span>
+              <span className={"spinner-loader-stroke"}></span>
+            </div>
+          ) : (
+            <PlayArrowIcon className={"play-sprite"} />
+          )}
+        </div>
+      </div>
+    </div>
   );
 };
-

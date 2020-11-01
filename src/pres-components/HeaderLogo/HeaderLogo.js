@@ -7,9 +7,9 @@ import { NavLink } from "react-router-dom";
 
 export const HeaderLogo = (props) => {
   return (
-    <div className={props.activeInput ? "header__logo_active" : "header__logo"}>
-      {props.activeInput ? (
-        <IconButton onClick={props.toggleActiveInput}>
+    <div className={props.isFocus ? "header__logo_active" : "header__logo"}>
+      {props.isFocus ? (
+        <IconButton onClick={props.onClick}>
           <ArrowBackIcon />
         </IconButton>
       ) : (

@@ -1,4 +1,5 @@
-import React, { useState, useRef } from "react";
+import React from "react";
+import { useInput } from "hooks/useInput";
 import "./HeaderLeft.css";
 
 import { HeaderInput } from "pres-components/HeaderInput/";
@@ -6,26 +7,31 @@ import { HeaderLogo } from "pres-components/HeaderLogo/";
 import { SearchesBlock } from "../SearchesBlock";
 
 export const HeaderLeft = (props) => {
-  const [activeInput, setActiveInput] = useState(false);
-  const inputRef = useRef();
+  const [
+    value,
+    inputref,
+    changeHandler,
+    isFocus,
+    focusHandler,
+    blurHandler,
+  ] = useInput("");
 
   const toggleActiveInput = () => {
-    activeInput ? setActiveInput(false) : setActiveInput(true);
+    isFocus ? blurHandler() : focusHandler();
     setTimeout(() => {
-      activeInput ? inputRef.current.blur() : inputRef.current.focus();
+      isFocus ? blurHandler() : focusHandler();
     }, 10);
   };
 
-  return activeInput ? (
+  return isFocus ? (
     <div className="header__left_active">
       <div className="header__left_active__head">
-        <HeaderLogo
-          activeInput={activeInput}
-          toggleActiveInput={toggleActiveInput}
-        />
+        <HeaderLogo isFocus={isFocus} onClick={toggleActiveInput} />
         <HeaderInput
-          inputRef={inputRef}
-          activeInput={activeInput}
+          value={value}
+          inputref={inputref}
+          changeHandler={changeHandler}
+          isFocus={isFocus}
           toggleActiveInput={toggleActiveInput}
         />
       </div>
@@ -35,13 +41,12 @@ export const HeaderLeft = (props) => {
     </div>
   ) : (
     <div className="header__left">
-      <HeaderLogo
-        activeInput={activeInput}
-        toggleActiveInput={toggleActiveInput}
-      />
+      <HeaderLogo isFocus={isFocus} />
       <HeaderInput
-        inputRef={inputRef}
-        activeInput={activeInput}
+        value={value}
+        inputref={inputref}
+        changeHandler={changeHandler}
+        isFocus={isFocus}
         toggleActiveInput={toggleActiveInput}
       />
     </div>

@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { compose } from "redux";
 import { withRouter } from "react-router-dom";
 import "./RegistrationBlock.css";
+
 import is from "is_js";
 
 import {
