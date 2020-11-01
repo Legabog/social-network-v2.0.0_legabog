@@ -17,7 +17,7 @@ import aboutComponentReducer from "./about-component-reducer"
 import profileEditDetailsReducer from "./profile-edit-details-about-you-reducer"
 import profileAddHobbiesReducer from "./profile-add-hobbies-reducer"
 
-let root_reducer = combineReducers({
+let rootReducer = combineReducers({
   appReducer,
   registrationBlockReducer,
   userReducer,
@@ -34,7 +34,7 @@ let root_reducer = combineReducers({
   profileAddHobbiesReducer
 });
 
-let store = createStore(root_reducer, applyMiddleware(thunk));
+let store = createStore(rootReducer, applyMiddleware(thunk));
 
 window.store = store;
 
