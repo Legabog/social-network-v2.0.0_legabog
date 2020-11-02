@@ -6,8 +6,6 @@ import { Route, Switch, withRouter } from "react-router-dom";
 import _ from "lodash/core";
 
 import { autoLogin } from "redux/auth-reducer";
-import { getMusicAlbumsData } from "redux/musicalbums-reducer";
-import { getMyOwnPlayLists } from "redux/musicalplaylists-reducer";
 
 // ---------Main Components
 import { Root } from "containers/Root";
@@ -26,6 +24,8 @@ import { Preloader } from "pres-components/Preloader";
 // ---------Not logged in user
 import { Login } from "containers/Login";
 import { RegistrationBlock } from "containers/RegistrationBlock";
+import { Toast } from "pres-components/Toast";
+
 // -----Lazy components
 const Music = React.lazy(() => import("containers/Music"));
 const MusicList = React.lazy(() =>
@@ -63,14 +63,15 @@ const ConfirmedEmailRoute = React.lazy(() =>
 const App = (props) => {
   useEffect(() => {
     props.autoLogin();
-    props.getMusicAlbumsData();
-    props.getMyOwnPlayLists();
     // eslint-disable-next-line
   }, []);
 
   if (!!localStorage.getItem("_token-id")) {
     return (
-      <Root component={<MusicPlayerPanel />}>
+      <Root
+        rightBottomComponent={<MusicPlayerPanel />}
+        leftBottomComponent={<Toast />}
+      >
         <Switch>
           <Route
             path={Routes.MAIN}
@@ -422,7 +423,5 @@ export default compose(
   withRouter,
   connect(mapStateToProps, {
     autoLogin,
-    getMusicAlbumsData,
-    getMyOwnPlayLists,
   })
 )(App);

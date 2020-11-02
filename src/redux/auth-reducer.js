@@ -4,7 +4,7 @@ import { setActiveUser, setUser } from "./user-reducer";
 
 const AUTH_SUCCESS = "AUTH_SUCCESS";
 const AUTH_LOGOUT = "AUTH_LOGOUT";
-const TOGGLE_FETCHING = "TOGGLE_FETCHING";
+const TOGGLE_AUTH_FETCHING = "TOGGLE_AUTH_FETCHING";
 const TOGGLE_REGISTRATION_ERROR = "TOGGLE_REGISTRATION_ERROR";
 const TOGGLE_REGISTRATION_FETCHING = "TOGGLE_REGISTRATION_FETCHING";
 const TOGGLE_LOGIN_ERROR = "TOGGLE_LOGIN_ERROR";
@@ -32,7 +32,7 @@ const authReducer = (state = initialState, action) => {
         token: null,
         activeAccountEmail: null,
       };
-    case TOGGLE_FETCHING:
+    case TOGGLE_AUTH_FETCHING:
       return {
         ...state,
         fetching: action.fetching,
@@ -84,6 +84,8 @@ export const signIn = (email, password, history, URL) => {
 
         dispatch(authSuccess(data.idToken, data.email));
         dispatch(autoLogout(data.expiresIn));
+      })
+      .then(() => {
         dispatch(toggleFetching(false));
         dispatch(toggleLoginError(false));
         history.push("/");
@@ -239,9 +241,6 @@ export const autoLogin = () => {
     const token = localStorage.getItem("_token-id");
     const emailActiveUser = localStorage.getItem("_user-active");
 
-    dispatch(authSuccess(token, emailActiveUser));
-    dispatch(setActiveUser(emailActiveUser));
-
     if (!token && !emailActiveUser) {
       dispatch(logout());
     } else {
@@ -251,6 +250,7 @@ export const autoLogin = () => {
         dispatch(logout());
       } else {
         dispatch(authSuccess(token, emailActiveUser));
+        dispatch(setActiveUser(emailActiveUser));
         dispatch(
           autoLogout((expirationDate.getTime() - new Date().getTime()) / 1000)
         );
@@ -280,8 +280,6 @@ export const logout = () => {
   localStorage.removeItem("_user-id");
   localStorage.removeItem("_user-active");
   localStorage.removeItem("_expiration-date");
-  
-  
 
   return {
     type: AUTH_LOGOUT,
@@ -290,7 +288,7 @@ export const logout = () => {
 
 export const toggleFetching = (fetching) => {
   return {
-    type: TOGGLE_FETCHING,
+    type: TOGGLE_AUTH_FETCHING,
     fetching,
   };
 };

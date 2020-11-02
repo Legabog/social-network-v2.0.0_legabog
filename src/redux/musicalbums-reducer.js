@@ -1,7 +1,7 @@
 import { musicApi } from "api/music-api";
 
 const SET_MUSIC_ALBUMS_DATA = "SET_MUSIC_ALBUMS_DATA";
-const TOGGLE_FETCHING = "TOGGLE_FETCHING";
+const TOGGLE_MUSICAL_ALBUMS_FETCHING = "TOGGLE_MUSICAL_ALBUMS_FETCHING";
 const SWITCHER = "SWITCHER";
 const PUSH_ALBUM_TO_RECENTLY_PLAYED = "PUSH_ALBUM_TO_RECENTLY_PLAYED";
 const PUSH_TITLE_TO_DISABLED_ARRAY = "PUSH_TITLE_TO_DISABLED_ARRAY";
@@ -23,7 +23,7 @@ const musicAlbumsReducer = (state = initialState, action) => {
         ...state,
         musicAlbums: action.payload,
       };
-    case TOGGLE_FETCHING:
+    case TOGGLE_MUSICAL_ALBUMS_FETCHING:
       return {
         ...state,
         Fetching: action.Fetching,
@@ -87,7 +87,7 @@ export const pushAuthorToDisabledArray = (author) => {
 
 export const toggleFetching = (Fetching) => {
   return {
-    type: TOGGLE_FETCHING,
+    type: TOGGLE_MUSICAL_ALBUMS_FETCHING,
     Fetching,
   };
 };

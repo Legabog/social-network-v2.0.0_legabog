@@ -4,8 +4,8 @@ const ADD_TO_PLAYLIST = "ADD_TO_PLAYLIST";
 const SWITCH_STATE_OF_PLAYLISTS = "SWITCH_STATE_OF_PLAYLISTS";
 const ADD_TRACK_TO_PLAYLIST = "ADD_TRACK_TO_PLAYLIST";
 const SET_MY_OWN_PLAYLISTS_DATA = "SET_MY_OWN_PLAYLISTS_DATA";
-const TOGGLE_FETCH = "TOGGLE_FETCH";
-const TOGGLE_DELETE_TRACK_FETCH = "TOGGLE_DELET_TRACK_FETCH";
+const TOGGLE_MUSICAL_PLAYLISTS_FETCHING = "TOGGLE_MUSICAL_PLAYLISTS_FETCHING";
+const TOGGLE_DELETE_TRACK_FETCHING = "TOGGLE_DELETE_TRACK_FETCHING";
 
 let initialState = {
   ownPlayLists: [],
@@ -42,13 +42,13 @@ const musicPlayListReducer = (state = initialState, action) => {
         ownPlayLists: action.data,
       };
 
-    case TOGGLE_FETCH:
+    case TOGGLE_MUSICAL_PLAYLISTS_FETCHING:
       return {
         ...state,
         fetch: action.value,
       };
 
-    case TOGGLE_DELETE_TRACK_FETCH:
+    case TOGGLE_DELETE_TRACK_FETCHING:
       return {
         ...state,
         deleteTrackFetch: action.value,
@@ -60,14 +60,14 @@ const musicPlayListReducer = (state = initialState, action) => {
 
 export const toggleFetch = (value) => {
   return {
-    type: TOGGLE_FETCH,
+    type: TOGGLE_MUSICAL_PLAYLISTS_FETCHING,
     value,
   };
 };
 
 export const toggleDeleteTrackFetch = (value) => {
   return {
-    type: TOGGLE_DELETE_TRACK_FETCH,
+    type: TOGGLE_DELETE_TRACK_FETCHING,
     value,
   };
 };

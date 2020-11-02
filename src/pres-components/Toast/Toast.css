@@ -1,0 +1,114 @@
+.toast_online {
+    position: fixed;
+    left: 16px;
+    bottom: 16px;
+    z-index: 1000;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    width: 350px;
+    height: 60px;
+    background-color: #242526;
+    border-radius: 8px;
+}
+
+.toast_online > span {
+    padding-right: 15px;
+    color: #E4E6EB;
+    word-break: break-word;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: normal;
+    font-size: .9375rem;
+    line-height: 1.3333;
+}
+
+.toast_online > svg {
+    color: rgb(25, 189, 0);
+    padding-right: 10px;
+}
+
+.toast_online > button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.2);
+    width: 24px;
+    height: 24px;
+}
+
+.toast_online > button svg {
+    color: #E4E6EB;
+    width: 15px;
+    height: 15px;
+}
+
+.toast_offline {
+    position: fixed;
+    left: 16px;
+    bottom: 16px;
+    z-index: 1000;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    width: 350px;
+    height: 60px;
+    background-color: #242526;
+    border-radius: 8px;
+
+}
+
+.toast_offline > span {
+    padding-right: 10px;
+    color: #E4E6EB;
+    word-break: break-word;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: normal;
+    font-size: .9375rem;
+    line-height: 1.3333;
+    
+}
+
+.toast_offline__button > span {
+    padding-right: 15px;
+    color: #4599FF;
+    word-break: break-word;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: normal;
+    font-size: .9375rem;
+    line-height: 1.3333;
+}
+
+.toast_offline__button:hover {
+    cursor: pointer;
+    filter: opacity(0.80);
+}
+
+.toast_offline__button:active {
+    transform: scale(0.95);
+}
+
+
+.toast_offline > svg {
+    color: rgba(255, 255, 255, 0.3);
+    padding-right: 10px;
+}
+
+.toast_offline > button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.2);
+    width: 24px;
+    height: 24px;
+}
+
+.toast_offline > button svg {
+    color: #E4E6EB;
+    width: 15px;
+    height: 15px;
+}

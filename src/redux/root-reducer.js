@@ -1,4 +1,5 @@
 import { createStore, combineReducers, applyMiddleware } from "redux";
+import { composeWithDevTools } from "redux-devtools-extension"
 import thunk from "redux-thunk";
 import appReducer from "./app-reducer";
 
@@ -34,7 +35,7 @@ let rootReducer = combineReducers({
   profileAddHobbiesReducer
 });
 
-let store = createStore(rootReducer, applyMiddleware(thunk));
+let store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
 
 window.store = store;
 

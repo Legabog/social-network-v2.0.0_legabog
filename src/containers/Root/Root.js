@@ -10,7 +10,8 @@ export const Root = (props) => {
       ) : (
         <>
           {props.children}
-          {props.component}
+          {props.rightBottomComponent}
+          {props.leftBottomComponent}
         </>
       )}
     </div>
