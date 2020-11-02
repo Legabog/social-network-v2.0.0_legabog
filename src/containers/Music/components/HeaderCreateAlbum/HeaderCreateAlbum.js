@@ -80,7 +80,7 @@ export const HeaderCreateAlbum = (props) => {
             description: description + "",
             playlistcoverUrl: `https://firebasestorage.googleapis.com/v0/b/social-network-legabog.appspot.com/o/playlist-covers%2F${
               state.img === AddPhoto ? "music.jpg" : state.nameImg
-            }?alt=media&token=d3a88cc5-c7fe-4599-ba6c-ef8ba503a03c`,
+            }?alt=media`,
 
             tracks: [],
           });

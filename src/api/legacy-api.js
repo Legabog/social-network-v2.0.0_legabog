@@ -3,9 +3,6 @@ import * as axios from "axios";
 const instance = axios.create({
   withCredentials: true,
   baseURL: "https://social-network.samuraijs.com/api/1.0/",
-  headers: {
-    "API-KEY": "6c1e09c8-63f3-40af-887e-4f4f9648a433",
-  },
 });
 
 export const userAPI = {
@@ -103,7 +100,7 @@ export const userAPI = {
   getNews(country, category) {
     return axios
       .get(
-        `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=1c08655261a244f09b1812a3dfeb395b`
+        `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}`
       )
       .then((response) => {
         return response.data;
