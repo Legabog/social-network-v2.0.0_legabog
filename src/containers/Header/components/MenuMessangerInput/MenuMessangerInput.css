@@ -1,8 +1,15 @@
-.button-messanger-menu__input__wrapper {
+.button-messanger-menu__input-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
+}
+
+.button-messanger-menu__input-wrapper > button {
+    width: 40px;
+    height: 40px;
+    margin-top: 10px;
+    margin-right: 5px;
 }
 
 .button-messanger-menu__input {

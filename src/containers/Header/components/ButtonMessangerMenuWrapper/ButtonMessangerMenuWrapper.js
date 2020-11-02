@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 import "./ButtonMessangerMenuWrapper.css";
 
@@ -9,17 +9,17 @@ import CreateOutlinedIcon from "@material-ui/icons/CreateOutlined";
 
 import { MenuMessangerInput } from "../MenuMessangerInput";
 import { ButtonMessangerPanelItem } from "../ButtonMessangerPanelItem";
+import { useInput } from "hooks/useInput";
 
 export const ButtonMessangerMenuWrapper = (props) => {
-  const [ButtonMessangerMenuInput, setButtonMessangerMenuInput] = useState(
-    false
-  );
-
-  const toggleButtonMessangerMenuInput = (boolean) => {
-    boolean
-      ? setButtonMessangerMenuInput(true)
-      : setButtonMessangerMenuInput(false);
-  };
+  const [
+    value,
+    ref,
+    changeHandler,
+    isFocus,
+    focusHandler,
+    blurHandler,
+  ] = useInput("");
 
   return (
     <div
@@ -65,12 +65,16 @@ export const ButtonMessangerMenuWrapper = (props) => {
       </div>
       <div className="button-messanger-menu__body">
         <MenuMessangerInput
-          ButtonMessangerMenuInput={ButtonMessangerMenuInput}
-          toggleButtonMessangerMenuInput={toggleButtonMessangerMenuInput}
+          value={value}
+          inputRef={ref}
+          changeHandler={changeHandler}
+          isFocus={isFocus}
+          focusHandler={focusHandler}
+          blurHandler={blurHandler}
         />
 
         <div className="button-messanger-menu__searches">
-          {ButtonMessangerMenuInput ? (
+          {isFocus ? (
             <>
               <span>No Found</span>
               <div className="button-messanger-menu__description">
@@ -99,4 +103,3 @@ export const ButtonMessangerMenuWrapper = (props) => {
     </div>
   );
 };
-

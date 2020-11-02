@@ -5,60 +5,34 @@ import SearchIcon from "@material-ui/icons/Search";
 import "./MenuMessangerInput.css";
 
 export const MenuMessangerInput = (props) => {
-
-  const focusInput = (id) => {
-    document.getElementById(id).focus();
-  };
-  
   return (
-    <div
-      className="button-messanger-menu__input__wrapper"
-    >
-      {props.ButtonMessangerMenuInput ? (
-        <IconButton
-          style={{
-            width: "40px",
-            height: "40px",
-            marginTop: "10px",
-            marginRight: "5px",
-          }}
-          onClick={(e) => {
-            e.preventDefault();
-            props.toggleButtonMessangerMenuInput(false);
-          }}
-        >
+    <div className="button-messanger-menu__input-wrapper">
+      {props.isFocus ? (
+        <IconButton onClick={props.blurHandler}>
           <ArrowBackIcon />
         </IconButton>
       ) : null}
       <div
         className={
-          props.ButtonMessangerMenuInput
+          props.isFocus
             ? "button-messanger-menu__input_active"
             : "button-messanger-menu__input"
         }
-        onClick={(e) => {
-          focusInput("button-messanger-menu-input");
-          props.toggleButtonMessangerMenuInput(true);
-        }}
+        onClick={props.focusHandler}
       >
-        {props.ButtonMessangerMenuInput ? null : (
-          <SearchIcon
-            onClick={(e) => {
-              focusInput("button-messanger-menu-input");
-              props.toggleButtonMessangerMenuInput(true);
-            }}
-          />
-        )}
+        {props.isFocus ? null : <SearchIcon onClick={props.focusHandler} />}
         <input
           type="text"
+          value={props.value}
+          onChange={props.changeHandler}
+          ref={props.inputRef}
           id="button-messanger-menu-input"
           placeholder="Search Messanger"
-          onBlur={() => {
-            props.toggleButtonMessangerMenuInput(false);
-          }}
+          onClick={props.focusHandler}
+          onFocus={props.focusHandler}
+          onBlur={props.blurHandler}
         />
       </div>
     </div>
   );
 };
-
