@@ -24,7 +24,7 @@ import { Preloader } from "pres-components/Preloader";
 // ---------Not logged in user
 import { Login } from "containers/Login";
 import { RegistrationBlock } from "containers/RegistrationBlock";
-import { Toast } from "pres-components/Toast";
+import { ToastContainer } from "containers/ToastContainer";
 
 // -----Lazy components
 const Music = React.lazy(() => import("containers/Music"));
@@ -70,7 +70,7 @@ const App = (props) => {
     return (
       <Root
         rightBottomComponent={<MusicPlayerPanel />}
-        leftBottomComponent={<Toast />}
+        leftBottomComponent={<ToastContainer position={"bottom-left"}/>}
       >
         <Switch>
           <Route

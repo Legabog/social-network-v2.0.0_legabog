@@ -1,57 +1,43 @@
-import React, { useState, useEffect } from "react";
-import ReactDOM from "react-dom";
+import React, { useState, useEffect, useRef } from "react";
 import "./Toast.css";
 
-import WifiIcon from "@material-ui/icons/Wifi";
-import WifiOffIcon from "@material-ui/icons/WifiOff";
 import CloseOutlinedIcon from "@material-ui/icons/CloseOutlined";
 import { IconButton } from "@material-ui/core";
 
 export const Toast = (props) => {
-  const [online, setState] = useState();
+  console.log(props);
 
-  const onlineStatus = () => {
-    navigator.onLine ? setState(true) : setState(false);
+  const clickHandler = () => {
+    props.deleteFromList(props.id);
   };
 
-  const pageRelaod = () => {
-    window.location.reload();
-  };
+  return (
+    <div className={props.className}>
+      {props.Icon ? <props.Icon /> : null}
+      {props.description ? <span>{props.description}</span> : null}
+      {props.button ? (
+        <div className={"toast_offline__button"}>
+          <span>{props.button}</span>
+        </div>
+      ) : null}
+      <IconButton onClick={clickHandler}>
+        <CloseOutlinedIcon />
+      </IconButton>
+    </div>
+  );
 
-  window.addEventListener("online", onlineStatus);
-  window.addEventListener("offline", onlineStatus);
-
-  useEffect(() => {
-    onlineStatus();
-  });
-
-  switch (online) {
-    case true:
-      return ReactDOM.createPortal(
-        <div className={"toast_online"}>
-          <WifiIcon />
-          <span>Your internet connection was restored.</span>
-          <IconButton>
-            <CloseOutlinedIcon />
-          </IconButton>
-        </div>,
-        document.getElementById("toast-root")
-      );
-    case false:
-      return ReactDOM.createPortal(
-        <div className={"toast_offline"}>
-          <WifiOffIcon />
-          <span>You are currently offline.</span>
-          <div className={"toast_offline__button"} onClick={pageRelaod}>
-            <span>Refresh</span>
-          </div>
-          <IconButton>
-            <CloseOutlinedIcon />
-          </IconButton>
-        </div>,
-        document.getElementById("toast-root")
-      );
-    default:
-      return null;
-  }
+  // </div>
+  // return ReactDOM.createPortal(
+  //   <div className={"toast_offline"} ref={toastRef}>
+  //     <WifiOffIcon />
+  //     <span>You are currently offline.</span>
+  //     <div className={"toast_offline__button"} onClick={pageRelaod}>
+  //       <span>Refresh</span>
+  //     </div>
+  //     <IconButton onClick={closeToast}>
+  //       <CloseOutlinedIcon />
+  //     </IconButton>
+  //   </div>,
+  //   document.getElementById("toast-root")
+  // );
 };

@@ -1,20 +1,35 @@
+/* online */
+/* .toast_online {
+    position: fixed;
+    z-index: 1000;
+    display: flex;
+    left: 16px;
+    bottom: -100px;  
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    width: 350px;
+    height: 70px;
+    background-color: #242526;
+    border-radius: 8px;
+    animation: showToast 0.3s ease-out both, hideToast 0.3s ease-out 5s forwards;
+} */
+
 .toast_online {
     position: fixed;
-    left: 16px;
-    bottom: 16px;
     z-index: 1000;
     display: flex;
     text-align: center;
     justify-content: center;
     align-items: center;
     width: 350px;
-    height: 60px;
+    height: 70px;
     background-color: #242526;
     border-radius: 8px;
 }
 
 .toast_online > span {
-    padding-right: 15px;
+    padding-right: 10px;
     color: #E4E6EB;
     word-break: break-word;
     text-overflow: ellipsis;
@@ -28,6 +43,7 @@
     color: rgb(25, 189, 0);
     padding-right: 10px;
 }
+
 
 .toast_online > button {
     display: flex;
@@ -44,36 +60,43 @@
     height: 15px;
 }
 
+
+/* offline */
+
 .toast_offline {
-    position: fixed;
-    left: 16px;
-    bottom: 16px;
-    z-index: 1000;
     display: flex;
     text-align: center;
     justify-content: center;
     align-items: center;
-    width: 350px;
-    height: 60px;
+    width: 325px;
+    height: 70px;
     background-color: #242526;
     border-radius: 8px;
-
+    animation: showToast 0.3s ease-out both;
 }
 
 .toast_offline > span {
-    padding-right: 10px;
     color: #E4E6EB;
+    height: 20px;
     word-break: break-word;
     text-overflow: ellipsis;
     white-space: nowrap;
     font-weight: normal;
     font-size: .9375rem;
     line-height: 1.3333;
-    
+}
+
+.toast_offline__button {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
 }
 
 .toast_offline__button > span {
-    padding-right: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 20px;
     color: #4599FF;
     word-break: break-word;
     text-overflow: ellipsis;
@@ -111,4 +134,35 @@
     color: #E4E6EB;
     width: 15px;
     height: 15px;
+}
+
+@keyframes showToast {
+    0% {
+        left: 16px;
+        bottom: -100px;        
+    }
+
+    100% {
+        left: 16px;
+        bottom: 16px;
+    }
+
+}
+
+@keyframes hideToast {
+    0% {
+        left: 16px;
+        bottom: 16px;       
+    }
+
+    20% {
+        left: 16px;
+        bottom: 16px;       
+    }
+
+    100% {
+        left: 16px;
+        bottom: -100px; 
+    }
+
 }
