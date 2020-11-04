@@ -10,6 +10,7 @@ import WifiOffIcon from "@material-ui/icons/WifiOff";
 import { Toast } from "pres-components/Toast";
 
 export const ToastContainer = React.memo((props) => {
+  console.log("Render Container")
   const toasts = [
     {
       id: 1,
@@ -39,44 +40,44 @@ export const ToastContainer = React.memo((props) => {
     }
   };
 
-  const addOnlineToList = () => {
-    if (!_.some(list, toasts[0])) {
-      setList([...list, toasts[0]]);
+  const addToastToList = (index) => {
+    console.log("Adding toast_online...")
+    if (!_.some(list, toasts[index])) {
+      setList([...list, toasts[index]]);
     }
   };
 
-  const addOfflineToList = () => {
-    if (!_.some(list, toasts[1])) {
-      setList([...list, toasts[1]]);
-    }
-  };
-
-  window.addEventListener("online", addOnlineToList);
-  window.addEventListener("offline", addOfflineToList);
+  window.addEventListener("online", () => addToastToList(0));
+  window.addEventListener("offline", () => addToastToList(1));
 
   useEffect(() => {
     if (navigator.onLine) {
-      deleteFromList(2);
+      if (_.some(list, toasts[1])) {
+        console.log("Removing toast_offline...");
+        deleteFromList(2);
+        
+      }
     } else {
-      deleteFromList(1);
+      if (_.some(list, toasts[0])) {
+        console.log("Removing toast_online...");
+        deleteFromList(1);
+      }
     }
   });
 
   return ReactDOM.createPortal(
     <div className={`toast_container ${props.position}`}>
-      {list !== null
-        ? list.map((e) => (
-            <Toast
-              id={e.id}
-              key={_.uniqueId(e.id)}
-              className={e.className}
-              Icon={e.Icon}
-              description={e.description}
-              button={e.button}
-              deleteFromList={deleteFromList}
-            />
-          ))
-        : null}
+      {list.map((e) => (
+        <Toast
+          id={e.id}
+          key={_.uniqueId(e.id)}
+          className={e.className}
+          Icon={e.Icon}
+          description={e.description}
+          button={e.button}
+          deleteFromList={deleteFromList}
+        />
+      ))}
     </div>,
     document.getElementById("toast-root")
   );

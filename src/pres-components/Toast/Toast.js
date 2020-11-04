@@ -5,6 +5,7 @@ import CloseOutlinedIcon from "@material-ui/icons/CloseOutlined";
 import { IconButton } from "@material-ui/core";
 
 export const Toast = (props) => {
+  console.log("Render Toast");
   const ref = useRef();
   const clickHandler = () => {
     ref.current.style.animation = "hideToast 0.3s ease-out forwards";
