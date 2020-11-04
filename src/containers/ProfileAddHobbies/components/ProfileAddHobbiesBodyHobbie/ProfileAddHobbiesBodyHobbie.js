@@ -4,7 +4,6 @@ import "./ProfileAddHobbiesBodyHobbie.css";
 import _ from "lodash";
 
 export const ProfileAddHobbiesBodyHobbie = (props) => {
-  console.log(props)
   return (
     <div
       className={`profile-add-hobbies-body-hobbie${

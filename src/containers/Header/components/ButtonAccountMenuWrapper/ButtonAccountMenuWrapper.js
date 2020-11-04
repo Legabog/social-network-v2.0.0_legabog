@@ -168,7 +168,6 @@ export const ButtonAccountMenuWrapper = React.memo((props) => {
         <div
           className="button-account-menu__section"
           onClick={() => {
-            console.log(props)
             props.logoutButton();
             props.history.push("/");
           }}

@@ -16,7 +16,6 @@ export const ProfileAddHobbies = (props) => {
   );
 
   const toggleTempHobbies = (hobbie, icon, index) => {
-    console.log(tempHobbies);
     !_.some(tempHobbies, { hobbie, icon })
       ? setTempHobbies([...tempHobbies, { hobbie, icon }])
       : setTempHobbies(

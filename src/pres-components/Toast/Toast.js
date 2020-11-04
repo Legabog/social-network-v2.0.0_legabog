@@ -1,22 +1,21 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import "./Toast.css";
 
 import CloseOutlinedIcon from "@material-ui/icons/CloseOutlined";
 import { IconButton } from "@material-ui/core";
 
 export const Toast = (props) => {
-  console.log(props);
-
+  const ref = useRef();
   const clickHandler = () => {
-    props.deleteFromList(props.id);
+    ref.current.style.animation = "hideToast 0.3s ease-out forwards";
   };
 
   return (
-    <div className={props.className}>
+    <div id={props.className} className={props.className} ref={ref}>
       {props.Icon ? <props.Icon /> : null}
       {props.description ? <span>{props.description}</span> : null}
       {props.button ? (
-        <div className={"toast_offline__button"}>
+        <div className={"toast_offline__button"} onClick={clickHandler}>
           <span>{props.button}</span>
         </div>
       ) : null}
@@ -25,19 +24,4 @@ export const Toast = (props) => {
       </IconButton>
     </div>
   );
-
-  // </div>
-  // return ReactDOM.createPortal(
-  //   <div className={"toast_offline"} ref={toastRef}>
-  //     <WifiOffIcon />
-  //     <span>You are currently offline.</span>
-  //     <div className={"toast_offline__button"} onClick={pageRelaod}>
-  //       <span>Refresh</span>
-  //     </div>
-  //     <IconButton onClick={closeToast}>
-  //       <CloseOutlinedIcon />
-  //     </IconButton>
-  //   </div>,
-  //   document.getElementById("toast-root")
-  // );
 };
