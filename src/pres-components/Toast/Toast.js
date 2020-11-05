@@ -1,17 +1,36 @@
-import React, { useRef } from "react";
+import React, { useEffect } from "react";
 import "./Toast.css";
 
 import CloseOutlinedIcon from "@material-ui/icons/CloseOutlined";
 import { IconButton } from "@material-ui/core";
 
 export const Toast = (props) => {
-  const ref = useRef();
+  console.log("Render Toast");
+  useEffect(() => {
+    if (props.className === "toast_online") {
+      props.toastRef.current.className += " open";
+      setTimeout(() => {
+        if (props.toastRef.current !== null) {  
+          props.toastRef.current.className += " close";
+        }
+      }, 5000);
+      setTimeout(() => {
+        props.clearList();
+      }, 5500);
+    } else {
+      props.toastRef.current.className += " open";
+    }
+  });
+
   const clickHandler = () => {
-    ref.current.style.animation = "hideToast 0.3s ease-out forwards";
+    props.toastRef.current.className += " close";
+    setTimeout(() => {
+      props.clearList();
+    }, 1000);
   };
 
   return (
-    <div id={props.className} className={props.className} ref={ref}>
+    <div id={props.className} className={props.className} ref={props.toastRef}>
       {props.Icon ? <props.Icon /> : null}
       {props.description ? <span>{props.description}</span> : null}
       {props.button ? (

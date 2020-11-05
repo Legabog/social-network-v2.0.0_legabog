@@ -1,10 +1,10 @@
-import _ from "lodash";
+import { toastRef } from "containers/ToastContainer"
 
 import WifiIcon from "@material-ui/icons/Wifi";
 import WifiOffIcon from "@material-ui/icons/WifiOff";
 
 const ADD_TO_TOAST_CONTAINER = "ADD_TO_TOAST_CONTAINER";
-const DELETE_FROM_TOAST_CONTAINER = "DELETE_FROM_TOAST_CONTAINER";
+const CLEAR_TOAST_LIST = "CLEAR_TOAST_LIST";
 
 let initialState = {
   toasts: [
@@ -22,7 +22,7 @@ let initialState = {
       button: "Refresh",
     },
   ],
-  list: [],
+  list: null,
 };
 
 const onlineStatusToastReducer = (state = initialState, action) => {
@@ -30,50 +30,49 @@ const onlineStatusToastReducer = (state = initialState, action) => {
     case ADD_TO_TOAST_CONTAINER:
       return {
         ...state,
-        list: [...state.list, action.payload],
+        list: action.toast,
       };
-    case DELETE_FROM_TOAST_CONTAINER:
+    case CLEAR_TOAST_LIST:
       return {
         ...state,
-        list: [...state.list.slice(0, action.index)].concat([
-          ...state.list.slice(action.index + 1, [...state.list].length),
-        ]),
+        list: null,
       };
     default:
       return state;
   }
 };
 
-export const addToToastContainer = (payload) => {
+export const addToToastContainer = (toast) => {
   return {
     type: ADD_TO_TOAST_CONTAINER,
-    payload,
+    toast,
   };
 };
 
-export const deleteFromToastContainer = (index) => {
+export const clearList = () => {
   return {
-    type: DELETE_FROM_TOAST_CONTAINER,
-    index,
+    type: CLEAR_TOAST_LIST,
   };
 };
 
 export const addAndDeleteToastAsync = (index) => {
   return async (dispatch, getState) => {
     const updatedState = getState().onlineStatusToastReducer;
-
-    if (_.some(updatedState.list, updatedState.toasts[index === 0 ? 1 : 0])) {
-      const findedIndex = updatedState.list.findIndex(
-        (e) => e.id === (index === 0 ? 2 : 1)
-      );
-      if (findedIndex !== -1) {
-        await dispatch(deleteFromToastContainer(findedIndex));
+      if (updatedState.list !== null) {
+        console.log("Closing toast...")
+        toastRef.current.className += " close"
+        setTimeout(() => {
+          console.log("Clearing list...")
+          dispatch(clearList())
+        }, 1000)
+        setTimeout(() => {
+          console.log(`Adding ${index === 0 ? "online" : "offline"} toast... `);
+          dispatch(addToToastContainer(updatedState.toasts[index]));
+        }, 1500)
+      } else {
+        console.log(`Adding ${index === 0 ? "online" : "offline"} toast... `);
+        dispatch(addToToastContainer(updatedState.toasts[index]));
       }
-    }
-
-    if (!_.some(updatedState.list, updatedState.toasts[index])) {
-      dispatch(addToToastContainer(updatedState.toasts[index]));
-    }
   };
 };
 
