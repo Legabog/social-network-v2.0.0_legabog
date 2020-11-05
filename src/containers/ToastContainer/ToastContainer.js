@@ -1,73 +1,23 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
+import { connect } from "react-redux";
+import { compose } from "redux";
+import { withRouter } from "react-router-dom";
 import "./ToastContainer.css";
 
-import _ from "lodash";
-
-import WifiIcon from "@material-ui/icons/Wifi";
-import WifiOffIcon from "@material-ui/icons/WifiOff";
+import { addAndDeleteToastAsync } from "redux/online-status-toast-reducer";
 
 import { Toast } from "pres-components/Toast";
 
-export const ToastContainer = React.memo((props) => {
-  console.log("Render Container")
-  const toasts = [
-    {
-      id: 1,
-      className: "toast_online",
-      Icon: WifiIcon,
-      description: "Your internet connection was restored.",
-    },
-    {
-      id: 2,
-      className: "toast_offline",
-      Icon: WifiOffIcon,
-      description: "You are currently offline.",
-      button: "Refresh",
-    },
-  ];
+import _ from "lodash/core";
 
-  const [list, setList] = useState([]);
-
-  const deleteFromList = (id) => {
-    const index = list.findIndex((e) => e.id === id);
-    if (index !== -1) {
-      setList(
-        [...list.slice(0, index)].concat([
-          ...list.slice(index + 1, [...list].length),
-        ])
-      );
-    }
-  };
-
-  const addToastToList = (index) => {
-    console.log("Adding toast_online...")
-    if (!_.some(list, toasts[index])) {
-      setList([...list, toasts[index]]);
-    }
-  };
-
-  window.addEventListener("online", () => addToastToList(0));
-  window.addEventListener("offline", () => addToastToList(1));
-
-  useEffect(() => {
-    if (navigator.onLine) {
-      if (_.some(list, toasts[1])) {
-        console.log("Removing toast_offline...");
-        deleteFromList(2);
-        
-      }
-    } else {
-      if (_.some(list, toasts[0])) {
-        console.log("Removing toast_online...");
-        deleteFromList(1);
-      }
-    }
-  });
+const ToastContainer_ = (props) => {
+  window.addEventListener("online", () => props.addAndDeleteToastAsync(0));
+  window.addEventListener("offline", () => props.addAndDeleteToastAsync(1));
 
   return ReactDOM.createPortal(
     <div className={`toast_container ${props.position}`}>
-      {list.map((e) => (
+      {props.list.map((e) => (
         <Toast
           id={e.id}
           key={_.uniqueId(e.id)}
@@ -75,10 +25,20 @@ export const ToastContainer = React.memo((props) => {
           Icon={e.Icon}
           description={e.description}
           button={e.button}
-          deleteFromList={deleteFromList}
         />
       ))}
     </div>,
     document.getElementById("toast-root")
   );
+};
+
+const mapStateToProps = (state) => ({
+  list: state.onlineStatusToastReducer.list,
 });
+
+export const ToastContainer = compose(
+  withRouter,
+  connect(mapStateToProps, {
+    addAndDeleteToastAsync,
+  })
+)(ToastContainer_);

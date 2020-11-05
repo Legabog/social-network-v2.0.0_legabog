@@ -104,16 +104,44 @@
     padding-left: 10px;
 }
 
+.button-account-menu__block__description > span {
+    word-break: break-word;
+    color: #65676B;    
+    font-weight: normal;
+    font-size: .9375rem;
+    line-height: 1.3333;
+}
+
 .button-account-menu__block__account-name > span {
     font-weight: 600;
+    width: 220px;
     text-align: left;
     color: #050505;
     line-height: 1.1765;
     word-break: break-word;
+    text-overflow: ellipsis;
 }
 
-.button-account-menu__block__description > span {
+.button-account-menu__block__account-name {
+    display: flex;
+    align-items: center;
+}
+
+.button-account-menu__block__online-section {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-account-menu__block__online-section > svg {
+    width: 12px;
+    height: 12px;
+}
+
+.button-account-menu__block__online-section > span {
     word-break: break-word;
+    padding-bottom: 3px;
     color: #65676B;    
     font-weight: normal;
     font-size: .9375rem;

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 import "./ButtonAccountMenuWrapper.css";
 
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
@@ -8,7 +9,7 @@ import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 import HelpIcon from "@material-ui/icons/Help";
 import Brightness2Icon from "@material-ui/icons/Brightness2";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
-import { NavLink } from "react-router-dom";
+import FiberManualRecordIcon from "@material-ui/icons/FiberManualRecord";
 import { Avatar } from "@material-ui/core";
 
 import { ChangeAvatarSimplePreloader } from "pres-components/ChangeAvatarSimplePreloader";
@@ -60,6 +61,21 @@ export const ButtonAccountMenuWrapper = React.memo((props) => {
                     ? null
                     : `${props.user.Name} ${props.user.Sername}`}
                 </span>
+                <div className={"button-account-menu__block__online-section"}>
+                  {navigator.onLine ? (
+                    <>
+                      <FiberManualRecordIcon
+                        style={{ color: "rgb(25, 189, 0)" }}
+                      />
+                      <span>online</span>
+                    </>
+                  ) : (
+                    <>
+                      <FiberManualRecordIcon style={{ color: "#F62A54" }} />
+                      <span>offline</span>
+                    </>
+                  )}
+                </div>
               </div>
 
               <div className="button-account-menu__block__description">
