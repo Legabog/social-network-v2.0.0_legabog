@@ -7,7 +7,9 @@ import "./ToastContainer.css";
 
 import {
   addAndDeleteToastAsync,
-  clearList,
+  effectAfterAddToast,
+  closeAndDeleteHandler
+
 } from "redux/online-status-toast-reducer";
 
 import { Toast } from "pres-components/Toast";
@@ -16,8 +18,6 @@ import { Toast } from "pres-components/Toast";
 export const toastRef = React.createRef()
 
 const ToastContainer_ = (props) => {
-  console.log("Toast Container");
-
   window.addEventListener("online", () => props.addAndDeleteToastAsync(0));
   window.addEventListener("offline", () => props.addAndDeleteToastAsync(1));
   
@@ -31,8 +31,8 @@ const ToastContainer_ = (props) => {
         Icon={props.list.Icon}
         description={props.list.description}
         button={props.list.button}
-        addAndDeleteToastAsync={props.addAndDeleteToastAsync}
-        clearList={props.clearList}
+        effectAfterAddToast={props.effectAfterAddToast}
+        closeAndDeleteHandler={props.closeAndDeleteHandler}
       />
       : null}
     </div>,
@@ -48,6 +48,7 @@ export const ToastContainer = compose(
   withRouter,
   connect(mapStateToProps, {
     addAndDeleteToastAsync,
-    clearList,
+    effectAfterAddToast,
+    closeAndDeleteHandler
   })
 )(ToastContainer_);
