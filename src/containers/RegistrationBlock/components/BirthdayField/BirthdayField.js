@@ -6,9 +6,10 @@ import "./BirthdayField.css";
 
 import { RegistrationFieldError } from "pres-components/RegistrationFieldError";
 import { RegistrationFormInformation } from "pres-components/RegistrationFormInformation";
+import { useTranslation } from "react-i18next";
 
 export const BirthdayField = (props) => {
-
+  const { t } = useTranslation();
   const [displayBirthdayError, setDisplayBirthdayError] = useState("none");
   const [displayBirthdayInfo, setDisplayBirthdayInfo] = useState("none");
 
@@ -29,7 +30,7 @@ export const BirthdayField = (props) => {
   return (
     <div className="birthday-field">
       <div className="birthday-field__description">
-        Date of birth
+        {t("unauthorized.registration-block.body.field-birthday.description")}
         <IconButton
           id="birthday-field__help-button"
           onBlur={toggleDisplayBirthdayInfo}
@@ -77,7 +78,9 @@ export const BirthdayField = (props) => {
             }}
           >
             <option value={"00"} defaultValue>
-              Day
+              {t(
+                "unauthorized.registration-block.body.field-birthday.option-1"
+              )}
             </option>
             <option value={"01"}>1</option>
             <option value={"02"}>2</option>
@@ -133,20 +136,52 @@ export const BirthdayField = (props) => {
             }}
           >
             <option value={"00"} defaultValue>
-              Month
+              {t(
+                "unauthorized.registration-block.body.field-birthday.option-2"
+              )}
             </option>
-            <option value={"01"}>Jan</option>
-            <option value={"02"}>Feb</option>
-            <option value={"03"}>Mar</option>
-            <option value={"04"}>Apr</option>
-            <option value={"05"}>May</option>
-            <option value={"06"}>Jun</option>
-            <option value={"07"}>Jul</option>
-            <option value={"08"}>Aug</option>
-            <option value={"09"}>Sep</option>
-            <option value={"10"}>Oct</option>
-            <option value={"11"}>Nov</option>
-            <option value={"12"}>Dec</option>
+            <option value={"01"}>
+              {t("unauthorized.registration-block.body.field-birthday.month-1")}
+            </option>
+            <option value={"02"}>
+              {t("unauthorized.registration-block.body.field-birthday.month-2")}
+            </option>
+            <option value={"03"}>
+              {t("unauthorized.registration-block.body.field-birthday.month-3")}
+            </option>
+            <option value={"04"}>
+              {t("unauthorized.registration-block.body.field-birthday.month-4")}
+            </option>
+            <option value={"05"}>
+              {t("unauthorized.registration-block.body.field-birthday.month-5")}
+            </option>
+            <option value={"06"}>
+              {t("unauthorized.registration-block.body.field-birthday.month-6")}
+            </option>
+            <option value={"07"}>
+              {t("unauthorized.registration-block.body.field-birthday.month-7")}
+            </option>
+            <option value={"08"}>
+              {t("unauthorized.registration-block.body.field-birthday.month-8")}
+            </option>
+            <option value={"09"}>
+              {t("unauthorized.registration-block.body.field-birthday.month-9")}
+            </option>
+            <option value={"10"}>
+              {t(
+                "unauthorized.registration-block.body.field-birthday.month-10"
+              )}
+            </option>
+            <option value={"11"}>
+              {t(
+                "unauthorized.registration-block.body.field-birthday.month-11"
+              )}
+            </option>
+            <option value={"12"}>
+              {t(
+                "unauthorized.registration-block.body.field-birthday.month-12"
+              )}
+            </option>
           </select>
         </div>
 
@@ -170,7 +205,9 @@ export const BirthdayField = (props) => {
             }}
           >
             <option value={"0000"} defaultValue>
-              Year
+              {t(
+                "unauthorized.registration-block.body.field-birthday.option-3"
+              )}
             </option>
             <option value={"2020"} defaultValue>
               2020
@@ -268,7 +305,9 @@ export const BirthdayField = (props) => {
       <RegistrationFieldError
         display={displayBirthdayError}
         // error
-        error_text={"It looks like you've entered the wrong info. Please make sure that you use your real date of birth."}
+        error_text={t(
+          "unauthorized.registration-block.body.field-birthday.error"
+        )}
         error_marginLeft={"-300px"}
         error_marginTop={"-50px"}
         error_backgroundPosition={"-49px -157px"}
@@ -278,10 +317,9 @@ export const BirthdayField = (props) => {
         error_right={"7px"}
       />
       <RegistrationFormInformation
-        info_text="Providing your date of birth helps make sure that you get the right
-        experience for your age. If you want to change who sees this, go to
-        the About section of your Profile. For more details, please visit
-        our Data Policy."
+        info_text={t(
+          "unauthorized.registration-block.body.field-birthday.help"
+        )}
         info_marginTop={"-80px"}
         info_marginLeft={"-290px"}
         info_e_marginTop={"-160px"}
@@ -291,4 +329,3 @@ export const BirthdayField = (props) => {
     </div>
   );
 };
-

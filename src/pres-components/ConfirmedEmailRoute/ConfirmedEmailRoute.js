@@ -1,29 +1,31 @@
 import React from "react";
 import "./ConfirmedEmailRoute.css";
 import { NavLink } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export const ConfirmedEmailRoute = (props) => {
+  const { t } = useTranslation();
+
   return (
     <div className="confirmed-email-route__wrapper">
       <div className="confirmed-email-route">
         <div className="confirmed-email-route__header">
-          <h1>Thank you for registration</h1>
+          <h1>{t("unauthorized.confirmed-email-route.header.h1")}</h1>
           <hr />
         </div>
         <div className="confirmed-email-route__body">
           <h2>
-            Finally, your account was created.
+            {t("unauthorized.confirmed-email-route.body.h2-1")}
             <br />
-            Now, you can log in.
+            {t("unauthorized.confirmed-email-route.body.h2-2")}
           </h2>
         </div>
         <div className="confirmed-email-route__button-back">
           <NavLink className="button-back" to={"/login"}>
-            Log in page
+            {t("unauthorized.confirmed-email-route.button-back.navLink")}
           </NavLink>
         </div>
       </div>
     </div>
   );
 };
-

@@ -1,9 +1,12 @@
 import React from "react";
+import { useTranslation } from 'react-i18next';
 import "./HeaderInput.css";
 
 import SearchIcon from "@material-ui/icons/Search";
 
 export const HeaderInput = (props) => {
+  const { t } = useTranslation();
+
   return (
     <div
       className={props.isFocus ? "header__input_active" : "header__input"}
@@ -15,7 +18,7 @@ export const HeaderInput = (props) => {
         value={props.value}
         onChange={props.changeHandler}
         ref={props.inputref}
-        placeholder="Search Social Network"
+        placeholder={t("header-left.header-input.placeholder")}
         onClick={props.toggleActiveInput}
         onBlur={props.toggleActiveInput}
       />

@@ -1,0 +1,161 @@
+{   
+    "title": {
+
+    },
+    "authorized": {
+
+    },
+    
+    "unauthorized": {
+        "login": {
+            "main-block": {
+                "description": {
+                    "h1": "Social-network by legabog",
+                    "h2": "This social network helps you always stay in touch and communicate with your friends."
+                },
+                "signin-block" : {
+                    "login-input": "Email",
+                    "password-input": "Password",
+                    "login-button": "Login",
+                    "restore-password": "Forgotten password?",
+                    "registration-button": "Create an account",
+                    "help": {
+                        "navLink": "Create a page",
+                        "description": "of a celebrity, music band or company."
+                    }
+                }
+            }
+        },
+        "login-route": {
+            "header": {
+                "h1": "Social network by legabog"
+            },
+            "body": {
+                "body-header": {
+                    "span": "Log in to Social network by legabog"
+                },
+                "form": {
+                    "login-input": "Email",
+                    "error-info": {
+                        "description": "The email address that you've entered doesn't match any account.",
+                        "navLink": "Sign up for an account."
+                    },
+                    "password-input": "Password",
+                    "login-button": "Login",
+                    "restore-account": "Forgotten account?",
+                    "or": "or",
+                    "create-account-button": "Create an account"
+                }
+            }
+        },
+        "registration-block": {
+            "header": {
+                "description-1": "Sign Up",
+                "description-2": "It's quick and easy."
+            },
+            "body": {
+                "registration-error": {
+                    "description-1": "We could not create your account.",
+                    "description-2": "We were not able to register you on our Social network.",
+                    "description-3": "It is possible that an account with such mail already exists."          
+                },
+                "field-1": {
+                    "placeholder": "First name",
+                    "error": "What's your name?"
+                },
+                "field-2": {
+                    "placeholder": "Surname",
+                    "error": "What's your surname?"
+                },
+                "field-3": {
+                    "placeholder": "Telephone number",
+                    "error": "Enter telephone number without spaces, started from + 7."
+                },
+                "field-4": {
+                    "placeholder": "Email",
+                    "error": "Enter your email correctly without spaces."
+                },
+                "field-5": {
+                    "placeholder": "Password",
+                    "error": "Enter a combination of at least six numbers, letters and punctuation."
+                },
+                "field-6": {
+                    "placeholder": "Confirm password",
+                    "error": "The password you typed must be the same."
+                },
+                "field-birthday": {
+                    "description": "Date of birth",
+                    "option-1": "Day",
+                    "option-2": "Month",
+                    "option-3": "Year",
+                    "month-1": "Jan",
+                    "month-2": "Feb",
+                    "month-3": "Mar",
+                    "month-4": "Apr",
+                    "month-5": "May",
+                    "month-6": "Jun",
+                    "month-7": "Jul",
+                    "month-8": "Aug",
+                    "month-9": "Sep",
+                    "month-10": "Oct",
+                    "month-11": "Nov",
+                    "month-12": "Dec",
+                    "error": "It looks like you've entered the wrong info. Please make sure that you use your real date of birth.",
+                    "help": "Providing your date of birth helps make sure that you get the right experience for your age. If you want to change who sees this, go to the About section of your Profile. For more details, please visit our Data Policy.",
+                    "close-button": "Close"
+                },
+                "field-gender": {
+                    "description": "Gender",
+                    "input-1": "Female",
+                    "input-2": "Male",
+                    "input-3": "Other",
+                    "error": "Please choose a gender. You can change who can see this later.",
+                    "help": "You can change who sees your gender on your profile later. Select Other to choose another gender, or if you'd rather not say.",
+                    "close-button": "Close"
+                },
+                "policy-message": {
+                    "p": "By clicking Sign Up, you agree to our Terms, Data Policy and Cookie Policy. You may receive SMS notifications from us and can opt out at any time."
+                },
+                "registration-button": "Sign Up"
+
+            }
+
+        },
+        "error-route": {
+            "header": {
+                "h1":"Oops, this page is not available"
+            },
+            "body": {
+                "h2": "You may have used an invalid link or a page may have been deleted."
+            },
+            "button-back": {
+                "navLink": "Go to home"
+            }
+        },
+        "confirm-email-route": {
+            "header": {
+                "h1":"Verify your account"
+            },
+            "body": {
+                "h2-1": "To complete registration, you have received an e-mail message.",
+                "h2-2": "Go to the specified url."
+            },
+            "button-back": {
+                "navLink": "Back to main page"
+            }
+        },
+        "confirmed-email-route": {
+            "header": {
+                "h1":"Thank you for registration"
+            },
+            "body": {
+                "h2-1": "Finally, your account was created.",
+                "h2-2": "Now, you can log in."
+            },
+            "button-back": {
+                "navLink": "Log in page"
+            }
+        }
+    }
+    
+}

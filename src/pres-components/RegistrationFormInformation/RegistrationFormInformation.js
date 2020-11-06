@@ -1,8 +1,10 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { NavLink } from "react-router-dom";
 import "./RegistrationFormInformation.css";
 
 export const RegistrationFormInformation = (props) => {
+  const { t } = useTranslation()
   const NavLinkClickHandler = (e) => {
     e.preventDefault();
     props.toggleDisplayBirthdayInfo();
@@ -30,7 +32,7 @@ export const RegistrationFormInformation = (props) => {
               className="registration-form-inforamtion__button"
               onClick={NavLinkClickHandler}
             >
-              Close
+              {t("unauthorized.registration-block.body.field-birthday.close-button")}
             </NavLink>
           </div>
         </div>

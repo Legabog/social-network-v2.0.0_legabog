@@ -1,14 +1,12 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import "./PolicyMessage.css";
 
 export const PolicyMessage = (props) => {
+  const { t } = useTranslation();
   return (
     <div className="policy-message">
-      <p>
-        By clicking Sign Up, you agree to our Terms, Data Policy and Cookie
-        Policy. You may receive SMS notifications from us and can opt out at any
-        time.
-      </p>
+      <p>{t("unauthorized.registration-block.body.policy-message.p")}</p>
     </div>
   );
 };

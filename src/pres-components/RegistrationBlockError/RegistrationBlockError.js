@@ -1,20 +1,28 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import "./RegistrationBlockError.css";
 
 export const RegistrationBlockError = (props) => {
+  const { t } = useTranslation();
+
   return (
     <div
       className="registration-block__error"
       style={{ display: props.registrationError ? null : "none" }}
     >
       <div className="registration-block__error__description">
-        We could not create your account.
+        {t(
+          "unauthorized.registration-block.body.registration-error.description-1"
+        )}
         <br />
-        We were not able to register you on our Social network.
+        {t(
+          "unauthorized.registration-block.body.registration-error.description-2"
+        )}
         <br />
-        It is possible that an account with such mail already exists.
+        {t(
+          "unauthorized.registration-block.body.registration-error.description-3"
+        )}
       </div>
     </div>
   );
 };
-

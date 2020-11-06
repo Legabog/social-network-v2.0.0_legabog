@@ -1,7 +1,9 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import "./RegistrationButton.css";
 
 export const RegistrationButton = (props) => {
+  const { t } = useTranslation();
   return (
     <div className="registration-block__registration-button">
       <button
@@ -12,7 +14,7 @@ export const RegistrationButton = (props) => {
           props.validationResult();
         }}
       >
-        Sign Up
+        {t("unauthorized.registration-block.body.registration-button")}
       </button>
       <span
         className="registration-block__loader"
@@ -29,4 +31,3 @@ export const RegistrationButton = (props) => {
     </div>
   );
 };
-

@@ -10,8 +10,10 @@ import { displayRegistrationBlockTrue } from "redux/registration-block-reducer";
 import { useInput } from "hooks/useInput";
 
 import WarningRoundedIcon from "@material-ui/icons/WarningRounded";
+import { useTranslation } from "react-i18next";
 
 const LoginRoute_ = (props) => {
+  const { t } = useTranslation();
   const [email, emailRef, emailChangeHandler] = useInput("");
   const [password, passwordRef, passwordChangeHandler] = useInput("");
 
@@ -23,12 +25,12 @@ const LoginRoute_ = (props) => {
     <div className="login-route__wrapper">
       <div className="login-route">
         <div className="login-route__header">
-          <h1>Social network by legabog</h1>
+          <h1>{t("unauthorized.login-route.header.h1")}</h1>
         </div>
         <div className="login-route__body">
           <div className="login-route__body__header">
             <span>
-              <div>Log in to Social network by legabog</div>
+              <div>{t("unauthorized.login-route.body.body-header.span")}</div>
             </span>
           </div>
           <div className="login-route__body__form">
@@ -38,7 +40,9 @@ const LoginRoute_ = (props) => {
                   type="text"
                   name="email"
                   id="login-route-email"
-                  placeholder="Email"
+                  placeholder={t(
+                    "unauthorized.login-route.body.form.login-input"
+                  )}
                   className="login-route__input"
                   value={email}
                   ref={emailRef}
@@ -58,13 +62,12 @@ const LoginRoute_ = (props) => {
                 className="login-route__error-info"
                 style={{ display: props.loginError ? null : "none" }}
               >
-                The email address or phone number that you've entered doesn't
-                match any account.
+                {t("unauthorized.login-route.body.form.error-info.description")}
                 <NavLink
                   to={"/login"}
                   onClick={props.displayRegistrationBlockTrue}
                 >
-                  Sign up for an account.
+                  {t("unauthorized.login-route.body.form.error-info.navLink")}
                 </NavLink>
               </div>
             </div>
@@ -74,7 +77,9 @@ const LoginRoute_ = (props) => {
                 type="password"
                 name="password"
                 id="login-route-password"
-                placeholder="Password"
+                placeholder={t(
+                  "unauthorized.login-route.body.form.password-input"
+                )}
                 className="login-route__input"
                 value={password}
                 ref={passwordRef}
@@ -90,14 +95,18 @@ const LoginRoute_ = (props) => {
                 id="loginButton"
                 onClick={loginButtonSignInHandler}
               >
-                Login
+                {t("unauthorized.login-route.body.form.login-button")}
               </button>
             </div>
             <div className="login-route__body__restore-account">
-              <NavLink to={"/login"}>Forgotten account?</NavLink>
+              <NavLink to={"/login"}>
+                {t("unauthorized.login-route.body.form.restore-account")}
+              </NavLink>
             </div>
             <div className="login-route__body__or">
-              <span className="or">or</span>
+              <span className="or">
+                {t("unauthorized.login-route.body.form.or")}
+              </span>
             </div>
 
             <div className="login-route__body__button">
@@ -106,7 +115,7 @@ const LoginRoute_ = (props) => {
                 to={"/login"}
                 onClick={props.displayRegistrationBlockTrue}
               >
-                Create an account
+                {t("unauthorized.login-route.body.form.create-account-button")}
               </NavLink>
             </div>
           </div>

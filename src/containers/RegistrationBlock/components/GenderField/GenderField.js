@@ -6,8 +6,10 @@ import "./GenderField.css";
 
 import { RegistrationFieldError } from "pres-components/RegistrationFieldError";
 import { RegistrationFormInformation } from "pres-components/RegistrationFormInformation";
+import { useTranslation } from "react-i18next";
 
 export const GenderField = (props) => {
+  const { t } = useTranslation();
   const [displayGenderError, setDisplayGenderError] = useState("none");
   const [displayGenderInfo, setDisplayGenderInfo] = useState("none");
 
@@ -28,7 +30,7 @@ export const GenderField = (props) => {
   return (
     <div className="gender-field">
       <div className="gender-field__description">
-        Gender
+        {t("unauthorized.registration-block.body.field-gender.description")}
         <IconButton
           id="gender-field__help-button"
           onBlur={toggleDisplayGenderInfo}
@@ -64,7 +66,7 @@ export const GenderField = (props) => {
             className="gender-field__input__label"
             htmlFor="gender-field-input-female"
           >
-            Female
+            {t("unauthorized.registration-block.body.field-gender.input-1")}
           </label>
           <input
             name="gender"
@@ -93,7 +95,7 @@ export const GenderField = (props) => {
             className="gender-field__input__label"
             htmlFor="gender-field-input-male"
           >
-            Male
+            {t("unauthorized.registration-block.body.field-gender.input-2")}
           </label>
           <input
             name="gender"
@@ -118,7 +120,7 @@ export const GenderField = (props) => {
             className="gender-field__input__label"
             htmlFor="gender-field-input-other"
           >
-            Other
+            {t("unauthorized.registration-block.body.field-gender.input-3")}
           </label>
           <input
             name="gender"
@@ -136,9 +138,9 @@ export const GenderField = (props) => {
       <RegistrationFieldError
         display={displayGenderError}
         // error
-        error_text={
-          "Please choose a gender. You can change who can see this later."
-        }
+        error_text={t(
+          "unauthorized.registration-block.body.field-gender.error"
+        )}
         error_marginLeft={"-300px"}
         error_marginTop={"-40px"}
         error_backgroundPosition={"-49px -157px"}
@@ -148,8 +150,7 @@ export const GenderField = (props) => {
         error_right={"7px"}
       />
       <RegistrationFormInformation
-        info_text="You can change who sees your gender on your profile later. Select
-        Other to choose another gender, or if you'd rather not say."
+        info_text={t("unauthorized.registration-block.body.field-gender.help")}
         info_marginTop={"-70px"}
         info_marginLeft={"-320px"}
         info_e_marginTop={"-120px"}

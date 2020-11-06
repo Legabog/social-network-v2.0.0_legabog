@@ -1,20 +1,23 @@
 import React from "react";
 import "./ConfirmEmailRoute.css";
 import { NavLink } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export const ConfirmEmailRoute = (props) => {
+  const { t } = useTranslation();
+
   return (
     <div className="confirm-email-route__wrapper">
       <div className="confirm-email-route">
         <div className="confirm-email-route__header">
-          <h1>Verify your account</h1>
+          <h1>{t("unauthorized.confirm-email-route.header.h1")}</h1>
           <hr />
         </div>
         <div className="confirm-email-route__body">
           <h2>
-            To complete registration, you have received an e-mail message.
+            {t("unauthorized.confirm-email-route.body.h2-1")}
             <br />
-            Go to the specified url.
+            {t("unauthorized.confirm-email-route.body.h2-2")}
           </h2>
         </div>
         <div className="confirm-email-route__button-back">
@@ -23,11 +26,10 @@ export const ConfirmEmailRoute = (props) => {
             to={""}
             onClick={props.displayRegistrationBlockFalse}
           >
-            Back to main page
+            {t("unauthorized.confirm-email-route.button-back.navLink")}
           </NavLink>
         </div>
       </div>
     </div>
   );
 };
-
