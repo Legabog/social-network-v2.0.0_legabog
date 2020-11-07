@@ -151,8 +151,12 @@ export const GenderField = (props) => {
       />
       <RegistrationFormInformation
         info_text={t("unauthorized.registration-block.body.field-gender.help")}
-        info_marginTop={"-70px"}
-        info_marginLeft={"-320px"}
+        info_marginTop={
+          navigator.language.slice(0, 2) === "en" ? "-70px" : "-90px"
+        }
+        info_marginLeft={
+          navigator.language.slice(0, 2) === "en" ? "-320px" : "-340px"
+        }
         info_e_marginTop={"-120px"}
         display={displayGenderInfo}
         toggleDisplayGenderInfo={toggleDisplayGenderInfo}

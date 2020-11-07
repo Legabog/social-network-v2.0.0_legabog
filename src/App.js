@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import { compose } from "redux";
 import { Route, Switch, withRouter } from "react-router-dom";
 import _ from "lodash/core";
-import { useTranslation } from 'react-i18next';
 
 import { autoLogin } from "redux/auth-reducer";
 
@@ -62,18 +61,7 @@ const ConfirmedEmailRoute = React.lazy(() =>
 );
 
 const App = (props) => {
-  const { i18n } = useTranslation();
-
-  const defineLanguage = () => {
-    if (navigator.language[0] === "e" && navigator.language[1] === "n") {
-      i18n.changeLanguage("en");
-    } else if (navigator.language[0] === "r" && navigator.language[1] === "u") {
-      i18n.changeLanguage("ru");
-    }    
-  };
-
   useEffect(() => {
-    defineLanguage()
     props.autoLogin();
     // eslint-disable-next-line
   }, []);

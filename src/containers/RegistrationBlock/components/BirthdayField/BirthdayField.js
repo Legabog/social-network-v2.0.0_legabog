@@ -321,7 +321,9 @@ export const BirthdayField = (props) => {
           "unauthorized.registration-block.body.field-birthday.help"
         )}
         info_marginTop={"-80px"}
-        info_marginLeft={"-290px"}
+        info_marginLeft={
+          navigator.language.slice(0, 2) === "en" ? "-290px" : "-270px"
+        }
         info_e_marginTop={"-160px"}
         display={displayBirthdayInfo}
         toggleDisplayBirthdayInfo={toggleDisplayBirthdayInfo}
