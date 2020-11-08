@@ -3,8 +3,10 @@ import CloseOutlinedIcon from "@material-ui/icons/CloseOutlined";
 import { IconButton } from "@material-ui/core";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import "./WelcomePrivacyGuideHeader.css";
+import { useTranslation } from "react-i18next";
 
 export const WelcomePrivacyGuideHeader = (props) => {
+  const { t } = useTranslation();
   return (
     <div className={"WelcomePrivacyGuideHeader"}>
       {props.arrowBack ? (
@@ -25,7 +27,7 @@ export const WelcomePrivacyGuideHeader = (props) => {
         </div>
       ) : null}
       <div className={"WelcomePrivacyGuideHeader__title"}>
-        <span>Learn More About Privacy</span>
+        <span>{t("authorized.welcome.privacy-guide.header.title")}</span>
       </div>
       <div className={"WelcomePrivacyGuideHeader__closeIcon"}>
         <IconButton
@@ -40,4 +42,3 @@ export const WelcomePrivacyGuideHeader = (props) => {
     </div>
   );
 };
-

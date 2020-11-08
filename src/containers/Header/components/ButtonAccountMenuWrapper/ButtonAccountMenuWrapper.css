@@ -112,19 +112,20 @@
     line-height: 1.3333;
 }
 
+.button-account-menu__block__account-name {
+    display: flex;
+    align-items: center;
+}
+
 .button-account-menu__block__account-name > span {
     font-weight: 600;
     width: 220px;
     text-align: left;
+    flex: 1;
     color: #050505;
     line-height: 1.1765;
     word-break: break-word;
     text-overflow: ellipsis;
-}
-
-.button-account-menu__block__account-name {
-    display: flex;
-    align-items: center;
 }
 
 .button-account-menu__block__online-section {

@@ -11,5 +11,6 @@
 }
 
 .button-help > span {
+    padding: 0 10px;
     color: #eff2f5;
 }

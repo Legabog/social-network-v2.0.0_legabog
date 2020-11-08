@@ -7,15 +7,17 @@ import PhotoAdd from "assets/apple theme/playlist_add.jpg";
 import { NavLink } from "react-router-dom";
 import { PlayList } from "../PlayList";
 import { PlaylistPreloader } from "../PlaylistsPreloader";
+import { useTranslation } from "react-i18next";
 
 export const BodyPlayLists = (props) => {
+  const { t } = useTranslation();
   return (
     <div className={"playlists-body"}>
       {props.playListSwitcher ? null : (
         <NavLink to="/music-list/playlists/create">
           <div className={"playlists-body__create-playlist"}>
             <img src={PhotoAdd} alt="descripion" />
-            <h3>Create new playlist</h3>
+            <h3>{t("authorized.music-player.playlists.body.h3")}</h3>
           </div>
         </NavLink>
       )}
@@ -24,7 +26,7 @@ export const BodyPlayLists = (props) => {
       ) : props.ownPlayLists.length === 0 ? (
         <div className={"playlists-body__no-playlists"}>
           <AlbumIcon />
-          <h2>Now, you have not any playlists.</h2>
+          <h2>{t("authorized.music-player.playlists.body.h2")}</h2>
         </div>
       ) : (
         props.ownPlayLists.map((e) => (
@@ -46,4 +48,3 @@ export const BodyPlayLists = (props) => {
     </div>
   );
 };
-

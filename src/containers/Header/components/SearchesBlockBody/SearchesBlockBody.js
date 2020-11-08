@@ -4,27 +4,34 @@ import "./SearchesBlockBody.css";
 import QueryBuilderRoundedIcon from "@material-ui/icons/QueryBuilderRounded";
 import CloseOutlinedIcon from "@material-ui/icons/CloseOutlined";
 import { SearchesBlockBodyItem } from "../SearchesBlockBodyItem/";
+import { useTranslation } from "react-i18next";
 
 export const SearchesBlockBody = (props) => {
+  const { t } = useTranslation();
+
   return (
     <div className="searches-block__body">
       <div className="searches-block__body__header">
-        <h4>Recent Searches</h4>
-        <span>Edit</span>
+        <h4>
+          {t("authorized.header.header-left.searches-block.body.header.h4")}
+        </h4>
+        <span>
+          {t("authorized.header.header-left.searches-block.body.header.span")}
+        </span>
       </div>
       <div className="searches-block__body__block">
         <SearchesBlockBodyItem
-          title={"games"}
+          title={t("authorized.header.header-left.searches-block.body.item-1")}
           closeIcon={CloseOutlinedIcon}
           Icon={QueryBuilderRoundedIcon}
         />
         <SearchesBlockBodyItem
-          title={"video streams"}
+          title={t("authorized.header.header-left.searches-block.body.item-2")}
           closeIcon={CloseOutlinedIcon}
           Icon={QueryBuilderRoundedIcon}
         />
         <SearchesBlockBodyItem
-          title={"coronovirus updates"}
+          title={t("authorized.header.header-left.searches-block.body.item-3")}
           closeIcon={CloseOutlinedIcon}
           Icon={QueryBuilderRoundedIcon}
         />
@@ -32,4 +39,3 @@ export const SearchesBlockBody = (props) => {
     </div>
   );
 };
-

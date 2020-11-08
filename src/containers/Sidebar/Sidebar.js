@@ -26,8 +26,10 @@ import { ExpandMoreOutlined } from "@material-ui/icons";
 import ExpandLessIcon from "@material-ui/icons/ExpandLess";
 
 import { SidebarRow } from "./components/SidebarRow";
+import { useTranslation } from "react-i18next";
 
 const Sidebar_ = React.memo((props) => {
+  const { t } = useTranslation();
   const [additionalSections, setAdditionalSections] = useState(false);
 
   const toggleAdditionalSections = () => {
@@ -58,13 +60,21 @@ const Sidebar_ = React.memo((props) => {
         fetchAvatar={props.fetchAvatar}
       />
 
-      <SidebarRow Icon={GitHubIcon} title="Welcome" navLink={"/welcome"} />
-      <SidebarRow Icon={LibraryMusicIcon} title="Music" navLink={"/music"} />
+      <SidebarRow
+        Icon={GitHubIcon}
+        title={t("authorized.sidebar.rows.row-1")}
+        navLink={"/welcome"}
+      />
+      <SidebarRow
+        Icon={LibraryMusicIcon}
+        title={t("authorized.sidebar.rows.row-2")}
+        navLink={"/music"}
+      />
 
       <hr />
 
       <div className={"sidebar__title-section"}>
-        <span>Some deployed projects</span>
+        <span>{t("authorized.sidebar.title-section")}</span>
       </div>
 
       <SidebarRow
@@ -73,7 +83,7 @@ const Sidebar_ = React.memo((props) => {
             <use href={map_svg + "#vk"} />
           </svg>
         }
-        title="Social network VK-version"
+        title={t("authorized.sidebar.rows.row-3")}
         Link={"https://covers-storage.firebaseapp.com/"}
       />
 
@@ -83,17 +93,17 @@ const Sidebar_ = React.memo((props) => {
             <use href={map_svg + "#vue_logo"} />
           </svg>
         }
-        title="Vue.js, Node.js, Socket.io chat"
+        title={t("authorized.sidebar.rows.row-4")}
         Link={"https://murmuring-tor-87484.herokuapp.com/"}
       />
       <SidebarRow
         Img={game_logo}
-        title="ALEKSEY SURVIVE GAME, Phaser3"
+        title={t("authorized.sidebar.rows.row-5")}
         Link={"https://myfirstbot-sphara.web.app/"}
       />
       <SidebarRow
         Img={vkr_logo}
-        title="Vkr project"
+        title={t("authorized.sidebar.rows.row-6")}
         Link={"https://vkr-project-legabog.web.app/"}
       />
       {additionalSections ? (
@@ -101,31 +111,64 @@ const Sidebar_ = React.memo((props) => {
           <hr />
           <SidebarRow
             Icon={LocalHospitalIcon}
-            title="COVID-19 Information Center"
+            title={t("authorized.sidebar.rows.row-7")}
           />
-          <SidebarRow Icon={EmojiPeopleIcon} title="Friends" />
-          <SidebarRow Icon={ChatIcon} title="Messenger" />
+          <SidebarRow
+            Icon={EmojiPeopleIcon}
+            title={t("authorized.sidebar.rows.row-8")}
+          />
+          <SidebarRow
+            Icon={ChatIcon}
+            title={t("authorized.sidebar.rows.row-9")}
+          />
 
-          <SidebarRow Icon={PeopleIcon} title="Groups" />
-          <SidebarRow Icon={EventIcon} title="Events" />
-          <SidebarRow Icon={BookmarkIcon} title="Saved" />
+          <SidebarRow
+            Icon={PeopleIcon}
+            title={t("authorized.sidebar.rows.row-10")}
+          />
+          <SidebarRow
+            Icon={EventIcon}
+            title={t("authorized.sidebar.rows.row-11")}
+          />
+          <SidebarRow
+            Icon={BookmarkIcon}
+            title={t("authorized.sidebar.rows.row-12")}
+          />
 
-          <SidebarRow Icon={VideoLibraryIcon} title="Videos" />
-          <SidebarRow Icon={GamesIcon} title="Games" />
-          <SidebarRow Icon={SportsEsportsIcon} title="Esports Streams" />
-          <SidebarRow Icon={WorkIcon} title="Jobs" />
-          <SidebarRow Icon={FlagIcon} title="Pages" />
-          <SidebarRow Icon={WbSunnyIcon} title="Weather" />
+          <SidebarRow
+            Icon={VideoLibraryIcon}
+            title={t("authorized.sidebar.rows.row-13")}
+          />
+          <SidebarRow
+            Icon={GamesIcon}
+            title={t("authorized.sidebar.rows.row-14")}
+          />
+          <SidebarRow
+            Icon={SportsEsportsIcon}
+            title={t("authorized.sidebar.rows.row-15")}
+          />
+          <SidebarRow
+            Icon={WorkIcon}
+            title={t("authorized.sidebar.rows.row-16")}
+          />
+          <SidebarRow
+            Icon={FlagIcon}
+            title={t("authorized.sidebar.rows.row-17")}
+          />
+          <SidebarRow
+            Icon={WbSunnyIcon}
+            title={t("authorized.sidebar.rows.row-18")}
+          />
           <SidebarRow
             Icon={ExpandLessIcon}
-            title="See Less"
+            title={t("authorized.sidebar.rows.row-19")}
             toggleAdditionalSections={toggleAdditionalSections}
           />
         </>
       ) : (
         <SidebarRow
           Icon={ExpandMoreOutlined}
-          title="See More"
+          title={t("authorized.sidebar.rows.row-20")}
           toggleAdditionalSections={toggleAdditionalSections}
         />
       )}

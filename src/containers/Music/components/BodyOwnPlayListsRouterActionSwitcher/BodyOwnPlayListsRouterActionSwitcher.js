@@ -8,8 +8,10 @@ import MenuItem from "@material-ui/core/MenuItem";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import CloseIcon from "@material-ui/icons/Close";
 import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
+import { useTranslation } from "react-i18next";
 
 export const BodyOwnPlayListsRouterActionSwitcher = (props) => {
+  const { t } = useTranslation();
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = (event) => {
@@ -64,13 +66,22 @@ export const BodyOwnPlayListsRouterActionSwitcher = (props) => {
         style={{ width: "380px" }}
       >
         <div className={"bodyOwnPlayListsRouter__ActionSwitcherroot"}>
-          <div className={"bodyOwnPlayListsRouter__ActionSwitcherdescriptionHeader"}>
+          <div
+            className={
+              "bodyOwnPlayListsRouter__ActionSwitcherdescriptionHeader"
+            }
+          >
             <img src={props.albumCover} alt="mini_album_cover" />
-            <div className={"bodyOwnPlayListsRouter__ActionSwitchertitleAndAuthor"}>
+            <div
+              className={"bodyOwnPlayListsRouter__ActionSwitchertitleAndAuthor"}
+            >
               <h3>{props.title}</h3>
               <p>{props.author}</p>
             </div>
-            <CloseIcon onClick={handleClose} style={{ color: "rgb(163, 163, 163)" }} />
+            <CloseIcon
+              onClick={handleClose}
+              style={{ color: "rgb(163, 163, 163)" }}
+            />
           </div>
 
           <hr />
@@ -80,9 +91,17 @@ export const BodyOwnPlayListsRouterActionSwitcher = (props) => {
             props.deleteTrackFromPlayList(props.id, props.pid);
           }}
         >
-          <div className={"bodyOwnPlayListsRouter__ActionSwitcherdeleteFromPlayList"}>
-            <DeleteOutlineIcon style={{ color: "rgb(163, 163, 163)" }}/>
-            <h3>Delete from playlist</h3>
+          <div
+            className={
+              "bodyOwnPlayListsRouter__ActionSwitcherdeleteFromPlayList"
+            }
+          >
+            <DeleteOutlineIcon style={{ color: "rgb(163, 163, 163)" }} />
+            <h3>
+              {t(
+                "authorized.music-player.own-playlists-router.body.action-switcher.h3"
+              )}
+            </h3>
           </div>
         </MenuItem>
       </Menu>

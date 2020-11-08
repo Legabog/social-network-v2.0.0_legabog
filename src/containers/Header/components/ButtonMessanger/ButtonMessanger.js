@@ -3,8 +3,10 @@ import { ButtonMessangerWrapper } from "../ButtonMessangerWrapper";
 import { ButtonMessangerMenuWrapper } from "../ButtonMessangerMenuWrapper";
 import { useHelpMessage } from "hooks/useHelpMessage";
 import { ButtonHelp } from "containers/Header/components/ButtonHelp";
+import { useTranslation } from "react-i18next";
 
 export const ButtonMessanger = (props) => {
+  const { t } = useTranslation()
   const [
     helpMessageOpacity,
     helpMessageVisibility,
@@ -21,8 +23,7 @@ export const ButtonMessanger = (props) => {
       />
 
       <ButtonHelp
-        title={"Messanger"}
-        width={"100px"}
+        title={t("authorized.header.header-right.button-messenger.help")}
         marginLeft={"140px"}
         marginTop={"63px"}
         helpOpacity={helpMessageOpacity}

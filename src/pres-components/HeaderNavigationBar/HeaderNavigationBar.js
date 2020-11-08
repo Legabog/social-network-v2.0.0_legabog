@@ -10,8 +10,10 @@ import SupervisedUserCircleIcon from "@material-ui/icons/SupervisedUserCircle";
 import { HeaderNavigationBarHelp } from "pres-components/HeaderNavigationBarHelp";
 import { HeaderNavigationBarItem } from "pres-components/HeaderNavigationBarItem";
 import { useHelpMessage } from "hooks/useHelpMessage";
+import { useTranslation } from "react-i18next";
 
 export const HeaderNavigationBar = (props) => {
+  const { t } = useTranslation();
   const [
     helpHomeMessageOpacity,
     helpHomeMessageVisibility,
@@ -78,7 +80,9 @@ export const HeaderNavigationBar = (props) => {
       </NavLink>
 
       <HeaderNavigationBarHelp
-        title={"Home"}
+        title={t(
+          "authorized.header.header-center.header-navigation-bar.help-1"
+        )}
         helpOpacity={helpHomeMessageOpacity}
         helpVisibility={helpHomeMessageVisibility}
         helpMarginLeft={"-260px"}
@@ -97,7 +101,9 @@ export const HeaderNavigationBar = (props) => {
       </NavLink>
 
       <HeaderNavigationBarHelp
-        title={"Friends"}
+        title={t(
+          "authorized.header.header-center.header-navigation-bar.help-2"
+        )}
         helpOpacity={helpFriendsMessageOpacity}
         helpVisibility={helpFriendsMessageVisibility}
         helpMarginLeft={"-10px"}
@@ -116,7 +122,9 @@ export const HeaderNavigationBar = (props) => {
       </NavLink>
 
       <HeaderNavigationBarHelp
-        title={"Groups"}
+        title={t(
+          "authorized.header.header-center.header-navigation-bar.help-3"
+        )}
         helpOpacity={helpGroupsMessageOpacity}
         helpVisibility={helpGroupsMessageVisibility}
         helpMarginLeft={"240px"}

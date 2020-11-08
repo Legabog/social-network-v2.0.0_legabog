@@ -8,11 +8,11 @@ const availableLanguages = ["en", "ru"];
 
 const options = {
   // order and from where user language should be detected
-  order: ["cookie", "localStorage", "navigator"],
+  order: ["navigator", "localStorage", "cookie"],
 
   // keys or params to lookup language from
-  lookupCookie: "app-language",
-  lookupLocalStorage: "app-language",
+  lookupCookie: "_app-language",
+  lookupLocalStorage: "_app-language",
 
   // cache user language on
   caches: ["localStorage", "cookie"],

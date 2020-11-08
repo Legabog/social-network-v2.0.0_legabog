@@ -4,8 +4,10 @@ import { useState } from "react";
 import "./HeaderArtistItemRouter.css";
 
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
+import { useTranslation } from "react-i18next";
 
 export const HeaderArtistItemRouter = (props) => {
+  const { t } = useTranslation()
   const [hover, toggleHover] = useState(0);
 
   const setHover = (e) => {
@@ -29,7 +31,7 @@ export const HeaderArtistItemRouter = (props) => {
           ) : (
             <ArrowBackIosIcon style={{ color: "#1877F2" }} />
           )}
-          <h3>Artists</h3>
+          <h3>{t("authorized.music-player.artist-item-router.header.h3")}</h3>
         </NavLink>
       </div>
       <h1>{props.nameArtist}</h1>

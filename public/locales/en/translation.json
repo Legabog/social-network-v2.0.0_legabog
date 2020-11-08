@@ -3,7 +3,325 @@
 
     },
     "authorized": {
+        "header": {
+            "header-left": {
+                "input": {
+                    "placeholder": "Search"
+                },
+                "searches-block": {
+                    "header": {
+                        "h4": "Updates on COVID-19",
+                        "span": "coronavirus updates"
+                    },
+                    "body": {
+                        "header": {
+                            "h4": "Recent Searches",
+                            "span": "Edit"
+                        },
+                        "item-1": "games",
+                        "item-2": "video streams",
+                        "item-3": "coronovirus updates"
+                    }
+                }
 
+            },
+            "header-center": {
+                "header-navigation-bar": {
+                    "help-1": "Home",
+                    "help-2": "Friends",
+                    "help-3": "Groups"
+                }
+            },
+            "header-right": {
+                "button-find-friends": {
+                    "span": "Find Friends"
+                },
+                "button-create": {
+                    "menu": {
+                        "h2": "Create",
+                        "section-1": {
+                            "category": "Post",
+                            "help": "Share a post on News Feed."
+                        },
+                        "section-2": {
+                            "category": "Story",
+                            "help": "Share a photo or write something."
+                        },
+                        "section-3": {
+                            "category": "Life event",
+                            "help": "Add a life event to your profile."
+                        },
+                        "section-4": {
+                            "category": "Page",
+                            "help": "Connect and share with customers and fans."
+                        },
+                        "section-5": {
+                            "category": "Group",
+                            "help": "Connect with people who share your interests."
+                        },
+                        "section-6": {
+                            "category": "Event",
+                            "help": "Bring people together with a public or private event."
+                        }
+
+                    },
+                    "help": "Create"
+                },
+                "button-messenger": {
+                    "menu": {
+                        "h2": "Messenger",
+                        "panel": {
+                            "help-1": "See All in messenger",
+                            "help-2": "Create new room",
+                            "help-3": "New message",
+                            "help-4": "Options"
+                        },
+                        "input": {
+                            "placeholder": "Search Messenger"
+                        },
+                        "searches": {
+                            "focused": {
+                                "span-1": "No Found", 
+                                "span-2": "We couldn't find any matches for '.' Try checking for typos or using complete words." 
+                            },
+                            "unfocused": {
+                                "span": "No messages found.",
+                                "navLink": "See All in Messenger"
+                            }
+                        }
+
+                    },
+                    "help": "Messenger"
+                },
+                "button-notifications": {
+                    "menu": {
+                        "h1": "Notifications",
+                        "sections": {
+                            "item-1": "Mark all as read",
+                            "item-2": "Notifications settings",
+                            "item-3": "Open Notifications"
+                        },
+                        "span": "You have no notifications"
+
+                    },
+                    "help": "Notifications"
+                },
+                "button-account": {
+                    "description": "See your profile",
+                    "help": "Account",
+                    "online-section": {
+                        "online": "online",
+                        "offline": "offline"
+                    },
+                    "sections": {
+                        "item-1": {
+                            "span-1": "Give Feedback",
+                            "span-2": "Help us improve this Social Network."
+                        },
+                        "item-2": {
+                            "span-1": "Settings & Privacy",
+                            "span-2": "Set everything up for yourself."
+                        },
+                        "item-3": {
+                            "span-1": "Help & Support",
+                            "span-2": "Ask your questions."
+                        },
+                        "item-4": {
+                            "span-1": "Dark mode",
+                            "span-2": "Switcher"
+                        },
+                        "item-5": {
+                            "span-1": "Log Out",
+                            "span-2": "Sign out of the account."
+                        }
+                    }
+                }
+            }
+        },
+        "sidebar": {
+            "title-section": "Some deployed projects",
+            "rows": {
+                "row-1": "Welcome",
+                "row-2": "Music",
+                "row-3": "Social network VK-version",
+                "row-4": "Vue.js, Node.js, Socket.io chat",
+                "row-5": "ALEKSEY SURVIVE GAME, Phaser3",
+                "row-6": "VKR project",
+                "row-7": "COVID-19 Information Center",
+                "row-8": "Friends",
+                "row-9": "Messenger",
+                "row-10": "Groups",
+                "row-11": "Events",
+                "row-12": "Saved",
+                "row-13": "Videos",
+                "row-14": "Games",
+                "row-15": "Esports Streams",
+                "row-16": "Jobs",
+                "row-17": "Pages",
+                "row-18": "Weather",
+                "row-19": "See Less",
+                "row-20": "See More"
+            }
+        },
+        "feed": {
+            "story-reel": {
+                "title-1": "Konstantin Kostyashin",
+                "title-2": "Oleg Dosov",
+                "title-3": "Aleksey Alyab'ev",
+                "title-4": "Dmitriy Shurov",
+                "title-5": "Vadim Fenin"
+            },
+            "message-sender": {
+                "top": {
+                    "input-1": {
+                        "placeholder": "Type some message"
+                    },
+                    "input-2": {
+                        "placeholder": "ImageURL"
+                    }
+                },
+                "bottom": {
+                    "h3-1": "Live Video",
+                    "h3-2": "Photo/Video",
+                    "h3-3": "Feeling/Activity"
+                }
+            },
+            "post": {
+                "options": {
+                    "p-1": "Like",
+                    "p-2": "Comment",
+                    "p-3": "Share"
+                }
+            }
+
+        },
+        "toast-container": {
+            "toast-online": "Your internet connection was restored.",
+            "toast-offline": "You are currently offline.",
+            "button": "Refresh"
+        },
+        "welcome": {
+            "span": "Welcome to Social Network by legabog, ",
+            "search-section": {
+                "main": "Find People You Know",
+                "secondary": "Search by name or look for email.",
+                "input-placeholder": "Search by name or email"
+            },
+            "privacy-section": {
+                "main": "Get to know your privacy settings",
+                "secondary": "You control how you share your content with other people on this Social Network.",
+                "button": "Take a personal guide"
+            },
+            "privacy-guide": {
+                "header": {
+                    "title": "Learn More About Privacy"
+                },
+                "body": {
+                    "button-next_1": "Next",
+                    "button-next_2": "Finish",      
+                    "state-1": {
+                        "title": "How Tagging Works",
+                        "description": "Tagging is an easy way to let people know when they're in photos. A tag creates a link to the person's timeline and may share your post with their friends."
+                    },
+                    "state-2": {
+                        "title": "Your Privacy Shortcuts",
+                        "description": "You can find the latest privacy updates, important settings and account tools by clicking the dropdown menu at the top of the page."
+                    },  
+                    "state-3": {
+                        "title": "Sharing with Apps, Games and Websites",
+                        "description": "Control which apps and websites you've connected to social network can access your informaiton."
+                    }                
+                }
+            }
+        },
+        "music-player": {
+            "start-screen": {
+                "h1": "Music Player",
+                "h2": "click to Enter"
+            },
+            "music-list": {
+                "header": "Library",
+                "body": {
+                    "title-1": "Artists",
+                    "title-2": "Albums",
+                    "title-3": "Playlists"
+                },
+                "footer": {
+                    "h3": "Recently played: "
+                }
+            },
+            "artists": {
+                "header": {
+                    "h3": "Library",
+                    "h1": "Artists"
+                }
+            },
+            "artist-item-router": {
+                "header": {
+                    "h3": "Artists"
+                }
+            },
+            "albums": {
+                "header": {
+                    "h3": "Library",
+                    "h1": "Albums"
+                }
+            },
+            "playlists": {
+                "header": {
+                    "h3": "Library",
+                    "h1": "Playlists"
+                },
+                "body": {
+                    "h3": "Create new playlist",
+                    "h2": "Now, you have not any playlists."
+                }
+            },
+            "own-playlists-router": {
+                "header": {
+                    "h3": "Playlists"
+                },
+                "body": {
+                    "action-switcher": {
+                        "h3": "Delete from playlist"
+                    }
+                }
+            },
+            "create-playlist": {
+                "button-back": {
+                    "h3": "Cancel"
+                },
+                "button-done": {
+                    "h3": "Done"
+                },
+                "title": "Create new playlist",
+                "input_1": {
+                    "placeholder": "New playlist name"
+                },
+                "input_2": {
+                    "placeholder": "Description"
+                }
+            },
+            "music-player": {
+                "header": {
+                    "h3_1": "Albums",
+                    "h3_2": "Library"
+                },
+                "body": {
+                   "action-switcher": {
+                       "h3": "Add to a Playlist"
+                   } 
+                }
+            }
+        },
+        "music-player-panel": {
+            "close": {
+                "h3": "Not Playing"
+            },
+            "open": {
+                "h3": "Not Playing"
+            }
+        }
     },
     
     "unauthorized": {

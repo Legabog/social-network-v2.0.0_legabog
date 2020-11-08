@@ -6,7 +6,6 @@ export const ButtonHelp = (props) => {
     <div
       className="button-help"
       style={{
-        width: props.width,
         marginLeft: props.marginLeft,
         marginTop: props.marginTop,
         opacity: props.helpOpacity,

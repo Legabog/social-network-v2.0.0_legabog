@@ -1,8 +1,10 @@
 import React from "react";
 import "./OpenMusicPlayerPanelDescription.css";
 import musicCover from "assets/apple theme/music.jpg";
+import { useTranslation } from "react-i18next";
 
 export const OpenMusicPlayerPanelDescription = (props) => {
+  const { t } = useTranslation()
   return (
     <>
       {props.isPlaying ? (
@@ -33,7 +35,7 @@ export const OpenMusicPlayerPanelDescription = (props) => {
           <h3>
             {props.activeTrack !== null
               ? props.activeTrack.title
-              : "Not Playing"}
+              : t("authorized.music-player-panel.open.h3")}
           </h3>
         </div>
         <div className={"music-player-panel_open__author-name-album-name"}>

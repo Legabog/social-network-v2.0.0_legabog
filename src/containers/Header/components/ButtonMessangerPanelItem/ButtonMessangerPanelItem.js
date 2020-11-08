@@ -52,7 +52,6 @@ export const ButtonMessangerPanelItem = (props) => {
         style={{
           opacity: helpItemOpacity,
           visibility: helpItemVisibility,
-          width: `${props.help_width}`,
           marginLeft: `${props.help_marginLeft}`,
         }}
       >

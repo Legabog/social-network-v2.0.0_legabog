@@ -1,7 +1,9 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import "./WelcomePrivacyGuideBody.css";
 
 export const WelcomePrivacyGuideBody = (props) => {
+  const { t } = useTranslation();
   return (
     <div className={"welcome-privacy-guide-body__wrapper"}>
       <div className={"welcome-privacy-guide-body"}>
@@ -44,7 +46,9 @@ export const WelcomePrivacyGuideBody = (props) => {
                 }
               }}
             >
-              <span>Next</span>
+              <span>
+                {t("authorized.welcome.privacy-guide.body.button-next_1")}
+              </span>
             </div>
           </div>
         ) : (
@@ -56,7 +60,9 @@ export const WelcomePrivacyGuideBody = (props) => {
                 props.togglePrivacyGuideState(0);
               }}
             >
-              <span>Finish</span>
+              <span>
+                {t("authorized.welcome.privacy-guide.body.button-next_2")}
+              </span>
             </div>
           </div>
         )}
@@ -64,4 +70,3 @@ export const WelcomePrivacyGuideBody = (props) => {
     </div>
   );
 };
-

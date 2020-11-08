@@ -3,8 +3,10 @@ import { ButtonCreateWrapper } from "../ButtonCreateWrapper";
 import { ButtonCreateMenuWrapper } from "../ButtonCreateMenuWrapper";
 import { useHelpMessage } from "hooks/useHelpMessage";
 import { ButtonHelp } from "containers/Header/components/ButtonHelp";
+import { useTranslation } from "react-i18next";
 
 export const ButtonCreate = (props) => {
+  const { t } = useTranslation()
   const [
     helpMessageOpacity,
     helpMessageVisibility,
@@ -21,8 +23,7 @@ export const ButtonCreate = (props) => {
       />
       
       <ButtonHelp
-        title={"Create"}
-        width={"70px"}
+        title={t("authorized.header.header-right.button-create.help")}
         marginLeft={"105px"}
         marginTop={"63px"}
         helpOpacity={helpMessageOpacity}

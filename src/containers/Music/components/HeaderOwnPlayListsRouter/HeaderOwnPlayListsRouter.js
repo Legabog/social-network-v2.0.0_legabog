@@ -1,11 +1,13 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
-import "./HeaderOwnPlayListsRouter.css"
+import "./HeaderOwnPlayListsRouter.css";
 
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
+import { useTranslation } from "react-i18next";
 
 export const HeaderOwnPlayListsRouter = (props) => {
+  const { t } = useTranslation();
   const [hover, toggleHover] = useState(0);
 
   const setHover = (e) => {
@@ -24,15 +26,14 @@ export const HeaderOwnPlayListsRouter = (props) => {
         }}
       >
         <div className={"headerOwnPlayListsRouter__buttonBack"}>
-        {hover ? (
+          {hover ? (
             <ArrowBackIosIcon style={{ color: "#F62A54" }} />
           ) : (
             <ArrowBackIosIcon style={{ color: "#1877F2" }} />
           )}
-          <h3>Playlists</h3>
+          <h3>{t("authorized.music-player.own-playlists-router.header.h3")}</h3>
         </div>
       </NavLink>
     </div>
   );
 };
-

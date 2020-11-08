@@ -13,8 +13,10 @@ import FiberManualRecordIcon from "@material-ui/icons/FiberManualRecord";
 import { Avatar } from "@material-ui/core";
 
 import { ChangeAvatarSimplePreloader } from "pres-components/ChangeAvatarSimplePreloader";
+import { useTranslation } from "react-i18next";
 
 export const ButtonAccountMenuWrapper = React.memo((props) => {
+  const { t } = useTranslation();
   const [themeSwitcher, switchTheme] = useState(false);
 
   const toggleSwitcher = () => {
@@ -67,19 +69,31 @@ export const ButtonAccountMenuWrapper = React.memo((props) => {
                       <FiberManualRecordIcon
                         style={{ color: "rgb(25, 189, 0)" }}
                       />
-                      <span>online</span>
+                      <span>
+                        {t(
+                          "authorized.header.header-right.button-account.online-section.online"
+                        )}
+                      </span>
                     </>
                   ) : (
                     <>
                       <FiberManualRecordIcon style={{ color: "#F62A54" }} />
-                      <span>offline</span>
+                      <span>
+                        {t(
+                          "authorized.header.header-right.button-account.online-section.offline"
+                        )}
+                      </span>
                     </>
                   )}
                 </div>
               </div>
 
               <div className="button-account-menu__block__description">
-                <span>See your profile</span>
+                <span>
+                  {t(
+                    "authorized.header.header-right.button-account.description"
+                  )}
+                </span>
               </div>
             </div>
           </div>
@@ -121,11 +135,19 @@ export const ButtonAccountMenuWrapper = React.memo((props) => {
           </div>
           <div className="button-account-menu__section-info">
             <div className="button-account-menu__section-info-main">
-              <span>Give Feedback</span>
+              <span>
+                {t(
+                  "authorized.header.header-right.button-account.sections.item-1.span-1"
+                )}
+              </span>
             </div>
 
             <div className="button-account-menu__section-info-secondary">
-              <span>Help us improve this Social Network.</span>
+              <span>
+                {t(
+                  "authorized.header.header-right.button-account.sections.item-1.span-2"
+                )}
+              </span>
             </div>
           </div>
         </div>
@@ -143,10 +165,18 @@ export const ButtonAccountMenuWrapper = React.memo((props) => {
           </div>
           <div className="button-account-menu__section-info">
             <div className="buttonAccount__section__info-main">
-              <span>Settings & Privacy</span>
+              <span>
+                {t(
+                  "authorized.header.header-right.button-account.sections.item-2.span-1"
+                )}
+              </span>
             </div>
             <div className="button-account-menu__section-info-secondary">
-              <span>Set everything up for yourself.</span>
+              <span>
+                {t(
+                  "authorized.header.header-right.button-account.sections.item-2.span-2"
+                )}
+              </span>
             </div>
           </div>
           <div className="button-account-menu__section-arrow-left">
@@ -165,10 +195,18 @@ export const ButtonAccountMenuWrapper = React.memo((props) => {
           </div>
           <div className="button-account-menu__section-info">
             <div className="button-account-menu__section-info-main">
-              <span>Help & Support</span>
+              <span>
+                {t(
+                  "authorized.header.header-right.button-account.sections.item-3.span-1"
+                )}
+              </span>
             </div>
             <div className="button-account-menu__section-info-secondary">
-              <span>Ask your questions.</span>
+              <span>
+                {t(
+                  "authorized.header.header-right.button-account.sections.item-3.span-2"
+                )}
+              </span>
             </div>
           </div>
           <div className="button-account-menu__section-arrow-left">
@@ -182,10 +220,18 @@ export const ButtonAccountMenuWrapper = React.memo((props) => {
           </div>
           <div className="button-account-menu__section-info">
             <div className="button-account-menu__section-info-main">
-              <span>Dark mode</span>
+              <span>
+                {t(
+                  "authorized.header.header-right.button-account.sections.item-4.span-1"
+                )}
+              </span>
             </div>
             <div className="button-account-menu__section-info-secondary">
-              <span>Switcher</span>
+              <span>
+                {t(
+                  "authorized.header.header-right.button-account.sections.item-4.span-2"
+                )}
+              </span>
             </div>
           </div>
           <div className="button-account-menu__section-switcher">
@@ -216,10 +262,18 @@ export const ButtonAccountMenuWrapper = React.memo((props) => {
           </div>
           <div className="button-account-menu__section-info">
             <div className="button-account-menu__section-info-main">
-              <span>Log Out</span>
+              <span>
+                {t(
+                  "authorized.header.header-right.button-account.sections.item-5.span-1"
+                )}
+              </span>
             </div>
             <div className="button-account-menu__section-info-secondary">
-              <span>Exit from account.</span>
+              <span>
+                {t(
+                  "authorized.header.header-right.button-account.sections.item-5.span-2"
+                )}
+              </span>
             </div>
           </div>
         </div>

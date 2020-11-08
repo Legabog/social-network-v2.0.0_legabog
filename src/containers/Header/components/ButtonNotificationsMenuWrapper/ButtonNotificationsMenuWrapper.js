@@ -7,8 +7,10 @@ import ArrowDropUpIcon from "@material-ui/icons/ArrowDropUp";
 import SettingsIcon from "@material-ui/icons/Settings";
 import DesktopWindowsIcon from "@material-ui/icons/DesktopWindows";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
+import { useTranslation } from "react-i18next";
 
 export const ButtonNotificationsMenuWrapper = (props) => {
+  const { t } = useTranslation();
   const [optionPanel, setOptionalPanel] = useState(false);
 
   const toggleOptionPanel = (boolean) => {
@@ -25,7 +27,9 @@ export const ButtonNotificationsMenuWrapper = (props) => {
       }
     >
       <div className="button-notifications-menu__header">
-        <h1>Notifications</h1>
+        <h1>
+          {t("authorized.header.header-right.button-notifications.menu.h1")}
+        </h1>
         <div className="button-notifications-menu__options-icon">
           <MoreHorizIcon
             onClick={() => {
@@ -51,7 +55,11 @@ export const ButtonNotificationsMenuWrapper = (props) => {
               <div className="options-sections__icon">
                 <CheckIcon />
               </div>
-              <span>Mark all as read</span>
+              <span>
+                {t(
+                  "authorized.header.header-right.button-notifications.menu.sections.item-1"
+                )}
+              </span>
             </div>
 
             <div
@@ -64,7 +72,11 @@ export const ButtonNotificationsMenuWrapper = (props) => {
               <div className="options-sections__icon">
                 <SettingsIcon />
               </div>
-              <span>Notifications settings</span>
+              <span>
+                {t(
+                  "authorized.header.header-right.button-notifications.menu.sections.item-2"
+                )}
+              </span>
             </div>
 
             <div
@@ -77,7 +89,11 @@ export const ButtonNotificationsMenuWrapper = (props) => {
               <div className="options-sections__icon">
                 <DesktopWindowsIcon />
               </div>
-              <span>Open Notifications</span>
+              <span>
+                {t(
+                  "authorized.header.header-right.button-notifications.menu.sections.item-3"
+                )}
+              </span>
             </div>
           </div>
         </div>
@@ -91,10 +107,11 @@ export const ButtonNotificationsMenuWrapper = (props) => {
         </div>
 
         <div className="button-notifications-menu__description">
-          <span>You have no notifications</span>
+          <span>
+            {t("authorized.header.header-right.button-notifications.menu.span")}
+          </span>
         </div>
       </div>
     </div>
   );
 };
-

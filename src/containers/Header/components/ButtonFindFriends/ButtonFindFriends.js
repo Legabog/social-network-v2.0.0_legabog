@@ -1,8 +1,10 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { NavLink } from "react-router-dom";
 import "./ButtonFindFriends.css";
 
 export const ButtonFindFriends = (props) => {
+  const { t } = useTranslation()
   return (
     <div
       className={
@@ -19,7 +21,7 @@ export const ButtonFindFriends = (props) => {
               : "button-find-friends"
           }
         >
-          <span>Find Friends</span>
+          <span>{t("authorized.header.header-right.button-find-friends.span")}</span>
         </div>
       </NavLink>
     </div>

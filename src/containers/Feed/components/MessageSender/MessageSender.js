@@ -7,8 +7,10 @@ import PhotoLibraryIcon from "@material-ui/icons/PhotoLibrary";
 import InsertEmoticonIcon from "@material-ui/icons/InsertEmoticon";
 
 import db from "utils/firebase/firebase";
+import { useTranslation } from "react-i18next";
 
 export const MessageSender = (props) => {
+  const { t } = useTranslation();
   const [input, setInput] = useState("");
   const [imageUrl, setImageUrl] = useState("");
 
@@ -51,7 +53,9 @@ export const MessageSender = (props) => {
             onChange={inputHandler}
             className="message-sender__input"
             type="text"
-            placeholder={`Type some message, ${
+            placeholder={`${t(
+              "authorized.feed.message-sender.top.input-1.placeholder"
+            )}, ${
               props.user === null || props.user.Name === ""
                 ? null
                 : props.user.Name
@@ -61,7 +65,9 @@ export const MessageSender = (props) => {
             value={imageUrl}
             onChange={imageUrlHandler}
             type="text"
-            placeholder="ImageUrl"
+            placeholder={t(
+              "authorized.feed.message-sender.top.input-2.placeholder"
+            )}
           />
           <button onClick={handleSubmit} type="submit">
             Hidden submit
@@ -71,20 +77,19 @@ export const MessageSender = (props) => {
       <div className="message-sender__bottom">
         <div className="message-sender__option">
           <VideocamIcon style={{ color: "red" }} />
-          <h3>Live Video</h3>
+          <h3>{t("authorized.feed.message-sender.bottom.h3-1")}</h3>
         </div>
 
         <div className="message-sender__option">
           <PhotoLibraryIcon style={{ color: "green" }} />
-          <h3>Photo/Video</h3>
+          <h3>{t("authorized.feed.message-sender.bottom.h3-2")}</h3>
         </div>
 
         <div className="message-sender__option">
           <InsertEmoticonIcon style={{ color: "yellow" }} />
-          <h3>Feeling/Activity</h3>
+          <h3>{t("authorized.feed.message-sender.bottom.h3-3")}</h3>
         </div>
       </div>
     </div>
   );
 };
-

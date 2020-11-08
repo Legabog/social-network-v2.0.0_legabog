@@ -10,8 +10,10 @@ import CreateOutlinedIcon from "@material-ui/icons/CreateOutlined";
 import { MenuMessangerInput } from "../MenuMessangerInput";
 import { ButtonMessangerPanelItem } from "../ButtonMessangerPanelItem";
 import { useInput } from "hooks/useInput";
+import { useTranslation } from "react-i18next";
 
 export const ButtonMessangerMenuWrapper = (props) => {
+  const { t } = useTranslation();
   const [
     value,
     ref,
@@ -31,32 +33,36 @@ export const ButtonMessangerMenuWrapper = (props) => {
       }
     >
       <div className="button-messanger-menu__header">
-        <h2>Messanger</h2>
+        <h2>{t("authorized.header.header-right.button-messenger.menu.h2")}</h2>
         <div className="button-messanger-menu__panel">
           <ButtonMessangerPanelItem
-            item_help={"See All in messanger"}
-            help_width={"170px"}
+            item_help={t(
+              "authorized.header.header-right.button-messenger.menu.panel.help-1"
+            )}
             help_marginLeft={"-130px"}
             Icon={ZoomOutMapIcon}
             {...props}
           />
           <ButtonMessangerPanelItem
-            item_help={"Create new room"}
-            help_width={"150px"}
+            item_help={t(
+              "authorized.header.header-right.button-messenger.menu.panel.help-2"
+            )}
             help_marginLeft={"-110px"}
             Icon={VideoCallIcon}
             {...props}
           />
           <ButtonMessangerPanelItem
-            item_help={"New message"}
-            help_width={"120px"}
+            item_help={t(
+              "authorized.header.header-right.button-messenger.menu.panel.help-3"
+            )}
             help_marginLeft={"-80px"}
             Icon={CreateOutlinedIcon}
             {...props}
           />
           <ButtonMessangerPanelItem
-            item_help={"Options"}
-            help_width={"70px"}
+            item_help={t(
+              "authorized.header.header-right.button-messenger.menu.panel.help-4"
+            )}
             help_marginLeft={"-30px"}
             Icon={MoreHorizIcon}
             {...props}
@@ -76,17 +82,26 @@ export const ButtonMessangerMenuWrapper = (props) => {
         <div className="button-messanger-menu__searches">
           {isFocus ? (
             <>
-              <span>No Found</span>
+              <span>
+                {t(
+                  "authorized.header.header-right.button-messenger.menu.searches.focused.span-1"
+                )}
+              </span>
               <div className="button-messanger-menu__description">
                 <span>
-                  We couldn't find any matches for "." Try checking for typos or
-                  using complete words.
+                  {t(
+                    "authorized.header.header-right.button-messenger.menu.searches.focused.span-2"
+                  )}
                 </span>
               </div>
             </>
           ) : (
             <>
-              <span>No messages found.</span>
+              <span>
+                {t(
+                  "authorized.header.header-right.button-messenger.menu.searches.unfocused.span"
+                )}
+              </span>
               <hr />
               <NavLink
                 to={"/messages"}
@@ -94,7 +109,9 @@ export const ButtonMessangerMenuWrapper = (props) => {
                   props.toggleActiveButton();
                 }}
               >
-                See All in Messanger
+                {t(
+                  "authorized.header.header-right.button-messenger.menu.searches.unfocused.navLink"
+                )}
               </NavLink>
             </>
           )}

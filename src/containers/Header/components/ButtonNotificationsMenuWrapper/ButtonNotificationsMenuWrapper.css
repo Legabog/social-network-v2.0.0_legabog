@@ -40,14 +40,17 @@
 
 .button-notifications-menu__header {
     display: flex;
+}
+
+.button-notifications-menu__header > h1 {
     color: #050505;
     font-weight: 600;
+    flex: 1;
 }
 
 .button-notifications-menu__options-icon {
     cursor: pointer;
     z-index: 2;
-    margin-left: 120px;
     display: flex;
     text-align: center;
     justify-content: center;

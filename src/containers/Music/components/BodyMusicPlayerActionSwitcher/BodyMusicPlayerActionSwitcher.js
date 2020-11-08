@@ -4,13 +4,14 @@ import { useState } from "react";
 import Button from "@material-ui/core/Button";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
-import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
-import CloseIcon from '@material-ui/icons/Close';
-import AddIcon from '@material-ui/icons/Add';
-import "./BodyMusicPlayerActionSwitcher.css"
-
+import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
+import CloseIcon from "@material-ui/icons/Close";
+import AddIcon from "@material-ui/icons/Add";
+import "./BodyMusicPlayerActionSwitcher.css";
+import { useTranslation } from "react-i18next";
 
 export const BodyMusicPlayerActionSwitcher = (props) => {
+  const { t } = useTranslation();
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = (event) => {
@@ -19,7 +20,7 @@ export const BodyMusicPlayerActionSwitcher = (props) => {
 
   const handleClose = () => {
     setAnchorEl(null);
-    setHover(0)
+    setHover(0);
   };
 
   const [hover, toggleHover] = useState(0);
@@ -49,10 +50,11 @@ export const BodyMusicPlayerActionSwitcher = (props) => {
         }}
       >
         <div className={"action-switcher__icon"}>
-          {hover 
-            ? <MoreHorizIcon style={{color: "#F62A54"}}/>
-            : <MoreHorizIcon style={{color: "#1877F2"}}/>
-          }
+          {hover ? (
+            <MoreHorizIcon style={{ color: "#F62A54" }} />
+          ) : (
+            <MoreHorizIcon style={{ color: "#1877F2" }} />
+          )}
         </div>
       </Button>
       <Menu
@@ -61,16 +63,19 @@ export const BodyMusicPlayerActionSwitcher = (props) => {
         keepMounted
         open={Boolean(anchorEl)}
         onClose={handleClose}
-        style={{width: "380px", marginLeft: "-20px"}}
+        style={{ width: "380px", marginLeft: "-20px" }}
       >
         <div className={"action-switcher__root"}>
           <div className={"action-switcher__description-header"}>
-            <img src={props.albumCover} alt="mini_album_cover"/>
+            <img src={props.albumCover} alt="mini_album_cover" />
             <div className={"action-switcher__title-and-author"}>
               <h3>{props.title}</h3>
               <p>{props.author}</p>
             </div>
-            <CloseIcon onClick={handleClose} style={{color: "rgb(163, 163, 163)"}}/> 
+            <CloseIcon
+              onClick={handleClose}
+              style={{ color: "rgb(163, 163, 163)" }}
+            />
           </div>
         </div>
         <MenuItem
@@ -90,8 +95,12 @@ export const BodyMusicPlayerActionSwitcher = (props) => {
             to={`/music-list/playlists`}
           >
             <div className={"action-switcher__add"}>
-              <AddIcon style={{color: "rgb(163, 163, 163)"}}/>
-              <h3>Add to a Playlist</h3>
+              <AddIcon style={{ color: "rgb(163, 163, 163)" }} />
+              <h3>
+                {t(
+                  "authorized.music-player.music-player.body.action-switcher.h3"
+                )}
+              </h3>
             </div>
           </NavLink>
         </MenuItem>

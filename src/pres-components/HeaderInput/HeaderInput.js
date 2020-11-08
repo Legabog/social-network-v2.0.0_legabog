@@ -18,7 +18,7 @@ export const HeaderInput = (props) => {
         value={props.value}
         onChange={props.changeHandler}
         ref={props.inputref}
-        placeholder={t("header-left.header-input.placeholder")}
+        placeholder={t("authorized.header.header-left.input.placeholder")}
         onClick={props.toggleActiveInput}
         onBlur={props.toggleActiveInput}
       />

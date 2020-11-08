@@ -1,11 +1,13 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
-import "./HeaderMusicPlayer.css"
+import "./HeaderMusicPlayer.css";
 
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
+import { useTranslation } from "react-i18next";
 
 export const HeaderMusicPlayer = (props) => {
+  const { t } = useTranslation();
   const [hover, toggleHover] = useState(0);
 
   const setHover = (e) => {
@@ -35,8 +37,7 @@ export const HeaderMusicPlayer = (props) => {
             setHover(0);
           }}
         >
-
-         {hover ? (
+          {hover ? (
             <ArrowBackIosIcon style={{ color: "#F62A54" }} />
           ) : (
             <ArrowBackIosIcon style={{ color: "#1877F2" }} />
@@ -45,8 +46,8 @@ export const HeaderMusicPlayer = (props) => {
             {props.switcher === 1
               ? props.nameArtist
               : props.switcher === 2
-              ? "Albums"
-              : "Library"}
+              ? t("authorized.music-player.music-player.header.h3_1")
+              : t("authorized.music-player.music-player.header.h3_2")}
           </h3>
         </NavLink>
       </div>

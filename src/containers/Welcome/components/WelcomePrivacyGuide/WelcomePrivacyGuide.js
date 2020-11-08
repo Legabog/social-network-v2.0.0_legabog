@@ -4,8 +4,10 @@ import "./WelcomePrivacyGuide.css";
 import { WelcomePrivacyGuideHeader } from "../WelcomePrivacyGuideHeader";
 import { WelcomePrivacyGuideBody } from "../WelcomePrivacyGuideBody";
 import { BackDrop } from "pres-components/BackDrop";
+import { useTranslation } from "react-i18next";
 
 export const WelcomePrivacyGuide = (props) => {
+  const { t } = useTranslation();
   return (
     <div
       className={"welcome-privacy-guide__wrapper"}
@@ -25,10 +27,10 @@ export const WelcomePrivacyGuide = (props) => {
 
         {props.privacyGuideState === 0 ? (
           <WelcomePrivacyGuideBody
-            title={"How Tagging Works"}
-            description={`Tagging is an easy way to let people know when they're in photos. A
-          tag creates a link to the person's timeline and may share your post
-          with their friends.`}
+            title={t("authorized.welcome.privacy-guide.body.state-1.title")}
+            description={t(
+              "authorized.welcome.privacy-guide.body.state-1.description"
+            )}
             slideUrl={
               "https://firebasestorage.googleapis.com/v0/b/social-network-legabog.appspot.com/o/privacy-guide-slides%2FPrivacy-Guide-Slide_1.jpg?alt=media"
             }
@@ -37,8 +39,10 @@ export const WelcomePrivacyGuide = (props) => {
           />
         ) : props.privacyGuideState === 1 ? (
           <WelcomePrivacyGuideBody
-            title={"Your Privacy Shortcuts"}
-            description={`You can find the latest privacy updates, important settings and account tools by clicking the dropdown menu at the top of the page.`}
+            title={t("authorized.welcome.privacy-guide.body.state-2.title")}
+            description={t(
+              "authorized.welcome.privacy-guide.body.state-2.description"
+            )}
             slideUrl={
               "https://firebasestorage.googleapis.com/v0/b/social-network-legabog.appspot.com/o/privacy-guide-slides%2FPrivacu-Guide-Slide_2.jpg?alt=media"
             }
@@ -47,8 +51,10 @@ export const WelcomePrivacyGuide = (props) => {
           />
         ) : props.privacyGuideState === 2 ? (
           <WelcomePrivacyGuideBody
-            title={"Sharing with Apps, Games and Websites"}
-            description={`Control which apps and websites you've connected to Facebook can access your informaiton.`}
+            title={t("authorized.welcome.privacy-guide.body.state-3.title")}
+            description={t(
+              "authorized.welcome.privacy-guide.body.state-3.description"
+            )}
             slideUrl={
               "https://firebasestorage.googleapis.com/v0/b/social-network-legabog.appspot.com/o/privacy-guide-slides%2FPrivacy-Guide-Slide_3.jpg?alt=media"
             }
@@ -67,4 +73,3 @@ export const WelcomePrivacyGuide = (props) => {
     </div>
   );
 };
-

@@ -8,33 +8,39 @@ import "./ToastContainer.css";
 import {
   addAndDeleteToastAsync,
   effectAfterAddToast,
-  closeAndDeleteHandler
-
+  closeAndDeleteHandler,
 } from "redux/online-status-toast-reducer";
 
 import { Toast } from "pres-components/Toast";
+import { useTranslation } from "react-i18next";
 
-
-export const toastRef = React.createRef()
+export const toastRef = React.createRef();
 
 const ToastContainer_ = (props) => {
+  const { t } = useTranslation();
   window.addEventListener("online", () => props.addAndDeleteToastAsync(0));
   window.addEventListener("offline", () => props.addAndDeleteToastAsync(1));
-  
+
   return ReactDOM.createPortal(
     <div className={`toast_container ${props.position}`}>
-      {props.list !== null ?
-      <Toast
-        id={props.list.id}
-        toastRef={toastRef}
-        className={props.list.className}
-        Icon={props.list.Icon}
-        description={props.list.description}
-        button={props.list.button}
-        effectAfterAddToast={props.effectAfterAddToast}
-        closeAndDeleteHandler={props.closeAndDeleteHandler}
-      />
-      : null}
+      {props.list !== null ? (
+        <Toast
+          id={props.list.id}
+          toastRef={toastRef}
+          className={props.list.className}
+          Icon={props.list.Icon}
+          description={
+            props.list.id === 1
+              ? t("authorized.toast-container.toast-online")
+              : t("authorized.toast-container.toast-offline")
+          }
+          button={
+            props.list.id === 1 ? null : t("authorized.toast-container.button")
+          }
+          effectAfterAddToast={props.effectAfterAddToast}
+          closeAndDeleteHandler={props.closeAndDeleteHandler}
+        />
+      ) : null}
     </div>,
     document.getElementById("toast-root")
   );
@@ -49,6 +55,6 @@ export const ToastContainer = compose(
   connect(mapStateToProps, {
     addAndDeleteToastAsync,
     effectAfterAddToast,
-    closeAndDeleteHandler
+    closeAndDeleteHandler,
   })
 )(ToastContainer_);

@@ -7,8 +7,10 @@ import SupervisedUserCircleIcon from "@material-ui/icons/SupervisedUserCircle";
 import EventAvailableIcon from "@material-ui/icons/EventAvailable";
 import "./ButtonCreateMenuWrapper.css";
 import { ButtonCreateMenuSection } from "../ButtonCreateMenuSection";
+import { useTranslation } from "react-i18next";
 
 export const ButtonCreateMenuWrapper = (props) => {
+  const { t } = useTranslation();
   return (
     <div
       className={"button-create-menu__wrapper"}
@@ -19,28 +21,40 @@ export const ButtonCreateMenuWrapper = (props) => {
       }
     >
       <div className="button-create-menu__header">
-        <h2>Create</h2>
+        <h2>{t("authorized.header.header-right.button-create.menu.h2")}</h2>
       </div>
       <div className="button-create-menu__body">
         <ButtonCreateMenuSection
           toggleActiveButton={props.toggleActiveButton}
           Icon={PostAddIcon}
-          category={"Post"}
-          help={"Share a post on News Feed."}
+          category={t(
+            "authorized.header.header-right.button-create.menu.section-1.category"
+          )}
+          help={t(
+            "authorized.header.header-right.button-create.menu.section-1.help"
+          )}
         />
 
         <ButtonCreateMenuSection
           toggleActiveButton={props.toggleActiveButton}
           Icon={PhotoAlbumIcon}
-          category={"Story"}
-          help={"Share a photo or write something."}
+          category={t(
+            "authorized.header.header-right.button-create.menu.section-2.category"
+          )}
+          help={t(
+            "authorized.header.header-right.button-create.menu.section-2.help"
+          )}
         />
 
         <ButtonCreateMenuSection
           toggleActiveButton={props.toggleActiveButton}
           Icon={EventIcon}
-          category={"Life event"}
-          help={"Add a life event to your profile."}
+          category={t(
+            "authorized.header.header-right.button-create.menu.section-3.category"
+          )}
+          help={t(
+            "authorized.header.header-right.button-create.menu.section-3.help"
+          )}
         />
 
         <hr />
@@ -48,25 +62,36 @@ export const ButtonCreateMenuWrapper = (props) => {
         <ButtonCreateMenuSection
           toggleActiveButton={props.toggleActiveButton}
           Icon={FlagIcon}
-          category={"Page"}
-          help={"Connect and share with customers and fans."}
+          category={t(
+            "authorized.header.header-right.button-create.menu.section-4.category"
+          )}
+          help={t(
+            "authorized.header.header-right.button-create.menu.section-4.help"
+          )}
         />
 
         <ButtonCreateMenuSection
           toggleActiveButton={props.toggleActiveButton}
           Icon={SupervisedUserCircleIcon}
-          category={"Group"}
-          help={"Connect with people who share your interests."}
+          category={t(
+            "authorized.header.header-right.button-create.menu.section-5.category"
+          )}
+          help={t(
+            "authorized.header.header-right.button-create.menu.section-5.help"
+          )}
         />
 
         <ButtonCreateMenuSection
           toggleActiveButton={props.toggleActiveButton}
           Icon={EventAvailableIcon}
-          category={"Event"}
-          help={"Bring people together with a public or private event."}
+          category={t(
+            "authorized.header.header-right.button-create.menu.section-6.category"
+          )}
+          help={t(
+            "authorized.header.header-right.button-create.menu.section-6.help"
+          )}
         />
       </div>
     </div>
   );
 };
-

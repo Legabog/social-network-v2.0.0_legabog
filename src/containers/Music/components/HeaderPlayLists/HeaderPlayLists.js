@@ -4,8 +4,10 @@ import { useState } from "react";
 import "./HeaderPlayLists.css";
 
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
+import { useTranslation } from "react-i18next";
 
 export const HeaderPlayLists = (props) => {
+  const { t } = useTranslation();
   const [hover, toggleHover] = useState(0);
 
   const setHover = (e) => {
@@ -35,7 +37,7 @@ export const HeaderPlayLists = (props) => {
               <h3>{props.tempTrack.albumTitle}</h3>
             </div>
           </NavLink>
-          <h1>Playlists</h1>
+          <h1>{t("authorized.music-player.playlists.header.h1")}</h1>
         </div>
       ) : (
         <div
@@ -57,13 +59,12 @@ export const HeaderPlayLists = (props) => {
               ) : (
                 <ArrowBackIosIcon style={{ color: "#1877F2" }} />
               )}
-              <h3>Library</h3>
+              <h3>{t("authorized.music-player.playlists.header.h3")}</h3>
             </div>
           </NavLink>
-          <h1>Playlists</h1>
+          <h1>{t("authorized.music-player.playlists.header.h1")}</h1>
         </div>
       )}
     </>
   );
 };
-

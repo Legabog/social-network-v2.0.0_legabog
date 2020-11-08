@@ -45,13 +45,15 @@
 }
 
 .button-messanger-menu__header > h2 {
+    display: flex;
+    text-align: right;
     color: #050505;
-    font-weight: 700;
+    font-weight: 600;
     height: fit-content;
+    flex: 1;
 }
 
 .button-messanger-menu__panel {
-    margin-left: 80px;
     height: 40px;
     display: flex;
 }

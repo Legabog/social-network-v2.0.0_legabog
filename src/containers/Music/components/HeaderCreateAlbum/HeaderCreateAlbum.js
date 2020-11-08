@@ -8,8 +8,10 @@ import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 
 import AddPhoto from "assets/apple theme/photo_add.png";
 import DefaultPhoto from "assets/apple theme/music.jpg";
+import { useTranslation } from "react-i18next";
 
 export const HeaderCreateAlbum = (props) => {
+  const { t } = useTranslation();
   const [state, setState] = useState({
     img: AddPhoto,
     nameImg: "",
@@ -91,7 +93,7 @@ export const HeaderCreateAlbum = (props) => {
   const inputEnterHandler = (e) => {
     if (e.key === "Enter" && name.trim()) {
       buttonDoneHandler();
-      props.history.push("/music-list/playlists")
+      props.history.push("/music-list/playlists");
     }
   };
 
@@ -101,7 +103,9 @@ export const HeaderCreateAlbum = (props) => {
         <NavLink to="/music-list/playlists">
           <div className={"create-album-header__button-back"}>
             <ArrowBackIosIcon />
-            <h3>Cancel</h3>
+            <h3>
+              {t("authorized.music-player.create-playlist.button-back.h3")}
+            </h3>
           </div>
         </NavLink>
 
@@ -117,12 +121,14 @@ export const HeaderCreateAlbum = (props) => {
             className={"create-album-header__button-done"}
             onClick={buttonDoneHandler}
           >
-            <h3>Done</h3>
+            <h3>
+              {t("authorized.music-player.create-playlist.button-done.h3")}
+            </h3>
           </div>
         </NavLink>
       </div>
 
-      <h1>Create new playlist</h1>
+      <h1>{t("authorized.music-player.create-playlist.title")}</h1>
       <div className={"create-album-header__inputs"}>
         <div className={"create-album-header__add-photo"}>
           <label htmlFor="image-loader">
@@ -146,7 +152,9 @@ export const HeaderCreateAlbum = (props) => {
               onFocus={nameFocusHandler}
               onBlur={nameBlurHandler}
               style={{ borderColor: nameIsFocus ? "#1877f2" : "#e9e9e9" }}
-              placeholder="New playlist name"
+              placeholder={t(
+                "authorized.music-player.create-playlist.input_1.placeholder"
+              )}
             ></input>
           </div>
           <div className={"create-album-header__description"}>
@@ -160,7 +168,9 @@ export const HeaderCreateAlbum = (props) => {
               style={{
                 borderColor: descriptionIsFocus ? "#1877f2" : "#e9e9e9",
               }}
-              placeholder="Description"
+              placeholder={t(
+                "authorized.music-player.create-playlist.input_2.placeholder"
+              )}
             ></input>
           </div>
         </div>

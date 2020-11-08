@@ -32,6 +32,7 @@
 
 .create-album-header__buttons {
   display: flex;
+  align-items: center;
 }
 
 .create-album-header__buttons > a {
@@ -45,12 +46,11 @@
   align-items: center;
   text-align: center;
   color: #1877F2;
-  margin-left: 900px;
-
 }
 
 .create-album-header__button-done {
   cursor: pointer;
+  margin-left: 900px;
 }
   
 .create-album-header__button-done > h3 {

@@ -12,13 +12,15 @@ import {
 import { WelcomePrivacyGuide } from "./components/WelcomePrivacyGuide";
 import { WelcomePrivacySection } from "./components/WelcomePrivacySection";
 import { WelcomeSearchSection } from "./components/WelcomeSearchSection";
+import { useTranslation } from "react-i18next";
 
 const Welcome_ = (props) => {
+  const { t } = useTranslation()
   return (
     <div className={"welcome__wrapper"}>
       <div className={"welcome"}>
         <span>
-          Welcome to Social Network by legabog,{" "}
+          {t("authorized.welcome.span")}
           {props.user === null || props.user.Name === ""
             ? null
             : props.user.Name}

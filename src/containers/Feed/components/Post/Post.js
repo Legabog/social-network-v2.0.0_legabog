@@ -7,8 +7,10 @@ import ChatBubbleOutlineIcon from "@material-ui/icons/ChatBubbleOutline";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import NearMeIcon from "@material-ui/icons/NearMe";
 import { ExpandMoreOutlined } from "@material-ui/icons";
+import { useTranslation } from "react-i18next";
 
 export const Post = ({ profilePic, image, username, timestamp, message }) => {
+  const { t } = useTranslation();
   return (
     <div className="post">
       <div className="post__top">
@@ -31,15 +33,15 @@ export const Post = ({ profilePic, image, username, timestamp, message }) => {
       <div className="post__options">
         <div className="post__option">
           <ThumbUpIcon />
-          <p>Like</p>
+          <p>{t("authorized.feed.post.options.p-1")}</p>
         </div>
         <div className="post__option">
           <ChatBubbleOutlineIcon />
-          <p>Comment</p>
+          <p>{t("authorized.feed.post.options.p-2")}</p>
         </div>
         <div className="post__option">
           <NearMeIcon />
-          <p>Share</p>
+          <p>{t("authorized.feed.post.options.p-3")}</p>
         </div>
         <div className="post__option">
           <AccountCircleIcon />
@@ -49,4 +51,3 @@ export const Post = ({ profilePic, image, username, timestamp, message }) => {
     </div>
   );
 };
-

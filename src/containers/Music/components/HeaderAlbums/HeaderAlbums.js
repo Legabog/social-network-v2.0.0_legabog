@@ -1,12 +1,14 @@
 import React from "react";
-import "./HeaderAlbums.css"
+import "./HeaderAlbums.css";
 
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 export const HeaderAlbums = (props) => {
+  const { t } = useTranslation();
   const [hover, toggleHover] = useState(0);
 
   const setHover = (e) => {
@@ -30,11 +32,10 @@ export const HeaderAlbums = (props) => {
           ) : (
             <ArrowBackIosIcon style={{ color: "#1877F2" }} />
           )}
-          <h3>Library</h3>
+          <h3>{t("authorized.music-player.albums.header.h3")}</h3>
         </NavLink>
       </div>
-      <h1>Albums</h1>
+      <h1>{t("authorized.music-player.albums.header.h1")}</h1>
     </div>
   );
 };
-

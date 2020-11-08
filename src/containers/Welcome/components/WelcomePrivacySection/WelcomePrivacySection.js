@@ -1,17 +1,18 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import "./WelcomePrivacySection.css";
 
 export const WelcomePrivacySection = (props) => {
+  const { t } = useTranslation()
   return (
     <div className={"welcome-privacy-section__wrapper"}>
       <div className={"welcome-privacy-section"}>
         <div className={"welcome-privacy-section__description-main"}>
-          <span>Get to know your privacy settings</span>
+          <span>{t("authorized.welcome.privacy-section.main")}</span>
         </div>
         <div className={"welcome-privacy-section__description-secondary"}>
           <span>
-            You control how you share your content with other people on this
-            Social Network.
+          {t("authorized.welcome.privacy-section.secondary")}
           </span>
         </div>
         <div
@@ -20,7 +21,7 @@ export const WelcomePrivacySection = (props) => {
             props.togglePrivacyGuide(true);
           }}
         >
-          <span>Take a personal guide</span>
+          <span>{t("authorized.welcome.privacy-section.button")}</span>
         </div>
       </div>
     </div>
