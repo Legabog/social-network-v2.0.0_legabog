@@ -1,8 +1,10 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { NavLink } from "react-router-dom";
 import "./ProfileEditDetailsFooter.css";
 
 export const ProfileEditDetailsFooter = (props) => {
+  const { t } = useTranslation();
   return (
     <div className={"profile-edit-details-footer"}>
       <div className={"profile-edit-details-footer__controll-panel"}>
@@ -16,7 +18,9 @@ export const ProfileEditDetailsFooter = (props) => {
               );
             }}
           >
-            <span>Cancel</span>
+            <span>
+              {t("authorized.profile.edit-details.footer.cancel-button")}
+            </span>
           </div>
 
           <NavLink
@@ -29,7 +33,9 @@ export const ProfileEditDetailsFooter = (props) => {
             }}
           >
             <div className={"profile-edit-details-footer__update-button"}>
-              <span>Update Your Information</span>
+              <span>
+                {t("authorized.profile.edit-details.footer.update-button")}
+              </span>
             </div>
           </NavLink>
         </div>
@@ -37,4 +43,3 @@ export const ProfileEditDetailsFooter = (props) => {
     </div>
   );
 };
-

@@ -12,13 +12,15 @@
 
 .profile-update-discard-window-body__control-panel {
     display: flex;
-    padding: 16px;
+    justify-content: flex-end;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-left: 16px;
     padding-bottom: 0px;
 }
 
 .profile-update-discard-window-body__buttons {
     display: flex;
-    margin-left: 340px;
 }
 
 .profile-update-discard-window-body__cancel-button {
@@ -26,7 +28,6 @@
     text-align: center;
     justify-content: center;
     align-items: center;
-    width: 50px;
     height: 36px;
     margin-right: 10px;
     padding: 0px 12px;
@@ -52,7 +53,6 @@
     text-align: center;
     justify-content: center;
     align-items: center;
-    width: 50px;
     height: 36px;
     padding: 0px 12px;
     border-radius: 6px;

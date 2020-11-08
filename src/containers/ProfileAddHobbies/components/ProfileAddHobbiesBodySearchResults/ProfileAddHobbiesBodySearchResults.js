@@ -5,13 +5,18 @@ import _ from "lodash";
 
 import { ProfileAddHobbiesBodyHobbieNotFound } from "containers/ProfileAddHobbies/components/ProfileAddHobbiesBodyHobbiesNotFound";
 import { ProfileAddHobbiesBodyHobbie } from "containers/ProfileAddHobbies/components/ProfileAddHobbiesBodyHobbie";
+import { useTranslation } from "react-i18next";
 
 export const ProfileAddHobbiesBodySearchResults = (props) => {
+  const { t } = useTranslation();
   return (
     <div className={"profile-add-hobbies-body-search-results"}>
       {props.searchInput ? (
         <div className={"profile-add-hobbies-body-search-results__description"}>
-          <span>RESULTS FOR "{props.searchInput}"</span>
+          <span>
+            {t("authorized.profile.add-hobbies.body.state-2.results-for")} "
+            {props.searchInput}"
+          </span>
         </div>
       ) : null}
 

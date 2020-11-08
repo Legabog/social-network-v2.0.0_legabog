@@ -1,7 +1,9 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import "./ProfileAddHobbiesBodyHobbiesNotFound.css";
 
 export const ProfileAddHobbiesBodyHobbieNotFound = (props) => {
+  const { t } = useTranslation();
   return (
     <div className={"profile-add-hobbies-body-hobbie-not-found"}>
       <div className={"profile-add-hobbies-body-hobbie-not-found-image"}>
@@ -83,8 +85,7 @@ export const ProfileAddHobbiesBodyHobbieNotFound = (props) => {
 
       <div className={"profile-add-hobbies-body-hobbie-not-found-description"}>
         <span>
-          This hobby is not currently available. Please try searching for
-          another.
+          {t("authorized.profile.add-hobbies.body.state-2.not-found")}
         </span>
       </div>
     </div>

@@ -1,4 +1,5 @@
 import Axios from "axios";
+import { displayRegistrationBlockFalse } from "redux/registration-block-reducer";
 import db, { firebaseConfig } from "utils/firebase/firebase";
 import { setActiveUser, setUser } from "./user-reducer";
 
@@ -209,6 +210,7 @@ export const signUp = (
             )
               .then(() => {
                 dispatch(toggleRegistrationFetching(false));
+                dispatch(displayRegistrationBlockFalse())
                 history.push("/confirm_email");
               })
               .catch(() => {

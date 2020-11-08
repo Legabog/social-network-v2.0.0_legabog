@@ -10,20 +10,22 @@ import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import { ProfileHeaderNavigationButton } from "../ProfileHeaderNavigationButton";
 import { ProfileHeaderNavigationItem } from "../ProfileHeaderNavigationItem";
 import { ProfileHeaderNavigationItemSpecial } from "../ProfileHeaderNavigationItemSpecial";
+import { useTranslation } from "react-i18next";
 
 export const ProfileHeaderNavigation = (props) => {
+  const { t } = useTranslation()
   return (
     <div className={"profile__header__navigation__wrap"}>
       <div className={"profile__header__navigation"}>
         <div className={"profile__header__navigationBar"}>
           <ProfileHeaderNavigationItem
             {...props}
-            title={"Timeline"}
+            title={t("authorized.profile.header.navigation.item-1.title")}
             NavLinks={["/profile"]}
           />
           <ProfileHeaderNavigationItem
           {...props}
-            title={"About"}
+            title={t("authorized.profile.header.navigation.item-2.title")}
             NavLinks={[
               "/profile/about",
               "/profile/about_overview",
@@ -38,26 +40,26 @@ export const ProfileHeaderNavigation = (props) => {
 
           <ProfileHeaderNavigationItem
           {...props}
-            title={"Friends"}
+            title={t("authorized.profile.header.navigation.item-3.title")}
             NavLinks={["/profile/friends"]}
           />
           <ProfileHeaderNavigationItem
           {...props}
-            title={"Photos"}
+            title={t("authorized.profile.header.navigation.item-4.title")}
             NavLinks={["/profile/photos"]}
           />
           <ProfileHeaderNavigationItem
           {...props}
-            title={"Archive"}
+            title={t("authorized.profile.header.navigation.item-5.title")}
             NavLinks={["/profile/archive"]}
           />
           <ProfileHeaderNavigationItem
           {...props}
-            title={"Videos"}
+            title={t("authorized.profile.header.navigation.item-6.title")}
             NavLinks={["/profile/videos"]}
           />
           <ProfileHeaderNavigationItemSpecial
-            title={"More"}
+            title={t("authorized.profile.header.navigation.item-7.title")}
             NavLinks={["/profile/more"]}
             icon={ArrowDropDownIcon}
           />
@@ -65,7 +67,7 @@ export const ProfileHeaderNavigation = (props) => {
 
         <div className={"profile__header__buttonPanel"}>
           <ProfileHeaderNavigationButton
-            title={"Edit profile"}
+            title={t("authorized.profile.header.navigation.button-1.title")}
             icon={CreateIcon}
           />
           <ProfileHeaderNavigationButton icon={VisibilityIcon} />

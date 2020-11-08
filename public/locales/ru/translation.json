@@ -318,6 +318,219 @@
             "open": {
                 "h3": "Не исполняется"
             }
+        },
+        "profile": {
+            "header": {
+                "button-add-background": {
+                    "span": "Добавить обложку"
+                },
+                "background-window": {
+                    "section_1":"Выбрать фото",
+                    "section_2":"Загрузить фото",
+                    "section_3":"Удалить"
+                },
+                "confirm-change-avatar-background": {
+                    "description": "Ваша обложка публичная",
+                    "cancel-button": "Отмена",
+                    "save-button": "Сохранить"
+                },
+                "confirm-remove-background": {
+                    "header": {
+                        "title": "Удалить обложку"
+                    },
+                    "body": {
+                        "description": "Вы уверены что хотите удалить обложку?",
+                        "cancel-button": "Отмена",
+                        "save-button": "Подтвердить"
+                    }
+                },
+                "avatar-window": {
+                    "section-1": "Просмотр фото профиля",
+                    "section-2": "Обновить фото профиля"
+                },
+                "bio": {
+                    "header": {
+                        "state-1-span": "Добавить биографию",
+                        "state-2-span": "Редактировать"
+                    }
+                },
+                "active-bio": {
+                    "textarea-placeholder": "Опишите, кто вы",
+                    "characters": "оставшиеся символы",
+                    "public": "Публичный",
+                    "cancel-button": "Отмена",
+                    "save-button": "Сохранить"
+                },
+                "navigation": {
+                    "item-1": {
+                        "title": "Лента"
+                    },
+                    "item-2": {
+                        "title": "О пользователе"
+                    },
+                    "item-3": {
+                        "title": "Друзья"
+                    },
+                    "item-4": {
+                        "title": "Фото"
+                    },
+                    "item-5": {
+                        "title": "Архив"
+                    },
+                    "item-6": {
+                        "title": "Видео"
+                    },
+                    "item-7": {
+                        "title": "Больше"
+                    },
+                    "button-1": {
+                        "title": "Редактировать"
+                    }
+                }
+
+            },
+            "body": {
+                "title": "Представление",
+                "item-1": {
+                    "title-1": "Позиция:",
+                    "title-2": "Компания:"
+                },
+                "item-2": {
+                    "title": "Обучался в"
+                },
+                "item-3": {
+                    "title": "Учился в"
+                },
+                "item-4": {
+                    "title": "Живёт в"
+                },
+                "item-5": {
+                    "title": "Из"
+                },
+                "item-6": {
+                    "title": "Статус:"
+                },
+                "button-1": "Изменить детали",
+                "button-2": {
+                    "span-1": "Изменить хобби",
+                    "span-2": "Добавить хобби"
+                },
+                "button-3": "Изменить особенности",
+                "title-2": "Фото",
+                "title-3": "Друзья",
+                "link": "Увидеть все",
+                "see-all-hide": {
+                    "see-all": "Увидеть все",
+                    "hide": "Скрыть"
+                }
+
+
+
+            },
+            "profile-update-avatar": {
+                "header": {
+                    "title": "Обновить фото",
+                    "upload-button": "Загрузить фото"
+
+                },
+                "body": {
+                    "section-1": "Недавние загрузки",
+                    "section-2": "Фотографии",
+                    "section-3": "Обложки"
+                },
+                "confirm-upload": {
+                    "description": "Ваше фото публичное",
+                    "cancel-button": "Отмена",
+                    "save-button": "Сохранить"
+                },
+                "discard-window": {
+                    "header": {
+                        "title": "Сбросить изменения"
+                    },
+                    "body": {
+                        "description": "Вы уверены что хотите сбросить изменения?",
+                        "cancel-button": "Отмена",
+                        "discard-button": "Сбросить"
+                    }
+                }
+            },
+            "select-avatar-background": {
+                "header": {
+                    "title-1": "Выберите фото",
+                    "title-2": "Фото",
+                    "title-3": "Обложки"
+                },
+                "body": {
+                    "navigation": {
+                        "item-1": "Недавние фото",
+                        "item-2": "Фото альбомы"
+                    } 
+                },
+                "uploads": "Загрузки"
+            },
+            "add-hobbies": {
+                "header": {
+                    "state-1": {
+                        "main": "Добавить хобби",
+                        "secondary": "Что ты любишь делать? Выберите из списка популярных увлечений ниже или добавьте другие."
+                    },
+                    "state-2": {
+                        "main": "Добавить хобби"
+                    }
+                },
+                "body": {
+                    "state-1": {
+                        "title": "РЕКОМЕНДОВАННЫЕ ХОББИ",
+                        "description": "Искать другое"
+                    },
+                    "state-2": {
+                        "input-placeholder": "Что ты делаешь для развлечения?",
+                        "selected-hobbies": "ВЫБРАННЫЕ ХОББИ",
+                        "results-for": "РЕЗУЛЬТАТ ДЛЯ",
+                        "not-found": "Это хобби в настоящее время не доступно. Пожалуйста, попробуйте поискать другое."
+                    }
+                },
+                "footer": {
+                    "description": "Хобби публичны",
+                    "cancel-button": "Отмена",
+                    "update-button": "Обновить"
+                }
+            },
+            "edit-details": {
+                "header": {
+                    "title": "Изменить детали"
+                },
+                "body": {
+                    "main": "Настройте ваше представление",
+                    "secondary": "Детали, которые вы выберете, будут общедоступными и не будут публиковаться в новостной ленте.",
+                    "section-1": {
+                        "title": "Добавить рабочее место",
+                        "title-bold": "Работа"
+                    },
+                    "section-2": {
+                        "title": "Добавить институт",
+                        "title-bold": "Обучение"
+                    },
+                    "section-3": {
+                        "title": "Изменить текущий город",
+                        "title-bold": "Текущий город"
+                    },
+                    "section-4": {
+                        "title": "Изменить ваш родной город",
+                        "title-bold": "Родной город"
+                    },
+                    "section-5": {
+                        "title": "Изменить ваши отношения",
+                        "title-bold": "Отношения"
+                    }
+
+                },
+                "footer": {
+                    "cancel-button": "Отмена",
+                    "update-button": "Обновите вашу информацию"
+
+                }
+            }
         }
     },
     

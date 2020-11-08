@@ -8,18 +8,18 @@ import HomeRoundedIcon from "@material-ui/icons/HomeRounded";
 import FavoriteRoundedIcon from "@material-ui/icons/FavoriteRounded";
 
 import { ProfileEditDetailsBodySection } from "../ProfileEditDetailsBodySection";
+import { useTranslation } from "react-i18next";
 
 export const ProfileEditDetailsBody = (props) => {
+  const { t } = useTranslation();
   return (
     <div className={"profile-edit-details-body"}>
       <div className={"profile-edit-details-body__description"}>
         <div className={"profile-edit-details-body__description-main"}>
-          <span>Customize Your Intro</span>
+          <span>{t("authorized.profile.edit-details.body.main")}</span>
         </div>
         <div className={"profile-edit-details-body__description-secondary"}>
-          <span>
-            Details you select will be public and won't post to News Feed
-          </span>
+          <span>{t("authorized.profile.edit-details.body.secondary")}</span>
         </div>
       </div>
       <ProfileEditDetailsBodySection
@@ -29,8 +29,10 @@ export const ProfileEditDetailsBody = (props) => {
             : props.fullUserInfoAbout.WorkAndEducation.WorkPlace
         }
         navLink={"/profile/about_work_and_education"}
-        titleBold={"Work"}
-        title={"Add a workplace"}
+        titleBold={t(
+          "authorized.profile.edit-details.body.section-1.title-bold"
+        )}
+        title={t("authorized.profile.edit-details.body.section-1.title")}
         Icon={WorkIcon}
         {...props}
       />
@@ -44,8 +46,10 @@ export const ProfileEditDetailsBody = (props) => {
             : props.fullUserInfoAbout.WorkAndEducation.College
         }
         navLink={"/profile/about_work_and_education"}
-        titleBold={"Education"}
-        title={"Add a high school or college"}
+        titleBold={t(
+          "authorized.profile.edit-details.body.section-2.title-bold"
+        )}
+        title={t("authorized.profile.edit-details.body.section-2.title")}
         Icon={SchoolIcon}
         {...props}
       />
@@ -59,8 +63,10 @@ export const ProfileEditDetailsBody = (props) => {
             : props.fullUserInfoAbout.PlacesLived.CurrentCity
         }
         navLink={"/profile/about_places"}
-        titleBold={"Current City"}
-        title={"Change your current city"}
+        titleBold={t(
+          "authorized.profile.edit-details.body.section-3.title-bold"
+        )}
+        title={t("authorized.profile.edit-details.body.section-3.title")}
         Icon={LocationCityIcon}
         {...props}
       />
@@ -74,8 +80,10 @@ export const ProfileEditDetailsBody = (props) => {
             : props.fullUserInfoAbout.PlacesLived.HomeTown
         }
         navLink={"/profile/about_places"}
-        titleBold={"Hometown"}
-        title={"Change your hometown"}
+        titleBold={t(
+          "authorized.profile.edit-details.body.section-4.title-bold"
+        )}
+        title={t("authorized.profile.edit-details.body.section-4.title")}
         Icon={HomeRoundedIcon}
         {...props}
       />
@@ -89,12 +97,13 @@ export const ProfileEditDetailsBody = (props) => {
             : props.fullUserInfoAbout.FamilyAndRelationships.Relationship
         }
         navLink={"/profile/about_family_and_relationships"}
-        titleBold={"Relationship"}
-        title={"Change your relationship"}
+        titleBold={t(
+          "authorized.profile.edit-details.body.section-5.title-bold"
+        )}
+        title={t("authorized.profile.edit-details.body.section-5.title")}
         Icon={FavoriteRoundedIcon}
         {...props}
       />
     </div>
   );
 };
-

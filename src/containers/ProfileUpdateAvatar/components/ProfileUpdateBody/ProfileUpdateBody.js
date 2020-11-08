@@ -2,8 +2,10 @@ import React from "react";
 import "./ProfileUpdateBody.css";
 
 import { ProfileUpdateBodySection } from "../ProfileUpdateBodySection";
+import { useTranslation } from "react-i18next";
 
 export const ProfileUpdateBody = (props) => {
+  const { t } = useTranslation();
   return (
     <div className={"profle-update-avatar-body"}>
       <ProfileUpdateBodySection
@@ -13,7 +15,9 @@ export const ProfileUpdateBody = (props) => {
             : props.user.RecentUploads
         }
         {...props}
-        titleSection={"Recents Uploads"}
+        titleSection={t(
+          "authorized.profile.profile-update-avatar.body.section-1"
+        )}
       />
       <ProfileUpdateBodySection
         avatarsArray={
@@ -22,7 +26,9 @@ export const ProfileUpdateBody = (props) => {
             : props.user.Avatars.pofileAvatars
         }
         {...props}
-        titleSection={"Profile Pictures"}
+        titleSection={t(
+          "authorized.profile.profile-update-avatar.body.section-2"
+        )}
       />
 
       <ProfileUpdateBodySection
@@ -33,7 +39,9 @@ export const ProfileUpdateBody = (props) => {
             : props.user.AvatarBackground.pofileAvatarBackgrounds
         }
         {...props}
-        titleSection={"Cover Photos"}
+        titleSection={t(
+          "authorized.profile.profile-update-avatar.body.section-3"
+        )}
       />
     </div>
   );

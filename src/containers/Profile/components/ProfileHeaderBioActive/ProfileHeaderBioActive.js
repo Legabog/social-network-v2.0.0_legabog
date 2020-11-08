@@ -4,8 +4,10 @@ import "./ProfileHeaderBioActive.css";
 import { useState } from "react";
 
 import { ProfileBioActiveButtonSave } from "../ProfileBioActiveButtonSave";
+import { useTranslation } from "react-i18next";
 
 export const ProfileHeaderBioActive = (props) => {
+  const { t } = useTranslation();
   const [textAreaSymbols, setTextAreaSymbols] = useState(
     props.user === null ? "" : props.user.Bio
   );
@@ -21,30 +23,37 @@ export const ProfileHeaderBioActive = (props) => {
         <textarea
           value={textAreaSymbols}
           onChange={textAreaChangeHandler}
-          placeholder={"Describe who are you"}
+          placeholder={t(
+            "authorized.profile.header.active-bio.textarea-placeholder"
+          )}
         ></textarea>
       </div>
       <div className={"profile__header__bio__activeSpan"}>
         <span>
-          {validationForSymbols - textAreaSymbols.length} characters remaining
+          {validationForSymbols - textAreaSymbols.length}{" "}
+          {t("authorized.profile.header.active-bio.characters")}
         </span>
       </div>
 
       <div className={"profile__header__bio__activePanel"}>
         <PublicIcon />
-        <span>Public</span>
+        <span>{t("authorized.profile.header.active-bio.public")}</span>
 
         <div className={"profile__header__bio__activeButtons"}>
           <div
             className={"profile__header__bio__activeButtonCancel"}
             onClick={props.toggleClickState}
           >
-            <span>Cancel</span>
+            <span>
+              {t("authorized.profile.header.active-bio.cancel-button")}
+            </span>
           </div>
 
           {textAreaSymbols.trim() === "" || textAreaSymbols.length > 101 ? (
             <div className={"profile__header__bio__activeButtonSave-disabled"}>
-              <span>Save</span>
+              <span>
+                {t("authorized.profile.header.active-bio.save-button")}
+              </span>
             </div>
           ) : (
             <ProfileBioActiveButtonSave
@@ -57,4 +66,3 @@ export const ProfileHeaderBioActive = (props) => {
     </div>
   );
 };
-

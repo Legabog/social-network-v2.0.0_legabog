@@ -4,8 +4,10 @@ import "./ProfileAddHobbiesHeader.css";
 import CloseOutlinedIcon from "@material-ui/icons/CloseOutlined";
 import { IconButton } from "@material-ui/core";
 import addHobbies from "assets/images/addHobies.png";
+import { useTranslation } from "react-i18next";
 
 export const ProfileAddHobbiesHeader = (props) => {
+  const { t } = useTranslation();
   switch (props.profileAddHobbiesStateComponent) {
     case 0:
       return (
@@ -24,12 +26,13 @@ export const ProfileAddHobbiesHeader = (props) => {
 
           <div className={"profile-add-hobbies-header__title"}>
             <div className={"profile-add-hobbies-header__title-main"}>
-              <span>Add Hobbies</span>
+              <span>
+                {t("authorized.profile.add-hobbies.header.state-1.main")}
+              </span>
             </div>
             <div className={"profile-add-hobbies-header__title-secondary"}>
               <span>
-                What do you love to do? Choose from the popular hobbies below or
-                add others.
+                {t("authorized.profile.add-hobbies.header.state-1.secondary")}
               </span>
             </div>
           </div>
@@ -46,7 +49,9 @@ export const ProfileAddHobbiesHeader = (props) => {
 
           <div className={"profile-add-hobbies-header__title"}>
             <div className={"profile-add-hobbies-header__title-main"}>
-              <span>Hobbies</span>
+              <span>
+                {t("authorized.profile.add-hobbies.header.state-2.main")}
+              </span>
             </div>
           </div>
         </div>

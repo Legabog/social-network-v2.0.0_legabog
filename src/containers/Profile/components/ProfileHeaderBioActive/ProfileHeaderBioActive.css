@@ -53,10 +53,8 @@
 
 .profile__header__bio__activePanel {
     display: flex;
-    text-align: center;
-    justify-content: center;
     align-items: center;
-    margin-top: 5px;
+    padding-top: 5px;
     height: 36px;
 }
 
@@ -66,7 +64,7 @@
 }
 
 .profile__header__bio__activePanel span {
-    margin-left: 10px;
+    margin-left: 5px;
     word-break: break-word;
     color: #050505;
     font-weight: normal;
@@ -76,7 +74,8 @@
 
 .profile__header__bio__activeButtons {
     display: flex;
-    margin-left: 100px;
+    margin-left: auto;
+    align-items: center;
 }
 
 .profile__header__bio__activeButtonCancel {

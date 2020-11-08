@@ -321,6 +321,219 @@
             "open": {
                 "h3": "Not Playing"
             }
+        },
+        "profile": {
+            "header": {
+                "button-add-background": {
+                    "span": "Add Cover Photo"
+                },
+                "background-window": {
+                    "section_1":"Select Photo",
+                    "section_2":"Upload Photo",
+                    "section_3":"Remove"
+                },
+                "confirm-change-avatar-background": {
+                    "description": "Your cover photo is public",
+                    "cancel-button": "Cancel",
+                    "save-button": "Save Changes"
+                },
+                "confirm-remove-background": {
+                    "header": {
+                        "title": "Remove Cover Photo"
+                    },
+                    "body": {
+                        "description": "Are you sure you want to remove your cover photo?",
+                        "cancel-button": "Cancel",
+                        "save-button": "Confirm"
+                    }
+                },
+                "avatar-window": {
+                    "section-1": "View Profile Picture",
+                    "section-2": "Update Profile Picture"
+                },
+                "bio": {
+                    "header": {
+                        "state-1-span": "Add Bio",
+                        "state-2-span": "Edit"
+                    }
+                },
+                "active-bio": {
+                    "textarea-placeholder": "Describe who are you",
+                    "characters": "characters remaining",
+                    "public": "Public",
+                    "cancel-button": "Cancel",
+                    "save-button": "Save"
+                },
+                "navigation": {
+                    "item-1": {
+                        "title": "Timeline"
+                    },
+                    "item-2": {
+                        "title": "About"
+                    },
+                    "item-3": {
+                        "title": "Friends"
+                    },
+                    "item-4": {
+                        "title": "Photos"
+                    },
+                    "item-5": {
+                        "title": "Archive"
+                    },
+                    "item-6": {
+                        "title": "Videos"
+                    },
+                    "item-7": {
+                        "title": "More"
+                    },
+                    "button-1": {
+                        "title": "Edit profile"
+                    }
+                }
+            },
+            "body": {
+                "title": "Intro",
+                "item-1": {
+                    "title-1": "Position:",
+                    "title-2": "Company:"
+                },
+                "item-2": {
+                    "title": "Studied at"
+                },
+                "item-3": {
+                    "title": "Went to"
+                },
+                "item-4": {
+                    "title": "Lives in"
+                },
+                "item-5": {
+                    "title": "From"
+                },
+                "item-6": {
+                    "title": "Status:"
+                },
+                "button-1": "Edit Details",
+                "button-2": {
+                    "span-1": "Edit Hobbies",
+                    "span-2": "Add Hobbies"
+                },
+                "button-3": "Edit Featured",
+                "title-2": "Photos",
+                "title-3": "Friends",
+                "link": "See all",
+                "see-all-hide": {
+                    "see-all": "See all",
+                    "hide": "Hide"
+                }
+
+
+
+            },
+            "profile-update-avatar": {
+                "header": {
+                    "title": "Update Profile Avatar",
+                    "upload-button": "Upload Photo"
+
+                },
+                "body": {
+                    "section-1": "Recents Uploads",
+                    "section-2": "Profile Pictures",
+                    "section-3": "Cover Photos"
+                },
+                "confirm-upload": {
+                    "description": "Your profile picture is public",
+                    "cancel-button": "Cancel",
+                    "save-button": "Save"
+                },
+                "discard-window": {
+                    "header": {
+                        "title": "Discard Changes"
+                    },
+                    "body": {
+                        "description": "Are you sure want to discard your changes?",
+                        "cancel-button": "Cancel",
+                        "discard-button": "Discard"
+                    }
+                }
+            },
+            "select-avatar-background": {
+                "header": {
+                    "title-1": "Select Photo",
+                    "title-2": "Profile Pictures",
+                    "title-3": "Cover Photos"
+
+                },
+                "body": {
+                    "navigation": {
+                        "item-1": "Recent Photos",
+                        "item-2": "Photo Albums"
+                    } 
+                },
+                "uploads": "Uploads"
+            },
+            "add-hobbies": {
+                "header": {
+                    "state-1": {
+                        "main": "Add Hobbies",
+                        "secondary": "What do you love to do? Choose from the popular hobbies below or add others."
+                    },
+                    "state-2": {
+                        "main": "Add Hobbies"
+                    }
+                },
+                "body": {
+                    "state-1": {
+                        "title": "RECOMMENDED HOBBIES",
+                        "description": "Search for other"
+                    },
+                    "state-2": {
+                        "input-placeholder": "What do you do for fun?",
+                        "selected-hobbies": "SELECTED HOBBIES",
+                        "results-for": "RESULTS FOR",
+                        "not-found": "This hobby is not currently available. Please try searching for another."
+                    }
+                },
+                "footer": {
+                    "description": "Hobbies are Public",
+                    "cancel-button": "Cancel",
+                    "update-button": "Update"
+                }
+            },
+            "edit-details": {
+                "header": {
+                    "title": "Edit Details"
+                },
+                "body": {
+                    "main": "Customize Your Intro",
+                    "secondary": "Details you select will be public and won't post to News Feed",
+                    "section-1": {
+                        "title": "Add a workplace",
+                        "title-bold": "Work"
+                    },
+                    "section-2": {
+                        "title": "Add a high school or college",
+                        "title-bold": "Education"
+                    },
+                    "section-3": {
+                        "title": "Change your current city",
+                        "title-bold": "Current City"
+                    },
+                    "section-4": {
+                        "title": "Change your hometown",
+                        "title-bold": "Hometown"
+                    },
+                    "section-5": {
+                        "title": "Change your relationship",
+                        "title-bold": "Relationship"
+                    }
+
+                },
+                "footer": {
+                    "cancel-button": "Cancel",
+                    "update-button": "Update Your Information"
+
+                }
+            }
         }
     },
     

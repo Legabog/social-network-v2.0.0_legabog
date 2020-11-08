@@ -4,8 +4,10 @@ import "./ProfileSelectAvatarBackgroundHeader.css";
 import CloseOutlinedIcon from "@material-ui/icons/CloseOutlined";
 import { IconButton } from "@material-ui/core";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import { useTranslation } from "react-i18next";
 
 export const ProfileSelectAvatarBackgroundHeader = (props) => {
+  const { t } = useTranslation()
   return (
     <>
       {props.selectComponentState === 0 ? (
@@ -20,7 +22,7 @@ export const ProfileSelectAvatarBackgroundHeader = (props) => {
                   props.profileSelectVisibility,
                   props.profileSelectOpacity
                 );
-                props.toggleSelectComponent(0, "Select Photo", 0);
+                props.toggleSelectComponent(0, t("authorized.profile.select-avatar-background.header.title-1"), 0);
               }}
             >
               <CloseOutlinedIcon />
@@ -32,7 +34,7 @@ export const ProfileSelectAvatarBackgroundHeader = (props) => {
           <div className={"profile-select-avatar-background-header__back-icon"}>
           <IconButton
           onClick={() => {
-            props.toggleSelectComponent(0, "Select Photo");
+            props.toggleSelectComponent(0, t("authorized.profile.select-avatar-background.header.title-1"));
           }}
           >
             <ArrowBackIcon />
@@ -48,7 +50,7 @@ export const ProfileSelectAvatarBackgroundHeader = (props) => {
                   props.profileSelectVisibility,
                   props.profileSelectOpacity
                 );
-                props.toggleSelectComponent(0, "Select Photo", 0);
+                props.toggleSelectComponent(0, t("authorized.profile.select-avatar-background.header.title-1"), 0);
               }}
             >
               <CloseOutlinedIcon />

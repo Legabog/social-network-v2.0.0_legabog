@@ -1,7 +1,9 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import "./ProfileSelectAvatarBackgroundNavigation.css";
 
 export const ProfileSelectAvatarBackgroundNavigation = (props) => {
+  const { t } = useTranslation()
   return (
     <div className={"profile-select-avatar-background-navigation"}>
       <div
@@ -14,7 +16,7 @@ export const ProfileSelectAvatarBackgroundNavigation = (props) => {
           props.setNavigationState(0);
         }}
       >
-        <span>Recent Photos</span>
+        <span>{t("authorized.profile.select-avatar-background.body.navigation.item-1")}</span>
       </div>
 
       <div
@@ -27,7 +29,7 @@ export const ProfileSelectAvatarBackgroundNavigation = (props) => {
           props.setNavigationState(1);
         }}
       >
-        <span>Photo Albums</span>
+        <span>{t("authorized.profile.select-avatar-background.body.navigation.item-2")}</span>
       </div>
     </div>
   );

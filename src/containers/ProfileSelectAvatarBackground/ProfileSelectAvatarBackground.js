@@ -5,11 +5,13 @@ import { ProfileSelectAvatarBackgroundBody } from "./components/ProfileSelectAva
 import { ProfileSelectAvatarBackgroundBodyActive } from "./components/ProfileSelectAvatarBackgroundBodyActive";
 import { ProfileSelectAvatarBackgroundHeader } from "./components/ProfileSelectAvatarBackgroundHeader";
 import { BackDrop } from "pres-components/BackDrop";
+import { useTranslation } from "react-i18next";
 
 export const ProfileSelectAvatarBackground = (props) => {
+  const { t } = useTranslation()
   const [selectComponentState, setSelectComponentState] = useState(0);
   const [selectComponentHeaderTitle, setSelectComponentHeaderTitle] = useState(
-    "Select Photo"
+    t("authorized.profile.select-avatar-background.header.title-1")
   );
   const [selectComponentContent, setSelectComponentContent] = useState(0);
 

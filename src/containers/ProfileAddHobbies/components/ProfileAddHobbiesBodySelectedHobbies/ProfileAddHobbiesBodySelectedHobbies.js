@@ -3,12 +3,14 @@ import React from "react";
 import "./ProfileAddHobbiesBodySelectedHobbies.css";
 
 import _ from "lodash/core";
+import { useTranslation } from "react-i18next";
 
 export const ProfileAddHobbiesBodySelectedHobbies = (props) => {
+  const { t } = useTranslation()
   return (
     <div className={"profile-add-hobbies-body-selected-hobbies"}>
       <div className={"profile-add-hobbies-body-selected-hobbies-title"}>
-        <span>SELECTED HOBBIES</span>
+        <span>{t("authorized.profile.add-hobbies.body.state-2.selected-hobbies")}</span>
       </div>
 
       <div className={"profile-add-hobbies-body-selected-hobbies-form-wrap"}>

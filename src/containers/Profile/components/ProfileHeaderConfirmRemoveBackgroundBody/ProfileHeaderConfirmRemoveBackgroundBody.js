@@ -1,13 +1,19 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import "./ProfileHeaderConfirmRemoveBackgroundBody.css";
 
 export const ProfileHeaderConfirmRemoveBackgroundBody = (props) => {
+  const { t } = useTranslation();
   return (
     <div className={"profileHeaderConfirmRemoveBackground__body"}>
       <div
         className={"profileHeaderConfirmRemoveBackground__body__description"}
       >
-        <span>Are you sure you want to remove your cover photo?</span>
+        <span>
+          {t(
+            "authorized.profile.header.confirm-remove-background.body.description"
+          )}
+        </span>
       </div>
       <div
         className={"profileHeaderConfirmRemoveBackground__body__controlPanel"}
@@ -21,7 +27,11 @@ export const ProfileHeaderConfirmRemoveBackgroundBody = (props) => {
               props.toggleConfirmRemove(false);
             }}
           >
-            <span>Cancel</span>
+            <span>
+              {t(
+                "authorized.profile.header.confirm-remove-background.body.cancel-button"
+              )}
+            </span>
           </div>
           <div
             className={"profileHeaderConfirmRemoveBackground__body__saveButton"}
@@ -30,7 +40,11 @@ export const ProfileHeaderConfirmRemoveBackgroundBody = (props) => {
               props.toggleConfirmRemove(false);
             }}
           >
-            <span>Confirm</span>
+            <span>
+              {t(
+                "authorized.profile.header.confirm-remove-background.body.save-button"
+              )}
+            </span>
           </div>
         </div>
       </div>

@@ -2,8 +2,10 @@ import React from "react";
 import "./ProfileSelectAvatarBackgroundPhotoAlbums.css";
 
 import { AvatarBackgroundPhotoAlbumsSection } from "../AvatarBackgroundPhotoAlbumsSection";
+import { useTranslation } from "react-i18next";
 
 export const ProfileSelectAvatarBackgroundPhotoAlbums = (props) => {
+  const { t } = useTranslation()
   return (
     <div className={"profile-select-avatar-background-photo-albums-wrapper"}>
       {props.user === null ||
@@ -18,7 +20,7 @@ export const ProfileSelectAvatarBackgroundPhotoAlbums = (props) => {
               toggleSelectComponent={props.toggleSelectComponent}
               img={props.user.Avatars.pofileAvatars[0]}
               content={0}
-              title={"Profile Pictures"}
+              title={t("authorized.profile.select-avatar-background.header.title-2")}
               uploads={props.user.Avatars.pofileAvatars.length}
             />
           )}
@@ -30,7 +32,7 @@ export const ProfileSelectAvatarBackgroundPhotoAlbums = (props) => {
               img={props.user.AvatarBackground.pofileAvatarBackgrounds[0]}
               toggleSelectComponent={props.toggleSelectComponent}
               content={1}
-              title={"Cover Photos"}
+              title={t("authorized.profile.select-avatar-background.header.title-3")}
               uploads={
                 props.user.AvatarBackground.pofileAvatarBackgrounds.length
               }

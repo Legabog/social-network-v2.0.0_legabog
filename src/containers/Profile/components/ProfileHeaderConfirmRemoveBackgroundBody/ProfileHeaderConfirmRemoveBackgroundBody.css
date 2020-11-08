@@ -12,13 +12,15 @@
 
 .profileHeaderConfirmRemoveBackground__body__controlPanel {
     display: flex;
-    padding: 16px;
+    justify-content: flex-end;
+    align-items: center;
+    padding-top: 16px;
+    padding-left: 16px;
     padding-bottom: 0px;
 }
 
 .profileHeaderConfirmRemoveBackground__body__buttons {
     display: flex;
-    margin-left: 340px;
 }
 
 .profileHeaderConfirmRemoveBackground__body__cancelButton {
@@ -26,7 +28,7 @@
     text-align: center;
     justify-content: center;
     align-items: center;
-    width: 50px;
+    padding: 5px;
     height: 36px;
     margin-right: 10px;
     padding: 0px 12px;
@@ -52,7 +54,7 @@
     text-align: center;
     justify-content: center;
     align-items: center;
-    width: 50px;
+    padding: 5px;
     height: 36px;
     padding: 0px 12px;
     border-radius: 6px;

@@ -1,33 +1,48 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import "./ProfileUpdateDiscardWindowBody.css";
 
 export const ProfileUpdateDiscardWindowBody = (props) => {
+  const { t } = useTranslation();
+
   return (
     <div className={"profile-update-discard-window-body"}>
       <div className={"profile-update-discard-window-body__description"}>
-        <span>Are you sure want to discard your changes?</span>
+        <span>
+          {t(
+            "authorized.profile.profile-update-avatar.discard-window.body.description"
+          )}
+        </span>
       </div>
       <div className={"profile-update-discard-window-body__control-panel"}>
         <div className={"profile-update-discard-window-body__buttons"}>
           <div
             className={"profile-update-discard-window-body__cancel-button"}
             onClick={() => {
-              props.toggleDiscardWindow(false)
-          }}
+              props.toggleDiscardWindow(false);
+            }}
           >
-            <span>Cancel</span>
+            <span>
+              {t(
+                "authorized.profile.profile-update-avatar.discard-window.body.cancel-button"
+              )}
+            </span>
           </div>
-          <div className={"profile-update-discard-window-body__save-button"}
-          onClick={() => {
-            props.toggleDiscardWindow(false)
-            props.closeHandlerProfileUpdate()
-        }}
+          <div
+            className={"profile-update-discard-window-body__save-button"}
+            onClick={() => {
+              props.toggleDiscardWindow(false);
+              props.closeHandlerProfileUpdate();
+            }}
           >
-            <span>Discard</span>
+            <span>
+              {t(
+                "authorized.profile.profile-update-avatar.discard-window.body.discard-button"
+              )}
+            </span>
           </div>
         </div>
       </div>
     </div>
   );
 };
-

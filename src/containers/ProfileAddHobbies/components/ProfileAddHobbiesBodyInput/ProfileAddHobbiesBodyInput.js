@@ -2,8 +2,10 @@ import React from "react";
 import "./ProfileAddHobbiesBodyInput.css";
 
 import SearchIcon from "@material-ui/icons/Search";
+import { useTranslation } from "react-i18next";
 
 export const ProfileAddHobbiesBodyInput = (props) => {
+  const { t } = useTranslation()
   return (
     <div className={"profile-add-hobbies-body-search-input-wrapper"}>
       <div className={"profile-add-hobbies-body-search-input"}>
@@ -13,7 +15,7 @@ export const ProfileAddHobbiesBodyInput = (props) => {
           value={props.searchInput}
           onChange={props.changeSearchInputHandler}
           id={"profile-add-hobbies-body-search-input"}
-          placeholder={"What do you do for fun?"}
+          placeholder={t("authorized.profile.add-hobbies.body.state-2.input-placeholder")}
         />
       </div>
     </div>

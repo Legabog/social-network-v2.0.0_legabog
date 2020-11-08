@@ -2,8 +2,10 @@ import React from "react";
 import "./ProfileSelectAvatarBackgroundBodyActive.css";
 
 import _ from "lodash/core";
+import { useTranslation } from "react-i18next";
 
 export const ProfileSelectAvatarBackgroundBodyActive = (props) => {
+  const { t } = useTranslation();
   return (
     <div className={"profile-select-avatar-background-body-wrapper_active"}>
       <div className={"profile-select-avatar-background-body_active"}>
@@ -21,7 +23,13 @@ export const ProfileSelectAvatarBackgroundBodyActive = (props) => {
                       props.profileSelectVisibility,
                       props.profileSelectOpacity
                     );
-                    props.toggleSelectComponent(0, "Select Photo", 0);
+                    props.toggleSelectComponent(
+                      0,
+                      t(
+                        "authorized.profile.select-avatar-background.header.title-1"
+                      ),
+                      0
+                    );
                   }}
                 />
               );
@@ -40,7 +48,13 @@ export const ProfileSelectAvatarBackgroundBodyActive = (props) => {
                         props.profileSelectVisibility,
                         props.profileSelectOpacity
                       );
-                      props.toggleSelectComponent(0, "Select Photo", 0);
+                      props.toggleSelectComponent(
+                        0,
+                        t(
+                          "authorized.profile.select-avatar-background.header.title-1"
+                        ),
+                        0
+                      );
                     }}
                   />
                 );

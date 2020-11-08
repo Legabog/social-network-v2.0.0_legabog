@@ -4,8 +4,10 @@ import "./ProfileHeaderAvatarBackgroundWindow.css";
 import PhotoLibraryIcon from "@material-ui/icons/PhotoLibrary";
 import PublishIcon from "@material-ui/icons/Publish";
 import DeleteIcon from "@material-ui/icons/Delete";
+import { useTranslation } from "react-i18next";
 
 export const ProfileHeaderAvatarBackgroundWindow = (props) => {
+  const { t } = useTranslation();
   return (
     <div
       className={"profile__header__avatarBackground__window__wrapper"}
@@ -23,11 +25,13 @@ export const ProfileHeaderAvatarBackgroundWindow = (props) => {
               props.profileSelectOpacity
             );
             props.toggleWindowAvatarBackground();
-            props.toggleSwitcherAvatarBackgroundURLorBase64(1)
+            props.toggleSwitcherAvatarBackgroundURLorBase64(1);
           }}
         >
           <PhotoLibraryIcon />
-          <span>Select Photo</span>
+          <span>
+            {t("authorized.profile.header.background-window.section_1")}
+          </span>
         </div>
 
         <label htmlFor="avatarBackground-uploader">
@@ -36,11 +40,14 @@ export const ProfileHeaderAvatarBackgroundWindow = (props) => {
             onClick={props.toggleWindowAvatarBackground}
           >
             <PublishIcon />
-            <span>Upload Photo</span>
+            <span>
+              {t("authorized.profile.header.background-window.section_2")}
+            </span>
           </div>
         </label>
 
-        {props.user === null || props.user.AvatarBackground.activeAvatarBackgroundUrl === "" ? null : (
+        {props.user === null ||
+        props.user.AvatarBackground.activeAvatarBackgroundUrl === "" ? null : (
           <div
             className={"profile__header__avatarBackground__windowSection"}
             onClick={() => {
@@ -49,11 +56,12 @@ export const ProfileHeaderAvatarBackgroundWindow = (props) => {
             }}
           >
             <DeleteIcon />
-            <span>Remove</span>
+            <span>
+              {t("authorized.profile.header.background-window.section_3")}
+            </span>
           </div>
         )}
       </div>
     </div>
   );
 };
-

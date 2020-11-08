@@ -2,8 +2,10 @@ import React from "react";
 import "./ProfileAddHobbiesFooter.css";
 
 import PublicIcon from "@material-ui/icons/Public";
+import { useTranslation } from "react-i18next";
 
 export const ProfileAddHobbiesFooter = (props) => {
+  const { t } = useTranslation();
   return (
     <div className={"profile-add-hobbies-footer"}>
       <div className={"profile-add-hobbies-footer__controll-panel"}>
@@ -12,7 +14,9 @@ export const ProfileAddHobbiesFooter = (props) => {
             <PublicIcon />
           </div>
           <div className={"profile-add-hobbies-footer__public-description"}>
-            <span>Hobbies are Public</span>
+            <span>
+              {t("authorized.profile.add-hobbies.footer.description")}
+            </span>
           </div>
         </div>
         {props.tempHobbies.length === 0 ? null : (
@@ -21,14 +25,18 @@ export const ProfileAddHobbiesFooter = (props) => {
               className={"profile-add-hobbies-footer__cancel-button"}
               onClick={props.cancelClick}
             >
-              <span>Cancel</span>
+              <span>
+                {t("authorized.profile.add-hobbies.footer.cancel-button")}
+              </span>
             </div>
 
             <div
               className={"profile-add-hobbies-footer__update-button"}
               onClick={props.saveClick}
             >
-              <span>Save</span>
+              <span>
+                {t("authorized.profile.add-hobbies.footer.update-button")}
+              </span>
             </div>
           </div>
         )}

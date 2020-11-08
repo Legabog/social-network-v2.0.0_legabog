@@ -6,12 +6,14 @@ import _ from "lodash/core";
 import SearchIcon from "@material-ui/icons/Search";
 
 import { ProfileAddHobbiesBodyItem } from "containers/ProfileAddHobbies/components/ProfileAddHobbiesBodyItem";
+import { useTranslation } from "react-i18next";
 
 export const ProfileAddHobbiesBodyState1 = (props) => {
+  const { t } = useTranslation()
   return (
     <div className={"profile-add-hobbies-body_state-1"}>
       <div className={"profile-add-hobbies-body_state-1__title"}>
-        <span>RECOMMENDED HOBBIES</span>
+        <span>{t("authorized.profile.add-hobbies.body.state-1.title")}</span>
       </div>
       <div className={"profile-add-hobbies-body_state-1__hobbie-container"}>
         {props.profileAddHobbiesRecommendedHobbies.map((e, index) => {
@@ -40,7 +42,9 @@ export const ProfileAddHobbiesBodyState1 = (props) => {
             <div
               className={"profile-add-hobbies-body_state-1__search-description"}
             >
-              <span>Search for others</span>
+              <span>
+                {t("authorized.profile.add-hobbies.body.state-1.description")}
+              </span>
             </div>
           </div>
         </div>

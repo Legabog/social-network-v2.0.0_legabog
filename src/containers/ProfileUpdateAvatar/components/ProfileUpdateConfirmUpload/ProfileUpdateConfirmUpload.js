@@ -4,8 +4,10 @@ import "./ProfileUpdateConfirmUpload.css";
 import PublicIcon from "@material-ui/icons/Public";
 
 import { ChangeAvatarSimplePreloader } from "pres-components/ChangeAvatarSimplePreloader";
+import { useTranslation } from "react-i18next";
 
 export const ProfileUpdateConfirmUpload = (props) => {
+  const { t } = useTranslation();
   return (
     <div className={"profile-update-confirm-upload"}>
       <div className={"profile-update-confirm-upload__temp-avatar-wrapper"}>
@@ -16,7 +18,11 @@ export const ProfileUpdateConfirmUpload = (props) => {
 
       <div className={"profile-update-confirm-upload__description"}>
         <PublicIcon />
-        <span>Your profile picture is public</span>
+        <span>
+          {t(
+            "authorized.profile.profile-update-avatar.confirm-upload.description"
+          )}
+        </span>
       </div>
       <div className={"profile-update-confirm-upload__buttons-wrapper"}>
         <div className={"profile-update-confirm-upload__buttons"}>
@@ -29,12 +35,22 @@ export const ProfileUpdateConfirmUpload = (props) => {
                 props.toggleDiscardWindow(true);
               }}
             >
-              <span>Cancel</span>
+              <span>
+                {t(
+                  "authorized.profile.profile-update-avatar.confirm-upload.cancel-button"
+                )}
+              </span>
             </div>
           )}
           {props.fetchAvatar ? (
-            <div className={"profile-update-confirm-upload__save-button_disabled"}>
-              <span>Save</span>
+            <div
+              className={"profile-update-confirm-upload__save-button_disabled"}
+            >
+              <span>
+                {t(
+                  "authorized.profile.profile-update-avatar.confirm-upload.save-button"
+                )}
+              </span>
             </div>
           ) : (
             <div
@@ -52,7 +68,11 @@ export const ProfileUpdateConfirmUpload = (props) => {
                     );
               }}
             >
-              <span>Save</span>
+              <span>
+                {t(
+                  "authorized.profile.profile-update-avatar.confirm-upload.save-button"
+                )}
+              </span>
             </div>
           )}
         </div>
@@ -60,4 +80,3 @@ export const ProfileUpdateConfirmUpload = (props) => {
     </div>
   );
 };
-

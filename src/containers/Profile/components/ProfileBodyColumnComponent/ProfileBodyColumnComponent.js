@@ -12,8 +12,10 @@ import { ProfileBodyColumnComponentIntroItem } from "containers/Profile/componen
 import { ProfileBodyColumnComponentHobbie } from "containers/Profile/components/ProfileBodyColumnComponentHobbie";
 
 import _ from "lodash/core";
+import { useTranslation } from "react-i18next";
 
 export const ProfileBodyColumnComponent = (props) => {
+  const { t } = useTranslation();
   const [hobbieSectionSize, setHobbieSectionSize] = useState(5);
 
   const toggleHobbieSectionSize = (num) => {
@@ -27,7 +29,7 @@ export const ProfileBodyColumnComponent = (props) => {
       return (
         <div className={"profile-body-column-component"}>
           <div className={"profile-body-column-component__description"}>
-            <span>Intro</span>
+            <span>{t("authorized.profile.body.title")}</span>
           </div>
 
           {props.fullUserInfoAbout !== null
@@ -37,7 +39,11 @@ export const ProfileBodyColumnComponent = (props) => {
                     <ProfileBodyColumnComponentIntroItem
                       key={_.uniqueId(e)}
                       Icon={WorkIcon}
-                      mainTitle={`Position: ${e.position}; Company: ${e.company};`}
+                      mainTitle={`${t(
+                        "authorized.profile.body.item-1.title-1"
+                      )} ${e.position}; ${t(
+                        "authorized.profile.body.item-1.title-2"
+                      )} ${e.company};`}
                     />
                   );
                 }
@@ -51,7 +57,9 @@ export const ProfileBodyColumnComponent = (props) => {
                     <ProfileBodyColumnComponentIntroItem
                       key={_.uniqueId(e)}
                       Icon={SchoolIcon}
-                      mainTitle={`Studied at ${e.college}`}
+                      mainTitle={`${t(
+                        "authorized.profile.body.item-2.title"
+                      )} ${e.college}`}
                     />
                   );
                 }
@@ -65,7 +73,9 @@ export const ProfileBodyColumnComponent = (props) => {
                     <ProfileBodyColumnComponentIntroItem
                       key={_.uniqueId(e)}
                       Icon={SchoolIcon}
-                      mainTitle={`Went to ${e.school}`}
+                      mainTitle={`${t(
+                        "authorized.profile.body.item-3.title"
+                      )} ${e.school}`}
                     />
                   );
                 }
@@ -76,7 +86,9 @@ export const ProfileBodyColumnComponent = (props) => {
           props.fullUserInfoAbout.PlacesLived.CurrentCity !== "" ? (
             <ProfileBodyColumnComponentIntroItem
               Icon={HomeIcon}
-              mainTitle={`Lives in ${props.fullUserInfoAbout.PlacesLived.CurrentCity}`}
+              mainTitle={`${t("authorized.profile.body.item-4.title")} ${
+                props.fullUserInfoAbout.PlacesLived.CurrentCity
+              }`}
             />
           ) : null}
 
@@ -84,7 +96,9 @@ export const ProfileBodyColumnComponent = (props) => {
           props.fullUserInfoAbout.PlacesLived.HomeTown !== "" ? (
             <ProfileBodyColumnComponentIntroItem
               Icon={LocationOnIcon}
-              mainTitle={`From ${props.fullUserInfoAbout.PlacesLived.HomeTown}`}
+              mainTitle={`${t("authorized.profile.body.item-5.title")} ${
+                props.fullUserInfoAbout.PlacesLived.HomeTown
+              }`}
             />
           ) : null}
 
@@ -92,7 +106,9 @@ export const ProfileBodyColumnComponent = (props) => {
           props.fullUserInfoAbout.FamilyAndRelationships.Relationship !== "" ? (
             <ProfileBodyColumnComponentIntroItem
               Icon={FavoriteIcon}
-              mainTitle={`Status: ${props.fullUserInfoAbout.FamilyAndRelationships.Relationship}`}
+              mainTitle={`${t("authorized.profile.body.item-6.title")} ${
+                props.fullUserInfoAbout.FamilyAndRelationships.Relationship
+              }`}
             />
           ) : null}
 
@@ -105,7 +121,7 @@ export const ProfileBodyColumnComponent = (props) => {
               );
             }}
           >
-            <span>Edit Details</span>
+            <span>{t("authorized.profile.body.button-1")}</span>
           </div>
 
           <div className={"profile-body-column-component__hobbies-section"}>
@@ -134,7 +150,11 @@ export const ProfileBodyColumnComponent = (props) => {
                     )
                   }
                 >
-                  <span>{hobbieSectionSize === 5 ? "See all" : "Hide"}</span>
+                  <span>
+                    {hobbieSectionSize === 5
+                      ? t("authorized.profile.body.see-all-hide.see-all")
+                      : t("authorized.profile.body.see-all-hide.hide")}
+                  </span>
                 </div>
               ) : null
             ) : null}
@@ -152,13 +172,13 @@ export const ProfileBodyColumnComponent = (props) => {
             <span>
               {props.fullUserInfoAbout !== null &&
               props.fullUserInfoAbout.Hobbies.length !== 0
-                ? "Edit Hobbies"
-                : "Add Hobbies"}
+                ? t("authorized.profile.body.button-2.span-1")
+                : t("authorized.profile.body.button-2.span-2")}
             </span>
           </div>
 
           <div className={"profile-body-column-component__button-info"}>
-            <span>Edit Featured</span>
+            <span>{t("authorized.profile.body.button-3")}</span>
           </div>
         </div>
       );
@@ -167,10 +187,12 @@ export const ProfileBodyColumnComponent = (props) => {
       return (
         <div className={"profile-body-column-component"}>
           <div className={"profile-body-column-component__description"}>
-            <span>Photos</span>
+            <span>{t("authorized.profile.body.title-2")}</span>
 
             <div className={"profile-body-column-component__link"}>
-              <NavLink to={"/profile/photos"}>See all</NavLink>
+              <NavLink to={"/profile/photos"}>
+                {t("authorized.profile.body.link")}
+              </NavLink>
             </div>
           </div>
 
@@ -194,9 +216,11 @@ export const ProfileBodyColumnComponent = (props) => {
       return (
         <div className={"profile-body-column-component"}>
           <div className={"profile-body-column-component__description"}>
-            <span>Friends</span>
+            <span>{t("authorized.profile.body.title-3")}</span>
             <div className={"profile-body-column-component__link"}>
-              <NavLink to={"/profile/friends"}>See all</NavLink>
+              <NavLink to={"/profile/friends"}>
+                {t("authorized.profile.body.link")}
+              </NavLink>
             </div>
           </div>
         </div>

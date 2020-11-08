@@ -2,8 +2,10 @@ import React from "react";
 import "./ProfileHeaderConfirmChangeAvatarBackground.css";
 
 import PublicIcon from "@material-ui/icons/Public";
+import { useTranslation } from "react-i18next";
 
 export const ProfileHeaderConfirmChangeAvatarBackground = (props) => {
+  const { t } = useTranslation();
   return (
     <div
       className={"confirmChangeAvatarBackground__wrapper"}
@@ -15,7 +17,11 @@ export const ProfileHeaderConfirmChangeAvatarBackground = (props) => {
       <div className={"confirmChangeAvatarBackground"}>
         <div className={"confirmChangeAvatarBackground__description"}>
           <PublicIcon />
-          <span>Your cover photo is public</span>
+          <span>
+            {t(
+              "authorized.profile.header.confirm-change-avatar-background.description"
+            )}
+          </span>
         </div>
 
         <div className={"confirmChangeAvatarBackground__controlPanel"}>
@@ -26,13 +32,21 @@ export const ProfileHeaderConfirmChangeAvatarBackground = (props) => {
                   "confirmChangeAvatarBackground__controlPanel__cancelButton-disabled"
                 }
               >
-                <span>Cancel</span>
+                <span>
+                  {t(
+                    "authorized.profile.header.confirm-change-avatar-background.cancel-button"
+                  )}
+                </span>
               </div>
 
               <div
                 className={`confirmChangeAvatarBackground__controlPanel__saveButton-disabled`}
               >
-                <span>Save Changes</span>
+                <span>
+                  {t(
+                    "authorized.profile.header.confirm-change-avatar-background.save-button"
+                  )}
+                </span>
               </div>
             </>
           ) : (
@@ -44,7 +58,11 @@ export const ProfileHeaderConfirmChangeAvatarBackground = (props) => {
                   props.toggleWindowConfirmBackground(false);
                 }}
               >
-                <span>Cancel</span>
+                <span>
+                  {t(
+                    "authorized.profile.header.confirm-change-avatar-background.cancel-button"
+                  )}
+                </span>
               </div>
               <div
                 className={`confirmChangeAvatarBackground__controlPanel__saveButton`}
@@ -63,7 +81,11 @@ export const ProfileHeaderConfirmChangeAvatarBackground = (props) => {
                       );
                 }}
               >
-                <span>Save Changes</span>
+                <span>
+                  {t(
+                    "authorized.profile.header.confirm-change-avatar-background.save-button"
+                  )}
+                </span>
               </div>
             </>
           )}
@@ -72,4 +94,3 @@ export const ProfileHeaderConfirmChangeAvatarBackground = (props) => {
     </div>
   );
 };
-
