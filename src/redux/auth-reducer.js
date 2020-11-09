@@ -59,6 +59,53 @@ const authReducer = (state = initialState, action) => {
   }
 };
 
+export const authSuccess = (token, activeAccountEmail) => {
+  return {
+    type: AUTH_SUCCESS,
+    token,
+    activeAccountEmail,
+  };
+};
+
+export const logout = () => {
+  localStorage.removeItem("_token-id");
+  localStorage.removeItem("_user-id");
+  localStorage.removeItem("_user-active");
+  localStorage.removeItem("_expiration-date");
+
+  return {
+    type: AUTH_LOGOUT,
+  };
+};
+
+export const toggleFetching = (fetching) => {
+  return {
+    type: TOGGLE_AUTH_FETCHING,
+    fetching,
+  };
+};
+
+export const toggleRegistrationFetching = (fetching) => {
+  return {
+    type: TOGGLE_REGISTRATION_FETCHING,
+    fetching,
+  };
+};
+
+export const toggleRegistrationError = (boolean) => {
+  return {
+    type: TOGGLE_REGISTRATION_ERROR,
+    boolean,
+  };
+};
+
+export const toggleLoginError = (error) => {
+  return {
+    type: TOGGLE_LOGIN_ERROR,
+    error,
+  };
+};
+
 export const signIn = (email, password, history, URL) => {
   return async (dispatch) => {
     const signInData = {
@@ -76,13 +123,12 @@ export const signIn = (email, password, history, URL) => {
           new Date().getTime() + data.expiresIn * 24000
         );
 
-        dispatch(setActiveUser(data.email));
-
         localStorage.setItem("_token-id", data.idToken);
         localStorage.setItem("_user-id", data.localId);
         localStorage.setItem("_user-active", data.email);
         localStorage.setItem("_expiration-date", expirationDate);
 
+        dispatch(setActiveUser(data.email));
         dispatch(authSuccess(data.idToken, data.email));
         dispatch(autoLogout(data.expiresIn));
       })
@@ -230,14 +276,6 @@ export const signUp = (
   };
 };
 
-export const authSuccess = (token, activeAccountEmail) => {
-  return {
-    type: AUTH_SUCCESS,
-    token,
-    activeAccountEmail,
-  };
-};
-
 export const autoLogin = () => {
   return (dispatch) => {
     const token = localStorage.getItem("_token-id");
@@ -277,43 +315,5 @@ export const logoutButton = () => {
   };
 };
 
-export const logout = () => {
-  localStorage.removeItem("_token-id");
-  localStorage.removeItem("_user-id");
-  localStorage.removeItem("_user-active");
-  localStorage.removeItem("_expiration-date");
-
-  return {
-    type: AUTH_LOGOUT,
-  };
-};
-
-export const toggleFetching = (fetching) => {
-  return {
-    type: TOGGLE_AUTH_FETCHING,
-    fetching,
-  };
-};
-
-export const toggleRegistrationFetching = (fetching) => {
-  return {
-    type: TOGGLE_REGISTRATION_FETCHING,
-    fetching,
-  };
-};
-
-export const toggleRegistrationError = (boolean) => {
-  return {
-    type: TOGGLE_REGISTRATION_ERROR,
-    boolean,
-  };
-};
-
-export const toggleLoginError = (error) => {
-  return {
-    type: TOGGLE_LOGIN_ERROR,
-    error,
-  };
-};
 
 export default authReducer;

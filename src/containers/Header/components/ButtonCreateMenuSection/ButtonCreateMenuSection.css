@@ -1,7 +1,7 @@
 .button-create-menu__section {
     display: flex;
-    margin-left: -8px;
-    margin-right: -8px;
+    align-items: center;
+    justify-content: center;
     border-radius: 8px;
     padding: 8px;
 }
@@ -21,8 +21,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 36px;
-    height: 36px;
+    min-width: 36px;
+    min-height: 36px;
     background-color: #F0F2F5;
     border-radius: 50px;
 }
@@ -34,19 +34,11 @@
 
 .button-create-menu__description {
     display: block;
-}
-
-.button-create-menu__category {
     padding-left: 12px;
 }
 
 .button-create-menu__category > span {
     color: #050505;
-}
-
-
-.button-create-menu__help {
-    padding-left: 12px;
 }
 
 .button-create-menu__help > span {

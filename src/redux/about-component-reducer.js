@@ -901,32 +901,32 @@ const aboutComponentReducer = (state = initialState, action) => {
         },
       };
 
-      // Hobbies
+    // Hobbies
 
-      case HOBBIES_ADD_HOBBIES:
-        return {
-          ...state,
-          fullUserInfoAbout: {
-            ...state.fullUserInfoAbout,
-            Hobbies: action.tempPayload,
-          },
-        };
-  
-      case HOBBIES_DELETE_HOBBIES:
-        return {
-          ...state,
-          fullUserInfoAbout: {
-            ...state.fullUserInfoAbout,
-            Hobbies: [
-              ...state.fullUserInfoAbout.Hobbies.slice(0, action.index).concat(
-                [...state.fullUserInfoAbout.Hobbies].slice(
-                  action.index + 1,
-                  [...state.fullUserInfoAbout.Hobbies].length
-                )
-              ),
-            ],
-          },
-        };
+    case HOBBIES_ADD_HOBBIES:
+      return {
+        ...state,
+        fullUserInfoAbout: {
+          ...state.fullUserInfoAbout,
+          Hobbies: action.tempPayload,
+        },
+      };
+
+    case HOBBIES_DELETE_HOBBIES:
+      return {
+        ...state,
+        fullUserInfoAbout: {
+          ...state.fullUserInfoAbout,
+          Hobbies: [
+            ...state.fullUserInfoAbout.Hobbies.slice(0, action.index).concat(
+              [...state.fullUserInfoAbout.Hobbies].slice(
+                action.index + 1,
+                [...state.fullUserInfoAbout.Hobbies].length
+              )
+            ),
+          ],
+        },
+      };
 
     default:
       return state;
@@ -1325,7 +1325,7 @@ export const lifeEventsDeleteLifeEvent = (index) => {
 export const addFromTempHobbies = (tempPayload) => {
   return {
     type: HOBBIES_ADD_HOBBIES,
-    tempPayload
+    tempPayload,
   };
 };
 

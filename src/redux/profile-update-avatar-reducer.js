@@ -15,13 +15,10 @@ const SET_PROFILE_UPDATE_TEMP_AVATAR_BACKGROUND =
 let initialState = {
   profileUpdateStateComponent: 0,
   profileUpdateConditionForAvatar: 0,
-  // 
   profileUpdateTempAvatar: null,
   profileUpdateTempAvatarName: null,
-  // 
   profileUpdateTempAvatarBackground: null,
   profileUpdateTempAvatarBackgroundName: null,
-  // 
   profileUpdateVisibility: "hidden",
   profileUpdateOpacity: 0,
 };

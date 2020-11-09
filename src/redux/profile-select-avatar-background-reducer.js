@@ -11,7 +11,6 @@ let initialState = {
   profileSelectState: 0,
   profileSelectVisibility: "hidden",
   profileSelectOpacity: 0,
-  // Confirm window Background
   windowConfirmBackgroundVisibility: "hidden",
   windowConfirmBackgroundOpacity: 0,
 };
@@ -91,7 +90,6 @@ export const toggleWindowConfirmBackground = (boolean) => {
     boolean
       ? dispatch(toggleWindowConfirmBackgroundVisibility("visible"))
       : dispatch(toggleWindowConfirmBackgroundVisibility("hidden"));
-
     boolean
       ? dispatch(toggleWindowConfirmBackgroundOpacity(1))
       : dispatch(toggleWindowConfirmBackgroundOpacity(0));

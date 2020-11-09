@@ -1,6 +1,5 @@
 import { audioRef } from "containers/MusicPlayerPanel/AudioRef"
 
-
 const SET_MUSIC_FOR_PLAYER = "SET_MUSIC_FOR_PLAYER";
 const TOGGLE_IS_PLAYING = "TOGGLE_IS_PLAYING";
 const SET_INDEX_OF_TRACK = "SET_INDEX_OF_TRACK";

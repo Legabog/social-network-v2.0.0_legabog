@@ -5,7 +5,6 @@ const TOGGLE_PROFILE_EDIT_DETAILS_STATE_COMPONENT =
 
 let initialState = {
   profileEditDetailsStateComponent: 0,
-  // 
   profileEditDetailsVisibility: "hidden",
   profileEditDetailsOpacity: 0,
 };

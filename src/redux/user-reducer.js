@@ -683,12 +683,11 @@ export const setActiveUser = (email) => {
           if (userDatabase.data().Email === email) {
             dispatch(setUser(userDatabase.data()));
             dispatch(setFullUserInfoAbout(userDatabase.data().FullInfo));
+            dispatch(getMusicAlbumsData());
+            dispatch(getMyOwnPlayLists());
           }
         });
-      });
-
-    dispatch(getMusicAlbumsData());
-    dispatch(getMyOwnPlayLists());
+      });    
   };
 };
 

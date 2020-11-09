@@ -1,6 +1,7 @@
 import * as axios from "axios";
 
 export const musicApi = {
+  url: "https://social-network-backend-legabog.herokuapp.com",
 
   createMusicAlbum(data) {
     return axios.post(
@@ -11,48 +12,39 @@ export const musicApi = {
 
   getMusicAlbums() {
     return axios
-      .get("https://social-network-backend-legabog.herokuapp.com/musicalbums/get-musicalbums")
+      .get(`${this.url}/musicalbums/get-musicalbums`)
       .then((response) => {
         return response.data;
       });
   },
 
   deleteMusicAlbum(id) {
-    return axios.delete(`https://social-network-backend-legabog.herokuapp.com/musicalbums/delete-album/${id}`);
+    return axios.delete(`${this.url}/musicalbums/delete-album/${id}`);
   },
 
   getMyOwnPlaylists() {
     return axios
-      .get("https://social-network-backend-legabog.herokuapp.com/myownplaylists/get-playlists")
+      .get(`${this.url}/myownplaylists/get-playlists`)
       .then((response) => {
         return response.data;
       });
   },
 
   createNewPlayList(data) {
-    return axios.post(
-      "https://social-network-backend-legabog.herokuapp.com/myownplaylists/create-playlist",
-      data
-    );
+    return axios.post(`${this.url}/myownplaylists/create-playlist`, data);
   },
 
   deleteOwnPlayList(id) {
-    return axios.delete(
-      `https://social-network-backend-legabog.herokuapp.com/myownplaylists/delete-playlist/${id}`
-    );
+    return axios.delete(`${this.url}/myownplaylists/delete-playlist/${id}`);
   },
 
   deleteTrack(trackId, playlistId) {
     return axios.delete(
-      `https://social-network-backend-legabog.herokuapp.com/myownplaylists/delete-playlist/${playlistId}/delete-track/${trackId}`
+      `${this.url}/myownplaylists/delete-playlist/${playlistId}/delete-track/${trackId}`
     );
   },
 
   updateOwnPlayList(id, data) {
-    return axios.put(
-      `https://social-network-backend-legabog.herokuapp.com/myownplaylists/update-playlist/${id}`,
-      data
-    );
+    return axios.put(`${this.url}/myownplaylists/update-playlist/${id}`, data);
   },
-  
 };

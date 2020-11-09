@@ -1,9 +1,8 @@
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension"
 import thunk from "redux-thunk";
-import appReducer from "./app-reducer";
 
-// reducers
+import appReducer from "./app-reducer";
 import registrationBlockReducer from "./registration-block-reducer"
 import userReducer from "./user-reducer";
 import authReducer from "./auth-reducer";

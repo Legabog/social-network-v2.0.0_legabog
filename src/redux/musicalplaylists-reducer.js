@@ -108,47 +108,67 @@ export const setMyOwnPlayListsData = (data) => {
 
 export const createNewPlayList = (data) => {
   return (dispatch) => {
-    musicApi.createNewPlayList(data).then(() => {
-      dispatch(getMyOwnPlayLists());
-    });
+    musicApi
+      .createNewPlayList(data)
+      .then(() => {
+        dispatch(getMyOwnPlayLists());
+      })
+      .catch((e) => console.log(e));
   };
 };
 
 export const deleteOwnPlayList = (id) => {
   return (dispatch) => {
     dispatch(toggleFetch(true));
-    musicApi.deleteOwnPlayList(id).then(() => {
-      dispatch(getMyOwnPlayLists());
-      dispatch(toggleFetch(false));
-    });
+    musicApi
+      .deleteOwnPlayList(id)
+      .then(() => {
+        dispatch(getMyOwnPlayLists());
+      })
+      .catch((e) => console.log(e));
   };
 };
 
 export const deleteTrackFromPlayList = (id, pid) => {
   return (dispatch) => {
     dispatch(toggleDeleteTrackFetch(true));
-    musicApi.deleteTrack(id, pid).then(() => {
-      dispatch(getMyOwnPlayLists());
-      dispatch(toggleDeleteTrackFetch(false));
-    });
+    musicApi
+      .deleteTrack(id, pid)
+      .then(() => {
+        dispatch(getMyOwnPlayLists());
+        dispatch(toggleDeleteTrackFetch(false));
+      })
+      .catch((e) => {
+        console.log(e);
+        dispatch(toggleDeleteTrackFetch(false));
+      });
   };
 };
 
 export const updatePlaylist = (id, data) => {
   return (dispatch) => {
-    musicApi.updateOwnPlayList(id, data).then((response) => {
-      dispatch(getMyOwnPlayLists());
-    });
+    musicApi
+      .updateOwnPlayList(id, data)
+      .then((response) => {
+        dispatch(getMyOwnPlayLists());
+      })
+      .catch((e) => console.log(e));
   };
 };
 
 export const getMyOwnPlayLists = () => {
   return (dispatch) => {
     dispatch(toggleFetch(true));
-    musicApi.getMyOwnPlaylists().then((response) => {
-      dispatch(setMyOwnPlayListsData(response));
-      dispatch(toggleFetch(false));
-    });
+    musicApi
+      .getMyOwnPlaylists()
+      .then((response) => {
+        dispatch(setMyOwnPlayListsData(response));
+        dispatch(toggleFetch(false));
+      })
+      .catch((e) => {
+        console.log(e);
+        dispatch(toggleFetch(false));
+      });
   };
 };
 

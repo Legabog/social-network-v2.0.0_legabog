@@ -100,7 +100,7 @@ export const toggleSwitcher = (switcher) => {
 };
 
 export const pushToRecentlyPlayed = (img, title, author) => {
-  return async (dispatch) => {
+  return (dispatch) => {
     dispatch(pushAlbumToRecentlyPlayed(img, title, author));
     dispatch(pushTitleToDisabledArray(title));
     dispatch(pushAuthorToDisabledArray(author));
@@ -110,10 +110,13 @@ export const pushToRecentlyPlayed = (img, title, author) => {
 export const getMusicAlbumsData = () => {
   return (dispatch) => {
     dispatch(toggleFetching(true));
-    musicApi.getMusicAlbums().then((response) => {
-      dispatch(setMusicAlbumsData(response));
-      dispatch(toggleFetching(false));
-    });
+    musicApi
+      .getMusicAlbums()
+      .then((response) => {
+        dispatch(setMusicAlbumsData(response));
+        dispatch(toggleFetching(false));
+      })
+      .catch((e) => console.log(`Can't get music albums data: ${e}`));
   };
 };
 
