@@ -16,9 +16,7 @@ export const LanguageSwitcher = (props) => {
     }
   };
 
-  const changeHandler = () => {
-
-  }
+  const changeHandler = () => {};
 
   return (
     <div className="language-switcher">
@@ -27,8 +25,8 @@ export const LanguageSwitcher = (props) => {
         <span
           className={
             localStorage.getItem("_app-language") === "ru"
-              ? "active"
-              : "not-active"
+              ? "active-language-switcher"
+              : "not-active-language-switcher"
           }
         >
           Ru
@@ -54,8 +52,8 @@ export const LanguageSwitcher = (props) => {
         <span
           className={
             localStorage.getItem("_app-language") === "en"
-              ? "active"
-              : "not-active"
+              ? "active-language-switcher"
+              : "not-active-language-switcher"
           }
         >
           En
