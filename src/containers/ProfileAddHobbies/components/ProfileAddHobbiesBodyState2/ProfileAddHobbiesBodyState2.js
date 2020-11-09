@@ -4,8 +4,10 @@ import "./ProfileAddHobbiesBodyState2.css";
 import { ProfileAddHobbiesBodyInput } from "containers/ProfileAddHobbies/components/ProfileAddHobbiesBodyInput";
 import { ProfileAddHobbiesBodySelectedHobbies } from "containers/ProfileAddHobbies/components/ProfileAddHobbiesBodySelectedHobbies";
 import { ProfileAddHobbiesBodySearchResults } from "containers/ProfileAddHobbies/components/ProfileAddHobbiesBodySearchResults";
+import { useTranslation } from "react-i18next";
 
 export const ProfileAddHobbiesBodyState2 = (props) => {
+  const { t } = useTranslation();
   const [searchInput, setSearchInput] = useState("");
 
   const changeSearchInputHandler = (e) => {
@@ -16,7 +18,11 @@ export const ProfileAddHobbiesBodyState2 = (props) => {
 
   props.profileAddHobbiesRecommendedHobbies.map((e, index) => {
     if (searchInput) {
-      if (e.hobbie.toLowerCase().includes(searchInput.toLowerCase())) {
+      if (
+        t(`authorized.profile.add-hobbies.recommended-hobbies.${e.id - 1}`)
+          .toLowerCase()
+          .includes(searchInput.toLowerCase())
+      ) {
         resultAddHobbies += 1;
       }
     }
@@ -33,7 +39,7 @@ export const ProfileAddHobbiesBodyState2 = (props) => {
       />
 
       {props.tempHobbies.length !== 0 ? (
-        <ProfileAddHobbiesBodySelectedHobbies {...props}/>
+        <ProfileAddHobbiesBodySelectedHobbies {...props} />
       ) : null}
 
       <ProfileAddHobbiesBodySearchResults

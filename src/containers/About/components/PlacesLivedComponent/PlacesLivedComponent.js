@@ -6,8 +6,10 @@ import HomeRoundedIcon from "@material-ui/icons/HomeRounded";
 
 import { PlacesLivedComponentSection } from "../PlacesLivedComponentSection";
 import { CirclePreloader } from "pres-components/CirclePreloader";
+import { useTranslation } from "react-i18next";
 
 export const PlacesLivedComponent = (props) => {
+  const { t } = useTranslation();
   return (
     <div className={"PlacesLivedComponent__wrapper"}>
       {props.fetchFullUserInfoAbout ? (
@@ -23,13 +25,20 @@ export const PlacesLivedComponent = (props) => {
             fieldReducer={props.overviewAddACurrentCity}
             addReducer={props.changeFieldFirebase}
             deleteReducer={props.overviewDeleteACurrentCity}
-            title={"Add current city"}
-            titleBold={"Current city"}
-            editTitle={"Edit current city"}
-            deleteTitle={"Delete current city"}
+            title={t(
+              "authorized.about.right-section.component-3.section-1.title"
+            )}
+            editTitle={t(
+              "authorized.about.right-section.component-3.section-1.edit-title"
+            )}
+            deleteTitle={t(
+              "authorized.about.right-section.component-3.section-1.delete-title"
+            )}
             Icon={LocationCityIcon}
             activeInputs={1}
-            ativeInputPlaceholder1={"Current City"}
+            ativeInputPlaceholder1={t(
+              "authorized.about.right-section.component-3.section-1.input-placeholder-1"
+            )}
             {...props}
           />
 
@@ -44,13 +53,20 @@ export const PlacesLivedComponent = (props) => {
             fieldReducer={props.overviewAddAHometown}
             addReducer={props.changeFieldFirebase}
             deleteReducer={props.overviewDeleteAHometown}
-            title={"Add hometown"}
-            titleBold={"Hometown"}
-            editTitle={"Edit hometown"}
-            deleteTitle={"Delete hometown"}
+            title={t(
+              "authorized.about.right-section.component-3.section-2.title"
+            )}
+            editTitle={t(
+              "authorized.about.right-section.component-3.section-2.edit-title"
+            )}
+            deleteTitle={t(
+              "authorized.about.right-section.component-3.section-2.delete-title"
+            )}
             Icon={HomeRoundedIcon}
             activeInputs={1}
-            ativeInputPlaceholder1={"Hometown"}
+            ativeInputPlaceholder1={t(
+              "authorized.about.right-section.component-3.section-2.input-placeholder-1"
+            )}
             {...props}
           />
 
@@ -65,14 +81,26 @@ export const PlacesLivedComponent = (props) => {
             fieldReducer={props.placeslivedAddACity}
             addReducer={props.changeFieldFirebase}
             deleteReducer={props.placeslivedDeleteACity}
-            title={"Add city"}
-            titleBold={"Cities"}
-            editTitle={"Add city"}
-            deleteTitle={"Delete city"}
+            title={t(
+              "authorized.about.right-section.component-3.section-3.title"
+            )}
+            titleBold={t(
+              "authorized.about.right-section.component-3.section-3.title-bold"
+            )}
+            editTitle={t(
+              "authorized.about.right-section.component-3.section-3.edit-title"
+            )}
+            deleteTitle={t(
+              "authorized.about.right-section.component-3.section-3.delete-title"
+            )}
             Icon={LocationCityIcon}
             activeInputs={2}
-            ativeInputPlaceholder1={"City"}
-            ativeInputPlaceholder2={"Description"}
+            ativeInputPlaceholder1={t(
+              "authorized.about.right-section.component-3.section-3.input-placeholder-1"
+            )}
+            ativeInputPlaceholder2={t(
+              "authorized.about.right-section.component-3.section-3.input-placeholder-2"
+            )}
             {...props}
           />
 
@@ -82,4 +110,3 @@ export const PlacesLivedComponent = (props) => {
     </div>
   );
 };
-

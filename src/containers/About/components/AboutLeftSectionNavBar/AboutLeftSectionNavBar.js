@@ -1,73 +1,73 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
 import "./AboutLeftSectionNavBar.css";
 
 import { AboutLeftSectionNavLink } from "../AboutLeftSectionNavLink";
+import { useTranslation } from "react-i18next";
 
-export const AboutLeftSectionNavBar = (orops) => {
-  let location = useLocation();
-
+export const AboutLeftSectionNavBar = (props) => {
+  const { t } = useTranslation();
   return (
     <div className={"AboutLeftSectionNavBar"}>
       <AboutLeftSectionNavLink
         activeLink={
-          location.pathname === "/profile/about_overview" ||
-          location.pathname === "/profile/about"
+          props.location.pathname === "/profile/about_overview" ||
+          props.location.pathname === "/profile/about"
             ? true
             : false
         }
-        title={"Overview"}
+        title={t("authorized.about.left-section.nav-bar.item-1")}
         navLink={"/profile/about_overview"}
       />
       <AboutLeftSectionNavLink
         activeLink={
-          location.pathname === "/profile/about_work_and_education"
+          props.location.pathname === "/profile/about_work_and_education"
             ? true
             : false
         }
-        title={"Work and Education"}
+        title={t("authorized.about.left-section.nav-bar.item-2")}
         navLink={"/profile/about_work_and_education"}
       />
       <AboutLeftSectionNavLink
         activeLink={
-          location.pathname === "/profile/about_places" ? true : false
+          props.location.pathname === "/profile/about_places" ? true : false
         }
-        title={"Places Lived"}
+        title={t("authorized.about.left-section.nav-bar.item-3")}
         navLink={"/profile/about_places"}
       />
       <AboutLeftSectionNavLink
         activeLink={
-          location.pathname === "/profile/about_contact_and_basic_info"
+          props.location.pathname === "/profile/about_contact_and_basic_info"
             ? true
             : false
         }
-        title={"Contact and Basic Info"}
+        title={t("authorized.about.left-section.nav-bar.item-4")}
         navLink={"/profile/about_contact_and_basic_info"}
       />
       <AboutLeftSectionNavLink
         activeLink={
-          location.pathname === "/profile/about_family_and_relationships"
+          props.location.pathname === "/profile/about_family_and_relationships"
             ? true
             : false
         }
-        title={"Family and Relationships"}
+        title={t("authorized.about.left-section.nav-bar.item-5")}
         navLink={"/profile/about_family_and_relationships"}
       />
       <AboutLeftSectionNavLink
         activeLink={
-          location.pathname === "/profile/about_details" ? true : false
+          props.location.pathname === "/profile/about_details" ? true : false
         }
-        title={"Details About You"}
+        title={t("authorized.about.left-section.nav-bar.item-6")}
         navLink={"/profile/about_details"}
       />
       <AboutLeftSectionNavLink
         activeLink={
-          location.pathname === "/profile/about_life_events" ? true : false
+          props.location.pathname === "/profile/about_life_events"
+            ? true
+            : false
         }
-        title={"Life Events"}
+        title={t("authorized.about.left-section.nav-bar.item-7")}
         navLink={"/profile/about_life_events"}
       />
     </div>
   );
 };
-

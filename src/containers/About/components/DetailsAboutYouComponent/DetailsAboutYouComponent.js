@@ -7,8 +7,10 @@ import ChatBubbleOutlineIcon from "@material-ui/icons/ChatBubbleOutline";
 
 import { DetailsAboutYouComponentSection } from "../DetailsAboutYouComponentSection";
 import { CirclePreloader } from "pres-components/CirclePreloader";
+import { useTranslation } from "react-i18next";
 
 export const DetailsAboutYouComponent = (props) => {
+  const { t } = useTranslation();
   return (
     <div className={"DetailsAboutYouComponent__wrapper"}>
       {props.fetchFullUserInfoAbout ? (
@@ -24,13 +26,23 @@ export const DetailsAboutYouComponent = (props) => {
             fieldReducer={props.detailsAboutYouAddDetails}
             addReducer={props.changeFieldFirebase}
             deleteReducer={props.detailsAboutYouDeleteDetails}
-            title={"Write some details about yourself"}
-            titleBold={"About you"}
-            editTitle={"Edit some details about yourself"}
-            deleteTitle={"Delete details about yourself"}
+            title={t(
+              "authorized.about.right-section.component-6.section-1.title"
+            )}
+            titleBold={t(
+              "authorized.about.right-section.component-6.section-1.title-bold"
+            )}
+            editTitle={t(
+              "authorized.about.right-section.component-6.section-1.edit-title"
+            )}
+            deleteTitle={t(
+              "authorized.about.right-section.component-6.section-1.delete-title"
+            )}
             Icon={InfoOutlinedIcon}
             activeInputs={1}
-            ativeInputPlaceholder1={"Information about you"}
+            ativeInputPlaceholder1={t(
+              "authorized.about.right-section.component-6.section-1.input-placeholder-1"
+            )}
             {...props}
           />
 
@@ -45,13 +57,23 @@ export const DetailsAboutYouComponent = (props) => {
             fieldReducer={props.detailsAboutYouAddNamePronunciations}
             addReducer={props.changeFieldFirebase}
             deleteReducer={props.detailsAboutYouDeleteNamePronunciations}
-            title={"Add a name pronunciation"}
-            titleBold={"Name Pronunciation"}
-            editTitle={"Add a name pronunciation"}
-            deleteTitle={"Delete a name pronunciation"}
+            title={t(
+              "authorized.about.right-section.component-6.section-2.title"
+            )}
+            titleBold={t(
+              "authorized.about.right-section.component-6.section-2.title-bold"
+            )}
+            editTitle={t(
+              "authorized.about.right-section.component-6.section-2.edit-title"
+            )}
+            deleteTitle={t(
+              "authorized.about.right-section.component-6.section-2.delete-title"
+            )}
             Icon={PanoramaFishEyeIcon}
             activeInputs={1}
-            ativeInputPlaceholder1={"Name Pronunciation"}
+            ativeInputPlaceholder1={t(
+              "authorized.about.right-section.component-6.section-2.input-placeholder-1"
+            )}
             {...props}
           />
 
@@ -66,13 +88,23 @@ export const DetailsAboutYouComponent = (props) => {
             fieldReducer={props.detailsAboutYouAddOtherName}
             addReducer={props.changeFieldFirebase}
             deleteReducer={props.detailsAboutYouDeleteOtherName}
-            title={"Add a nickname"}
-            titleBold={"Other Names"}
-            editTitle={"Add a nickname"}
-            deleteTitle={"Delete a nickname"}
+            title={t(
+              "authorized.about.right-section.component-6.section-3.title"
+            )}
+            titleBold={t(
+              "authorized.about.right-section.component-6.section-3.title-bold"
+            )}
+            editTitle={t(
+              "authorized.about.right-section.component-6.section-3.edit-title"
+            )}
+            deleteTitle={t(
+              "authorized.about.right-section.component-6.section-3.delete-title"
+            )}
             Icon={PanoramaFishEyeIcon}
             activeInputs={1}
-            ativeInputPlaceholder1={"Nickname"}
+            ativeInputPlaceholder1={t(
+              "authorized.about.right-section.component-6.section-3.input-placeholder-1"
+            )}
             {...props}
           />
 
@@ -87,13 +119,23 @@ export const DetailsAboutYouComponent = (props) => {
             fieldReducer={props.detailsAboutYouAddFavoriteQuotes}
             addReducer={props.changeFieldFirebase}
             deleteReducer={props.detailsAboutYouDeleteFavoriteQuotes}
-            title={"Add your favorite quotes"}
-            titleBold={"Favorite Quotes"}
-            editTitle={"Edit your favorite quotes"}
-            deleteTitle={"Delete your favorite quotes"}
+            title={t(
+              "authorized.about.right-section.component-6.section-4.title"
+            )}
+            titleBold={t(
+              "authorized.about.right-section.component-6.section-4.title-bold"
+            )}
+            editTitle={t(
+              "authorized.about.right-section.component-6.section-4.edit-title"
+            )}
+            deleteTitle={t(
+              "authorized.about.right-section.component-6.section-4.delete-title"
+            )}
             Icon={ChatBubbleOutlineIcon}
             activeInputs={1}
-            ativeInputPlaceholder1={"Favorite Quotes"}
+            ativeInputPlaceholder1={t(
+              "authorized.about.right-section.component-6.section-4.input-placeholder-1"
+            )}
             {...props}
           />
 

@@ -22,10 +22,27 @@ export const ProfileEditDetailsBodySection = (props) => {
           <ProfileEditDetailsAddButton addIcon={ControlPointIcon} {...props} />
         ) : (
           props.componentArguments.map((e, index) => {
+            let resultTitle_1 = "";
+            let resultTitle_2 = "";
+            let resultTitle_3 = "";
+            let resultTitle_4 = "";
             let resultTitle = "";
 
-            for (const [key, value] of Object.entries(e)) {
-              resultTitle += `${key}: «${value}» `;
+            for (const [, value] of Object.entries(e)) {
+              if (props.ativeInputPlaceholder1) {
+                resultTitle_1 = `${props.ativeInputPlaceholder1}: «${value}»; `;
+                if (props.ativeInputPlaceholder2) {
+                  resultTitle_2 = `${props.ativeInputPlaceholder2}: «${value}»; `;
+                  if (props.ativeInputPlaceholder3) {
+                    resultTitle_3 = `${props.ativeInputPlaceholder3}: «${value}»; `;
+                    if (props.ativeInputPlaceholder4) {
+                      resultTitle_4 = `${props.ativeInputPlaceholder4}: «${value}»; `;
+                    }
+                  }
+                }
+              }
+
+              resultTitle = `${resultTitle_1}${resultTitle_2}${resultTitle_3}${resultTitle_4}`;
             }
 
             return (
@@ -49,7 +66,7 @@ export const ProfileEditDetailsBodySection = (props) => {
         <>
           <ProfileEditDetailsBodyNotNullSection
             {...props}
-            mainTitle={props.componentArguments}
+            mainTitle={`${props.ativeInputPlaceholder1}: ${props.componentArguments}`}
           />
           <ProfileEditDetailsAddButton addIcon={SettingsIcon} {...props} />
         </>

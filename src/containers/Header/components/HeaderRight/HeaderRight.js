@@ -6,6 +6,7 @@ import { ButtonCreate } from "../ButtonCreate";
 import { ButtonMessanger } from "../ButtonMessanger";
 import { ButtonNotifications } from "../ButtonNotifications";
 import { ButtonAccount } from "../ButtonAccount";
+import { LanguageSwitcher } from "containers/Header/components/LanguageSwitcher";
 
 export const HeaderRight = (props) => {
   const [activeButton, setActiveButton] = useState();
@@ -16,6 +17,8 @@ export const HeaderRight = (props) => {
 
   return (
     <div className="header__right">
+      <LanguageSwitcher />
+      
       <ButtonFindFriends {...props}/>
 
       <ButtonCreate

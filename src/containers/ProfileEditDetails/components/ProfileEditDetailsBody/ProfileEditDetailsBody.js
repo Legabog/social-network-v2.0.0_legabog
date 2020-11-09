@@ -33,6 +33,19 @@ export const ProfileEditDetailsBody = (props) => {
           "authorized.profile.edit-details.body.section-1.title-bold"
         )}
         title={t("authorized.profile.edit-details.body.section-1.title")}
+
+        ativeInputPlaceholder1={t(
+          "authorized.about.right-section.component-2.section-1.input-placeholder-1"
+        )}
+        ativeInputPlaceholder2={t(
+          "authorized.about.right-section.component-2.section-1.input-placeholder-2"
+        )}
+        ativeInputPlaceholder3={t(
+          "authorized.about.right-section.component-2.section-1.input-placeholder-3"
+        )}
+        ativeInputPlaceholder4={t(
+          "authorized.about.right-section.component-2.section-1.input-placeholder-4"
+        )}
         Icon={WorkIcon}
         {...props}
       />
@@ -50,6 +63,13 @@ export const ProfileEditDetailsBody = (props) => {
           "authorized.profile.edit-details.body.section-2.title-bold"
         )}
         title={t("authorized.profile.edit-details.body.section-2.title")}
+
+        ativeInputPlaceholder1={t(
+          "authorized.about.right-section.component-2.section-3.input-placeholder-1"
+        )}
+        ativeInputPlaceholder2={t(
+          "authorized.about.right-section.component-2.section-3.input-placeholder-2"
+        )}
         Icon={SchoolIcon}
         {...props}
       />
@@ -67,6 +87,10 @@ export const ProfileEditDetailsBody = (props) => {
           "authorized.profile.edit-details.body.section-3.title-bold"
         )}
         title={t("authorized.profile.edit-details.body.section-3.title")}
+
+        ativeInputPlaceholder1={t(
+          "authorized.about.right-section.component-3.section-1.input-placeholder-1"
+        )}
         Icon={LocationCityIcon}
         {...props}
       />
@@ -84,6 +108,10 @@ export const ProfileEditDetailsBody = (props) => {
           "authorized.profile.edit-details.body.section-4.title-bold"
         )}
         title={t("authorized.profile.edit-details.body.section-4.title")}
+
+        ativeInputPlaceholder1={t(
+          "authorized.about.right-section.component-3.section-2.input-placeholder-1"
+        )}
         Icon={HomeRoundedIcon}
         {...props}
       />
@@ -101,6 +129,10 @@ export const ProfileEditDetailsBody = (props) => {
           "authorized.profile.edit-details.body.section-5.title-bold"
         )}
         title={t("authorized.profile.edit-details.body.section-5.title")}
+
+        ativeInputPlaceholder1={t(
+          "authorized.about.right-section.component-5.section-1.input-placeholder-1"
+        )}
         Icon={FavoriteRoundedIcon}
         {...props}
       />

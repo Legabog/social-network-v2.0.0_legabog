@@ -9,7 +9,7 @@ import { ProfileAddHobbiesBodyItem } from "containers/ProfileAddHobbies/componen
 import { useTranslation } from "react-i18next";
 
 export const ProfileAddHobbiesBodyState1 = (props) => {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
   return (
     <div className={"profile-add-hobbies-body_state-1"}>
       <div className={"profile-add-hobbies-body_state-1__title"}>
@@ -22,7 +22,11 @@ export const ProfileAddHobbiesBodyState1 = (props) => {
               <ProfileAddHobbiesBodyItem
                 key={_.uniqueId(e)}
                 Icon={e.icon}
-                description={e.hobbie}
+                description={t(
+                  `authorized.profile.add-hobbies.recommended-hobbies.${
+                    e.id - 1
+                  }`
+                )}
                 {...props}
               />
             );

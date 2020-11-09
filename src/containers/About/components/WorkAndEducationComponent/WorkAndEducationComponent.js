@@ -6,8 +6,10 @@ import SchoolIcon from "@material-ui/icons/School";
 
 import { WorkAndEducationComponentSection } from "../WorkAndEducationComponentSection";
 import { CirclePreloader } from "pres-components/CirclePreloader";
+import { useTranslation } from "react-i18next";
 
 export const WorkAndEducationComponent = (props) => {
+  const { t } = useTranslation();
   return (
     <div className={"WorkAndEducationComponent__wrapper"}>
       {props.fetchFullUserInfoAbout ? (
@@ -23,16 +25,29 @@ export const WorkAndEducationComponent = (props) => {
             fieldReducer={props.overviewAddAWorkplace}
             addReducer={props.changeFieldFirebase}
             deleteReducer={props.overviewDeleteAWorkplace}
-            editTitle={"Add a workplace"}
-            deleteTitle={"Delete a workplace"}
-            title={"Add a workplace"}
-            titleBold={"Worplace"}
+            editTitle={t(
+              "authorized.about.right-section.component-2.section-1.edit-title"
+            )}
+            deleteTitle={t(
+              "authorized.about.right-section.component-2.section-1.delete-title"
+            )}
+            title={t(
+              "authorized.about.right-section.component-2.section-1.title"
+            )}
             Icon={WorkIcon}
             activeInputs={4}
-            ativeInputPlaceholder1={"Company"}
-            ativeInputPlaceholder2={"Position"}
-            ativeInputPlaceholder3={"City/Town"}
-            ativeInputPlaceholder4={"Description"}
+            ativeInputPlaceholder1={t(
+              "authorized.about.right-section.component-2.section-1.input-placeholder-1"
+            )}
+            ativeInputPlaceholder2={t(
+              "authorized.about.right-section.component-2.section-1.input-placeholder-2"
+            )}
+            ativeInputPlaceholder3={t(
+              "authorized.about.right-section.component-2.section-1.input-placeholder-3"
+            )}
+            ativeInputPlaceholder4={t(
+              "authorized.about.right-section.component-2.section-1.input-placeholder-4"
+            )}
             {...props}
           />
 
@@ -47,14 +62,23 @@ export const WorkAndEducationComponent = (props) => {
             fieldReducer={props.overviewAddAHighSchool}
             addReducer={props.changeFieldFirebase}
             deleteReducer={props.overviewDeleteAHighSchool}
-            title={"Add a high school"}
-            titleBold={"High School"}
-            editTitle={"Add a high school"}
-            deleteTitle={"Delete a high school"}
+            title={t(
+              "authorized.about.right-section.component-2.section-2.title"
+            )}
+            editTitle={t(
+              "authorized.about.right-section.component-2.section-2.edit-title"
+            )}
+            deleteTitle={t(
+              "authorized.about.right-section.component-2.section-2.delete-title"
+            )}
             Icon={SchoolIcon}
             activeInputs={2}
-            ativeInputPlaceholder1={"High School"}
-            ativeInputPlaceholder2={"Description"}
+            ativeInputPlaceholder1={t(
+              "authorized.about.right-section.component-2.section-2.input-placeholder-1"
+            )}
+            ativeInputPlaceholder2={t(
+              "authorized.about.right-section.component-2.section-2.input-placeholder-2"
+            )}
             {...props}
           />
 
@@ -69,14 +93,23 @@ export const WorkAndEducationComponent = (props) => {
             fieldReducer={props.overviewAddACollege}
             addReducer={props.changeFieldFirebase}
             deleteReducer={props.overviewDeleteACollege}
-            title={"Add a college"}
-            titleBold={"College"}
-            editTitle={"Add a college"}
-            deleteTitle={"Delete a college"}
+            title={t(
+              "authorized.about.right-section.component-2.section-3.title"
+            )}
+            editTitle={t(
+              "authorized.about.right-section.component-2.section-3.edit-title"
+            )}
+            deleteTitle={t(
+              "authorized.about.right-section.component-2.section-3.delete-title"
+            )}
             Icon={SchoolIcon}
             activeInputs={2}
-            ativeInputPlaceholder1={"College"}
-            ativeInputPlaceholder2={"Description"}
+            ativeInputPlaceholder1={t(
+              "authorized.about.right-section.component-2.section-3.input-placeholder-1"
+            )}
+            ativeInputPlaceholder2={t(
+              "authorized.about.right-section.component-2.section-3.input-placeholder-2"
+            )}
             {...props}
           />
 
@@ -86,4 +119,3 @@ export const WorkAndEducationComponent = (props) => {
     </div>
   );
 };
-

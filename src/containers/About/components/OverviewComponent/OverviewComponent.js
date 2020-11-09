@@ -9,11 +9,13 @@ import FavoriteRoundedIcon from "@material-ui/icons/FavoriteRounded";
 
 import { OverviewComponentSection } from "../OverviewComponentSection";
 import { CirclePreloader } from "pres-components/CirclePreloader";
+import { useTranslation } from "react-i18next";
 
 export const OverviewComponent = (props) => {
+  const { t } = useTranslation();
   return (
     <div className={"OverviewComponent__wrapper"}>
-      { props.fetchFullUserInfoAbout ? (
+      {props.fetchFullUserInfoAbout ? (
         <CirclePreloader />
       ) : (
         <div className={"OverviewComponent"}>
@@ -26,15 +28,29 @@ export const OverviewComponent = (props) => {
             fieldReducer={props.overviewAddAWorkplace}
             addReducer={props.changeFieldFirebase}
             deleteReducer={props.overviewDeleteAWorkplace}
-            editTitle={"Add a workplace"}
-            deleteTitle={"Delete a workplace"}
-            title={"Add a workplace"}
+            editTitle={t(
+              "authorized.about.right-section.component-1.section-1.edit-title"
+            )}
+            deleteTitle={t(
+              "authorized.about.right-section.component-1.section-1.delete-title"
+            )}
+            title={t(
+              "authorized.about.right-section.component-1.section-1.title"
+            )}
             Icon={WorkIcon}
             activeInputs={4}
-            ativeInputPlaceholder1={"Company"}
-            ativeInputPlaceholder2={"Position"}
-            ativeInputPlaceholder3={"City/Town"}
-            ativeInputPlaceholder4={"Description"}
+            ativeInputPlaceholder1={t(
+              "authorized.about.right-section.component-1.section-1.input-placeholder-1"
+            )}
+            ativeInputPlaceholder2={t(
+              "authorized.about.right-section.component-1.section-1.input-placeholder-2"
+            )}
+            ativeInputPlaceholder3={t(
+              "authorized.about.right-section.component-1.section-1.input-placeholder-3"
+            )}
+            ativeInputPlaceholder4={t(
+              "authorized.about.right-section.component-1.section-1.input-placeholder-4"
+            )}
             {...props}
           />
 
@@ -49,13 +65,23 @@ export const OverviewComponent = (props) => {
             fieldReducer={props.overviewAddAHighSchool}
             addReducer={props.changeFieldFirebase}
             deleteReducer={props.overviewDeleteAHighSchool}
-            title={"Add a high school"}
-            editTitle={"Add a high school"}
-            deleteTitle={"Delete a high school"}
+            title={t(
+              "authorized.about.right-section.component-1.section-2.title"
+            )}
+            editTitle={t(
+              "authorized.about.right-section.component-1.section-2.edit-title"
+            )}
+            deleteTitle={t(
+              "authorized.about.right-section.component-1.section-2.delete-title"
+            )}
             Icon={SchoolIcon}
             activeInputs={2}
-            ativeInputPlaceholder1={"High School"}
-            ativeInputPlaceholder2={"Description"}
+            ativeInputPlaceholder1={t(
+              "authorized.about.right-section.component-1.section-2.input-placeholder-1"
+            )}
+            ativeInputPlaceholder2={t(
+              "authorized.about.right-section.component-1.section-2.input-placeholder-2"
+            )}
             {...props}
           />
 
@@ -68,13 +94,23 @@ export const OverviewComponent = (props) => {
             fieldReducer={props.overviewAddACollege}
             addReducer={props.changeFieldFirebase}
             deleteReducer={props.overviewDeleteACollege}
-            title={"Add a college"}
-            editTitle={"Add a college"}
-            deleteTitle={"Delete a college"}
+            title={t(
+              "authorized.about.right-section.component-1.section-3.title"
+            )}
+            editTitle={t(
+              "authorized.about.right-section.component-1.section-3.edit-title"
+            )}
+            deleteTitle={t(
+              "authorized.about.right-section.component-1.section-3.delete-title"
+            )}
             Icon={SchoolIcon}
             activeInputs={2}
-            ativeInputPlaceholder1={"College"}
-            ativeInputPlaceholder2={"Description"}
+            ativeInputPlaceholder1={t(
+              "authorized.about.right-section.component-1.section-3.input-placeholder-1"
+            )}
+            ativeInputPlaceholder2={t(
+              "authorized.about.right-section.component-1.section-3.input-placeholder-2"
+            )}
             {...props}
           />
 
@@ -89,12 +125,20 @@ export const OverviewComponent = (props) => {
             fieldReducer={props.overviewAddACurrentCity}
             addReducer={props.changeFieldFirebase}
             deleteReducer={props.overviewDeleteACurrentCity}
-            title={"Add current city"}
-            editTitle={"Edit current city"}
-            deleteTitle={"Delete current city"}
+            title={t(
+              "authorized.about.right-section.component-1.section-4.title"
+            )}
+            editTitle={t(
+              "authorized.about.right-section.component-1.section-4.edit-title"
+            )}
+            deleteTitle={t(
+              "authorized.about.right-section.component-1.section-4.delete-title"
+            )}
             Icon={LocationCityIcon}
             activeInputs={1}
-            ativeInputPlaceholder1={"Current City"}
+            ativeInputPlaceholder1={t(
+              "authorized.about.right-section.component-1.section-4.input-placeholder-1"
+            )}
             {...props}
           />
 
@@ -107,12 +151,20 @@ export const OverviewComponent = (props) => {
             fieldReducer={props.overviewAddAHometown}
             addReducer={props.changeFieldFirebase}
             deleteReducer={props.overviewDeleteAHometown}
-            title={"Add hometown"}
-            editTitle={"Edit hometown"}
-            deleteTitle={"Delete hometown"}
+            title={t(
+              "authorized.about.right-section.component-1.section-5.title"
+            )}
+            editTitle={t(
+              "authorized.about.right-section.component-1.section-5.edit-title"
+            )}
+            deleteTitle={t(
+              "authorized.about.right-section.component-1.section-5.delete-title"
+            )}
             Icon={HomeRoundedIcon}
             activeInputs={1}
-            ativeInputPlaceholder1={"Hometown"}
+            ativeInputPlaceholder1={t(
+              "authorized.about.right-section.component-1.section-5.input-placeholder-1"
+            )}
             {...props}
           />
 
@@ -127,12 +179,20 @@ export const OverviewComponent = (props) => {
             fieldReducer={props.overviewAddARelationshipStatus}
             addReducer={props.changeFieldFirebase}
             deleteReducer={props.overviewDeleteARelationshipStatus}
-            title={"Add a relationship status"}
-            editTitle={"Edit a relationship status"}
-            deleteTitle={"Delete a relationship status"}
+            title={t(
+              "authorized.about.right-section.component-1.section-6.title"
+            )}
+            editTitle={t(
+              "authorized.about.right-section.component-1.section-6.edit-title"
+            )}
+            deleteTitle={t(
+              "authorized.about.right-section.component-1.section-6.delete-title"
+            )}
             Icon={FavoriteRoundedIcon}
             activeInputs={1}
-            ativeInputPlaceholder1={"Relationship status"}
+            ativeInputPlaceholder1={t(
+              "authorized.about.right-section.component-1.section-6.input-placeholder-1"
+            )}
             {...props}
           />
         </div>
@@ -140,4 +200,3 @@ export const OverviewComponent = (props) => {
     </div>
   );
 };
-

@@ -1,4 +1,5 @@
 .OverviewComponentNotNullSection {
+    white-space: pre-line;
     display: flex;
     text-align: center;
     justify-content: left;

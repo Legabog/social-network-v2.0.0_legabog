@@ -6,8 +6,10 @@ import EventAvailableIcon from "@material-ui/icons/EventAvailable";
 
 import { LifeEventsComponentSection } from "../LifeEventsComponentSection";
 import { CirclePreloader } from "pres-components/CirclePreloader";
+import { useTranslation } from "react-i18next";
 
 export const LifeEventsComponent = (props) => {
+  const { t } = useTranslation();
   return (
     <div className={"LifeEventsComponent__wrapper"}>
       {props.fetchFullUserInfoAbout ? (
@@ -23,14 +25,26 @@ export const LifeEventsComponent = (props) => {
             fieldReducer={props.lifeEventsAddLifeEvent}
             addReducer={props.changeFieldFirebase}
             deleteReducer={props.lifeEventsDeleteLifeEvent}
-            title={"Add your life event"}
-            titleBold={"Life Events"}
-            editTitle={"Add your life event"}
-            deleteTitle={"Delete your life event"}
+            title={t(
+              "authorized.about.right-section.component-7.section.title"
+            )}
+            titleBold={t(
+              "authorized.about.right-section.component-7.section.title-bold"
+            )}
+            editTitle={t(
+              "authorized.about.right-section.component-7.section.edit-title"
+            )}
+            deleteTitle={t(
+              "authorized.about.right-section.component-7.section.delete-title"
+            )}
             Icon={EventAvailableIcon}
             activeInputs={2}
-            ativeInputPlaceholder1={"Life event"}
-            ativeInputPlaceholder2={"Description"}
+            ativeInputPlaceholder1={t(
+              "authorized.about.right-section.component-7.section.input-placeholder-1"
+            )}
+            ativeInputPlaceholder2={t(
+              "authorized.about.right-section.component-7.section.input-placeholder-2"
+            )}
             {...props}
           />
 
@@ -38,7 +52,9 @@ export const LifeEventsComponent = (props) => {
               .LifeEvents.length === 0 ? (
             <div className={"LifeEventsComponent__section__description"}>
               <EventBusyIcon />
-              <span>No life events to show</span>
+              <span>
+                {t("authorized.about.right-section.component-7.description")}
+              </span>
             </div>
           ) : null}
 
@@ -48,4 +64,3 @@ export const LifeEventsComponent = (props) => {
     </div>
   );
 };
-
