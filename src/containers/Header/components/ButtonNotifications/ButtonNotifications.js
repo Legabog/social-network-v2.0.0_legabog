@@ -24,7 +24,7 @@ export const ButtonNotifications = (props) => {
 
       <ButtonHelp
         title={t("authorized.header.header-right.button-notifications.help")}
-        marginLeft={"190px"}
+        marginLeft={"395px"}
         marginTop={"63px"}
         helpOpacity={helpMessageOpacity}
         helpCreateVisibility={helpMessageVisibility}

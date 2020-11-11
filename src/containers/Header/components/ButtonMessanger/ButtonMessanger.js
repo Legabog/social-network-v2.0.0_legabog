@@ -24,7 +24,7 @@ export const ButtonMessanger = (props) => {
 
       <ButtonHelp
         title={t("authorized.header.header-right.button-messenger.help")}
-        marginLeft={"140px"}
+        marginLeft={"360px"}
         marginTop={"63px"}
         helpOpacity={helpMessageOpacity}
         helpCreateVisibility={helpMessageVisibility}

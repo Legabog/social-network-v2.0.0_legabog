@@ -24,7 +24,7 @@ export const ButtonAccount = (props) => {
 
       <ButtonHelp
         title={t("authorized.header.header-right.button-account.help")}
-        marginLeft={"230px"}
+        marginLeft={"445px"}
         marginTop={"63px"}
         helpOpacity={helpMessageOpacity}
         helpCreateVisibility={helpMessageVisibility}

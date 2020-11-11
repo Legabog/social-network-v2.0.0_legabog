@@ -36,7 +36,7 @@ i18n
   .init({
     // Стандартный язык
     fallbackLng: defaultLanguage,
-    debug: true,
+    debug: false,
     whitelist: availableLanguages,
     // Распознавание и кэширование языковых кук
     detection: options,
