@@ -1,26 +1,20 @@
 import React from "react";
-import { useTranslation } from "react-i18next";
+import { useTranslatei18n } from "hooks/useTranslatei18n";
 import "./LanguageSwitcher.css";
 
 import ruflag from "assets/flags/rus.png";
 import enflag from "assets/flags/eng.png";
 
 export const LanguageSwitcher = (props) => {
-  const { i18n } = useTranslation();
-
-  const toggleSwitcher = () => {
-    if (localStorage.getItem("_app-language") === "ru") {
-      i18n.changeLanguage("en");
-    } else {
-      i18n.changeLanguage("ru");
-    }
-  };
-
-  const changeHandler = () => {};
+  const {
+    toggleSwitcher,
+    switchToRusLang,
+    switchToEnLang,
+  } = useTranslatei18n();
 
   return (
     <div className="language-switcher">
-      <div className={"language-switcher__ru"}>
+      <div className={"language-switcher__ru"} onClick={switchToRusLang}>
         <img src={ruflag} alt={""} />
         <span
           className={
@@ -40,14 +34,11 @@ export const LanguageSwitcher = (props) => {
           checked={
             localStorage.getItem("_app-language") === "ru" ? false : true
           }
-          onChange={changeHandler}
+          onChange={toggleSwitcher}
         />
-        <span
-          className="language-switcher__slider-round"
-          onClick={toggleSwitcher}
-        ></span>
+        <span className="language-switcher__slider-round"></span>
       </label>
-      <div className={"language-switcher__en"}>
+      <div className={"language-switcher__en"} onClick={switchToEnLang}>
         <img src={enflag} alt={""} />
         <span
           className={

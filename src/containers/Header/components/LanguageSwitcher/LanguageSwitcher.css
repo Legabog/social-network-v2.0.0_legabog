@@ -18,6 +18,14 @@
     border-radius: 6px;
 }
 
+.language-switcher__ru:hover {
+    cursor: pointer;
+}
+
+.language-switcher__ru:active {
+    transform: scale(0.90);
+}
+
 .language-switcher__en {
     display: flex;
     text-align: center;
@@ -29,6 +37,15 @@
 .language-switcher__en > img {
     border-radius: 6px;
 }
+
+.language-switcher__en:hover {
+    cursor: pointer;
+}
+
+.language-switcher__en:active {
+    transform: scale(0.90);
+}
+
 
 .active-language-switcher {
     font-weight: 600;
