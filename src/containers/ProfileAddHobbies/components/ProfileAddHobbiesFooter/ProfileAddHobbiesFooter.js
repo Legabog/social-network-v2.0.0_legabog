@@ -19,7 +19,29 @@ export const ProfileAddHobbiesFooter = (props) => {
             </span>
           </div>
         </div>
-        {props.tempHobbies.length === 0 ? null : (
+        {props.tempHobbies.length === 0 ? (
+          props.profileAddHobbiesStateComponent === 1 ? (
+            <div className={"profile-add-hobbies-footer__buttons"}>
+              <div
+                className={"profile-add-hobbies-footer__cancel-button"}
+                onClick={props.cancelClick}
+              >
+                <span>
+                  {t("authorized.profile.add-hobbies.footer.cancel-button")}
+                </span>
+              </div>
+
+              <div
+                className={"profile-add-hobbies-footer__update-button"}
+                onClick={props.saveClick}
+              >
+                <span>
+                  {t("authorized.profile.add-hobbies.footer.update-button")}
+                </span>
+              </div>
+            </div>
+          ) : null
+        ) : (
           <div className={"profile-add-hobbies-footer__buttons"}>
             <div
               className={"profile-add-hobbies-footer__cancel-button"}

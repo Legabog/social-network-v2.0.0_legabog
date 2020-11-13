@@ -105,6 +105,7 @@ const HOBBIES_DELETE_HOBBIES = "HOBBIES_DELETE_HOBBIES";
 let initialState = {
   fullUserInfoAbout: null,
   fetchFullUserInfoAbout: false,
+  fetchAddHobbies: false
 };
 
 const aboutComponentReducer = (state = initialState, action) => {
@@ -1340,8 +1341,8 @@ export const deleteHobbies = (index) => {
 
 export const changeFieldFirebase = (fieldValues, fieldReducer, email, func) => {
   return async (dispatch, getState) => {
-    const updated_state = getState().aboutComponentReducer.fullUserInfoAbout;
     await fieldReducer(...fieldValues);
+    const updated_state = getState().aboutComponentReducer.fullUserInfoAbout;
     dispatch(toggleFetchFullUserInfoAbout(true));
 
     db.collection("users_database")

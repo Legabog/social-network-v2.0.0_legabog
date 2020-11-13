@@ -57,8 +57,8 @@ export const ProfileAddHobbies = (props) => {
       props.profileAddHobbiesVisibility,
       props.profileAddHobbiesOpacity
     );
-
-    props.addFromTempHobbies(props.tempHobbies);
+    
+    props.addHobbiesWithFirebase(tempHobbies, props.activeAccountEmail)
   };
 
   return (
