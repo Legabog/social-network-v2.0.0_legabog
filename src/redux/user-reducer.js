@@ -348,18 +348,18 @@ export const sendAvatar = (avatar, avatarName, email) => {
                   .then(() => {
                     dispatch(addAvatarToProfileAvatars(resultUrl));
                     dispatch(addAvatarToRecentUploads(resultUrl));
-                    dispatch(toggleFetchAvatar(false));
-                    dispatch(toggleFetchProfileAvatars(false));
                     console.log("Success. Cloud FireStore was updated");
                   })
                   .then(() => {
                     dispatch(closeHandlerProfileUpdate());
                   })
                   .catch((e) => {
-                    dispatch(toggleFetchAvatar(false));
-                    dispatch(toggleFetchProfileAvatars(false));
                     dispatch(closeHandlerProfileUpdate());
                     console.log(e + "error on  uploading in Cloud FireStore");
+                  })
+                  .finally(() => {
+                    dispatch(toggleFetchAvatar(false));
+                    dispatch(toggleFetchProfileAvatars(false));
                   });
               }
             });
@@ -404,17 +404,17 @@ export const changeAvatarHandler = (avatar, email) => {
                 console.log("Success. Cloud FireStore was updated");
                 dispatch(addAvatarToProfileAvatars(avatar));
                 dispatch(addAvatarToRecentUploads(avatar));
-                dispatch(toggleFetchAvatar(false));
-                dispatch(toggleFetchProfileAvatars(false));
               })
               .then(() => {
                 dispatch(closeHandlerProfileUpdate());
               })
               .catch((e) => {
                 console.log(e + "error on  uploading in Cloud FireStore");
+                dispatch(closeHandlerProfileUpdate());
+              })
+              .finally(() => {
                 dispatch(toggleFetchAvatar(false));
                 dispatch(toggleFetchProfileAvatars(false));
-                dispatch(closeHandlerProfileUpdate());
               });
           }
         });
@@ -512,8 +512,6 @@ export const changeAvatarBackgroundHandler = (
                     RecentUploads: addToArray(resultUrl),
                   })
                   .then(() => {
-                    dispatch(toggleFetchAvatarBackground(false));
-                    dispatch(toggleFetchAvatarBackgrounds(false));
                     dispatch(
                       addAvatarBackgroundToPofileAvatarBackgrounds(resultUrl)
                     );
@@ -528,13 +526,15 @@ export const changeAvatarBackgroundHandler = (
                     secondaryFn(false);
                   })
                   .catch((e) => {
-                    dispatch(toggleFetchAvatarBackground(false));
-                    dispatch(toggleFetchAvatarBackgrounds(false));
                     dispatch(setTempAvatarBackground(null));
                     dispatch(setTempAvatarBackgroundName(null));
                     document.getElementById("avatarBackground-uploader").value =
                       "";
                     console.log(e + "error on  uploading in Cloud FireStore");
+                  })
+                  .finally(() => {
+                    dispatch(toggleFetchAvatarBackground(false));
+                    dispatch(toggleFetchAvatarBackgrounds(false));
                   });
               }
             });
@@ -577,8 +577,6 @@ export const changeAvatarBackgroundURLHandler = (
                 ),
               })
               .then(() => {
-                dispatch(toggleFetchAvatarBackground(false));
-                dispatch(toggleFetchAvatarBackgrounds(false));
                 dispatch(
                   addAvatarBackgroundToPofileAvatarBackgrounds(background)
                 );
@@ -591,11 +589,13 @@ export const changeAvatarBackgroundURLHandler = (
                 secondaryFn(false);
               })
               .catch((e) => {
-                dispatch(toggleFetchAvatarBackground(false));
-                dispatch(toggleFetchAvatarBackgrounds(false));
                 dispatch(setTempAvatarBackground(null));
                 dispatch(setTempAvatarBackgroundName(null));
                 console.log(e + "error on  uploading in Cloud FireStore");
+              })
+              .finally(() => {
+                dispatch(toggleFetchAvatarBackground(false));
+                dispatch(toggleFetchAvatarBackgrounds(false));
               });
           }
         });
@@ -621,19 +621,18 @@ export const removeAvatarBackgroundHandler = (email) => {
                 "AvatarBackground.activeAvatarBackgroundUrl": "",
               })
               .then(() => {
-                dispatch(toggleFetchAvatarBackground(false));
                 dispatch(setTempAvatarBackground(null));
                 dispatch(setTempAvatarBackgroundName(null));
                 document.getElementById("avatarBackground-uploader").value = "";
                 console.log("Success. Cloud FireStore was updated");
               })
               .catch((e) => {
-                dispatch(toggleFetchAvatarBackground(false));
                 dispatch(setTempAvatarBackground(null));
                 dispatch(setTempAvatarBackgroundName(null));
                 document.getElementById("avatarBackground-uploader").value = "";
                 console.log(e + "error on  uploading in Cloud FireStore");
-              });
+              })
+              .finally(() => dispatch(toggleFetchAvatarBackground(false)));
           }
         });
       });
@@ -659,13 +658,12 @@ export const changeBioHandler = (bio, email, func) => {
               })
               .then(() => {
                 console.log("Upd");
-                dispatch(toggleFetchBio(false));
                 func();
               })
               .catch(() => {
                 console.log("Error");
-                dispatch(toggleFetchBio(true));
-              });
+              })
+              .finally(() => dispatch(toggleFetchBio(false)));
           }
         });
       });
@@ -687,7 +685,7 @@ export const setActiveUser = (email) => {
             dispatch(getMyOwnPlayLists());
           }
         });
-      });    
+      });
   };
 };
 

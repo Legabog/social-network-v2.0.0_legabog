@@ -133,15 +133,14 @@ export const signIn = (email, password, history, URL) => {
         dispatch(autoLogout(data.expiresIn));
       })
       .then(() => {
-        dispatch(toggleFetching(false));
         dispatch(toggleLoginError(false));
         history.push("/");
       })
       .catch((e) => {
         history.push(`${URL}`);
         dispatch(toggleLoginError(true));
-        dispatch(toggleFetching(false));
-      });
+      })
+      .finally(() => dispatch(toggleFetching(false)));
   };
 };
 
@@ -171,7 +170,6 @@ export const signUp = (
     Axios.post(url, signUpData)
       .then((response) => {
         dispatch(toggleRegistrationError(false));
-
         // add user to db
         db.collection("users_database")
           .add({
@@ -245,7 +243,7 @@ export const signUp = (
                 FavoriteQuotes: "",
               },
               LifeEvents: [],
-              Hobbies: []
+              Hobbies: [],
             },
           })
           .then(() => {
@@ -255,14 +253,13 @@ export const signUp = (
               { requestType: "VERIFY_EMAIL", idToken: response.data.idToken }
             )
               .then(() => {
-                dispatch(toggleRegistrationFetching(false));
-                dispatch(displayRegistrationBlockFalse())
+                dispatch(displayRegistrationBlockFalse());
                 history.push("/confirm_email");
               })
               .catch(() => {
-                dispatch(toggleRegistrationFetching(false));
                 dispatch(toggleRegistrationError(true));
-              });
+              })
+              .finally(() => dispatch(toggleRegistrationFetching(false)));
           })
           .catch(() => {
             dispatch(toggleRegistrationFetching(false));
@@ -314,6 +311,5 @@ export const logoutButton = () => {
     dispatch(logout());
   };
 };
-
 
 export default authReducer;

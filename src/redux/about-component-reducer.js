@@ -1340,9 +1340,9 @@ export const deleteHobbies = (index) => {
 
 export const changeFieldFirebase = (fieldValues, fieldReducer, email, func) => {
   return async (dispatch, getState) => {
+    const updated_state = getState().aboutComponentReducer.fullUserInfoAbout;
     await fieldReducer(...fieldValues);
     dispatch(toggleFetchFullUserInfoAbout(true));
-    const updated_state = getState().aboutComponentReducer.fullUserInfoAbout;
 
     db.collection("users_database")
       .get()
@@ -1356,13 +1356,12 @@ export const changeFieldFirebase = (fieldValues, fieldReducer, email, func) => {
               })
               .then(() => {
                 console.log("Upd");
-                dispatch(toggleFetchFullUserInfoAbout(false));
                 func();
               })
               .catch(() => {
                 console.log("Error");
-                dispatch(toggleFetchFullUserInfoAbout(false));
-              });
+              })
+              .finally(() => dispatch(toggleFetchFullUserInfoAbout(false)));
           }
         });
       });

@@ -114,9 +114,9 @@ export const getMusicAlbumsData = () => {
       .getMusicAlbums()
       .then((response) => {
         dispatch(setMusicAlbumsData(response));
-        dispatch(toggleFetching(false));
       })
-      .catch((e) => console.log(`Can't get music albums data: ${e}`));
+      .catch((e) => console.log(`Can't get music albums data: ${e}`))
+      .finally(() => dispatch(toggleFetching(false)))
   };
 };
 

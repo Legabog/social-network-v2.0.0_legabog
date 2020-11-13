@@ -136,12 +136,11 @@ export const deleteTrackFromPlayList = (id, pid) => {
       .deleteTrack(id, pid)
       .then(() => {
         dispatch(getMyOwnPlayLists());
-        dispatch(toggleDeleteTrackFetch(false));
       })
       .catch((e) => {
         console.log(e);
-        dispatch(toggleDeleteTrackFetch(false));
-      });
+      })
+      .finally(() => dispatch(toggleDeleteTrackFetch(false)))
   };
 };
 
@@ -163,12 +162,11 @@ export const getMyOwnPlayLists = () => {
       .getMyOwnPlaylists()
       .then((response) => {
         dispatch(setMyOwnPlayListsData(response));
-        dispatch(toggleFetch(false));
       })
       .catch((e) => {
         console.log(e);
-        dispatch(toggleFetch(false));
-      });
+      })
+      .finally(() => dispatch(toggleFetch(false)))
   };
 };
 
