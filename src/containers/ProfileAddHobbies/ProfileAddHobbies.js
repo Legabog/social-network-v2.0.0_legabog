@@ -9,42 +9,24 @@ import { ProfileAddHobbiesFooter } from "./components/ProfileAddHobbiesFooter";
 
 export const ProfileAddHobbies = (props) => {
   const [tempHobbies, setTempHobbies] = useState([]);
-
-  const toggleTempHobbies = (hobbie, icon, index) => {
-    !_.some(tempHobbies, { hobbie, icon })
-      ? setTempHobbies([...tempHobbies, { hobbie, icon }])
+  
+  const toggleTempHobbies = (id, hobbie, index) => {
+    !_.some(tempHobbies, { id, hobbie })
+      ? setTempHobbies([...tempHobbies, { id, hobbie }])
       : setTempHobbies(
           tempHobbies.slice(0, index).concat(tempHobbies.slice(index + 1))
         );
   };
-  
+
   const cancelClick = () => {
-    if (
-      props.profileAddHobbiesStateComponent === 1 &&
-      props.fullUserInfoAbout.Hobbies.length === 0
-    ) {
-      props.toggleProfileAddHobbies(
-        props.profileAddHobbiesVisibility,
-        props.profileAddHobbiesOpacity
-      );
-      setTempHobbies([]);
-      setTimeout(() => {
-        props.toggleProfileAddHobbiesStateComponent(0);
-      }, 200);
-    } else {
-      if (props.fullUserInfoAbout.Hobbies.length !== 0) {
-        props.toggleProfileAddHobbies(
-          props.profileAddHobbiesVisibility,
-          props.profileAddHobbiesOpacity
-        );
-      } else {
-        setTempHobbies([]);
-        props.toggleProfileAddHobbies(
-          props.profileAddHobbiesVisibility,
-          props.profileAddHobbiesOpacity
-        );
-      }
-    }
+    props.toggleProfileAddHobbies(
+      props.profileAddHobbiesVisibility,
+      props.profileAddHobbiesOpacity
+    );
+    setTempHobbies([]);
+    setTimeout(() => {
+      props.toggleProfileAddHobbiesStateComponent(0);
+    }, 200);
   };
 
   const saveClick = () => {
@@ -52,8 +34,11 @@ export const ProfileAddHobbies = (props) => {
       props.profileAddHobbiesVisibility,
       props.profileAddHobbiesOpacity
     );
-    
-    props.addHobbiesWithFirebase(tempHobbies, props.activeAccountEmail)
+    props.addHobbiesWithFirebase(tempHobbies, props.activeAccountEmail);
+    setTempHobbies([]);
+    setTimeout(() => {
+      props.toggleProfileAddHobbiesStateComponent(0);
+    }, 200);
   };
 
   return (

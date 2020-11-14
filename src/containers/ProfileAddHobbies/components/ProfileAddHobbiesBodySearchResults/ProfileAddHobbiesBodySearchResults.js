@@ -36,23 +36,28 @@ export const ProfileAddHobbiesBodySearchResults = (props) => {
                 .toLowerCase()
                 .includes(props.searchInput.toLowerCase()) &&
               !_.some(props.tempHobbies, {
+                id: e.id,
                 hobbie: t(
                   `authorized.profile.add-hobbies.recommended-hobbies.${
                     e.id - 1
                   }`
                 ),
-                icon: e.icon,
               })
             ) {
               return (
                 <ProfileAddHobbiesBodyHobbie
+                  id={e.id}
                   key={_.uniqueId(e)}
                   description={t(
                     `authorized.profile.add-hobbies.recommended-hobbies.${
                       e.id - 1
                     }`
                   )}
-                  Icon={e.icon}
+                  Icon={
+                    _.find(props.profileAddHobbiesRecommendedHobbies, {
+                      id: e.id,
+                    }).icon
+                  }
                   tempHobbies={props.tempHobbies}
                   toggleTempHobbies={props.toggleTempHobbies}
                 />

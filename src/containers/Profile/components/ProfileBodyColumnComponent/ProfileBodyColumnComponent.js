@@ -13,6 +13,7 @@ import { ProfileBodyColumnComponentHobbie } from "containers/Profile/components/
 
 import _ from "lodash/core";
 import { useTranslation } from "react-i18next";
+import { CirclePreloader } from "pres-components/CirclePreloader";
 
 export const ProfileBodyColumnComponent = (props) => {
   const { t } = useTranslation();
@@ -124,15 +125,27 @@ export const ProfileBodyColumnComponent = (props) => {
             <span>{t("authorized.profile.body.button-1")}</span>
           </div>
 
-          <div className={"profile-body-column-component__hobbies-section"}>
+          {props.profileAddHobbiesFetch
+            ? <CirclePreloader margin_left={"150px"}/>
+            : (
+              <div className={"profile-body-column-component__hobbies-section"}>
             {props.fullUserInfoAbout !== null
               ? props.fullUserInfoAbout.Hobbies.map((e, index) => {
                   if (index < hobbieSectionSize) {
                     return (
                       <ProfileBodyColumnComponentHobbie
+                        id={e.id}
                         key={_.uniqueId(e)}
-                        Icon={e.icon}
-                        description={e.hobbie}
+                        Icon={
+                          _.find(props.profileAddHobbiesRecommendedHobbies, {
+                            id: e.id,
+                          }).icon
+                        }
+                        description={t(
+                          `authorized.profile.add-hobbies.recommended-hobbies.${
+                            e.id - 1
+                          }`
+                        )}
                       />
                     );
                   }
@@ -159,6 +172,9 @@ export const ProfileBodyColumnComponent = (props) => {
               ) : null
             ) : null}
           </div>
+            )
+          }    
+          
 
           <div
             className={"profile-body-column-component__button-info"}

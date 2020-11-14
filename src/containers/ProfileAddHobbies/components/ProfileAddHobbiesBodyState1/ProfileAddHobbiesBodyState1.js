@@ -20,8 +20,13 @@ export const ProfileAddHobbiesBodyState1 = (props) => {
           if (index <= 9) {
             return (
               <ProfileAddHobbiesBodyItem
+                id={e.id}
                 key={_.uniqueId(e)}
-                Icon={e.icon}
+                Icon={
+                  _.find(props.profileAddHobbiesRecommendedHobbies, {
+                    id: e.id,
+                  }).icon
+                }
                 description={t(
                   `authorized.profile.add-hobbies.recommended-hobbies.${
                     e.id - 1

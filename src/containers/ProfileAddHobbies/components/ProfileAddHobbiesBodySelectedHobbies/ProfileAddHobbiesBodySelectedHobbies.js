@@ -18,9 +18,14 @@ export const ProfileAddHobbiesBodySelectedHobbies = (props) => {
           {props.tempHobbies.map((e, index) => {
             return (
               <ProfileAddHobbiesBodyHobbie
+                id={e.id}
                 key={_.uniqueId(e)}
                 description={e.hobbie}
-                Icon={e.icon}
+                Icon={
+                  _.find(props.profileAddHobbiesRecommendedHobbies, {
+                    id: e.id,
+                  }).icon
+                }
                 tempHobbies={props.tempHobbies}
                 toggleTempHobbies={props.toggleTempHobbies}
               />

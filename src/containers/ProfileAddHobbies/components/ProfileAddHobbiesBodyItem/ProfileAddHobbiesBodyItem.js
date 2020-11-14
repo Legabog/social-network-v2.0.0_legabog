@@ -7,19 +7,19 @@ export const ProfileAddHobbiesBodyItem = (props) => {
     <div
       className={`profile-add-hobbies-body-item${
         _.some(props.tempHobbies, {
+          id: props.id,
           hobbie: props.description,
-          icon: props.Icon,
         })
           ? "_active"
           : ""
       }`}
       onClick={() => {
         props.toggleTempHobbies(
+          props.id,
           props.description,
-          props.Icon,
           _.findIndex(props.tempHobbies, {
+            id: props.id,
             hobbie: props.description,
-            icon: props.Icon,
           })
         );
       }}
@@ -27,8 +27,8 @@ export const ProfileAddHobbiesBodyItem = (props) => {
       <div
         className={`profile-add-hobbies-body-item__icon${
           _.some(props.tempHobbies, {
+            id: props.id,
             hobbie: props.description,
-            icon: props.Icon,
           })
             ? "_active"
             : ""
@@ -40,8 +40,8 @@ export const ProfileAddHobbiesBodyItem = (props) => {
       <div
         className={`profile-add-hobbies-body-item__description${
           _.some(props.tempHobbies, {
+            id: props.id,
             hobbie: props.description,
-            icon: props.Icon,
           })
             ? "_active"
             : ""

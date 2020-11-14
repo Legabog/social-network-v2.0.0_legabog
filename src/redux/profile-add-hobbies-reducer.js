@@ -201,7 +201,8 @@ export const toggleProfileAddHobbies = (visibility, opacity) => {
 export const addHobbiesWithFirebase = (hobbies, email) => {
   return async (dispatch, getState) => {
     await dispatch(addFromTempHobbies(hobbies));
-    const updated_state = getState().aboutComponentReducer.fullUserInfoAbout;
+    const updated_hobbies = getState().aboutComponentReducer.fullUserInfoAbout
+      .Hobbies;
     dispatch(toggleProfileAddHobbiesFetch(true));
 
     db.collection("users_database")
@@ -212,7 +213,7 @@ export const addHobbiesWithFirebase = (hobbies, email) => {
             db.collection("users_database")
               .doc(userDatabase.id)
               .update({
-                FullInfo: updated_state,
+                "FullInfo.Hobbies": updated_hobbies,
               })
               .then(() => {
                 console.log("Upd");
