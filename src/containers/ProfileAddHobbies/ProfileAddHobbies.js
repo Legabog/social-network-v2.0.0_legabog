@@ -8,12 +8,7 @@ import { ProfileAddHobbiesBody } from "./components/ProfileAddHobbiesBody";
 import { ProfileAddHobbiesFooter } from "./components/ProfileAddHobbiesFooter";
 
 export const ProfileAddHobbies = (props) => {
-  const [tempHobbies, setTempHobbies] = useState(
-    props.fullUserInfoAbout !== null &&
-      props.fullUserInfoAbout.Hobbies.length !== 0
-      ? props.fullUserInfoAbout.Hobbies
-      : []
-  );
+  const [tempHobbies, setTempHobbies] = useState([]);
 
   const toggleTempHobbies = (hobbie, icon, index) => {
     !_.some(tempHobbies, { hobbie, icon })
@@ -22,7 +17,7 @@ export const ProfileAddHobbies = (props) => {
           tempHobbies.slice(0, index).concat(tempHobbies.slice(index + 1))
         );
   };
-
+  
   const cancelClick = () => {
     if (
       props.profileAddHobbiesStateComponent === 1 &&
