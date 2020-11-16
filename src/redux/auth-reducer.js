@@ -1,6 +1,6 @@
 import Axios from "axios";
 import { displayRegistrationBlockFalse } from "redux/registration-block-reducer";
-import db, { firebaseConfig } from "utils/firebase/firebase";
+import db from "utils/firebase/firebase";
 import { setActiveUser, setUser } from "./user-reducer";
 
 const AUTH_SUCCESS = "AUTH_SUCCESS";
@@ -113,7 +113,7 @@ export const signIn = (email, password, history, URL) => {
       password,
       returnSecureToken: true,
     };
-    let url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${firebaseConfig.apiKey}`;
+    let url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${process.env.REACT_APP_FIREBASE_API_KEY}`;
     dispatch(toggleFetching(true));
 
     Axios.post(url, signInData)
@@ -164,7 +164,7 @@ export const signUp = (
       returnSecureToken: true,
     };
 
-    let url = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${firebaseConfig.apiKey}`;
+    let url = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${process.env.REACT_APP_FIREBASE_API_KEY}`;
     dispatch(toggleRegistrationFetching(true));
 
     Axios.post(url, signUpData)
@@ -249,7 +249,7 @@ export const signUp = (
           .then(() => {
             // verify message
             Axios.post(
-              `https://identitytoolkit.googleapis.com/v1/accounts:sendOobCode?key=${firebaseConfig.apiKey}`,
+              `https://identitytoolkit.googleapis.com/v1/accounts:sendOobCode?key=${process.env.REACT_APP_FIREBASE_API_KEY}`,
               { requestType: "VERIFY_EMAIL", idToken: response.data.idToken }
             )
               .then(() => {

@@ -229,7 +229,11 @@
       }    
     }
     }
-    
+  },
+  "weather": {  
+    "weather-header": {
+      "h2": "Погода в"
+    }
   },
   "music-player": {
     "start-screen": {

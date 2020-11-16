@@ -227,6 +227,11 @@
     }
     }
   },
+  "weather": {  
+    "weather-header": {
+      "h2": "Weather in"
+    }
+  },
   "music-player": {
     "start-screen": {
     "h1": "Music Player",

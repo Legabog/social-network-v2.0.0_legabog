@@ -34,6 +34,7 @@ export const Routes = {
   PROFILE_VIDEOS: `/profile/videos`,
 
   WELCOME: `/welcome`,
+  WEATHER: `/weather`,
   MESSAGES: `/messages`,
   GROUPS: `/groups`,
   FRIENDS: `/friends`,

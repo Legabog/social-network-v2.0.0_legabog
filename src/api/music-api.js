@@ -1,14 +1,7 @@
 import * as axios from "axios";
 
 export const musicApi = {
-  url: "https://social-network-backend-legabog.herokuapp.com",
-
-  createMusicAlbum(data) {
-    return axios.post(
-      "http://localhost:4000/musicalbums/create-musicalbum",
-      data
-    );
-  },
+  url: process.env.REACT_APP_FIREBASE_MUSIC_API_URL,
 
   getMusicAlbums() {
     return axios

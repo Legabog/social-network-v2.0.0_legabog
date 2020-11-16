@@ -17,6 +17,7 @@ import aboutComponentReducer from "./about-component-reducer"
 import profileEditDetailsReducer from "./profile-edit-details-about-you-reducer"
 import profileAddHobbiesReducer from "./profile-add-hobbies-reducer"
 import onlineStatusToastReducer from "./online-status-toast-reducer"
+import weatherReducer from "./weather-reducer"
 
 let rootReducer = combineReducers({
   appReducer,
@@ -33,7 +34,8 @@ let rootReducer = combineReducers({
   profileBodyReducer,
   aboutComponentReducer,
   profileAddHobbiesReducer,
-  onlineStatusToastReducer
+  onlineStatusToastReducer,
+  weatherReducer
 });
 
 let store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));

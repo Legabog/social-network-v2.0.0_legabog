@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import { compose } from "redux";
 import { Route, Switch, withRouter } from "react-router-dom";
 import _ from "lodash/core";
-
 import { autoLogin } from "redux/auth-reducer";
 
 // ---------Main Components
@@ -25,6 +24,7 @@ import { Preloader } from "pres-components/Preloader";
 import { Login } from "containers/Login";
 import { RegistrationBlock } from "containers/RegistrationBlock";
 import { ToastContainer } from "containers/ToastContainer";
+import { Weather } from "containers/Weather";
 
 // -----Lazy components
 const Music = React.lazy(() => import("containers/Music"));
@@ -70,7 +70,7 @@ const App = (props) => {
     return (
       <Root
         rightBottomComponent={<MusicPlayerPanel />}
-        leftBottomComponent={<ToastContainer position={"bottom-left"}/>}
+        leftBottomComponent={<ToastContainer position={"bottom-left"} />}
       >
         <Switch>
           <Route
@@ -244,6 +244,19 @@ const App = (props) => {
                   <Sidebar />
                   <Welcome />
                   <Widgets />
+                </Body>
+              </>
+            )}
+          />
+
+          <Route
+            path={Routes.WEATHER}
+            exact
+            render={() => (
+              <>
+                <Header />
+                <Body>
+                  <Weather />
                 </Body>
               </>
             )}
