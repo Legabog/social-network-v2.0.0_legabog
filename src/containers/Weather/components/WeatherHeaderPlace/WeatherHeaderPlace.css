@@ -1,6 +1,6 @@
 .weather-header__place {
     display: flex;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
     padding: 7px;
     border-radius: 8px;

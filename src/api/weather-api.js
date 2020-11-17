@@ -3,12 +3,21 @@ import * as axios from "axios";
 export const weatherApi = {
   url: process.env.REACT_APP_WEATHER_URL,
   api_key: process.env.REACT_APP_WEATHER_API_KEY,
+  lang: localStorage.getItem("_app-language"),
 
   getWeatherByCoordinates(lat, lon) {
     return axios
       .get(
-        `api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${this.api_key}`
+        `${this.url}/weather?lat=${lat}&lon=${lon}&lang=${this.lang}&appid=${this.api_key}`
       )
-      .then((data) => console.log(data));
+      .then((response) => response.data);
+  },
+
+  getWeather5ByCoordinates(lat, lon) {
+    return axios
+      .get(
+        `${this.url}/forecast?lat=${lat}&lon=${lon}&lang=${this.lang}&appid=${this.api_key}`
+      )
+      .then((response) => response.data);
   },
 };

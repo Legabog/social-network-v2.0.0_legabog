@@ -1,0 +1,20 @@
+import React from "react";
+import "./WeatherBodyMainBlock.css";
+
+import { WeatherBodyTemperature } from "containers/Weather/components/WeatherBodyTemperature";
+import { WeatherBodySecondaryInfo } from "containers/Weather/components/WeatherBodySecondaryInfo";
+import { WeatherBodySecondaryInfo2 } from "containers/Weather/components/WeatherBodySecondaryInfo2";
+import { WeatherBodyWeatherImage } from "containers/Weather/components/WeatherBodyWeatherImage";
+
+export const WeatherBodyMainBlock = (props) => {
+  return (
+    <div className={"weather-body-main-block-wrapper"}>
+      <div className={"weather-body-main-block"}>
+          <WeatherBodyWeatherImage {...props} />          
+          <WeatherBodyTemperature {...props} />
+          <WeatherBodySecondaryInfo {...props} />
+          <WeatherBodySecondaryInfo2 {...props} />
+      </div>
+    </div>
+  );
+};

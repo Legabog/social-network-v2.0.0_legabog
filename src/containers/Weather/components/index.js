@@ -1,5 +1,10 @@
 export { WeatherHeader } from "./WeatherHeader";
-export { WeatherHeaderPlace } from "./WeatherHeaderPlace"
-export { WeatherHeaderDate } from "./WeatherHeaderDate"
-export { WeatherHeaderTime } from "./WeatherHeaderTime"
+export { WeatherHeaderPlace } from "./WeatherHeaderPlace";
+export { WeatherHeaderDate } from "./WeatherHeaderDate";
+export { WeatherHeaderTime } from "./WeatherHeaderTime";
 export { WeatherBody } from "./WeatherBody";
+export { WeatherBodyMainBlock } from "./WeatherBodyMainBlock";
+export { WeatherBodyTemperature } from "./WeatherBodyTemperature";
+export { WeatherBodySecondaryInfo } from "./WeatherBodySecondaryInfo";
+export { WeatherBodySecondaryInfo2 } from "./WeatherBodySecondaryInfo2";
+export { WeatherBodyWeatherImage } from "./WeatherBodyWeatherImage";

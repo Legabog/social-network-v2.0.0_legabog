@@ -1,10 +1,12 @@
 import React from "react";
 import "./WeatherBody.css";
 
+import { WeatherBodyMainBlock } from "containers/Weather/components/WeatherBodyMainBlock";
+
 export const WeatherBody = (props) => {
   return (
     <div className={"weather-body"}>
-      <h1>Weather body</h1>
+      <WeatherBodyMainBlock {...props}/>
     </div>
   );
 };

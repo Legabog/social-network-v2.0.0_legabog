@@ -1,8 +1,11 @@
 import { addressApi } from "api/address-api";
+import { weatherApi } from "api/weather-api";
 
 const WEATHER_SET_COORDINATES = "WEATHER_SET_COORDINATES";
 const WEATHER_SET_ADDRESS = "WEATHER_SET_ADDRESS";
 const WEATHER_SET_DATE = "WEATHER_SET_DATE";
+const WEATHER_SET_WEATHER_TODAY = "WEATHER_SET_WEATHER_TODAY";
+const WEATHER_SET_FORECAST_5DAYS = "WEATHER_SET_FORECAST_5DAYS";
 const WEATHER_TOGGLE_FETCH = "WEATHER_TOGGLE_FETCH";
 
 let initialState = {
@@ -18,6 +21,8 @@ let initialState = {
     month: null,
     year: null,
   },
+  weatherToday: null,
+  forecast5Days: null,
 };
 
 const weatherReducer = (state = initialState, action) => {
@@ -50,6 +55,17 @@ const weatherReducer = (state = initialState, action) => {
           year: action.year,
         },
       };
+    case WEATHER_SET_WEATHER_TODAY:
+      return {
+        ...state,
+        weatherToday: action.weather,
+      };
+
+    case WEATHER_SET_FORECAST_5DAYS:
+      return {
+        ...state,
+        forecast5Days: action.forecast,
+      };
     default:
       return state;
   }
@@ -72,6 +88,20 @@ export const setDate = (day, dayOfWeek, month, year) => {
   };
 };
 
+export const setWeatherToday = (weather) => {
+  return {
+    type: WEATHER_SET_WEATHER_TODAY,
+    weather,
+  };
+};
+
+export const setForecast5Days = (forecast) => {
+  return {
+    type: WEATHER_SET_FORECAST_5DAYS,
+    forecast,
+  };
+};
+
 export const setCoorginates = (latitude, longitude) => {
   return {
     type: WEATHER_SET_COORDINATES,
@@ -87,7 +117,7 @@ export const setAddress = (address) => {
   };
 };
 
-export const getCoordinatesAndAddress = () => {
+export const getCoordinatesAddressWeather = () => {
   return async (dispatch) => {
     const date = new Date();
 
@@ -112,11 +142,21 @@ export const getCoordinatesAndAddress = () => {
       const { latitude, longitude } = pos.coords;
 
       dispatch(setCoorginates(latitude, longitude));
-      addressApi
-        .getAddressByCoordinates(latitude, longitude)
-        .then((response) => dispatch(setAddress(response)))
-        .catch((e) => console.log(e))
-        .finally(() => dispatch(toggleWeatherFetch(false)));
+
+      Promise.all([
+        addressApi
+          .getAddressByCoordinates(latitude, longitude)
+          .then((response) => dispatch(setAddress(response)))
+          .catch((e) => console.log(e)),
+        weatherApi
+          .getWeatherByCoordinates(latitude, longitude)
+          .then((data) => dispatch(setWeatherToday(data)))
+          .catch((e) => console.log(e)),
+        weatherApi
+          .getWeather5ByCoordinates(latitude, longitude)
+          .then((data) => dispatch(setForecast5Days(data.list)))
+          .catch((e) => console.log(e)),
+      ]).finally(() => dispatch(toggleWeatherFetch(false)));
     }
 
     function error(err) {
@@ -126,33 +166,5 @@ export const getCoordinatesAndAddress = () => {
     navigator.geolocation.getCurrentPosition(success, error, options);
   };
 };
-
-  // const [time, setTime] = useState({
-  //   hours: date.getHours(),
-  //   minutes: date.getMinutes(),
-  //   seconds: date.getSeconds(),
-  // });
-
-  // useEffect(() => {
-  //   const upd = setInterval(() => {
-  //     setTime({
-  //       hours: date.getHours(),
-  //       minutes: date.getMinutes(),
-  //       seconds: date.getSeconds(),
-  //     });
-  //   }, 1000);
-
-  //   return () => clearInterval(upd);
-  // }, [date]);
-
-  // const getAddress = () => {
-  //   const url = `https://nominatim.openstreetmap.org/reverse?format=json&lat=59.9237953&lon=30.460061999999997&zoom=18&addressdetails=1`
-  //   Axios.get(url).then((data) => console.log(data))
-  // }
-
-  // const getWeather = () => {
-  //   const url = `https://api.openweathermap.org/data/2.5/weather?lat=59.9237953&lon=30.460061999999997&appid=d1c9bbbc2c7ec4484d8e6eea33cd4913`
-  //   Axios.get(url).then((data) => console.log(data))
-  // }
 
 export default weatherReducer;
