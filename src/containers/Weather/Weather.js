@@ -36,6 +36,7 @@ const mapStateToProps = (state) => ({
   coordinates: state.weatherReducer.coordinates,
   address: state.weatherReducer.address,
   weatherToday: state.weatherReducer.weatherToday,
+  forecast5Days: state.weatherReducer.forecast5Days,
   weatherFetch: state.weatherReducer.weatherFetch,
 });
 

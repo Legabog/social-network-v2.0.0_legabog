@@ -8,3 +8,5 @@ export { WeatherBodyTemperature } from "./WeatherBodyTemperature";
 export { WeatherBodySecondaryInfo } from "./WeatherBodySecondaryInfo";
 export { WeatherBodySecondaryInfo2 } from "./WeatherBodySecondaryInfo2";
 export { WeatherBodyWeatherImage } from "./WeatherBodyWeatherImage";
+export { WeatherBodyForecastBlock } from "./WeatherBodyForecastBlock";
+export { WeatherBlockForecastItem } from "./WeatherBlockForecastItem";
