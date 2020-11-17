@@ -3,7 +3,6 @@ import { weatherApi } from "api/weather-api";
 
 const WEATHER_SET_COORDINATES = "WEATHER_SET_COORDINATES";
 const WEATHER_SET_ADDRESS = "WEATHER_SET_ADDRESS";
-const WEATHER_SET_DATE = "WEATHER_SET_DATE";
 const WEATHER_SET_WEATHER_TODAY = "WEATHER_SET_WEATHER_TODAY";
 const WEATHER_SET_FORECAST_5DAYS = "WEATHER_SET_FORECAST_5DAYS";
 const WEATHER_TOGGLE_FETCH = "WEATHER_TOGGLE_FETCH";
@@ -15,12 +14,6 @@ let initialState = {
   },
   address: null,
   weatherFetch: false,
-  date: {
-    day: null,
-    dayOfWeek: null,
-    month: null,
-    year: null,
-  },
   weatherToday: null,
   forecast5Days: null,
 };
@@ -45,16 +38,6 @@ const weatherReducer = (state = initialState, action) => {
         ...state,
         weatherFetch: action.boolean,
       };
-    case WEATHER_SET_DATE:
-      return {
-        ...state,
-        date: {
-          month: action.month,
-          day: action.day,
-          dayOfWeek: action.dayOfWeek,
-          year: action.year,
-        },
-      };
     case WEATHER_SET_WEATHER_TODAY:
       return {
         ...state,
@@ -75,16 +58,6 @@ export const toggleWeatherFetch = (boolean) => {
   return {
     type: WEATHER_TOGGLE_FETCH,
     boolean,
-  };
-};
-
-export const setDate = (day, dayOfWeek, month, year) => {
-  return {
-    type: WEATHER_SET_DATE,
-    day,
-    dayOfWeek,
-    month,
-    year,
   };
 };
 
@@ -119,18 +92,7 @@ export const setAddress = (address) => {
 
 export const getCoordinatesAddressWeather = () => {
   return async (dispatch) => {
-    const date = new Date();
-
     dispatch(toggleWeatherFetch(true));
-
-    dispatch(
-      setDate(
-        date.getDate(),
-        date.getDay() - 1,
-        date.getMonth(),
-        date.getFullYear()
-      )
-    );
 
     const options = {
       enableHighAccuracy: true,
