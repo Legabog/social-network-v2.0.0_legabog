@@ -4,20 +4,22 @@ import { compose } from "redux";
 import { withRouter } from "react-router-dom";
 import "./Weather.css";
 
-import { WeatherBody, WeatherHeader } from "containers/Weather/components";
 import { getCoordinatesAndAddress } from "redux/weather-reducer";
 
+import { WeatherBody, WeatherHeader } from "containers/Weather/components";
 import { CirclePreloader } from "pres-components/CirclePreloader";
 
 const Weather_ = (props) => {
+
   useEffect(() => {
     props.getCoordinatesAndAddress();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <div className={"weather-wrapper"}>
       {props.weatherFetch ? (
-        <CirclePreloader margin_left={"50px"} margin_top={"30px"}/>
+        <CirclePreloader margin_left={"50px"} margin_top={"30px"} />
       ) : (
         <div className={"weather"}>
           <WeatherHeader {...props} />
@@ -29,6 +31,8 @@ const Weather_ = (props) => {
 };
 
 const mapStateToProps = (state) => ({
+  time: state.weatherReducer.time,
+  date: state.weatherReducer.date,
   coordinates: state.weatherReducer.coordinates,
   address: state.weatherReducer.address,
   weatherFetch: state.weatherReducer.weatherFetch,

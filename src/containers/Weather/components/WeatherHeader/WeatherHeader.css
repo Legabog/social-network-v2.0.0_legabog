@@ -1,0 +1,19 @@
+.weather-header_block {
+    margin-left: 45px;
+    padding: 7px;
+    border-radius: 8px;
+    justify-content: center;
+    width: fit-content;
+    background-color: #ECF3FF;
+}
+.weather-header > hr {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    margin-left: 120px;
+    margin-right: 90px;
+    background-color: #CED0D4;
+    background: #dadde1;
+    border-width: 0;
+    color: #dadde1;
+    height: 1px;
+}
