@@ -4,6 +4,7 @@ export const weatherApi = {
   url: process.env.REACT_APP_WEATHER_URL,
   api_key: process.env.REACT_APP_WEATHER_API_KEY,
   lang: localStorage.getItem("_app-language"),
+  // lang: navigator.language.slice(0, 2),
 
   getWeatherByCoordinates(lat, lon) {
     return axios

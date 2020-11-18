@@ -10,7 +10,6 @@ import { WeatherBody, WeatherHeader } from "containers/Weather/components";
 import { CirclePreloader } from "pres-components/CirclePreloader";
 
 const Weather_ = (props) => {
-
   useEffect(() => {
     props.getCoordinatesAddressWeather();
     // eslint-disable-next-line react-hooks/exhaustive-deps

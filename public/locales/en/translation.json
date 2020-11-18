@@ -228,6 +228,25 @@
     }
   },
   "weather": {  
+    "app-title": {
+      "button-back": "Back",
+      "title": "WEATHER"
+    },
+    "weather-body-secondary-info": {
+      "item-1": "Hight",
+      "item-2": "Low",
+      "item-3": "Feels like"
+    },
+    "weather-body-secondary-info-2": {
+      "item-1": "Humidity",
+      "item-2": "Pressure",
+      "item-3": "Wind",
+      "item-2-units": "mm",
+      "item-3-units": "m/s"
+    },
+    "powered-by": "Powered by",
+    "and": "and",
+    "forecast": "Forecast",
     "day-of-week": [
       "Monday",
       "Tuesday",

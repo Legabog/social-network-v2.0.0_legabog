@@ -19,7 +19,7 @@ export const HeaderRight = (props) => {
     <div className="header__right">
       <LanguageSwitcher />
       
-      <ButtonFindFriends {...props}/>
+      <ButtonFindFriends {...props} />
 
       <ButtonCreate
         activeButton={activeButton}

@@ -1,8 +1,8 @@
 import React from "react";
 import "./WeatherBodyTemperature.css";
+import { WeatherSwitcherTemperature } from "containers/Weather/components/WeatherSwitcherTemperature";
 
 export const WeatherBodyTemperature = (props) => {
-  console.log(props);
   return (
     <div className={"weather-body-temperature"}>
       <div className={"weather-body-temperature__block-1"}>
@@ -18,6 +18,7 @@ export const WeatherBodyTemperature = (props) => {
             <sup>o</sup>
           </p>
         </div>
+        <WeatherSwitcherTemperature />
       </div>
       <div className={"weather-body-temperature__block-2"}>
         <div className={"weather-body-temperature__description"}>

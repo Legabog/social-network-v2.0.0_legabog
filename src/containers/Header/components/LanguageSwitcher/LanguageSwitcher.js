@@ -10,7 +10,7 @@ export const LanguageSwitcher = (props) => {
     toggleSwitcher,
     switchToRusLang,
     switchToEnLang,
-  } = useTranslatei18n();
+  } = useTranslatei18n()
 
   return (
     <div className="language-switcher">

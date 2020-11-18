@@ -10,3 +10,5 @@ export { WeatherBodySecondaryInfo2 } from "./WeatherBodySecondaryInfo2";
 export { WeatherBodyWeatherImage } from "./WeatherBodyWeatherImage";
 export { WeatherBodyForecastBlock } from "./WeatherBodyForecastBlock";
 export { WeatherBlockForecastItem } from "./WeatherBlockForecastItem";
+export { WeatherHeaderAppTitle } from "./WeatherHeaderAppTitle";
+export { WeatherSwitcherTemperature } from "./WeatherSwitcherTemperature";

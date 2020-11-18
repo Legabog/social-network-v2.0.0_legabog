@@ -1,13 +1,16 @@
 import { WeatherBlockForecastItem } from "containers/Weather/components/WeatherBlockForecastItem";
 import React from "react";
 import _ from "lodash/core";
+import { useTranslation } from "react-i18next";
 import "./WeatherBodyForecastBlock.css";
 
 export const WeatherBodyForecastBlock = (props) => {
+  const { t } = useTranslation();
+
   return (
     <div className={"weather-body-forecast-block"}>
       <div className={"weather-body-forecast-block__title"}>
-        <span>Forecast</span>
+        <span>{t("authorized.weather.forecast")}</span>
       </div>
       <div className={"weather-body-forecast-block__slider"}>
         {props.forecast5Days !== null

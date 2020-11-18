@@ -230,7 +230,26 @@
     }
     }
   },
-  "weather": {  
+  "weather": { 
+    "app-title": {
+      "button-back": "Назад",
+      "title": "ПОГОДА"
+    },
+    "weather-body-secondary-info": {
+      "item-1": "Выокая",
+      "item-2": "Низкая",
+      "item-3": "Чувствуется как"
+    },
+    "weather-body-secondary-info-2": {
+      "item-1": "Влажность",
+      "item-2": "Давление",
+      "item-3": "Ветер",
+      "item-2-units": "мм",
+      "item-3-units": "м/с"
+    },
+    "powered-by": "Работает на",
+    "and": "и",
+    "forecast": "Прогноз",
     "day-of-week": [
       "Понедельник",
       "Вторник",

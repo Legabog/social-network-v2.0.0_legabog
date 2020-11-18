@@ -1,19 +1,6 @@
-.weather-header_block {
-    padding: 7px;
-    border-radius: 8px;
+.weather-header_block-wrapper {
+    display: flex;
     justify-content: center;
-    width: fit-content;
-    background-color: #ECF3FF;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
-}
-.weather-header > hr {
-    margin-top: 8px;
-    margin-bottom: 8px;
-    margin-left: 120px;
-    margin-right: 90px;
-    background-color: #CED0D4;
-    background: #dadde1;
-    border-width: 0;
-    color: #dadde1;
-    height: 1px;
+    align-items: center;
+    width: 50%;
 }

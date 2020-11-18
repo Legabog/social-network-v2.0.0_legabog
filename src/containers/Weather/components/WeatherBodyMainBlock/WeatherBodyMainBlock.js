@@ -10,10 +10,15 @@ export const WeatherBodyMainBlock = (props) => {
   return (
     <div className={"weather-body-main-block-wrapper"}>
       <div className={"weather-body-main-block"}>
-          <WeatherBodyWeatherImage {...props} />          
+        <div className={"weather-body-main-block_section-1"}>
+          <WeatherBodyWeatherImage {...props} />
           <WeatherBodyTemperature {...props} />
+        </div>
+
+        <div className={"weather-body-main-block_section-2"}>
           <WeatherBodySecondaryInfo {...props} />
           <WeatherBodySecondaryInfo2 {...props} />
+        </div>
       </div>
     </div>
   );
