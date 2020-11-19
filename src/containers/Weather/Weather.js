@@ -4,7 +4,7 @@ import { compose } from "redux";
 import { withRouter } from "react-router-dom";
 import "./Weather.css";
 
-import { getCoordinatesAddressWeather } from "redux/weather-reducer";
+import { getCoordinatesAddressWeather, setUnitsOfMeasure } from "redux/weather-reducer";
 
 import { WeatherBody, WeatherHeader } from "containers/Weather/components";
 import { CirclePreloader } from "pres-components/CirclePreloader";
@@ -37,11 +37,13 @@ const mapStateToProps = (state) => ({
   weatherToday: state.weatherReducer.weatherToday,
   forecast5Days: state.weatherReducer.forecast5Days,
   weatherFetch: state.weatherReducer.weatherFetch,
+  unitsOfMeasure: state.weatherReducer.unitsOfMeasure
 });
 
 export const Weather = compose(
   withRouter,
   connect(mapStateToProps, {
     getCoordinatesAddressWeather,
+    setUnitsOfMeasure
   })
 )(Weather_);

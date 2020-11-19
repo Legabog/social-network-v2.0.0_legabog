@@ -1,11 +1,12 @@
 import { addressApi } from "api/address-api";
 import { weatherApi } from "api/weather-api";
 
+const WEATHER_TOGGLE_FETCH = "WEATHER_TOGGLE_FETCH";
 const WEATHER_SET_COORDINATES = "WEATHER_SET_COORDINATES";
 const WEATHER_SET_ADDRESS = "WEATHER_SET_ADDRESS";
 const WEATHER_SET_WEATHER_TODAY = "WEATHER_SET_WEATHER_TODAY";
 const WEATHER_SET_FORECAST_5DAYS = "WEATHER_SET_FORECAST_5DAYS";
-const WEATHER_TOGGLE_FETCH = "WEATHER_TOGGLE_FETCH";
+const WEATHER_SET_UNITS_OF_MEASURE = "WEATHER_SET_UNITS_OF_MEASURE";
 
 let initialState = {
   coordinates: {
@@ -16,6 +17,7 @@ let initialState = {
   weatherFetch: false,
   weatherToday: null,
   forecast5Days: null,
+  unitsOfMeasure: "C",
 };
 
 const weatherReducer = (state = initialState, action) => {
@@ -49,6 +51,12 @@ const weatherReducer = (state = initialState, action) => {
         ...state,
         forecast5Days: action.forecast,
       };
+
+    case WEATHER_SET_UNITS_OF_MEASURE:
+      return {
+        ...state,
+        unitsOfMeasure: action.units,
+      };
     default:
       return state;
   }
@@ -74,6 +82,13 @@ export const setForecast5Days = (forecast) => {
     forecast,
   };
 };
+
+export const setUnitsOfMeasure = (units) => {
+  return {
+    type: WEATHER_SET_UNITS_OF_MEASURE,
+    units
+  }
+}
 
 export const setCoorginates = (latitude, longitude) => {
   return {

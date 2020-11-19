@@ -1,16 +1,21 @@
 import React from "react";
+import { useTemperatureMeasure } from "hooks/useTemperatureMeasure";
 import "./WeatherBlockForecastItem.css";
 
 export const WeatherBlockForecastItem = (props) => {
+  const temperature = useTemperatureMeasure(
+    props.unitsOfMeasure,
+    props.temperature
+  );
   return (
     <div className={"weather-block-forecast-item-wrapper"}>
       <div className={"weather-block-forecast-item"}>
         <div className={"weather-block-forecast-item-header"}>
           <div className={"weather-block-forecast-item-date"}>
-            <span>{props.date}</span>
+            <span>{props.dateItem}</span>
           </div>
           <div className={"weather-block-forecast-item-time"}>
-            <span>{props.time}</span>
+            <span>{props.timeItem}</span>
           </div>
         </div>
         <div className={"weather-block-forecast-item-body"}>
@@ -21,7 +26,7 @@ export const WeatherBlockForecastItem = (props) => {
             />
           </div>
           <div className={"weather-block-forecast-item-temperature"}>
-            <span>{props.temperature}</span>
+            <span>{temperature}</span>
             <p>
               <sup>o</sup>
             </p>

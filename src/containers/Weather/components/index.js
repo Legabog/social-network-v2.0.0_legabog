@@ -12,3 +12,5 @@ export { WeatherBodyForecastBlock } from "./WeatherBodyForecastBlock";
 export { WeatherBlockForecastItem } from "./WeatherBlockForecastItem";
 export { WeatherHeaderAppTitle } from "./WeatherHeaderAppTitle";
 export { WeatherSwitcherTemperature } from "./WeatherSwitcherTemperature";
+export { WeatherSwitcherTemperatureItem } from "./WeatherSwitcherTemperatureItem"
+export { SwitcherItemHelp } from "./SwitcherItemHelp"

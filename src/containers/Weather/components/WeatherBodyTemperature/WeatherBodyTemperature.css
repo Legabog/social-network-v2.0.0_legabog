@@ -9,6 +9,7 @@
     align-items: center;
 }
 
+
 .weather-body-temperature__span > span {
     font-size: 4rem;
     font-weight: 400;
@@ -23,7 +24,7 @@
 
 .weather-body-temperature__description {
     display: flex;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
 }
 
@@ -32,6 +33,7 @@
     font-weight: 400;
     line-height: 1.2;
     color: #fff;
+    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
