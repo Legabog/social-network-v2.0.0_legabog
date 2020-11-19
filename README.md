@@ -8,12 +8,13 @@ This social network was built by using the UI and style features of [Facebook](h
 
 ## What’s In This Document
 
-- [Getting started](#getting-started)
-- [Learning Gatsby](#learning-gatsby)
-- [Migration Guides](#migration-guides)
-- [Contact](#contact)
-- [License](#license)
-- [Powered by](#powered-by)
+- [Getting started](#-getting-started)
+  - [Environment File](#environment-file)
+  - [Basic Scripts](#basic-scripts)
+- [Stack of technologies](#%EF%B8%8F-stack-of-technologies)
+- [Contact](#-contact)
+- [License](#memo-license)
+- [Powered by](#-powered-by)
 
 ## 🚀 Getting started
 
@@ -65,23 +66,73 @@ List of available scripts:
    npm run start
 
    ```
-2. **Install the packages using the command.**
-   ```shell
-   npm install
-   ```
-1. **Clone the "master" branch in the repository.**
+2. **build** - this script builds your app for production. After a ~minute of waiting you can see this build in `./build` folder.
 
    ```shell
-   git clone -b master https://github.com/Legabog/social-network-v2.0.0_legabog.git
+   npm run build
+   ```
+3. **test** - this script launches the test runner in the interactive watch mode.
+
+   ```shell
+   npm run test
 
    ```
-2. **Install the packages using the command.**
+4. **size** - this script builds your app and analyzes boundle size.
+
    ```shell
-   npm install
+   npm run size
    ```   
+5. **flow** - this script runs Flow.
 
-"start": "node scripts/start.js",
-    "build": "node scripts/build.js",
-    "test": "node scripts/test.js",
-    "size": "npm run build && size-limit",
-    "flow": "flow" 
+   ```shell
+   npm run flow
+   ```   
+6. 🚫 **eject** - this CRA already was ejected.
+
+   ```shell
+   npm run eject
+   ```
+## 🛠️ Stack of technologies
+
+## Frontend
+
+* This app was created with **[create react app](https://create-react-app.dev/)**. After was ejected.
+
+* **[React](https://reactjs.org/)**
+
+* **[Redux](https://redux.js.org/)**
+
+* **[Redux-thunk](https://github.com/reduxjs/redux-thunk)**
+
+* Styles was written with simple CSS and **[BEM](https://ru.bem.info/)** naming.
+
+* **[Material-UI](https://material-ui.com/)**
+
+## Backend
+
+* **[Firebase](https://firebase.google.com/)**
+
+## [Backend of music module](https://social-network-backend-legabog.herokuapp.com/) with using **[Heroku](https://www.heroku.com/)**
+
+* RestFull Api with using **[Express](https://expressjs.com/)**
+
+* **[MongoDB](https://www.mongodb.com/)**
+
+* **[Mongoose](https://mongoosejs.com/)**
+
+## 📧 Contact
+
+If you have any questions for me or you want to discuss something specific about the projects. You are welcome.
+
+My email: **[probringer@mail.ru](mailto:probringer@mail.ru)**
+
+## :memo: License
+
+Licensed under the [MIT License](./LICENSE).
+
+## 💜 Powered by
+
+Weather module powered by **[Openweathermap.org](https://openweathermap.org/)** and **[Openstreetmap.org](https://www.openstreetmap.org/)**.
+
+Thank you 🙏.
+   
