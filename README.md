@@ -8,7 +8,7 @@ This social network was built by using the UI and style features of [Facebook](h
 
 ## What’s In This Document
 
-- [Getting started](#-getting-started)
+- [Getting started](#getting-started)
 - [Learning Gatsby](#learning-gatsby)
 - [Migration Guides](#migration-guides)
 - [Contact](#contact)
@@ -32,7 +32,7 @@ You can set up the project locally on your machine with these steps:
 
 ## **Environment File**
 
-- Create a `.env` file in the root directory of the project. Add Add these lines with your parameters:
+- Create a `.env` file in the root directory of the project. Add these lines with your parameters:
 
   ```shell
 
@@ -55,3 +55,33 @@ You can set up the project locally on your machine with these steps:
     # Openstreetmap.org
     REACT_APP_ADDRESS_URL = "https://nominatim.openstreetmap.org"
     ```
+## **Basic Scripts**
+
+List of available scripts:
+
+1. **start** - this script runs your app (using Dev mode). You can open browser and insert `http://localhost:3000/`.
+
+   ```shell
+   npm run start
+
+   ```
+2. **Install the packages using the command.**
+   ```shell
+   npm install
+   ```
+1. **Clone the "master" branch in the repository.**
+
+   ```shell
+   git clone -b master https://github.com/Legabog/social-network-v2.0.0_legabog.git
+
+   ```
+2. **Install the packages using the command.**
+   ```shell
+   npm install
+   ```   
+
+"start": "node scripts/start.js",
+    "build": "node scripts/build.js",
+    "test": "node scripts/test.js",
+    "size": "npm run build && size-limit",
+    "flow": "flow" 
