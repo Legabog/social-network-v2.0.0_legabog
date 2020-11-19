@@ -8,9 +8,9 @@ This social network was built by using the UI and style features of [Facebook](h
 
 ## What’s In This Document
 
-- [Getting started](#getting-started)
-- [Learning Gatsby](#-learning-gatsby)
-- [Migration Guides](#-migration-guides)
+- [Getting started](#-getting-started)
+- [Learning Gatsby](#learning-gatsby)
+- [Migration Guides](#migration-guides)
 - [Contact](#contact)
 - [License](#license)
 - [Powered by](#powered-by)
