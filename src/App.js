@@ -62,9 +62,9 @@ const ConfirmedEmailRoute = React.lazy(() =>
 
 const App = (props) => {
   useEffect(() => {
-    props.autoLogin();
+    props.autoLogin(props.history);
     // eslint-disable-next-line
-  }, []);
+  }, [props.activeAccountEmail, props.token]);
 
   if (!!localStorage.getItem("_token-id")) {
     return (
@@ -426,9 +426,12 @@ const App = (props) => {
 const mapStateToProps = (state) => {
   return {
     fetching: state.authReducer.fetching,
+    activeAccountEmail: state.authReducer.activeAccountEmail,
+    token: state.authReducer.token,
     musicAlbums: state.musicAlbumsReducer.musicAlbums,
     Fetching: state.musicAlbumsReducer.Fetching,
     ownPlayLists: state.musicPlayListReducer.ownPlayLists,
+    
   };
 };
 

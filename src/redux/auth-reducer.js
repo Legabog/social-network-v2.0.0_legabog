@@ -273,7 +273,7 @@ export const signUp = (
   };
 };
 
-export const autoLogin = () => {
+export const autoLogin = (history) => {
   return (dispatch) => {
     const token = localStorage.getItem("_token-id");
     const emailActiveUser = localStorage.getItem("_user-active");
@@ -285,22 +285,27 @@ export const autoLogin = () => {
 
       if (expirationDate <= new Date()) {
         dispatch(logout());
+        history.push("/");
       } else {
         dispatch(authSuccess(token, emailActiveUser));
         dispatch(setActiveUser(emailActiveUser));
         dispatch(
-          autoLogout((expirationDate.getTime() - new Date().getTime()) / 1000)
+          autoLogout(
+            (expirationDate.getTime() - new Date().getTime()) / 1000,
+            history
+          )
         );
       }
     }
   };
 };
 
-export const autoLogout = (time) => {
+export const autoLogout = (time, history) => {
   return (dispatch) => {
     setTimeout(() => {
       dispatch(setUser(null));
       dispatch(logout());
+      history.push("/");
     }, time * 1000);
   };
 };
