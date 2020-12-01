@@ -36,9 +36,7 @@ export const ButtonAccountMenuWrapper = React.memo((props) => {
         <NavLink to={"/profile"}>
           <div
             className="button-account-menu__block"
-            onClick={() => {
-              props.toggleActiveButton();
-            }}
+            onClick={props.toggleActiveButton}
           >
             {props.fetchAvatar ? (
               <ChangeAvatarSimplePreloader width={"60px"} height={"60px"} />
@@ -103,32 +101,7 @@ export const ButtonAccountMenuWrapper = React.memo((props) => {
 
         <div
           className="button-account-menu__section"
-          onClick={() => {
-            props.toggleActiveButton();
-
-            // Geolocation
-            var options = {
-              enableHighAccuracy: true,
-              timeout: 5000,
-              maximumAge: 0,
-            };
-
-            function success(pos) {
-              var crd = pos.coords;
-
-              console.log("Ваше текущее метоположение:");
-              console.log(`Широта: ${crd.latitude}`);
-              console.log(`Долгота: ${crd.longitude}`);
-              console.log(`Плюс-минус ${crd.accuracy} метров.`);
-            }
-
-            function error(err) {
-              console.warn(`ERROR(${err.code}): ${err.message}`);
-            }
-
-            navigator.geolocation.getCurrentPosition(success, error, options);
-            //
-          }}
+          onClick={props.toggleActiveButton}
         >
           <div className="button-account-menu__section-icon">
             <AnnouncementIcon />
@@ -156,9 +129,7 @@ export const ButtonAccountMenuWrapper = React.memo((props) => {
 
         <div
           className="button-account-menu__section"
-          onClick={() => {
-            props.toggleActiveButton();
-          }}
+          onClick={props.toggleActiveButton}
         >
           <div className="button-account-menu__section-icon">
             <SettingsIcon />
@@ -186,9 +157,7 @@ export const ButtonAccountMenuWrapper = React.memo((props) => {
 
         <div
           className="button-account-menu__section"
-          onClick={() => {
-            props.toggleActiveButton();
-          }}
+          onClick={props.toggleActiveButton}
         >
           <div className="button-account-menu__section-icon">
             <HelpIcon />

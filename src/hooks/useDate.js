@@ -4,7 +4,7 @@ export const useDate = () => {
   const date = new Date();
   const [dateResult] = useState({
     day: date.getDate(),
-    dayOfWeek: date.getDay() - 1,
+    dayOfWeek: date.getDay(),
     month: date.getMonth(),
     year: date.getFullYear()
   });

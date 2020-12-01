@@ -431,7 +431,6 @@ const mapStateToProps = (state) => {
     musicAlbums: state.musicAlbumsReducer.musicAlbums,
     Fetching: state.musicAlbumsReducer.Fetching,
     ownPlayLists: state.musicPlayListReducer.ownPlayLists,
-    
   };
 };
 

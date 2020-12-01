@@ -317,13 +317,13 @@
     ],
     "forecast": "Forecast",
     "day-of-week": [
+      "Sunday",
       "Monday",
       "Tuesday",
       "Wednesday",
       "Thursday",
       "Friday",
-      "Saturday",
-      "Sunday"
+      "Saturday"
     ],
     "month": [
       "January",
