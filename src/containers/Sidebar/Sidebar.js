@@ -7,6 +7,7 @@ import "./Sidebar.css";
 import map_svg from "assets/images/map.svg";
 import game_logo from "assets/images/game_logo.jpg";
 import vkr_logo from "assets/images/vkr_logo.jpg";
+import terminal_logo from "assets/images/terminal.png";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import LocalHospitalIcon from "@material-ui/icons/LocalHospital";
 import EmojiPeopleIcon from "@material-ui/icons/EmojiPeople";
@@ -74,6 +75,11 @@ const Sidebar_ = React.memo((props) => {
         Icon={WbSunnyIcon}
         title={t("authorized.sidebar.rows.row-18")}
         navLink={"/weather"}
+      />
+      <SidebarRow
+        Img={terminal_logo}
+        title={t("authorized.sidebar.rows.row-21")}
+        navLink={"/terminal"}
       />
 
       <hr />

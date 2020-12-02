@@ -1,0 +1,31 @@
+.terminal-body {
+  padding: 3vh;
+  color: rgb(3, 177, 3);
+  background-color: black;
+  height: inherit;
+  overflow: scroll;
+}
+
+.terminal-body-output-container > pre {
+  padding: 3px 0px;
+  white-space: pre-wrap;
+  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+  font-size: 16px;
+}
+
+.terminal-body-input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.terminal-body-input > input {
+  width: 100%;
+  color: rgb(3, 177, 3);
+  border: none;
+  outline: none;
+  background-color: black;
+  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+  font-size: 16px;
+}

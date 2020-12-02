@@ -21,7 +21,13 @@ export const SidebarRow = ({
         {fetchAvatar ? (
           <ChangeAvatarSimplePreloader width={"32px"} height={"32px"} />
         ) : (
-          (src && <Avatar src={src} />) || (Icon && <Icon />)
+          (src && <Avatar src={src} />) ||
+          (Icon && <Icon />) ||
+          (Img && (
+            <div className={"sidebar-row__img"}>
+              <img src={Img} alt="description" />
+            </div>
+          ))
         )}
 
         <span>{title}</span>

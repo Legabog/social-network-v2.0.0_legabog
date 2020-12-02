@@ -20,6 +20,6 @@ export const useInput = (initialValue) => {
         setIsFocus(false)
     }
 
-    return [value, ref, changeHandler, isFocus, focusHandler, blurHandler]
+    return [value, ref, changeHandler, isFocus, focusHandler, blurHandler, setValue]
 }
 

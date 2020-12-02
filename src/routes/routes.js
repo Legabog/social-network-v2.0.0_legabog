@@ -35,6 +35,7 @@ export const Routes = {
 
   WELCOME: `/welcome`,
   WEATHER: `/weather`,
+  TERMINAL: `/terminal`,
   MESSAGES: `/messages`,
   GROUPS: `/groups`,
   FRIENDS: `/friends`,

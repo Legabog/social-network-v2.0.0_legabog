@@ -25,6 +25,7 @@ import { Login } from "containers/Login";
 import { RegistrationBlock } from "containers/RegistrationBlock";
 import { ToastContainer } from "containers/ToastContainer";
 import { Weather } from "containers/Weather";
+import { Terminal } from "containers/Terminal";
 
 // -----Lazy components
 const Music = React.lazy(() => import("containers/Music"));
@@ -258,6 +259,15 @@ const App = (props) => {
                 <Body>
                   <Weather />
                 </Body>
+              </>
+            )}
+          />
+          <Route
+            path={Routes.TERMINAL}
+            exact
+            render={() => (
+              <>
+                <Terminal />
               </>
             )}
           />
