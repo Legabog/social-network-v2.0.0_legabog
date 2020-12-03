@@ -30,3 +30,5 @@ export const Header = compose(
     logoutButton,
   })
 )(Header_)
+
+// Header.whyDidYouRender = true

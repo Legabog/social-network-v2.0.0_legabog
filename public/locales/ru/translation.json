@@ -944,7 +944,17 @@
       }
     }
       
-  }
+  },
+  "terminal": {
+    "title": "Терминал",
+    "help-message-1": "Закрыть",
+    "help-message-2": "Свернуть",
+    "help-message-3": "Развернуть",
+    "welcome-message": "Добро пожаловать пользователь! Введите `help` для списка всех доступных команд.",
+    "commands": {
+
+    }
+  } 
   },
   
   "unauthorized": {

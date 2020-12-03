@@ -939,7 +939,17 @@
          "description": "No life events to show"
       }
     }
-  }     
+  },
+  "terminal": {
+    "title": "Terminal",
+    "help-message-1": "Close",
+    "help-message-2": "Minimize",
+    "help-message-3": "Expand",
+    "welcome-message": "Welcome user! Type `help` for a list of all available commands.",
+    "commands": {
+
+    }
+  }    
   },
   "unauthorized": {
   "login": {

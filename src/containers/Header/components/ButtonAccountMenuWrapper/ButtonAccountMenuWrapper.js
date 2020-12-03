@@ -16,6 +16,8 @@ import { ChangeAvatarSimplePreloader } from "pres-components/ChangeAvatarSimpleP
 import { useTranslation } from "react-i18next";
 
 export const ButtonAccountMenuWrapper = React.memo((props) => {
+  const colorOnline = {color: "rgb(25, 189, 0)"}
+  const colorOffline = {color: "#F62A54"}
   const { t } = useTranslation();
   const [themeSwitcher, switchTheme] = useState(false);
 
@@ -65,7 +67,7 @@ export const ButtonAccountMenuWrapper = React.memo((props) => {
                   {navigator.onLine ? (
                     <>
                       <FiberManualRecordIcon
-                        style={{ color: "rgb(25, 189, 0)" }}
+                        style={colorOnline}
                       />
                       <span>
                         {t(
@@ -75,7 +77,7 @@ export const ButtonAccountMenuWrapper = React.memo((props) => {
                     </>
                   ) : (
                     <>
-                      <FiberManualRecordIcon style={{ color: "#F62A54" }} />
+                      <FiberManualRecordIcon style={colorOffline} />
                       <span>
                         {t(
                           "authorized.header.header-right.button-account.online-section.offline"

@@ -9,7 +9,7 @@ import InsertEmoticonIcon from "@material-ui/icons/InsertEmoticon";
 import db from "utils/firebase/firebase";
 import { useTranslation } from "react-i18next";
 
-export const MessageSender = (props) => {
+export const MessageSender = React.memo((props) => {
   const { t } = useTranslation();
   const [input, setInput] = useState("");
   const [imageUrl, setImageUrl] = useState("");
@@ -92,4 +92,4 @@ export const MessageSender = (props) => {
       </div>
     </div>
   );
-};
+});
