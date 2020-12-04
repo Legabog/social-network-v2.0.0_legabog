@@ -951,9 +951,60 @@
     "help-message-2": "Свернуть",
     "help-message-3": "Развернуть",
     "welcome-message": "Добро пожаловать пользователь! Введите `help` для списка всех доступных команд.",
-    "commands": {
-
-    }
+    "list-of-commands": "Список команд: ",
+    "current-date": "Текущая дата: ",
+    "press-any-key": "Нажмите на любую кнопку для продолжения...",
+    "invalid-command": "не является командой. Неверная команда.",
+    "invalid-color": "Неверное значение цвета. Такого цвета не существует.",
+    "invalid-hex-color": "Неверный hex формат. Такого цвета не существует.",
+    "invalid-rgb-color": "Неверный rgb формат. Такого цвета не существует.",
+    "invalid-rgba-color": "Неверный rgba формат. Такого цвета не существует.",
+    "commands": [
+      {
+        "command": "help",
+        "action": "Показать список всех команд."
+      },
+      {
+        "command": "cls",
+        "action": "Очистить командную строку."
+      },
+      {
+        "command": "color",
+        "action": "Поменять цвет текста. Пример: 'color red'."
+      },
+      {
+        "command": "background-color",
+        "action": "Поменять цвет фона. Пример: 'background-color red'"
+      },
+      {
+        "command": "default-color",
+        "action": "Установить стандартный цвет текста и фона."
+      },
+      {
+        "command": "date",
+        "action": "Показать текущую дату."
+      },
+      {
+        "command": "echo",
+        "action": "Вывести сообщение."
+      },
+      {
+        "command": "doc",
+        "action": "Перейти к документации проекта."
+      },
+      {
+        "command": "github",
+        "action": "Перейти к репозиторю github."
+      },
+      {
+        "command": "pause",
+        "action": "Остановить командную строку."
+      },
+      {
+        "command": "exit",
+        "action": "Выйти из командной строки."
+      }
+    ]
   } 
   },
   

@@ -4,7 +4,6 @@ import "./TerminalBody.css";
 import _ from "lodash/core";
 
 export const TerminalBody = (props) => {
-
   useEffect(() => {
     props.focusHandler();
   });
@@ -19,7 +18,7 @@ export const TerminalBody = (props) => {
       }}
     >
       <div className={"terminal-body-output-container"}>
-        {props.terminalOutputContainer.map(e => (
+        {props.terminalOutputContainer.map((e) => (
           <pre key={_.uniqueId(e)}>{e}</pre>
         ))}
       </div>
@@ -34,7 +33,9 @@ export const TerminalBody = (props) => {
           value={props.value}
           ref={props.inputRef}
           onChange={props.changeHandler}
-          onKeyUp={props.terminalEnterInputHandler}
+          onKeyDown={props.terminalEnterInputHandler}
+          onFocus={props.focusHandler}
+          onBlur={props.focusHandler}
         />
       </div>
     </div>

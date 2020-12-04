@@ -16,9 +16,12 @@ import {
 
 import { TerminalBody, TerminalHeader } from "containers/Terminal/components";
 import { useTranslation } from "react-i18next";
+import { colorValidation } from "validation/colorValidation";
 
 const Terminal_ = (props) => {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
+  const [num, setNum] = useState(1);
+  const [printedCommands, setPrintedCommands] = useState([]);
   const [value, ref, changeHandler, , focusHandler, , setValue] = useInput("");
   const [terminalOutputContainer, setTerminalOutputContainer] = useState([
     t("authorized.terminal.welcome-message"),
@@ -27,49 +30,65 @@ const Terminal_ = (props) => {
   const terminalEnterInputHandler = (e) => {
     switch (e.key) {
       case "Enter":
+        let invalidCommand = 0;
         setTerminalOutputContainer((prev) => [
           ...prev,
           `${props.userTerminalVersion === "Bash" ? "$" : ">"} ${value}`,
         ]);
+        setPrintedCommands((prev) => [...prev, value]);
 
         if (value.toLowerCase().trim() === "help") {
-          setTerminalOutputContainer((prev) => [...prev, `List of commands: `]);
-          props.cmdCommands.map((e) =>
+          setTerminalOutputContainer((prev) => [
+            ...prev,
+            t("authorized.terminal.list-of-commands"),
+          ]);
+          props.cmdCommands.map((e, index) =>
             setTerminalOutputContainer((prev) => [
               ...prev,
-              `${e.command} - ${e.action}`,
+              `${t(`authorized.terminal.commands.${index}.command`)} - ${t(
+                `authorized.terminal.commands.${index}.action`
+              )}`,
             ])
           );
-          setValue("");
         }
 
         if (value.toLowerCase().trim() === "cls") {
           setTerminalOutputContainer([]);
-          setValue("");
         }
 
         if (value.toLowerCase().trim().slice(0, 6) === "color ") {
+          if (colorValidation(value.toLowerCase().trim().slice(6)) !== "") {
+            setTerminalOutputContainer((prev) => [
+              ...prev,
+              colorValidation(value.toLowerCase().trim().slice(6)),
+            ]);
+          }
           props.changeTextColorTerminal(value.toLowerCase().trim().slice(6));
-          setValue("");
+          invalidCommand++;
         }
 
         if (value.toLowerCase().trim().slice(0, 17) === "background-color ") {
+          if (colorValidation(value.toLowerCase().trim().slice(17)) !== "") {
+            setTerminalOutputContainer((prev) => [
+              ...prev,
+              colorValidation(value.toLowerCase().trim().slice(17)),
+            ]);
+          }
           props.changeBackgroundColorTerminal(
             value.toLowerCase().trim().slice(17)
           );
-          setValue("");
+          invalidCommand++;
         }
 
         if (value.toLowerCase().trim() === "default-color") {
           props.setDefaultColorTerminal();
-          setValue("");
         }
 
         if (value.toLowerCase().trim() === "date") {
           const date = new Date();
           setTerminalOutputContainer((prev) => [
             ...prev,
-            `The current date: ${
+            `${t("authorized.terminal.current-date")}${
               date.getDate() < 10 ? `0${date.getDate()}` : date.getDate()
             }.${
               date.getMonth() + 1 < 10
@@ -77,7 +96,6 @@ const Terminal_ = (props) => {
                 : date.getMonth() + 1
             }.${date.getFullYear()}`,
           ]);
-          setValue("");
         }
 
         if (value.toLowerCase().trim().slice(0, 5) === "echo ") {
@@ -85,67 +103,86 @@ const Terminal_ = (props) => {
             ...prev,
             `${value.trim().slice(4)}`,
           ]);
-          setValue("");
+          invalidCommand++;
         }
 
         if (value.toLowerCase().trim() === "doc") {
           window.open(
             "https://github.com/Legabog/social-network-v2.0.0_legabog/blob/master/README.md"
           );
-          setValue("");
         }
 
         if (value.toLowerCase().trim() === "github") {
           window.open("https://github.com/Legabog/");
-          setValue("");
         }
 
         if (value.toLowerCase().trim() === "pause") {
           setTerminalOutputContainer((prev) => [
             ...prev,
-            `Press any key to continue...`,
+            t("authorized.terminal.press-any-key"),
           ]);
-          setValue("");
         }
 
         if (value.toLowerCase().trim() === "exit") {
           props.history.push("/");
-          setValue("");
         }
 
         // Invalid command
-        let invalidCommand = 0;
         props.cmdCommands.map((e) => {
           if (value.toLowerCase().trim() === e.command) {
             invalidCommand++;
-
-            return null
+            return null;
           }
-
-          return null
+          return null;
         });
+
+        if (value.toLowerCase().trim().slice(0, 4) === "echo") {
+          invalidCommand++;
+        }
+
         if (invalidCommand === 0) {
-          setTerminalOutputContainer((prev) => [
-            ...prev,
-            `"${value
-              .toLowerCase()
-              .trim()}" is not a command. Invalid command. `,
-          ]);
+          if (value.toLowerCase().trim() === "") {
+            setTerminalOutputContainer((prev) => [
+              ...prev,
+              value.toLowerCase().trim(),
+            ]);
+          } else {
+            setTerminalOutputContainer((prev) => [
+              ...prev,
+              `"${value.toLowerCase().trim()}" ${t(
+                "authorized.terminal.invalid-command"
+              )}`,
+            ]);
+          }
         }
         //
 
         setValue("");
         break;
 
-      // case "ArrowUp":
-      //   console.log(num)
-      //   if (terminalOutputContainer[terminalOutputContainer.length - num].slice(0, 1) === "> ") {
-      //     setValue(terminalOutputContainer[terminalOutputContainer.length - num].slice(2))
-      //     setNum(prev => prev + 1)
-      //   } else {
-      //     setNum(prev => prev + 1)
-      //   }
-      //   break;
+      case "ArrowUp":
+        if (printedCommands.length !== 0 && printedCommands.length - num >= 0) {
+          setValue(printedCommands[printedCommands.length - num]);
+
+          if (printedCommands.length - num > 0) {
+            setNum((prev) => prev + 1);
+          }
+
+          console.log(printedCommands, num);
+        }
+        break;
+
+      case "ArrowDown":
+        if (printedCommands.length !== 0 && printedCommands.length - num >= 0) {
+          setValue(printedCommands[printedCommands.length - num]);
+
+          if (printedCommands.length - num >= 0 && num > 1) {
+            setNum((prev) => prev - 1);
+          }
+
+          console.log(printedCommands, num);
+        }
+        break;
 
       default:
         return null;

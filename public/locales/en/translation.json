@@ -946,9 +946,60 @@
     "help-message-2": "Minimize",
     "help-message-3": "Expand",
     "welcome-message": "Welcome user! Type `help` for a list of all available commands.",
-    "commands": {
-
-    }
+    "list-of-commands": "List of commands: ",
+    "current-date": "The current date: ",
+    "press-any-key": "Press any key to continue...",
+    "invalid-command": "is not a command. Invalid command.",
+    "invalid-color": "Invalid color. There's no such color.",
+    "invalid-hex-color": "Invalid hex format. There's no such color.",
+    "invalid-rgb-color": "Invalid rgb format. There's no such color.",
+    "invalid-rgba-color": "Invalid rgba format. There's no such color.",
+    "commands": [
+      {
+        "command": "help",
+        "action": "Show a list of all commands."
+      },
+      {
+        "command": "cls",
+        "action": "Clear the command line."
+      },
+      {
+        "command": "color",
+        "action": "Change the text color. Example: 'color red'."
+      },
+      {
+        "command": "background-color",
+        "action": "Change background color. Example: 'background-color red'"
+      },
+      {
+        "command": "default-color",
+        "action": "Set default color to text and background."
+      },
+      {
+        "command": "date",
+        "action": "Show current date."
+      },
+      {
+        "command": "echo",
+        "action": "Output messages."
+      },
+      {
+        "command": "doc",
+        "action": "Go to project documentation."
+      },
+      {
+        "command": "github",
+        "action": "Go to project owner's github."
+      },
+      {
+        "command": "pause",
+        "action": "Pause the command line."
+      },
+      {
+        "command": "exit",
+        "action": "Exit the command line."
+      }
+    ]
   }    
   },
   "unauthorized": {
