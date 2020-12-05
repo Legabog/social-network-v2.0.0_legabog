@@ -52,6 +52,7 @@ export const ButtonAccountMenuWrapper = React.memo((props) => {
                 <Avatar
                   className={"button-account-menu-avatar"}
                   src={props.user.Avatars.activeAvatarUrl}
+                  alt={"description"}
                 />
               </div>
             )}

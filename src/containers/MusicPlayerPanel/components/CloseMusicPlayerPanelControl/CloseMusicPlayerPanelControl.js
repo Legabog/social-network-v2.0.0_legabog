@@ -13,6 +13,7 @@ export const CloseMusicPlayerPanelControl = (props) => {
     <>
       <div className={"music-player-panel_close__control-panel"}>
         <button
+          aria-label={"music_panel_play_previous"}
           disabled={props.disablerButtonNext}
           onClick={() => {
             if (props.activeTrack !== null) {

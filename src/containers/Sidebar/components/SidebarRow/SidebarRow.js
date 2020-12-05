@@ -21,7 +21,7 @@ export const SidebarRow = ({
         {fetchAvatar ? (
           <ChangeAvatarSimplePreloader width={"32px"} height={"32px"} />
         ) : (
-          (src && <Avatar src={src} />) ||
+          (src && <Avatar src={src} alt={"description"} />) ||
           (Icon && <Icon />) ||
           (Img && (
             <div className={"sidebar-row__img"}>
@@ -34,22 +34,42 @@ export const SidebarRow = ({
       </div>
     </NavLink>
   ) : (
-    <a href={Link}>
-      <div className="sidebar-row" onClick={toggleAdditionalSections}>
-        {src && <Avatar src={src} />}
-        {Icon && <Icon />}
-        {IconFromSprite ? (
-          <div className={"sidebar-row__icon-from-sprite"}>
-            {IconFromSprite}
+    <>
+      {Link ? (
+        <a href={Link}>
+          <div className="sidebar-row" onClick={toggleAdditionalSections}>
+            {src && <Avatar src={src} alt={"description"} />}
+            {Icon && <Icon />}
+            {IconFromSprite ? (
+              <div className={"sidebar-row__icon-from-sprite"}>
+                {IconFromSprite}
+              </div>
+            ) : null}
+            {Img ? (
+              <div className={"sidebar-row__img"}>
+                <img src={Img} alt="description" />
+              </div>
+            ) : null}
+            <span>{title}</span>
           </div>
-        ) : null}
-        {Img ? (
-          <div className={"sidebar-row__img"}>
-            <img src={Img} alt="description" />
-          </div>
-        ) : null}
-        <span>{title}</span>
-      </div>
-    </a>
+        </a>
+      ) : (
+        <div className="sidebar-row" onClick={toggleAdditionalSections}>
+          {src && <Avatar src={src} alt={"description"} />}
+          {Icon && <Icon />}
+          {IconFromSprite ? (
+            <div className={"sidebar-row__icon-from-sprite"}>
+              {IconFromSprite}
+            </div>
+          ) : null}
+          {Img ? (
+            <div className={"sidebar-row__img"}>
+              <img src={Img} alt="description" />
+            </div>
+          ) : null}
+          <span>{title}</span>
+        </div>
+      )}
+    </>
   );
 };

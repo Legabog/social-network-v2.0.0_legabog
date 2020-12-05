@@ -46,6 +46,7 @@ export const MessageSender = React.memo((props) => {
               ? null
               : props.user.Avatars.activeAvatarUrl
           }
+          alt={"description"}
         />
         <form>
           <input

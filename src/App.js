@@ -62,6 +62,7 @@ const ConfirmedEmailRoute = React.lazy(() =>
 );
 
 const App = (props) => {
+  console.log("Render, props: ", props)
   useEffect(() => {
     props.autoLogin(props.history);
     // eslint-disable-next-line

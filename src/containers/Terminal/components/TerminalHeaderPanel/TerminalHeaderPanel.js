@@ -14,7 +14,7 @@ export const TerminalHeaderPanel = (props) => {
         color={"red"}
         helpTitle={t("authorized.terminal.help-message-1")}
         helpMarginTop={"65px"}
-        helpMarginLeft={"-35px"}
+        helpMarginLeft={"-5px"}
       />
       <TerminalHeaderPanelItem
         color={"orange"}

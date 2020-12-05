@@ -32,7 +32,7 @@ export const ButtonAccountWrapper = React.memo((props) => {
           {props.user === null || props.user.Avatars.activeAvatarUrl === "" ? (
             <AccountCircleIcon />
           ) : (
-            <Avatar src={props.user.Avatars.activeAvatarUrl} />
+            <Avatar src={props.user.Avatars.activeAvatarUrl} alt={"description"} />
           )}
         </div>
       )}

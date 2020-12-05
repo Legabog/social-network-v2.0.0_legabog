@@ -6,6 +6,25 @@ import "./HeaderActiveCovidSection.css";
 import { IconButton } from "@material-ui/core";
 
 export const HeaderActiveCovidSection = (props) => {
+  const iconStyle = {
+    width: "24px",
+    height: "24px",
+    marginTop: "6px",
+    marginLeft: "6px",
+  };
+
+  const iconButtonStyle = {
+    width: "28px",
+    height: "28px",
+    marginTop: "4px",
+    marginLeft: "60px",
+  };
+
+  const closeIconStyle = {
+    width: "18px",
+    height: "18px",
+  };
+
   return (
     <div className="header__active__covid__section">
       <div className="covid__section__header">
@@ -13,14 +32,7 @@ export const HeaderActiveCovidSection = (props) => {
       </div>
       <div className="covid__section__border">
         <div className="covid__section__icon">
-          <SearchIcon
-            style={{
-              width: "24px",
-              height: "24px",
-              marginTop: "6px",
-              marginLeft: "6px",
-            }}
-          />
+          <SearchIcon style={iconStyle} />
         </div>
         <span>coronavirus updates</span>
       </div>
@@ -34,90 +46,33 @@ export const HeaderActiveCovidSection = (props) => {
           <div className="searches__body__search">
             <div className="covid__section__border">
               <div className="covid__section__icon">
-                <QueryBuilderRoundedIcon
-                  style={{
-                    width: "24px",
-                    height: "24px",
-                    marginTop: "6px",
-                    marginLeft: "6px",
-                  }}
-                />
+                <QueryBuilderRoundedIcon style={iconStyle} />
               </div>
               <span>games</span>
-              <IconButton
-                style={{
-                  width: "28px",
-                  height: "28px",
-                  marginTop: "4px",
-                  marginLeft: "60px",
-                }}
-              >
-                <CloseOutlinedIcon
-                  style={{
-                    width: "18px",
-                    height: "18px",
-                  }}
-                />
+              <IconButton style={iconButtonStyle}>
+                <CloseOutlinedIcon style={closeIconStyle} />
               </IconButton>
             </div>
           </div>
           <div className="searches__body__search">
             <div className="covid__section__border">
               <div className="covid__section__icon">
-                <QueryBuilderRoundedIcon
-                  style={{
-                    width: "24px",
-                    height: "24px",
-                    marginTop: "6px",
-                    marginLeft: "6px",
-                  }}
-                />
+                <QueryBuilderRoundedIcon style={iconStyle} />
               </div>
               <span>video stream</span>
-              <IconButton
-                style={{
-                  width: "28px",
-                  height: "28px",
-                  marginTop: "4px",
-                  marginLeft: "60px",
-                }}
-              >
-                <CloseOutlinedIcon
-                  style={{
-                    width: "18px",
-                    height: "18px",
-                  }}
-                />
+              <IconButton style={iconButtonStyle}>
+                <CloseOutlinedIcon style={closeIconStyle} />
               </IconButton>
             </div>
           </div>
           <div className="searches__body__search">
             <div className="covid__section__border">
               <div className="covid__section__icon">
-                <QueryBuilderRoundedIcon
-                  style={{
-                    width: "24px",
-                    height: "24px",
-                    marginTop: "6px",
-                    marginLeft: "6px",
-                  }}
-                />
+                <QueryBuilderRoundedIcon style={iconStyle} />
               </div>
               <span>coronavirus updates</span>
-              <IconButton
-                style={{
-                  width: "28px",
-                  height: "28px",
-                  marginTop: "4px",
-                  marginLeft: "60px",
-                }}
-              >
-                <CloseOutlinedIcon
-                  style={{
-                    width: "18px",
-                    height: "18px",
-                  }}
-                />
+              <IconButton style={iconButtonStyle}>
+                <CloseOutlinedIcon style={closeIconStyle} />
               </IconButton>
             </div>
           </div>
@@ -127,4 +82,3 @@ export const HeaderActiveCovidSection = (props) => {
     </div>
   );
 };
-
