@@ -16,7 +16,7 @@ import {
 
 import { TerminalBody, TerminalHeader } from "containers/Terminal/components";
 import { useTranslation } from "react-i18next";
-import { colorValidation } from "validation/colorValidation";
+import { colorValidation } from "utils/validation/colorValidation";
 
 const Terminal_ = (props) => {
   const { t } = useTranslation();

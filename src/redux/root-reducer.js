@@ -5,6 +5,7 @@ import thunk from "redux-thunk";
 import appReducer from "./app-reducer";
 import registrationBlockReducer from "./registration-block-reducer"
 import userReducer from "./user-reducer";
+import usersReducer from "./users-reducer"
 import authReducer from "./auth-reducer";
 import musicAlbumsReducer from "./musicalbums-reducer";
 import musicPlayListReducer from "./musicalplaylists-reducer";
@@ -24,6 +25,7 @@ let rootReducer = combineReducers({
   appReducer,
   registrationBlockReducer,
   userReducer,
+  usersReducer,
   authReducer,
   musicAlbumsReducer,
   musicPlayListReducer,

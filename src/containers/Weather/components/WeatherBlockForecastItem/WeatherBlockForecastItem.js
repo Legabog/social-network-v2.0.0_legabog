@@ -21,7 +21,7 @@ export const WeatherBlockForecastItem = (props) => {
         <div className={"weather-block-forecast-item-body"}>
           <div className={"weather-block-forecast-item-image"}>
             <img
-              src={`http://openweathermap.org/img/wn/${props.image}.png`}
+              src={`https://openweathermap.org/img/wn/${props.image}.png`}
               alt={"description"}
             />
           </div>

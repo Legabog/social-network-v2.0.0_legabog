@@ -77,6 +77,11 @@ const Sidebar_ = React.memo((props) => {
         navLink={"/weather"}
       />
       <SidebarRow
+            Icon={PeopleIcon}
+            title={t("authorized.sidebar.rows.row-10")}
+            navLink={"/users"}
+          />
+      <SidebarRow
         Img={terminal_logo}
         title={t("authorized.sidebar.rows.row-21")}
         navLink={"/terminal"}
@@ -133,10 +138,6 @@ const Sidebar_ = React.memo((props) => {
             title={t("authorized.sidebar.rows.row-9")}
           />
 
-          <SidebarRow
-            Icon={PeopleIcon}
-            title={t("authorized.sidebar.rows.row-10")}
-          />
           <SidebarRow
             Icon={EventIcon}
             title={t("authorized.sidebar.rows.row-11")}

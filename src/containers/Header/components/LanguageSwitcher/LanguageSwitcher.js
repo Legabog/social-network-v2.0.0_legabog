@@ -27,7 +27,7 @@ export const LanguageSwitcher = (props) => {
         </span>
       </div>
 
-      <label className="language-switcher__switcher" for="LanguageSwitcher" >
+      <label className="language-switcher__switcher" htmlFor="LanguageSwitcher" >
         <input
           id="LanguageSwitcher"
           type="checkbox"

@@ -5,7 +5,6 @@ import { compose } from "redux";
 import { Route, Switch, withRouter } from "react-router-dom";
 import _ from "lodash/core";
 import { autoLogin } from "redux/auth-reducer";
-
 // ---------Main Components
 import { Root } from "containers/Root";
 // --------Logged in user
@@ -20,14 +19,14 @@ import { Profile } from "containers/Profile";
 import { MusicPlayerPanel } from "containers/MusicPlayerPanel";
 import { ErrorRoute } from "pres-components/ErrorRoute";
 import { Preloader } from "pres-components/Preloader";
+import { ToastContainer } from "containers/ToastContainer";
 // ---------Not logged in user
 import { Login } from "containers/Login";
 import { RegistrationBlock } from "containers/RegistrationBlock";
-import { ToastContainer } from "containers/ToastContainer";
-import { Weather } from "containers/Weather";
-import { Terminal } from "containers/Terminal";
-
+import { Users } from "containers/Users";
 // -----Lazy components
+const Weather = React.lazy(() => import("containers/Weather"));
+const Terminal = React.lazy(() => import("containers/Terminal"));
 const Music = React.lazy(() => import("containers/Music"));
 const MusicList = React.lazy(() =>
   import("containers/Music/components/MusicList")
@@ -62,7 +61,6 @@ const ConfirmedEmailRoute = React.lazy(() =>
 );
 
 const App = (props) => {
-  console.log("Render, props: ", props)
   useEffect(() => {
     props.autoLogin(props.history);
     // eslint-disable-next-line
@@ -256,10 +254,12 @@ const App = (props) => {
             exact
             render={() => (
               <>
-                <Header />
-                <Body>
-                  <Weather />
-                </Body>
+                <Suspense fallback={<Preloader />}>
+                  <Header />
+                  <Body>
+                    <Weather />
+                  </Body>
+                </Suspense>
               </>
             )}
           />
@@ -268,7 +268,26 @@ const App = (props) => {
             exact
             render={() => (
               <>
-                <Terminal />
+                <Suspense fallback={<Preloader />}>
+                  <Terminal />
+                </Suspense>
+              </>
+            )}
+          />
+          <Route
+            path={Routes.USERS}
+            exact
+            render={() => (
+              <>
+                <Suspense fallback={<Preloader />}>
+                  <Header />
+
+                  <Body>
+                    <Sidebar />
+                    <Users />
+                    <Widgets />
+                  </Body>
+                </Suspense>
               </>
             )}
           />
