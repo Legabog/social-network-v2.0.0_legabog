@@ -15,7 +15,7 @@ let initialState = {
   terminalMaxWidth: "600px",
   terminalHeight: "630px",
   terminalMaxHeight: "95vh",
-  terminalMarginTop: "30px",
+  terminalMarginTop: "20px",
   terminalTextColor: "rgb(3, 177, 3)",
   terminalBackgroundColor: "black",
   //
@@ -92,7 +92,7 @@ const terminalReducer = (state = initialState, action) => {
             : state.terminalHeight === "630px"
             ? "95vh"
             : "630px",
-        terminalMarginTop: state.terminalMarginTop === "30px" ? "0px" : "30px",
+        terminalMarginTop: state.terminalMarginTop === "20px" ? "0px" : "20px",
       };
 
     case TERMINAL_CHANGE_TEXT_COLOR:

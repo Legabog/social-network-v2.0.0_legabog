@@ -954,6 +954,7 @@
     "invalid-hex-color": "Invalid hex format. There's no such color.",
     "invalid-rgb-color": "Invalid rgb format. There's no such color.",
     "invalid-rgba-color": "Invalid rgba format. There's no such color.",
+    "symbols-for-matrix": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789§!#$%&<=>^~?",
     "commands": [
       {
         "command": "help",
