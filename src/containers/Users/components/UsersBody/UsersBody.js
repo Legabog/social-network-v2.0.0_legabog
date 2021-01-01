@@ -4,8 +4,11 @@ import "./UsersBody.css";
 import { UsersCard } from "containers/Users/components/UsersCard";
 
 export const UsersBody = (props) => {
+
+
   return (
     <div className={"users-body"}>
+      <div className={"users-container"}>
       {props.users.map((e, index) => {
         return (
           <UsersCard
@@ -19,6 +22,9 @@ export const UsersBody = (props) => {
           />
         );
       })}
+
+      </div>
+      
     </div>
   );
 };

@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import "./TerminalMatrix.css";
 
-export const TerminalMatrix = () => {
+export const TerminalMatrix = (props) => {
   const { t } = useTranslation();
   const canvasRef = useRef(null);
 
@@ -25,7 +25,7 @@ export const TerminalMatrix = () => {
       ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
       ctx.fillRect(0, 0, current.width, current.height);
 
-      ctx.fillStyle = "#0F0";
+      ctx.fillStyle = props.terminalTextColor;
       ctx.font = fontSize + "px arial";
 
       for (let i = 0; i < drops.length; i++) {
@@ -42,7 +42,7 @@ export const TerminalMatrix = () => {
     return () => {
       clearInterval(effect);
     };
-  }, [t]);
+  }, [t, props.terminalTextColor]);
 
   return (
     <div className={"terminal-matrix"}>

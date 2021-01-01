@@ -20,7 +20,7 @@ const Terminal_ = (props) => {
   return (
     <div className={"terminal-wrapper"}>
       <TerminalFrame {...props}/>
-      <TerminalMatrix />
+      <TerminalMatrix {...props}/>
     </div>
   );
 };

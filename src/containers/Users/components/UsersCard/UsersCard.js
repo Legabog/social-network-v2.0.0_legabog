@@ -1,40 +1,24 @@
 import React from "react";
 import "./UsersCard.css";
+import avatar from "assets/images/user.png"
 
 export const UsersCard = (props) => {
   return (
     <div className={"users-card"}>
-      <div className={"users-card-header"}>
-        <div className={"users-card__background-image"}>
-          {props.backgroundImage === "" ? (
-            <img
-              style={{
-                backgroundColor:
-                  "linear-gradient(0deg, rgba(36,0,0,1) 0%, rgba(240,242,245,1) 100%)",
-              }}
-              alt="description"
-            />
-          ) : (
-            <img src={props.backgroundImage} alt="description" />
-          )}
-        </div>
-        <div className={"users-card__avatar"}>
-          {props.avatar === "" ? (
-            <img
-              style={{
-                backgroundColor:
-                  "linear-gradient(0deg, rgba(36,0,0,1) 0%, rgba(240,242,245,1) 100%)",
-              }}
-              alt="description"
-            />
-          ) : (
-            <img src={props.avatar} alt="description" />
-          )}
+      <div className={"users-card-namesurname"}>
+        <span>
+          {props.name} {props.surname}
+        </span>
+      </div>
+      <div className={"users-avatar"}>
+        <img src={props.avatar === "" ? avatar : props.avatar } alt="description" />
+        <div className={"users-card-info"}>
+          <span>Short info:</span>
+          <span>Gender: {props.gender}</span>
+          <span>Email: {props.email}</span>
         </div>
       </div>
-      <div className={"users-card-body"}>
-        <h3>{props.name + " " + props.surname}</h3>
-      </div>
+      
     </div>
   );
 };

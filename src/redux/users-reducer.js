@@ -29,7 +29,7 @@ export const setUsers = (id, payload) => {
 
 export const firebaseSetUsers = () => {
   return (dispatch) => {
-    db.collection('users_database').get().then((querySnapshot) => {
+    db.collection('users_database').orderBy("Email").limit(3).get().then((querySnapshot) => {
       querySnapshot.forEach(doc => {
         dispatch(setUsers(doc.id, doc.data()))
       })

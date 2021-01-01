@@ -9,10 +9,12 @@ import { firebaseSetUsers } from "redux/users-reducer"
 import { UsersBody, UsersFooter, UsersHeader } from "containers/Users/components";
 
 const Users_ = (props) => {
+  
   useEffect(() => { 
     props.firebaseSetUsers()
     // eslint-disable-next-line
   }, [])
+
   return (
     <div className={"users-wrapper"}>
       <div className={"users"}>
