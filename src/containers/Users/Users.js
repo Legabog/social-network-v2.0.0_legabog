@@ -11,7 +11,9 @@ import { UsersBody, UsersFooter, UsersHeader } from "containers/Users/components
 const Users_ = (props) => {
   
   useEffect(() => { 
-    props.firebaseSetUsers()
+    if (props.users.length === 0) {
+      props.firebaseSetUsers()
+    }
     // eslint-disable-next-line
   }, [])
 
