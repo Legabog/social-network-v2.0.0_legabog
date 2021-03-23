@@ -105,7 +105,7 @@ const HOBBIES_DELETE_HOBBIES = "HOBBIES_DELETE_HOBBIES";
 let initialState = {
   fullUserInfoAbout: null,
   fetchFullUserInfoAbout: false,
-  fetchAddHobbies: false
+  fetchAddHobbies: false,
 };
 
 const aboutComponentReducer = (state = initialState, action) => {

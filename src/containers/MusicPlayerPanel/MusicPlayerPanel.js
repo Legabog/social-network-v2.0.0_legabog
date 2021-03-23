@@ -16,7 +16,7 @@ import {
   setActiveTrackAndPlayerPlayListNull,
 } from "redux/musicplayer-reducer";
 
-import { BackDropMusicPlayerPanel } from "pres-components/BackDropMusicPlayerPanel";
+import { BackDrop } from "pres-components/BackDrop";
 import { AudioElement } from "./components/AudioElement";
 import { CloseMusicPlayerPanelDescription } from "./components/CloseMusicPlayerPanelDescription";
 import { CloseMusicPlayerPanelControl } from "./components/CloseMusicPlayerPanelControl";
@@ -119,7 +119,13 @@ const MusicPlayerPanel_ = (props) => {
           />
         </div>
       )}
-      {opened ? <BackDropMusicPlayerPanel onClick={toggleMusicPanel} /> : null}
+      {opened ? (
+        <BackDrop
+          onClick={toggleMusicPanel}
+          zIndex={101}
+          customBackgroundColor={"rgba(0, 0, 0, .7)"}
+        />
+      ) : null}
       <AudioElement {...props} volume={volume} repeatState={repeatState} />
     </>
   );

@@ -9,7 +9,7 @@ const PUSH_AUTHOR_TO_DISABLED_ARRAY = "PUSH_AUTHOR_TO_DISABLED_ARRAY";
 
 let initialState = {
   musicAlbums: [],
-  Fetching: false,
+  musicAlbumsFetching: false,
   musicAlbumsSwitcher: 1,
   recentlyPlayed: [],
   disabledTitles: [],
@@ -26,7 +26,7 @@ const musicAlbumsReducer = (state = initialState, action) => {
     case TOGGLE_MUSICAL_ALBUMS_FETCHING:
       return {
         ...state,
-        Fetching: action.Fetching,
+        musicAlbumsFetching: action.Fetching,
       };
     case PUSH_ALBUM_TO_RECENTLY_PLAYED:
       return {

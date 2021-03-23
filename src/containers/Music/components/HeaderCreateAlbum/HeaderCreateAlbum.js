@@ -6,8 +6,8 @@ import "./HeaderCreateAlbum.css";
 
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 
-import AddPhoto from "assets/apple theme/photo_add.png";
-import DefaultPhoto from "assets/apple theme/music.jpg";
+import AddPhoto from "assets/images/apple-theme/photo_add.png";
+import DefaultPhoto from "assets/images/apple-theme/music.jpg";
 import { useTranslation } from "react-i18next";
 
 export const HeaderCreateAlbum = (props) => {

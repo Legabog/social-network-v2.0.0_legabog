@@ -2,7 +2,7 @@ import React from "react";
 import "./BodyPlayLists.css";
 
 import AlbumIcon from "@material-ui/icons/Album";
-import PhotoAdd from "assets/apple theme/playlist_add.jpg";
+import PhotoAdd from "assets/images/apple-theme/playlist_add.jpg";
 
 import { NavLink } from "react-router-dom";
 import { PlayList } from "../PlayList";

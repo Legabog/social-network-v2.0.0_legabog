@@ -32,7 +32,7 @@ export const Routes = {
   PROFILE_PHOTOS: `/profile/photos`,
   PROFILE_ARCHIVE: `/profile/archive`,
   PROFILE_VIDEOS: `/profile/videos`,
-
+  // Other components
   WELCOME: `/welcome`,
   WEATHER: `/weather`,
   TERMINAL: `/terminal`,

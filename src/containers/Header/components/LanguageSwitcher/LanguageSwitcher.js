@@ -2,8 +2,8 @@ import React from "react";
 import { useTranslatei18n } from "hooks/useTranslatei18n";
 import "./LanguageSwitcher.css";
 
-import ruflag from "assets/flags/rus.png";
-import enflag from "assets/flags/eng.png";
+import ruflag from "assets/images/flags/rus.png";
+import enflag from "assets/images/flags/eng.png";
 
 export const LanguageSwitcher = (props) => {
   const {

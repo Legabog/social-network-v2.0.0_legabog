@@ -3,14 +3,16 @@ import "./Toast.css";
 
 import CloseOutlinedIcon from "@material-ui/icons/CloseOutlined";
 import { IconButton } from "@material-ui/core";
+import { toastRef } from "utils/toastRef/toastRef";
 
 export const Toast = (props) => {
+  
   useEffect(() => {
-    props.effectAfterAddToast()
+    props.effectAfterAddToast(toastRef)
   });
 
   return (
-    <div id={props.className} className={props.className} ref={props.toastRef}>
+    <div id={props.className} className={props.className} ref={toastRef}>
       {props.Icon ? <props.Icon /> : null}
       {props.description ? <span>{props.description}</span> : null}
       {props.button ? (

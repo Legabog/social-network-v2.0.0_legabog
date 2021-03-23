@@ -1,11 +1,11 @@
 import { createStore, combineReducers, applyMiddleware } from "redux";
-import { composeWithDevTools } from "redux-devtools-extension"
+import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
 
 import appReducer from "./app-reducer";
-import registrationBlockReducer from "./registration-block-reducer"
+import registrationBlockReducer from "./registration-block-reducer";
 import userReducer from "./user-reducer";
-import usersReducer from "./users-reducer"
+import usersReducer from "./users-reducer";
 import authReducer from "./auth-reducer";
 import musicAlbumsReducer from "./musicalbums-reducer";
 import musicPlayListReducer from "./musicalplaylists-reducer";
@@ -13,13 +13,13 @@ import musicPlayerReducer from "./musicplayer-reducer";
 import profileUpdateAvatarReducer from "./profile-update-avatar-reducer";
 import profileSelectAvatarBackgroundReducer from "./profile-select-avatar-background-reducer";
 import welcomeComponentReducer from "./welcome-component-reducer";
-import profileBodyReducer from "./profile-body-reducer"
-import aboutComponentReducer from "./about-component-reducer"
-import profileEditDetailsReducer from "./profile-edit-details-about-you-reducer"
-import profileAddHobbiesReducer from "./profile-add-hobbies-reducer"
-import onlineStatusToastReducer from "./online-status-toast-reducer"
-import weatherReducer from "./weather-reducer"
-import terminalReducer from "./terminal-reducer"
+import profileBodyReducer from "./profile-body-reducer";
+import aboutComponentReducer from "./about-component-reducer";
+import profileEditDetailsReducer from "./profile-edit-details-about-you-reducer";
+import profileAddHobbiesReducer from "./profile-add-hobbies-reducer";
+import onlineStatusToastReducer from "./online-status-toast-reducer";
+import weatherReducer from "./weather-reducer";
+import terminalReducer from "./terminal-reducer";
 
 let rootReducer = combineReducers({
   appReducer,
@@ -39,10 +39,13 @@ let rootReducer = combineReducers({
   profileAddHobbiesReducer,
   onlineStatusToastReducer,
   weatherReducer,
-  terminalReducer
+  terminalReducer,
 });
 
-let store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
+let store = createStore(
+  rootReducer,
+  composeWithDevTools(applyMiddleware(thunk))
+);
 
 window.store = store;
 

@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import "./BodyOwnPlayListsRouter.css";
 
 import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
-import DefaultMusic from "assets/apple theme/music.jpg";
+import DefaultMusic from "assets/images/apple-theme/music.jpg";
 
 import { BodyOwnPlayListsRouterTrackItem } from "../BodyOwnPlayListsRouterTrackItem";
 import { DeleteTrackPreloader } from "../DeleteTrackPreloader";

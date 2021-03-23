@@ -1,4 +1,4 @@
-import Axios from "axios";
+import { authApi } from "api/auth-api";
 import { displayRegistrationBlockFalse } from "redux/registration-block-reducer";
 import db from "utils/firebase/firebase";
 import { setActiveUser, setUser } from "./user-reducer";
@@ -11,11 +11,11 @@ const TOGGLE_REGISTRATION_FETCHING = "TOGGLE_REGISTRATION_FETCHING";
 const TOGGLE_LOGIN_ERROR = "TOGGLE_LOGIN_ERROR";
 
 let initialState = {
-  activeAccountEmail: null,
   token: null,
-  fetching: false,
-  registrationError: false,
+  activeAccountEmail: null,
+  authFetching: false,
   registrationFetching: false,
+  registrationError: false,
   loginError: false,
 };
 
@@ -36,7 +36,7 @@ const authReducer = (state = initialState, action) => {
     case TOGGLE_AUTH_FETCHING:
       return {
         ...state,
-        fetching: action.fetching,
+        authFetching: action.fetching,
       };
     case TOGGLE_REGISTRATION_ERROR:
       return {
@@ -113,12 +113,11 @@ export const signIn = (email, password, history, URL) => {
       password,
       returnSecureToken: true,
     };
-    let url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${process.env.REACT_APP_FIREBASE_API_KEY}`;
     dispatch(toggleFetching(true));
 
-    Axios.post(url, signInData)
-      .then((response) => {
-        const data = response.data;
+    authApi
+      .signIn(signInData)
+      .then((data) => {
         const expirationDate = new Date(
           new Date().getTime() + data.expiresIn * 24000
         );
@@ -163,12 +162,11 @@ export const signUp = (
       password,
       returnSecureToken: true,
     };
-
-    let url = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${process.env.REACT_APP_FIREBASE_API_KEY}`;
     dispatch(toggleRegistrationFetching(true));
 
-    Axios.post(url, signUpData)
-      .then((response) => {
+    authApi
+      .signUp(signUpData)
+      .then((data) => {
         dispatch(toggleRegistrationError(false));
         // add user to db
         db.collection("users_database")
@@ -248,10 +246,8 @@ export const signUp = (
           })
           .then(() => {
             // verify message
-            Axios.post(
-              `https://identitytoolkit.googleapis.com/v1/accounts:sendOobCode?key=${process.env.REACT_APP_FIREBASE_API_KEY}`,
-              { requestType: "VERIFY_EMAIL", idToken: response.data.idToken }
-            )
+            authApi
+              .verifyEmail(data.idToken)
               .then(() => {
                 dispatch(displayRegistrationBlockFalse());
                 history.push("/confirm_email");

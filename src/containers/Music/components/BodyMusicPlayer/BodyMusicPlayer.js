@@ -3,7 +3,7 @@ import "./BodyMusicPlayer.css";
 
 import _ from "lodash/core";
 
-import DefaultMusic from "assets/apple theme/music.jpg";
+import DefaultMusic from "assets/images/apple-theme/music.jpg";
 
 import { BodyMusicPlayerTrackItem } from "../BodyMusicPlayerTrackItem";
 

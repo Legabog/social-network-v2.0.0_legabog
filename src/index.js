@@ -1,12 +1,12 @@
 import React, { Suspense } from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
+import { BrowserRouter } from "react-router-dom";
+import { Provider } from "react-redux";
+import store from "redux/root-reducer";
+import "./i18n";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
-import store from "redux/root-reducer";
-import { Provider } from "react-redux";
-import { BrowserRouter } from "react-router-dom";
-import "./i18n";
+import "./index.css";
 
 import { Preloader } from "pres-components/Preloader";
 

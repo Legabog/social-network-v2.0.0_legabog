@@ -14,8 +14,6 @@ import {
 import { Toast } from "pres-components/Toast";
 import { useTranslation } from "react-i18next";
 
-export const toastRef = React.createRef();
-
 const ToastContainer_ = (props) => {
   const { t } = useTranslation();
   window.addEventListener("online", () => props.addAndDeleteToastAsync(0));
@@ -26,7 +24,7 @@ const ToastContainer_ = (props) => {
       {props.list !== null ? (
         <Toast
           id={props.list.id}
-          toastRef={toastRef}
+          // toastRef={toastRef}
           className={props.list.className}
           Icon={props.list.Icon}
           description={

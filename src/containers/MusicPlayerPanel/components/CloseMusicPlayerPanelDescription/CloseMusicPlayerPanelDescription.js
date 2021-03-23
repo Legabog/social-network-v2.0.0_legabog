@@ -1,5 +1,5 @@
 import React from "react";
-import musicCover from "assets/apple theme/music.jpg";
+import musicCover from "assets/images/apple-theme/music.jpg";
 import { useTranslation } from "react-i18next";
 
 export const CloseMusicPlayerPanelDescription = (props) => {

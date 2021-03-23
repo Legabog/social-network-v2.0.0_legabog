@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { compose } from "redux";
 import { Route, Switch, withRouter } from "react-router-dom";
 import _ from "lodash/core";
-import { autoLogin } from "redux/auth-reducer";
+import { autoLogin } from "redux/auth-reducer"; // Last changes
 // ---------Main Components
 import { Root } from "containers/Root";
 // --------Logged in user
@@ -397,7 +397,7 @@ const App = (props) => {
   } else {
     return (
       <Root>
-        {props.fetching ? (
+        {props.authFetching ? (
           <Preloader />
         ) : (
           <>
@@ -455,11 +455,11 @@ const App = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    fetching: state.authReducer.fetching,
-    activeAccountEmail: state.authReducer.activeAccountEmail,
     token: state.authReducer.token,
+    activeAccountEmail: state.authReducer.activeAccountEmail,
+    authFetching: state.authReducer.authFetching,
+    musicAlbumsFetching: state.musicAlbumsReducer.musicAlbumsFetching,
     musicAlbums: state.musicAlbumsReducer.musicAlbums,
-    Fetching: state.musicAlbumsReducer.Fetching,
     ownPlayLists: state.musicPlayListReducer.ownPlayLists,
   };
 };

@@ -1,4 +1,4 @@
-import { toastRef } from "containers/ToastContainer";
+import { toastRef } from "utils/toastRef/toastRef";
 
 import WifiIcon from "@material-ui/icons/Wifi";
 import WifiOffIcon from "@material-ui/icons/WifiOff";

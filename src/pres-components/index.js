@@ -1,5 +1,4 @@
 export { BackDrop } from "./BackDrop"
-export { BackDropMusicPlayerPanel } from "./BackDropMusicPlayerPanel"
 export { ChangeAvatarSimplePreloader } from "./ChangeAvatarSimplePreloader"
 export { CirclePreloader } from "./CirclePreloader"
 export { ConfirmedEmailRoute } from "./ConfirmedEmailRoute"

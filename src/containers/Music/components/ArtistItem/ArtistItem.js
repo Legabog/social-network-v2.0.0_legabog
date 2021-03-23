@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import "./ArtistItem.css"
 
-import MusicDefault from "assets/apple theme/music.jpg";
+import MusicDefault from "assets/images/apple-theme/music.jpg";
 
 export const ArtistItem = (props) => {
   return (

@@ -9,7 +9,7 @@ export const addressApi = {
         `${this.url}/reverse?format=json&lat=${lat}&lon=${lon}&zoom=18&addressdetails=1`
       )
       .then((response) => {
-          return response.data.address
-      })
+        return response.data.address;
+      });
   },
 };

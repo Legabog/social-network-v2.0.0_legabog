@@ -1,5 +1,5 @@
 import React from "react";
-import musicCover from "assets/apple theme/music.jpg";
+import musicCover from "assets/images/apple-theme/music.jpg";
 import "../MusicPlayerPanel.css"
 
 export const ClosePlayerPanelDescription = (props) => {
